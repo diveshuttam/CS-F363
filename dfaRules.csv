@@ -1,0 +1,12 @@
+% dfa csv
+% % is for commment
+% {} is for non final state
+% () is for final state
+% [] is for final and retracting state
+
+
+
+{0}, <, {1}
+{1}, =, (2)
+{1}, other, [3]
+
