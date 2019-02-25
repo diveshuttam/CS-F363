@@ -4,6 +4,9 @@ struct State{
 	int next_state;
 	int current_state;
 };
-
-
-
+struct Token{
+	char* token_type;
+	int state;
+};
+typedef struct Token Token;
+typedef struct State State;
