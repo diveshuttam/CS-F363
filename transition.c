@@ -47,5 +47,9 @@ int main()
     FILE *fp=fopen("dfa_states.ccsv", "r");
 	DFA d=populate(fp);
     FILE *fp1=fopen("test0.c", "r");
-    Token get_next_token(d.transitions,d.states, buffer, buffersize,start);
+    int buffersize=4096;
+    char *buffer=malloc(sizeof(char)*buffersize);
+    fread(buffer,sizeof(char), buffersize,fp1) ;
+    int start=0;
+    Token tk = get_next_token(d.transitions, d.states, buffer, buffersize,&start);
 }
