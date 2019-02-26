@@ -1,4 +1,6 @@
 #include "lexerDef.h"
+#include "populate.h"
+
 #define MAX_CSV_TOKEN_LEN 1000
 #define MAX_LINE_LEN 100
 #define MAX_STATES 54
@@ -138,9 +140,4 @@ DFA populate(FILE *fp)
 	}
 
 	return d;
-}
-
-int main(){
-	FILE *fp=fopen("dfa_states.ccsv", "r");
-	DFA d=populate(fp);
 }

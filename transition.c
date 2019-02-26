@@ -1,54 +1,51 @@
 #include"lexerDef.h"
+#include"populate.h"
 //return NULL if encounter \O
 //handle invalid_state with token state as -1
-Token get_next_token(State transition_table[][MAX_SIZE],char* buffer,int buffersize,int* start)
+Token get_next_token(Transition transition_table[][MAX_SIZE],State *states,char* buffer,int buffersize,int* start)
 {
-    int current_state = 0;
+    State current_state=states[0];
     Token tk;
     int idx=0;
-    tk.token_type = (char*)malloc(sizeof(char)*token_size);
+    tk.val = (char*)malloc(sizeof(char)*MAX_TOKEN_SIZE);
     while((*start)!=buffersize)
     {
         char ch = buffer[(*start)];
         (*start)=(*start+1)%4096;
-        State next_state = transition_table[current_state][ch];
-        if(next_state.current_state==-1)
+        Transition t = transition_table[current_state.val][ch];
+        
+        if(t.next_state==-1)
         {
             tk.state = -1;
-            tk.token_type = NULL;
+            tk.val = NULL;
+            return tk;
         }
-        if(next_state.is_final_state==1 && next_state.is_retracting_state==1)
+        State current_state = states[t.current_state];
+        State next_state = states[t.next_state];
+
+        if(next_state.is_final_state==true && next_state.is_retracting_state==true)
         {   
             (*start)--;
-            tk.token_type[idx] = '\0';
-            tk.state = next_state.current_state;
+            tk.val[idx] = '\0';
+            tk.state = next_state.val;
             return tk;
         }
         else if(next_state.is_final_state==1)
         {
-            tk.token_type[idx]=='\0';
-            tk.state = next_state.current_state;
+            tk.val[idx]=='\0';
+            tk.state = next_state.val;
             return tk;
         }
-        tk.token_type[idx++] = ch;
-        current_state = next_state.current_state;
-    }
-}
-State transitiontable[4][256];
-void init()
-{
-    State st;
-    st.current_state = -1;
-    for(int i=0;i<4;i++)
-    {
-        for(int j=0;j<256;j++)
-        {
-            transitiontable[i][j] = st;
-        }
+        tk.val[idx++] = ch;
+        current_state = states[next_state.val];
     }
 }
 
+
 int main()
 {
-    
+    FILE *fp=fopen("dfa_states.ccsv", "r");
+	DFA d=populate(fp);
+    FILE *fp1=fopen("test0.c", "r");
+    Token get_next_token(d.transitions,d.states, buffer, buffersize,start);
 }

@@ -2,7 +2,8 @@
 #include<string.h>
 #include<stdlib.h>
 #define MAX_SIZE 256
-#define token_size 40
+#define MAX_TOKEN_SIZE 40
+
 
 #define true 1
 #define false 0
