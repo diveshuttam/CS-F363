@@ -3,11 +3,10 @@
 % [] is final and retraction state
 
 % detect less than and lessthan equal to
-{000} , ">" , {001}
-{001} , "=" , (002)
-{001} , "other" , [003]
+{000},>,{001}
+{001},=,(002)
+{001},other,[003]
 
 
 % detect real numbers
-{000}, "[0-9]", {004}
-{004}, "", {005}
+{000},[0-9],{004}
