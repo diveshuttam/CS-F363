@@ -1,3 +1,5 @@
+#ifndef LEXERDEF
+#define LEXERDEF
 #include<stdio.h>
 #include<string.h>
 #include<stdlib.h>
@@ -35,3 +37,4 @@ struct DFA{
 	Transition** transitions;
 };
 typedef struct DFA DFA;
+#endif

@@ -1,8 +1,9 @@
 #include"lexerDef.h"
+#include "transition.h"
 #include"populate.h"
 //return NULL if encounter \O
 //handle invalid_state with token state as -1
-Token get_next_token(Transition transition_table[][MAX_SIZE],State *states,char* buffer,int buffersize,int* start)
+Token get_next_token(Transition** transition_table,State *states,char* buffer,int buffersize,int* start)
 {
     State current_state=states[0];
     Token tk;
@@ -42,7 +43,7 @@ Token get_next_token(Transition transition_table[][MAX_SIZE],State *states,char*
 }
 
 
-int main()
+/*int main()
 {
     FILE *fp=fopen("dfa_states.ccsv", "r");
 	DFA d=populate(fp);
@@ -52,4 +53,4 @@ int main()
     fread(buffer,sizeof(char), buffersize,fp1) ;
     int start=0;
     Token tk = get_next_token(d.transitions, d.states, buffer, buffersize,&start);
-}
+}*/
