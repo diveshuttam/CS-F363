@@ -20,6 +20,7 @@ char *get_next_csv_token(char *buf,int *start, int n){
 DFA populate(FILE *fp)
 {
 	Transition **transitions=malloc(sizeof(Transition)*MAX_STATES*CHAR_LEN);
+	memset(transitions, 0, sizeof(transitions)*MAX_STATES*CHAR_LEN);
 	// for(int i=0;i<MAX_STATES;i++)
 	// {
 	// 	transitions[i]=malloc(sizeof(Transition)*CHAR_LEN);
@@ -66,17 +67,25 @@ DFA populate(FILE *fp)
 		sf.val=atoi(s1+1);
 		states[si.val]=si;
 		states[sf.val]=sf;
-		Transition t;
-		t.current_state=si.val;
-		t.next_state=sf.val;
-		t.character=s2[0];
-		transitions[t.current_state][t.character]=t;
+		if(strlen(s2)==1){
+			Transition t;
+			t.current_state=si.val;
+			t.next_state=sf.val;
+			t.character=s2[0];
+			transitions[t.current_state][t.character]=t;
+		}
+		else if(strcmp(s2,"other")==0){
+			;
+		}
+		else if(s2[0]=='[' && s2[4]==']'){
+
+		}
 	}
 
 	return d;
 }
 
 int main(){
-	FILE *fp=fopen("dfa_states.csv", "r");
+	FILE *fp=fopen("dfa_states.ccsv", "r");
 	DFA d=populate(fp);
 }
