@@ -24,6 +24,7 @@ struct Transition{
 struct Token{
 	char* val;
 	int state;
+	int len;
 };
 
 

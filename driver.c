@@ -4,8 +4,13 @@
 int main()
 {
 	char filename[40];
+	#ifndef DEBUG
 	printf("Input the file name to be compiled: \n");
 	scanf("%s",filename);
+	#else
+	strcpy(filename,"a.mylang");
+	#endif
+
 	FILE* fp ;
 	fp =  fopen(filename,"r");
 	fseek(fp,0,SEEK_END);
@@ -22,17 +27,20 @@ int main()
 	int start = 0;
 	int state;
 	char* val = NULL;
-	Token* tk;
+	Token tk;
 	printf("Token\t\t\tState");
-	*tk = get_next_token(d.transitions,d.states,buffer,fsize+1,&start);
-	while(tk != NULL){
-		state = tk->state;
-		val = tk->val;
+	int num=1;
+	tk = get_next_token(d.transitions,d.states,buffer,fsize+1,&start);
+	while(tk.state != -1){
+		state = tk.state;
+		val = tk.val;
 		if(val != NULL && state != -1){
-			printf("%s\t\t\t%d",val,state);
-		}else{
-			printf("Invalid Token\n");
+			printf("token %d: value: %s state:%d\n",num++, val,state);
 		}
+		tk = get_next_token(d.transitions,d.states,buffer,fsize+1,&start);
+	}
+	if(tk.state==-1){
+		printf("Invalid Token\n");
 	}
 
 	free(val);

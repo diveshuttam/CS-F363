@@ -6,7 +6,6 @@
 #define MAX_STATES 54
 #define CHAR_LEN 128
 
-#define DEBUG
 #ifdef DEBUG
 void my_print_transition(Transition t){
 	printf("addding transition\t%d\t%c\t%d\n", t.current_state, t.character, t.next_state);
@@ -14,9 +13,7 @@ void my_print_transition(Transition t){
 void my_print_state(State s){
 	printf("addding state\t%d\t%d\t%d\n", s.val, s.is_final_state, s.is_retracting_state);
 }
-#endif
-
-#ifndef DEBUG
+#else
 #define my_print_transition(x)
 #define my_print_state(x)
 #endif

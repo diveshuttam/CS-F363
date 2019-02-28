@@ -1,4 +1,5 @@
-build: dfa_states.ccsv populate.c lexerDef.h build/
-	gcc -g populate.c -o build/dfa
+debug: *.c *.h build/
+	gcc -D DEBUG -g -c *.c
+	gcc *.o -o build/stage1exe
 
 
