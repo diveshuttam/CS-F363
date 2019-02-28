@@ -1,8 +1,8 @@
 #include "lexerDef.h"
 #include "populate.h"
 
-#define MAX_CSV_TOKEN_LEN 1000
-#define MAX_LINE_LEN 100
+#define MAX_CSV_TOKEN_LEN 100
+#define MAX_LINE_LEN 150
 #define MAX_STATES 54
 #define CHAR_LEN 128
 
@@ -55,7 +55,7 @@ DFA populate(FILE *fp)
 	d.transitions=transitions;
 	char *buf=malloc(sizeof(char)*MAX_LINE_LEN);
 	int n;
-	while((fgets(buf,1000,fp))!=NULL){
+	while((fgets(buf,MAX_LINE_LEN,fp))!=NULL){
 		n=strlen(buf);
 		if(buf[0]=='%'){
 			continue;
@@ -143,7 +143,23 @@ DFA populate(FILE *fp)
 				}
 			}
 		}
+		free(s1);
+		free(s2);
+		free(s3);
 	}
-
+	free(buf);
 	return d;
+}
+
+void destory_DFA(DFA d){
+	State *s = d.states;
+	free(s);
+	Transition **t = d.transitions;
+	
+
+	for(int i=0;i<MAX_STATES;i++)
+	{
+		free(t[i]);
+	}
+	free(t);
 }

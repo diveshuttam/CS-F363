@@ -1,6 +1,6 @@
-#include"lexerDef.h"
+#include "lexerDef.h"
 #include "transition.h"
-#include"populate.h"
+#include "populate.h"
 //return NULL if encounter \O
 //handle invalid_state with token state as -1
 // do error detection for max token size

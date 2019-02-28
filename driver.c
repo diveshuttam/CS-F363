@@ -39,6 +39,7 @@ int main()
 		val = tk.val;
 		if(val != NULL && state != -1){
 			printf("token number: %d\t\tvalue: %s\t\tstate: %d\n",num++, val,state);
+			free(val);
 		}
 	}while(tk.state != -1 && start!=(fsize));
 
@@ -48,8 +49,7 @@ int main()
 	else{
 		printf("lexer finished without any errors\n");
 	}
-
-	free(val);
+	destory_DFA(d);
 	free(buffer);
 	return 0;
 }
