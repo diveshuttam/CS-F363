@@ -7,6 +7,11 @@
 
 % Each state should be represented by 3 digits (000 to 999) as in the example below -
 % - therefore only 1000 states are supported
+% properties of states are to be specified by enclosing them as per following rules
+% {} is normal state
+% () is final state
+% [] is final and retraction state
+% for details see examples
 
 % The transition symbol can have 4 possible form 
 % 1. a single character e.g {111},>,{222}
@@ -16,13 +21,10 @@
 % useful for representing symbols which cannot be typed with given constraints e.g. \n etc.
 % for ascii refer http://www.asciitable.com/; can also use ord in python shell or man ascii
 
-% properties of states are to be specified by enclosing them as per following rules
-% {} is normal state
-% () is final state
-% [] is final and retraction state
-% for details see examples
+% currently no consistency checks on states have been defined i.e if a state is specified as final state
+% e.g (004) and later redefined as non-final state, {004} it will be taken as non-final state
 
-% Please comment each rule properly
+% Please add comment for each rule for easy understanding
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%   RULES BEGIN %%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -33,7 +35,10 @@
 {001},=,(002)
 {001},other,[003]
 
-%detect \n
+% detect real no (incomplete)
+{000},[0-9],{004}
+
+%detect newline
 {000},010,(005)
 
 %detect space
