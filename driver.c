@@ -29,17 +29,24 @@ int main()
 	char* val = NULL;
 	Token tk;
 	int num=1;
-	tk = get_next_token(d.transitions,d.states,buffer,fsize+1,&start);
-	while(tk.state != -1 && start!=(fsize-1)){
+	#ifdef DEBUG
+	printf("\n\nlexer: starting printing tokens...\n\n");
+	#endif
+
+	do{
+		tk = get_next_token(d.transitions,d.states,buffer,fsize+1,&start);
 		state = tk.state;
 		val = tk.val;
 		if(val != NULL && state != -1){
-			printf("token %d: value: %s state:%d\n",num++, val,state);
+			printf("token number: %d\t\tvalue: %s\t\tstate: %d\n",num++, val,state);
 		}
-		tk = get_next_token(d.transitions,d.states,buffer,fsize+1,&start);
-	}
+	}while(tk.state != -1 && start!=(fsize));
+
 	if(tk.state==-1){
 		printf("Invalid Token\n");
+	}
+	else{
+		printf("lexer finished without any errors\n");
 	}
 
 	free(val);

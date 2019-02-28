@@ -1,6 +1,30 @@
+% Rules for this file
+% '%' starts a comment line only single line comments are possible
+% no spaces are allowed in between and after a rule line, they are allowed in comment lines
+% blank lines are allowed but it should be a single enter no spaces are allowed in blank lines also
+
+% A rule is a triplet of form initial_state,transition_symbol,final_state
+
+% Each state should be represented by 3 digits (000 to 999) as in the example below -
+% - therefore only 1000 states are supported
+
+% The transition symbol can have 4 possible form 
+% 1. a single character e.g {111},>,{222}
+% 2. [x-y] where x and y are single character e.g. {111},[0-9],{222}
+% 3. "other" without quotes e.g  {111},other,{222}
+% 4. a exactly 3 digit integer e.g {111},013,{222} where 013 is the ascii value of symbol --
+% useful for representing symbols which cannot be typed with given constraints e.g. \n \0 etc.
+
+% properties of states are to be specified by enclosing them as per following rules
 % {} is normal state
 % () is final state
 % [] is final and retraction state
+% for details see examples
+
+% Please comment each rule properly
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%   RULES BEGIN %%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 % detect less than and less than equal to
 {000},>,{001}
