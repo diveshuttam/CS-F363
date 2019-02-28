@@ -28,7 +28,9 @@ char *get_next_csv_token(char *buf,int *start, int n){
 	}
 	*start+=1;
 	token[j]='\0';
+	#ifdef DEBUG
 	printf("Start\t%d\n",*start);
+	#endif
 	return token;
 }
 
@@ -61,16 +63,23 @@ DFA populate(FILE *fp)
 		if(strlen(buf)==1){
 			continue;
 		}
+		#ifdef DEBUG
 		printf("size %d\n",n);
 		printf("printbuf\t%s\n",buf);
+		#endif
+
 		State si,sf;
 		int start=0;
 		char *s1=get_next_csv_token(buf,&start,n);
 		char *s2=get_next_csv_token(buf,&start,n);
 		char *s3=get_next_csv_token(buf,&start,n);
+
+		#ifdef DEBUG
 		printf("%s\n",s1);
 		printf("%s\n",s2);
 		printf("%s\n",s3);
+		#endif
+
 	  	si.is_final_state=false, si.is_retracting_state=false;
 	  	sf.is_final_state=false, sf.is_retracting_state=false;
 

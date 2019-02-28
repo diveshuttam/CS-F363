@@ -28,10 +28,9 @@ int main()
 	int state;
 	char* val = NULL;
 	Token tk;
-	printf("Token\t\t\tState");
 	int num=1;
 	tk = get_next_token(d.transitions,d.states,buffer,fsize+1,&start);
-	while(tk.state != -1){
+	while(tk.state != -1 && start!=(fsize-1)){
 		state = tk.state;
 		val = tk.val;
 		if(val != NULL && state != -1){
