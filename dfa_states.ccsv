@@ -12,8 +12,9 @@
 % 1. a single character e.g {111},>,{222}
 % 2. [x-y] where x and y are single character e.g. {111},[0-9],{222}
 % 3. "other" without quotes e.g  {111},other,{222}
-% 4. a exactly 3 digit integer e.g {111},013,{222} where 013 is the ascii value of symbol --
-% useful for representing symbols which cannot be typed with given constraints e.g. \n \0 etc.
+% 4. a exactly 3 digit integer e.g {111},010,{222} where 010 is the ascii value of symbol(\n) --
+% useful for representing symbols which cannot be typed with given constraints e.g. \n etc.
+% for ascii refer http://www.asciitable.com/; can also use ord in python shell or man ascii
 
 % properties of states are to be specified by enclosing them as per following rules
 % {} is normal state
@@ -22,6 +23,7 @@
 % for details see examples
 
 % Please comment each rule properly
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%   RULES BEGIN %%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -31,6 +33,8 @@
 {001},=,(002)
 {001},other,[003]
 
+%detect \n
+{000},010,(005)
 
-% detect real numbers
-{000},[0-9],{004}
+%detect space
+{000},032,(005)
