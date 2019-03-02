@@ -19,7 +19,7 @@ typedef struct Key
 #endif
 
 #ifndef __SEQLIST_ELEMENT
-#define __ELEMENT
+#define __SEQLIST_ELEMENT
 typedef struct SeqListElement
 {
   Key k;

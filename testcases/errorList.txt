@@ -1,0 +1,12 @@
+Line 7: The token TK_SQR for lexeme [  does not match with the expected token TK_LIST 
+Line 8: Identifier is longer than the prescribed length of 20 characters
+Line 10: Unknown pattern 5000.7
+Line 11: The token TK_MINUS for lexeme -  does not match with the expected token TK_CL
+Line 13: Unknown pattern && 
+Line 15: Semicolon is missing
+Line 20: The token TK_END for lexeme end does not match with the expected token TK_RETURN 
+Line 25: The token TK_ID for lexeme b5 does not match with the expected token TK_COLON 
+Line 28: Unknown Symbol $ 
+Line 29: Unknown pattern <-- 
+Line 31: The token of type TK_NUM for lexeme 45 does not match with the expected token of type <singleOrRecId>
+

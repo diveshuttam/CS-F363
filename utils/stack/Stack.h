@@ -11,8 +11,8 @@ typedef struct Stack *Stack;
 typedef int Key;
 #endif
 
-#ifndef __ELEMENT
-#define __ELEMENT
+#ifndef __STACK_ELEMENT
+#define __STACK_ELEMENT
 typedef struct Element
 {
   Key k;

@@ -18,8 +18,8 @@ typedef struct Key
 } *Key;
 #endif
 
-#ifndef __ELEMENT
-#define __ELEMENT
+#ifndef __SEQLIST_ELEMENT
+#define __SEQLIST_ELEMENT
 typedef struct Element
 {
   Key k;
