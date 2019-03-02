@@ -12,6 +12,7 @@
 % () is final state
 % [] is final and retraction state
 % for details see examples
+% {000} is required to be the start state
 
 % The transition symbol can have 4 possible form 
 % 1. a single character e.g {111},>,{222}
@@ -24,22 +25,147 @@
 % currently no consistency checks on states have been defined i.e if a state is specified as final state
 % e.g (004) and later redefined as non-final state, {004} it will be taken as non-final state
 
-% Please add comment for each rule for easy understanding
+% Please add small comment for each logical set of rules for easy understanding
+
+% These are just sample rules, change as per requirement
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%   RULES BEGIN %%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-% detect less than and less than equal to
-{000},>,{001}
-{001},=,(002)
-{001},other,[003]
 
-% detect real no (incomplete)
-{000},[0-9],{004}
+%detect <---
+{000},<,{001}
+{001},-,{002}
+{002},-,{003}
+{003},-,(004)
 
-%detect newline
-{000},010,(005)
+%detect <=
+{000},<,{{001}
+{001},=,(005)
 
-%detect space
-{000},032,(005)
+%detect <
+{000},<,{001}
+{001},other,[006]
+
+%detect >=
+{000},>,{007}
+{007},=,(008)
+
+%detect >
+{000},>,{007}
+{007},other,[009]
+
+%detect comment
+{000},%,{010}
+{010},010,[011]
+{010},000,[011]
+{010},other,{010}
+
+%detect ]
+{000},],(012)
+
+%detect Identifier
+{000},[b-d],{013}
+{013},[2-7],{014}
+{014},[b-d],{014}
+{014},[2-7],{015}
+{014},other,[016]
+{015},[2-7],{015}
+{015},other,[016]
+
+%detect RecordID
+{000},a,{017}
+{000},[e-z],{017}
+{017},[a-z],{017}
+{013},other,[018]
+{013},[a-z],{017}
+{017},other,[018]
+
+%detect [
+{000},[,(019)
+
+%detect .
+{000},.,(020)
+
+%detect ;
+{000},;,(021)
+
+%detect :
+{000},:,(022)
+
+%detect )
+{000},),(023)
+
+%detect (
+{000},(,(024)
+
+%detect realNumber
+{000},[0-9],{025}
+{025},[0-9],{025}
+{025},.,{026}
+{026},[0-9],{027}
+{027},[0-9],(028)
+
+%detect integer
+{000},[0-9],{025}
+{025},other,[029]
+
+&detect ,
+{000},044,(030)
+
+%detect +
+{000},+,(031)
+
+%detect -
+{000},-,(032)
+
+%detect *
+{000},*,(033)
+
+%detect /
+{000},/,(034)
+
+%detect &&&
+{000},&,{035}
+{035},&,{036}
+{036},&,(037)
+
+%detect @@@
+{000},@,{038}
+{038},@,{039}
+{039},@,(040)
+
+%detect ==
+{000},=,{041}
+{041},=,(042)
+
+%detect !=
+{000},!,{043}
+{043},=,(044)
+
+%detect functionIdentifier
+{000},_,{045}
+{045},[a-z],{046}
+{045},[A-Z],{046}
+{046},[0-9],{047}
+{046},[a-z],{046}
+{046},[A-Z],{046}
+{046},other,[048]
+{047},[0-9],{047}
+{047},other,[048]
+
+%detect IdentifierForTheRecordType
+{000},#,{049}
+{049},[a-z],{050}
+{050},[a-z],{050}
+{050},other,[051]
+
+%detect ~
+{000},~,(052)
+
+
+%detect delimiters
+{000},032,(053)
+{000},010,(053)
+{000},009,(053)

@@ -3,7 +3,7 @@
 
 #define MAX_CSV_TOKEN_LEN 100
 #define MAX_LINE_LEN 150
-#define MAX_STATES 54
+#define MAX_STATES 56
 #define CHAR_LEN 128
 
 #ifdef DEBUG
@@ -137,10 +137,8 @@ DFA populate(FILE *fp)
 			t.next_state=sf.val;
 			for(int i=init;i<=finish;i++){
 				t.character=i;
-				if(transitions[t.current_state][t.character].current_state==-1){
-					transitions[t.current_state][t.character]=t;
-					my_print_transition(t);
-				}
+				transitions[t.current_state][t.character]=t;
+				my_print_transition(t);
 			}
 		}
 		free(s1);

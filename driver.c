@@ -32,19 +32,31 @@ int main()
 	#ifdef DEBUG
 	printf("\n\nlexer: starting printing tokens...\n\n");
 	#endif
-
+	int line=1;
+	int error = false;
 	do{
 		tk = get_next_token(d.transitions,d.states,buffer,fsize+1,&start);
 		state = tk.state;
 		val = tk.val;
-		if(val != NULL && state != -1){
+		if(val != NULL && state != -1 && state!=53 && state!=11){ //invalid , delimiter , comments
 			printf("token number: %d\t\tvalue: %s\t\tstate: %d\n",num++, val,state);
 			free(val);
 		}
-	}while(tk.state != -1 && start!=(fsize));
+		else{
+			if(state==53 && val[0]=='\n'){
+				line=line+1;
+			}
+			if(state==-1){
+				error=true;
+				printf("error with token at line %d\n", line);
+				printf("token number: %d\t\tvalue: %s\t\tstate: %d\n",num++, val,state);
+				free(val);
+			}
+		}
+	}while(start!=(fsize));
 
-	if(tk.state==-1){
-		printf("Invalid Token\n");
+	if(error==true){
+		printf("Errors encountered by lexer\n");
 	}
 	else{
 		printf("lexer finished without any errors\n");

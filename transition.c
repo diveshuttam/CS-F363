@@ -41,7 +41,6 @@ Token get_next_token(Transition** transition_table,State *states,char* buffer,in
         if(t.next_state==-1)
         {
             tk.state = -1;
-            tk.val = NULL;
             return tk;
         }
 
