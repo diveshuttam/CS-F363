@@ -6,9 +6,8 @@
 #define MAX_SIZE 256
 #define MAX_TOKEN_SIZE 150
 
+#include<stdbool.h>
 
-#define true 1
-#define false 0
 struct State{
 	int val;
 	int is_final_state;
@@ -36,6 +35,7 @@ typedef struct Transition Transition;
 struct DFA{
 	State* states;
 	Transition** transitions;
+	char ** token_names;
 };
 typedef struct DFA DFA;
 #endif
