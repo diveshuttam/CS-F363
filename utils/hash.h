@@ -11,10 +11,11 @@ typedef struct Node
 typedef struct hashTable
 {	
 	int size;
+  int a;
+  int b;
 	SeqList* array;
 }hashTable;
-hashTable* newHashTable(int size);
-int hash(char *str,int size,int b,int a);
+hashTable* newHashTable(int size, int a, int b);
 void insert(char* str,int index,hashTable* ht);
 int findHT(char* str,hashTable *ht,char* map[],int n);
 #endif

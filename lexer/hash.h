@@ -1,5 +1,3 @@
-#ifndef __HASHT
-#define __HASHT
 #include "SeqList.h"
 
 typedef struct Node
@@ -17,4 +15,3 @@ hashTable* newHashTable(int size);
 int hash(char *str,int size,int b,int a);
 void insert(char* str,int index,hashTable* ht);
 int findHT(char* str,hashTable *ht,char* map[],int n);
-#endif

@@ -36,6 +36,7 @@ char **get_token_names(){
 	strcpy(arr_map[TK_LE],"TK_LE");
 	strcpy(arr_map[TK_EQ],"TK_EQ");
 	strcpy(arr_map[TK_GT],"TK_GT");
+	strcpy(arr_map[TK_GE],"TK_GE");
 	strcpy(arr_map[TK_LE],"TK_LE");
 	strcpy(arr_map[TK_NE],"TK_NE");
 	strcpy(arr_map[TK_WITH],"TK_WITH");
@@ -75,8 +76,6 @@ void destroy_token_name_table(char **arr){
 
 hashTable *get_token_hasht(){
 	hashTable* ht=newHashTable((int)(TYPES_OF_TOKEN*1.33));
-
-
 	insert("TK_ASSIGNOP",TK_ASSIGNOP,ht);
 	insert("TK_COMMENT",TK_COMMENT,ht);
 	insert("TK_FIELDID",TK_FIELDID,ht);
@@ -104,6 +103,7 @@ hashTable *get_token_hasht(){
 	insert("TK_LE",TK_LE,ht);
 	insert("TK_EQ",TK_EQ,ht);
 	insert("TK_GT",TK_GT,ht);
+	insert("TK_GE",TK_GE,ht);
 	insert("TK_LE",TK_LE,ht);
 	insert("TK_NE",TK_NE,ht);
 	insert("TK_WITH",TK_WITH,ht);
@@ -131,4 +131,9 @@ hashTable *get_token_hasht(){
 	insert("TK_ENDRECORD",TK_ENDRECORD,ht);
 	insert("TK_ELSE",TK_ELSE,ht);
 	return ht;
+}
+
+void destroy_token_hasht(hashTable *ht){
+	//todo
+	return;
 }

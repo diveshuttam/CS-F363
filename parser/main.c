@@ -10,7 +10,7 @@ int main(void){
 	int i = 0;
 	char* line = NULL;
 	size_t len = 0;
-	ssize_t read;
+	size_t read;
 	if(fp != NULL){
 		while((read = getline(&line,&len,fp)) != -1){
 			non_terminals_map[i] = malloc(sizeof(char)*read);

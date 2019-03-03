@@ -9,8 +9,10 @@ int getKey(Element e){
 }
 
 
-hashTable* newHashTable(int size){
+hashTable* newHashTable(int size, int significant_bits, int salt){
 	hashTable* ht = (hashTable*)malloc(sizeof(hashTable));
+	ht->b=salt;
+	ht->a=significant_bits;
 	ht->array = (SeqList*)malloc(sizeof(SeqList)*size);
 	for(int i=0;i<size;i++){
 		ht->array[i] = newList();
@@ -19,15 +21,15 @@ hashTable* newHashTable(int size){
 	return ht;
 }
 
-int hash(char *str,int size,int b,int a)
+int hash(char *str, hashTable* ht)
 {
-    unsigned long hash = b;
+    unsigned long hash = ht->b;
     int c;
 
     while (c = *str++)
-        hash = ((hash << a) + hash) + c; /* hash * 33 + c */
+        hash = ((hash << ht->a) + hash) + c; /* hash * 33 + c */
 
-    return hash % size;
+    return hash % ht->size;
 }
 
 Element createElement(int data){
@@ -49,7 +51,7 @@ char *map[]
 */
 
 int findHT(char* str,hashTable *ht,char* map[],int n){
-	int hash_val = hash(str,ht->size,5381,5);
+	int hash_val = hash(str,ht);
 	Iterator it = getIterator(ht->array[hash_val]);
 	int index;
 	while(hasNext(it)){
@@ -63,7 +65,7 @@ int findHT(char* str,hashTable *ht,char* map[],int n){
 }
 
 void insert(char* str,int index,hashTable* ht){
-	int hash_val = hash(str,ht->size,5381,5);
+	int hash_val = hash(str,ht);
 	Element e=createElement(index);
 	if(ht->array[hash_val] == NULL){
 		ht->array[hash_val] = newList();

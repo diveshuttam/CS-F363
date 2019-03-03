@@ -36,12 +36,4 @@ typedef struct grammerRule{
     TerminalNonTerminal *rhs; 
 } grammerRule;
 
-#ifndef __SEQLIST_ELEMENT
-#define __SEQLIST_ELEMENT
-struct Element{
-    int k;
-    TerminalNonTerminal t;
-};
-#endif
 
-//#include "../utils/stack/includes/SeqList.h"
