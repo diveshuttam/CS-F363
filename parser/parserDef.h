@@ -14,7 +14,9 @@ typedef struct NonTerminal {
     char *name;
     int key;
     Terminal *follows;
-    Terminal *first;
+    int follows_size;
+    Terminal *firsts;
+    int firsts_size;
 } NonTerminal;
 
 typedef union TnT
