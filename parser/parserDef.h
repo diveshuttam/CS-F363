@@ -42,4 +42,4 @@ struct Element{
 };
 #endif
 
-#include"SeqList.h"
+//#include "../utils/stack/includes/SeqList.h"
