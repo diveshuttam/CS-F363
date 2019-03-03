@@ -15,7 +15,8 @@ int main(void){
 		while((read = getline(&line,&len,fp)) != -1){
 			non_terminals_map[i] = malloc(sizeof(char)*read);
 			printf("%s --- %ld\n", line,read);	
-			strcpy(non_terminals_map[i++],line);
+			strcpy(non_terminals_map[i],line);
+			non_terminals_map[i++][read-1]='\0';
 		}
 	}else printf("err");
 	fclose(fp);
@@ -24,5 +25,5 @@ int main(void){
 	for(i=0;i<51;i++){
 		insert(non_terminals_map[i],i,ht);
 	}
-	printf("%d\n",findHT("all",ht,non_terminals_map,51));
+	printf("%d\n",findHT("program",ht,non_terminals_map,51));
 }
