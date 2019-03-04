@@ -1,42 +1,66 @@
-#include"parseDef.h"
+//populate the table entries not defined as ErrorRule
+#include"parserDef.h"
+grammerRule table[NO_OF_NON_TERMINALS][NO_OF_TERMINALS];
+grammerRule ErrorRule;
 
-grammarRule table[NO_OF_NON_TERMINALS][NO_OF_TERMINALS];
-void gen_parse_table(grammerRule *r, no_of_rules,nt_start_key, rule_start_key)
+//LHS for error rule remains
+void init()
 {
+    ErrorRule.rhs = NULL;
+    ErrorRule.num_of_rhs = 0;
+    int i=0,j=0;
+    for(;i<NO_OF_NON_TERMINALS;i++)
+    {
+        for(;j<NO_OF_TERMINALS;j++)
+        {
+            table[i][j] = ErrorRule;
+        }
+    }
+}
+void gen_parse_table(grammerRule *r, int no_of_rules,int nt_start_key, int rule_start_key)
+{
+    init();
     int i=0;
+    int isEps = 0;
     while(i<no_of_rules)
     {
         NonTerminal nt_current = r[i].lhs;
-        TerminalNonTerminal tnt_current = r[i].rhs;
+        TerminalNonTerminal* tnt_current = r[i].rhs;
 
-        Terminal* first = nt.first;
-        Terminal* follows = nt.follows;
-        int len_firsts=nt.firsts_size;
-        int len_follows=nt.follows_size;
+        Terminal* first;
+        Terminal* follows = nt_current.follows;
 
-        bool isEps = false;
-        int j=0;
-        for(;j<len_firsts;j++)
+        int len_follows = nt_current.follows_size;
+        if(tnt_current[0].type=='t')
         {
-            if(first[j].stateID!=-1)
+            table[nt_current.key][tnt_current->s.t.StateId] = r[i];
+        }
+        else
+        {
+            first = tnt_current[0].s.nt.firsts;
+            int len_first = tnt_current[0].s.nt.firsts_size;
+            int j=0;
+            for(;j<len_first;j++)
             {
-                table[nt.key][first[j].stateID] = r[i]; 
-            }
-            else
-            {
-                isEps = true;
+                if(first[j].StateId!=0)
+                {
+                    table[nt_current.key][first[j].StateId] = r[i]; 
+                }
+                else
+                {
+                    isEps = 1;
+                }
             }
         }
         if(isEps)
         {
             grammerRule eps_rule;
-            eps_rule.lhs = nt;
+            eps_rule.lhs = nt_current;
             eps_rule.rhs = NULL;
             int j=0;
-            len_follows = len(follows);
             for(;j<len_follows;j++)
             {
-                table[nt.key][follow[j].stateID] = eps_rule;
+                table[nt_current.key][follows[j].StateId] = eps_rule;
             }
         }
         i++;
@@ -53,3 +77,7 @@ void gen_parse_table(grammerRule *r, no_of_rules,nt_start_key, rule_start_key)
 //     r[0]=<program>--> TK_MAIN
 //     //nt_start_key points to index of nterminal <program>
 // }
+
+int main(){
+    //test code here
+}

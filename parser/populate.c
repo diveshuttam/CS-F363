@@ -226,7 +226,7 @@ grammerRule* get_grammer(void){
 }
 
 
-int main()
-{
-	grammerRule *g=get_grammer();
-}
+// int main()
+// {
+// 	grammerRule *g=get_grammer();
+// }

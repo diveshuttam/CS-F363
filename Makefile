@@ -1,8 +1,8 @@
 all: utility lexer parser
 
 parser:utility parser/rules/firsts.txt parser/populate.c lexer/token.c parser/includes/
-	gcc -g -c -I parser/includes/ -I utils/ -I lexer/includes/ ./parser/populate.c ./lexer/token.c
-	gcc populate.o token.o SeqList.o hash.o -o parser/parser
+	gcc -g -c -I parser/includes/ -I utils/ -I lexer/includes/ ./parser/populate.c ./lexer/token.c ./parser/parse_table.c
+	gcc populate.o token.o SeqList.o hash.o parse_table.o -o parser/parser
 
 lexer:utility lexer/driver.c lexer/token.c lexer/includes/ lexer/transition.c lexer/lexer.c lexer/populate.c utils
 	gcc -g -c -I lexer/includes/ -I utils/ lexer/driver.c lexer/token.c lexer/transition.c lexer/lexer.c lexer/populate.c
