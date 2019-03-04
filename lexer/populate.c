@@ -1,5 +1,6 @@
 #include "lexerDef.h"
 #include "populate.h"
+#include "token.h"
 
 #define MAX_CSV_TOKEN_LEN 100
 #define MAX_LINE_LEN 150
@@ -145,6 +146,8 @@ DFA populate(FILE *fp)
 		free(s2);
 		free(s3);
 	}
+	d.token_names=get_token_names();
+	d.token_ht=get_token_hasht();
 	free(buf);
 	return d;
 }
@@ -153,8 +156,11 @@ void destory_DFA(DFA d){
 	State *s = d.states;
 	free(s);
 	Transition **t = d.transitions;
+	char **table=d.token_names;
+	hashTable ht=d.token_ht;
 	
-
+    destroy_token_name_table(table);
+	// destroy_token_hasht(table);
 	for(int i=0;i<MAX_STATES;i++)
 	{
 		free(t[i]);

@@ -11,9 +11,9 @@ void gen_parse_table(grammerRule *r, no_of_rules,nt_start_key, rule_start_key)
 
         Terminal* first = nt.first;
         Terminal* follows = nt.follows;
+        int len_firsts=nt.firsts_size;
+        int len_follows=nt.follows_size;
 
-        
-        len_firsts = len(first); //this returns the length of the first
         bool isEps = false;
         int j=0;
         for(;j<len_firsts;j++)

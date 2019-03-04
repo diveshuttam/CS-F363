@@ -1,11 +1,11 @@
 program ===> otherFunctions mainFunction
 mainFunction ===> TK_MAIN stmts TK_END
 otherFunctions ===> function otherFunctions
-otherFunctions ===> eps
+otherFunctions ===> TK_EPS
 function ===> TK_FUNID input_par output_par TK_SEM stmts TK_END
 input_par ===> TK_INPUT TK_PARAMETER TK_LIST TK_SQL parameter_list TK_SQR
 output_par ===> TK_OUTPUT TK_PARAMETER TK_LIST TK_SQL parameter_list TK_SQR
-output_par ===> eps
+output_par ===> TK_EPS
 parameter_list ===> dataType TK_ID remaining_list
 dataType ===> primitiveDatatype
 dataType ===> constructedDatatype
@@ -13,22 +13,22 @@ primitiveDatatype ===> TK_INT
 primitiveDatatype ===> TK_REAL
 constructedDatatype ===> TK_RECORD TK_RECORDID
 remaining_list ===> TK_COMMA parameter_list
-remaining_list ===> eps
+remaining_list ===> TK_EPS
 stmts ===> typeDefinitions declarations otherStmts returnStmt
 typeDefinitions ===> typeDefinition typeDefinitions
-typeDefinitions ===> eps
+typeDefinitions ===> TK_EPS
 typeDefinition ===> TK_RECORD TK_RECORDID fieldDefinitions TK_ENDRECORD TK_SEM
 fieldDefinitions ===> fieldDefinition fieldDefinition moreFields
 fieldDefinition ===> TK_TYPE primitiveDatatype TK_COLON TK_FIELDID TK_SEM
 moreFields ===> fieldDefinition moreFields
-moreFields ===> eps
+moreFields ===> TK_EPS
 declarations ===> declaration declarations
-declarations ===> eps
+declarations ===> TK_EPS
 declaration ===> TK_TYPE dataType TK_COLON TK_ID global_or_not TK_SEM
 global_or_not ===> TK_COLON TK_GLOBAL
-global_or_not ===> eps
+global_or_not ===> TK_EPS
 otherStmts ===> stmt otherStmts
-otherStmts ===> eps
+otherStmts ===> TK_EPS
 stmt ===> assignmentStmt
 stmt ===> iterativeStmt
 stmt ===> conditionalStmt
@@ -37,10 +37,10 @@ stmt ===> funCallStmt
 assignmentStmt ===> singleOrRecId TK_ASSIGNOP arithmeticExpression TK_SEM
 singleOrRecId ===> TK_ID new24
 new24 ===> TK_DOT TK_FIELDID
-new24 ===> eps
+new24 ===> TK_EPS
 funCallStmt ===> outputParameters TK_CALL TK_FUNID TK_WITH TK_PARAMETERS inputParameters TK_SEM
 outputParameters ===> TK_SQL idList TK_SQR TK_ASSIGNOP
-outputParameters ===> eps
+outputParameters ===> TK_EPS
 inputParameters ===> TK_SQL idList TK_SQR
 iterativeStmt ===> TK_WHILE TK_OP booleanExpression TK_CL stmt otherStmts TK_ENDWHILE
 conditionalStmt ===> TK_IF TK_OP booleanExpression TK_CL TK_THEN stmt otherStmts elsePart
@@ -52,13 +52,13 @@ allVar ===> TK_ID newVar
 allVar ===> TK_NUM
 allVar ===> TK_RNUM
 newVar ===> TK_DOT TK_FIELDID
-newVar ===> eps
+newVar ===> TK_EPS
 arithmeticExpression ===> term expPrime
 expPrime ===> lowPrecedenceOperators term expPrime
-expPrime ===> eps
+expPrime ===> TK_EPS
 term ===> factor termPrime
 termPrime ===> highPrecedenceOperators factor termPrime
-termPrime ===> eps
+termPrime ===> TK_EPS
 factor ===> TK_OP arithmeticExpression TK_CL
 factor ===> all
 highPrecedenceOperators ===> TK_MUL
@@ -69,7 +69,7 @@ all ===> TK_NUM
 all ===> TK_RNUM
 all ===> TK_ID temp
 temp ===> TK_DOT TK_FIELDID
-temp ===> eps
+temp ===> TK_EPS
 booleanExpression ===> TK_OP booleanExpression TK_CL logicalOp TK_OP booleanExpression TK_CL
 booleanExpression ===> var relationalOp var
 booleanExpression ===> TK_NOT TK_OP booleanExpression TK_CL
@@ -86,7 +86,7 @@ relationalOp ===> TK_GE
 relationalOp ===> TK_NE
 returnStmt ===> TK_RETURN optionalReturn TK_SEM
 optionalReturn ===> TK_SQL idList TK_SQR
-optionalReturn ===> eps
+optionalReturn ===> TK_EPS
 idList ===> TK_ID more_ids
 more_ids ===> TK_COMMA idList
-more_ids ===> eps
+more_ids ===> TK_EPS
