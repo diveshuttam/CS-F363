@@ -4,49 +4,43 @@
 #include "token.h"
 #include <string.h>
 
-NonTerminal* follows(NonTerminal* non_terminals, Terminal** terminals, char** non_terminals_map, char** terminals_map, hashTable* ht){
+void follows(NonTerminal* non_terminals, Terminal* terminals, char** non_terminals_map, char **terminals_map, hashTable ht_non_terminals,hashTable ht_terminals){
 	FILE *fp;
 	int i = 0;
 	char* line = NULL;
 	size_t len = 0;
 	size_t read;
-	fp = fopen("rules/firsts.txt","r");
+	fp = fopen("rules/follows.txt","r");
 	if(fp != NULL){
 		line = NULL;
 		len = 0 ;
-		char* pch = NULL;
-		hashTable* tokens = get_token_hasht();
-		insert("$",0,tokens);
-		strcpy(terminals_map[0],"$");
+		char* pch = NULL;;
 		while((read = getline(&line,&len,fp)) != -1){
 			pch = strtok(line," \n");
-			i = findHT(pch,ht,non_terminals_map,51);
-			non_terminals[i].name = (char*)malloc(sizeof(char)*strlen(pch));
-			strcpy(non_terminals[i].name,pch);
-			non_terminals[i].key = i;
-			non_terminals[i].firsts = malloc(sizeof(Terminal)*10);
+			i = findHT(pch,ht_non_terminals);
+			non_terminals[i].follows_size=0;
+			non_terminals[i].follows = malloc(sizeof(Terminal)*MAX_RHS);
 			int j = 0 ;
+			printf("%s ", pch);
+			fflush(stdout);
 			pch = strtok(NULL," \n");
 			while(pch != NULL){
-				non_terminals[i].firsts[j].name = malloc(sizeof(char)*TK_NAME_SIZE);
-				non_terminals[i].firsts[j].StateId = findHT(pch,tokens,terminals_map,TYPES_OF_TOKEN);
-				strcpy(non_terminals[i].firsts[j].name,pch);
-				non_terminals[i].firsts_size++;
-				printf("%s %d\n",non_terminals[i].firsts[j].name,non_terminals[i].firsts[j].StateId);
+				non_terminals[i].follows[j] = terminals[findHT(pch,ht_terminals)];
+				non_terminals[i].follows_size++;
+				printf("%s %d ",non_terminals[i].follows[j].name,non_terminals[i].follows[j].StateId);
 				j++;
 				pch = strtok(NULL," \n");
 			}
+			printf("\n");
 		}
-		free(pch);
-		free(line);
+
 	}else printf("err");
 	fclose(fp);
-	return non_terminals;
 }
 
-NonTerminal** firsts(NonTerminal** non_terminals, Terminal** terminals, char** non_terminals_map, char** terminals_map,hashTable *ht_non_terminals){
+void firsts(NonTerminal* non_terminals, Terminal* terminals, char** non_terminals_map, char** terminals_map,hashTable ht_non_terminals, hashTable ht_terminals){
 	int i = 0;
-	char* line = malloc(sizeof(char)*1000);
+	char* line = malloc(sizeof(char)*LINE_SIZE);
 	size_t len = 0;
 	size_t read;
 	FILE *fp;
@@ -57,43 +51,35 @@ NonTerminal** firsts(NonTerminal** non_terminals, Terminal** terminals, char** n
 		line = NULL;
 		len = 0 ;
 		char* pch = NULL;
-		hashTable* tokens = get_token_hasht();
-		insert("eps",0,tokens);
-		strcpy(terminals_map[0],"eps");
-		while((read = getline(&line,&len,fp)) != -1){
+
+		while((read = getline(&line,&len,fp)) != -1 && (read!=0)){
 			pch = strtok(line," \n");
-			i = findHT(pch,ht,non_terminals_map,51);
-			non_terminals[i] = (NonTerminal*)malloc(sizeof(NonTerminal));
-			non_terminals[i]->name = (char*)malloc(sizeof(char)*strlen(pch));
-			strcpy(non_terminals[i]->name,pch);
-			non_terminals[i]->key = i;
-			non_terminals[i]->firsts = malloc(sizeof(Terminal)*10);
+			i = findHT(pch,ht_non_terminals);
+			non_terminals[i].firsts=malloc(sizeof(Terminal)*MAX_RHS);
+			non_terminals[i].firsts_size=0;
 			int j = 0 ;
 			printf("%s ",pch);
 			pch = strtok(NULL," \n");
+			
 			while(pch != NULL){
-				non_terminals[i]->firsts[j].name = malloc(sizeof(char)*TK_NAME_SIZE);
-				non_terminals[i]->firsts[j].StateId = findHT(pch,tokens,terminals_map,TYPES_OF_TOKEN);
-				strcpy(non_terminals[i]->firsts[j].name,pch);
-				non_terminals[i]->firsts_size++;
-				printf("%s %d ",non_terminals[i]->firsts[j].name,non_terminals[i]->firsts[j].StateId);
+				non_terminals[i].firsts[j]=terminals[findHT(pch,ht_terminals)];
+				non_terminals[i].firsts_size++;
+				printf("%s %d ",non_terminals[i].firsts[j].name,non_terminals[i].firsts[j].StateId);
 				j++;
 				pch = strtok(NULL," \n");
 			}
 			printf("\n");
 		}
-		free(line);
-		free(pch);
 	}else printf("err");
 	fclose(fp);
-	return non_terminals;
 }
 
-NonTerminal** grammer(NonTerminal** non_terminals, Terminal** terminals, char** non_terminals_map, char** terminals_map,hashTable *ht_non_terminals){
-	grammerRule *g[51];
+grammerRule* grammer(NonTerminal* non_terminals, Terminal* terminals, char** non_terminals_map, char** terminals_map,hashTable ht_non_terminals, hashTable ht_terminals){
+	grammerRule *g;
+	g=malloc(sizeof(grammer)*NO_OF_RULES);
 	FILE *fp;
 	int i = 0;
-	char* line = malloc(sizeof(char)*1000);
+	char* line = malloc(sizeof(char)*LINE_SIZE);
 	size_t len = 0;
 	size_t read;
 	fp = fopen("./rules/grammer.txt","r");
@@ -103,71 +89,144 @@ NonTerminal** grammer(NonTerminal** non_terminals, Terminal** terminals, char** 
 		line = NULL;
 		len = 0 ;
 		char* pch = NULL;
-		hashTable* tokens = get_token_hasht();
-		insert("eps",0,tokens);
-		strcpy(terminals_map[0],"eps");
 		while((read = getline(&line,&len,fp)) != -1){
+			printf("for rule %s\n",line);
 			pch = strtok(line," \n");
-			if(strcmp(line, "===>")!=0){
-				printf("error");
-				break;
+			char *pch1= strtok(NULL," \n");
+			if(strcmp(pch1, "===>")!=0){
+				printf("error %s hola %s\n",pch1,line);
+				exit(0);
 			}
-			g[count]->lhs=
-			i = findHT(pch,ht,non_terminals_map,51);
-			non_terminals[i] = (NonTerminal*)malloc(sizeof(NonTerminal));
-			non_terminals[i]->name = (char*)malloc(sizeof(char)*strlen(pch));
-			strcpy(non_terminals[i]->name,pch);
-			non_terminals[i]->key = i;
-			non_terminals[i]->firsts = malloc(sizeof(Terminal)*10);
+			int nt = findHT(pch,ht_non_terminals);
+			g[count].lhs=non_terminals[nt];
+			g[count].rhs=malloc(sizeof(TnT)*TOKEN_SIZE);
+			g[count].num_of_rhs=0;
 			int j = 0 ;
-			printf("%s ",pch);
+			printf("n:%d:%s ===> ",nt,pch);
 			pch = strtok(NULL," \n");
 			while(pch != NULL){
-				non_terminals[i]->firsts[j].name = malloc(sizeof(char)*TK_NAME_SIZE);
-				non_terminals[i]->firsts[j].StateId = findHT(pch,tokens,terminals_map,TYPES_OF_TOKEN);
-				strcpy(non_terminals[i]->firsts[j].name,pch);
-				non_terminals[i]->firsts_size++;
-				printf("%s %d ",non_terminals[i]->firsts[j].name,non_terminals[i]->firsts[j].StateId);
+				int nt=findHT(pch,ht_non_terminals);
+				int t=findHT(pch,ht_terminals);
+				if(t==-1 && nt==-1 || t!=-1 && nt!=-1){
+					printf("error%s\n",pch);
+					exit(1);
+				}
+				if(t!=-1){
+					g[count].rhs[j].type='t';
+					g[count].rhs[j].s.t=terminals[t];
+					printf("t:%d:%s ",terminals[t].StateId,terminals[t].name);
+				}
+				else if(nt!=-1){
+					g[count].rhs[j].type='n';
+					g[count].rhs[j].s.nt=non_terminals[nt];
+					printf("n:%d:%s ",non_terminals[nt].key,non_terminals[nt].name);
+				}
 				j++;
+				g[count].num_of_rhs++;
 				pch = strtok(NULL," \n");
 			}
+			count++;
 			printf("\n");
 		}
-		free(line);
-		free(pch);
+
 	}else printf("err");
 	fclose(fp);
-	return non_terminals;
+	return g;
 }
 
-int main(){
-
-	NonTerminal* non_terminals[51];
-	Terminal* terminals[100];
-	char* non_terminals_map[51];
-	char** terminals_map;
+char **get_non_terminals_map(){
+	char** non_terminals_map=malloc(sizeof(char*)*NO_OF_NON_TERMINALS);
+	for(int i=0;i<NO_OF_NON_TERMINALS;i++){
+		non_terminals_map[i]=malloc(sizeof(char)*TOKEN_SIZE);
+		strcpy(non_terminals_map[i],"");
+	}
 	FILE* fp = fopen("rules/nonterminals.txt","r");
 	int i = 0;
 	char* line = NULL;
 	size_t len = 0;
 	size_t read;
 	if(fp != NULL){
-		while((read = getline(&line,&len,fp)) != -1){
-			non_terminals_map[i] = malloc(sizeof(char)*read);	
+		while((read = getline(&line,&len,fp)) != -1 && read !=0){
+			if(non_terminals_map[i]==NULL){
+				printf("ERROR");
+				exit(0);
+			}
+			line[read-1]='\0';
+			if(line==NULL){
+				printf("ERROR line is null");
+			}
 			strcpy(non_terminals_map[i],line);
-			non_terminals_map[i++][read-1]='\0';
+			if(non_terminals_map[i]==NULL){
+				printf("ERRROR");
+				exit(0);
+			}
+			i++;
 		}
 	}else printf("err");
 	fclose(fp);
+	return non_terminals_map;
+}
 
-	terminals_map = get_token_names();
-	hashTable* non_terminals_ht = newHashTable(100,5,5381);
-	for(i=0;i<51;i++){
-		insert(non_terminals_map[i],i,ht);
+void initialize_tnt(NonTerminal *non_terminals,Terminal *terminals,char **terminals_map,char **non_terminals_map,hashTable ht_terminals,hashTable ht_non_terminals){
+	for(int i=0;i<NO_OF_NON_TERMINALS;i++){
+		int k=findHT(non_terminals_map[i],ht_non_terminals);
+		printf("assigning %s with key %d\n",non_terminals_map[i],k);
+		fflush(stdout);
+		if(k!=-1){
+			non_terminals[i].name=malloc(sizeof(char)*TOKEN_SIZE);
+			strcpy(non_terminals[i].name,non_terminals_map[i]);
+			non_terminals[i].key=k;
+		}
+		else{
+			non_terminals[i].name=NULL;
+			non_terminals[i].key=-1;
+		}
+		
 	}
 
-	firsts(non_terminals,terminals, non_terminals_map,terminals_map,ht);
-	follows(non_terminals,terminals, non_terminals_map,terminals_map,ht);
-	grammer();
-	return 0;
+	for(int i=0;i<NO_OF_TERMINALS;i++){
+		int k=findHT(terminals_map[i],ht_terminals);
+		printf("assigning terminal %s with key %d\n",terminals_map[i],k);
+		fflush(stdout);
+		if(k!=-1){
+			terminals[i].name=terminals_map[i];
+			terminals[i].StateId=findHT(terminals_map[i],ht_terminals);
+		}else{
+			terminals[i].name=NULL;
+			terminals[i].StateId=-1;
+		}
+	}
+}
+
+grammerRule* get_grammer(void){
+	NonTerminal *non_terminals=malloc(sizeof(NonTerminal)*NO_OF_NON_TERMINALS);
+	Terminal *terminals=malloc(sizeof(Terminal)*NO_OF_TERMINALS);
+	
+	char** terminals_map = get_token_names();
+	char** non_terminals_map=get_non_terminals_map();
+
+	hashTable ht_terminals=get_token_hasht();
+	hashTable ht_non_terminals = newHashTable(NO_OF_NON_TERMINALS*ALPHA_INV,HASH_A,HASH_B);
+	for(int i=0;i<NO_OF_NON_TERMINALS;i++){
+		insert(non_terminals_map[i],i,ht_non_terminals);
+	}
+
+	initialize_tnt(non_terminals,terminals,terminals_map,non_terminals_map,ht_terminals,ht_non_terminals);
+
+	printf("firsts\n");
+	firsts(non_terminals,terminals, non_terminals_map,terminals_map,ht_non_terminals,ht_terminals);
+	
+	printf("\nfollows\n");
+	follows(non_terminals,terminals, non_terminals_map,terminals_map,ht_non_terminals,ht_terminals);
+
+	printf("\ngrammer\n");
+	grammerRule *g=NULL;
+    g=grammer(non_terminals,terminals, non_terminals_map,terminals_map,ht_non_terminals,ht_terminals);
+	return g;
+}
+
+
+int main()
+{
+	grammerRule *g=get_grammer();
 }

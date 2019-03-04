@@ -1,7 +1,8 @@
 //grammer rules
-#define NO_OF_TERMINALS
-#define NO_OF_NON_TERMINALS
-
+#define NO_OF_TERMINALS 100
+#define NO_OF_NON_TERMINALS 51
+#define NO_OF_RULES 100
+#define LINE_SIZE 1000
 #include<stdio.h>
 #include<stdlib.h>
 typedef struct Terminal
@@ -34,6 +35,7 @@ typedef struct grammerRule{
     NonTerminal lhs;
     //seqlist of terminals
     TerminalNonTerminal *rhs; 
+    int num_of_rhs;
 } grammerRule;
 
 

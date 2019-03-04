@@ -13,8 +13,8 @@
 typedef struct Element *Element;
 typedef struct SeqList *SeqList;
 typedef struct Iterator *Iterator;
-typedef void *Key;
-typedef void *Data;
+typedef char *Key;
+typedef int *Data;
 
 struct Element
 {

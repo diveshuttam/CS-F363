@@ -51,5 +51,7 @@ enum token_names{
 	TK_CALL,
 	TK_RECORD,
 	TK_ENDRECORD,
-	TK_ELSE
+	TK_ELSE,
+	TK_EPS,
+	TK_DOLLAR
 };

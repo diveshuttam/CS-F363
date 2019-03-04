@@ -1,15 +1,19 @@
+all: utility lexer parser
 
-utils = util/pch_int_hmap.c util/vptr_int_hmap.c util/pch.c util/vptr.c util/int_stack.c util/int.c
-sources = $(utils) lexer.c parser.c parse_tree.c ast.c symbol.c ast_gen.c error.c symbol_table.c compiler.c addr.c op.c type.c ircode.c x86.c compile_x86.c codegen.c
-output_file = compiler
-debug_flags = -g -Wall -Wpedantic -o $(output_file)
-release_flags = -O2 -o $(output_file)
+parser:utility parser/rules/firsts.txt parser/populate.c lexer/token.c parser/includes/
+	gcc -g -c -I parser/includes/ -I utils/ -I lexer/includes/ ./parser/populate.c ./lexer/token.c
+	gcc populate.o token.o SeqList.o hash.o -o parser/parser
 
-sub:
-	gcc $(debug_flags) $(sources) driver_sub.c
-debug:
-	gcc $(debug_flags) $(sources) driver.c
-dbgmem:
-	gcc $(debug_flags) -DLOG_MEM $(sources) driver.c
-release:
-	gcc $(release_flags) $(sources) driver.c
+lexer:utility lexer/driver.c lexer/token.c lexer/includes/ lexer/transition.c lexer/lexer.c lexer/populate.c utils
+	gcc -g -c -I lexer/includes/ -I utils/ lexer/driver.c lexer/token.c lexer/transition.c lexer/lexer.c lexer/populate.c
+	gcc populate.o driver.o token.o hash.o transition.o SeqList.o lexer.o -o ./lexer/lexer
+
+hash.o: utils/hash.c utils/hash.h utils/SeqList.h
+	gcc -g -c utils/hash.c
+
+SeqList.o: utils/SeqList.h utils/SeqList.c
+	gcc -g -c utils/SeqList.c
+
+utility:hash.o SeqList.o
+
+

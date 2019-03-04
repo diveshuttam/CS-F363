@@ -147,7 +147,7 @@ DFA populate(FILE *fp)
 		free(s3);
 	}
 	d.token_names=get_token_names();
-	d.token_ht=get_token_ht();
+	d.token_ht=get_token_hasht();
 	free(buf);
 	return d;
 }
@@ -157,10 +157,10 @@ void destory_DFA(DFA d){
 	free(s);
 	Transition **t = d.transitions;
 	char **table=d.token_names;
-	hashTable *ht=d.token_ht;
+	hashTable ht=d.token_ht;
 	
     destroy_token_name_table(table);
-	destroy_token_hasht(table);
+	// destroy_token_hasht(table);
 	for(int i=0;i<MAX_STATES;i++)
 	{
 		free(t[i]);

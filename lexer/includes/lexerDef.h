@@ -37,7 +37,7 @@ struct DFA{
 	State* states;
 	Transition** transitions;
 	char ** token_names;
-	hashTable *token_ht;
+	hashTable token_ht;
 };
 typedef struct DFA DFA;
 #endif
