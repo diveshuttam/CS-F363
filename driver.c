@@ -72,11 +72,16 @@ int main()
 	#else
 	char *testcase_file="testcases/testcase1.txt";
 	#endif
-	
+    printf("printing Grammer rules\n");
+    for(int i=0;i<NO_OF_RULES;i++){
+        grammerRule gr=g[i];
+        print_grammer_rule(gr);
+    }
 	Stream s=getStream(testcase_file);
 	if(s==NULL){
 		printf("error opening file %s", testcase_file);
 		return -1;
 	}
-    parseTree(s,table,g);
+    Tree t=parseTree(s,table,g);
+    inorder(t);
 }

@@ -14,6 +14,7 @@ DFA* createDFA(){
 Token* getNextToken(Stream s){
 	static DFA *d;
 	static int line_no=1;
+	static hashTable keywords;
 	if(d==NULL){
 		d=createDFA();
 	}
@@ -25,6 +26,15 @@ Token* getNextToken(Stream s){
 	tk->line_no=line_no;
 	if(isEofStream(s)){
 		return NULL;
+	}
+	static hashTable *ht=NULL;
+	if(ht==NULL){
+		ht=malloc(sizeof(hashTable));
+		*ht=get_keyword_hasht();
+	}
+	int a=findHT(tk->val,*ht);
+	if(a!=-1){
+		tk->state=a;
 	}
 	return tk;
 }

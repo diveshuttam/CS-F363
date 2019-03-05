@@ -202,3 +202,26 @@ void destroy_token_hasht(hashTable ht){
 	//todo
 	return;
 }
+
+hashTable get_keyword_hasht(){
+	hashTable ht=newHashTable((int)(NUM_KEYWORDS*ALPHA_INV),HASH_A,HASH_B);
+	insert("with",TK_WITH,ht);
+	insert("parameters",TK_PARAMETERS,ht);
+	insert("parameter",TK_PARAMETER,ht);
+	insert("list",TK_LIST,ht);
+	insert("input",TK_INPUT,ht);
+	insert("output",TK_OUTPUT,ht);
+	insert("int",TK_INT,ht);
+	insert("real",TK_REAL,ht);
+	insert("endwhile",TK_ENDWHILE,ht);
+	insert("if",TK_IF,ht);
+	insert("then",TK_THEN,ht);
+	insert("endif",TK_ENDIF,ht);
+	insert("read",TK_READ,ht);
+	insert("write",TK_WRITE,ht);
+	insert("return",TK_RETURN,ht);
+	insert("call",TK_CALL,ht);
+	insert("endrecord",TK_ENDRECORD,ht);
+	insert("else",TK_ELSE,ht);
+	return ht;
+}

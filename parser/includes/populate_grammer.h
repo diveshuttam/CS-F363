@@ -7,5 +7,5 @@ void firsts(NonTerminal* non_terminals, Terminal* terminals, char** non_terminal
 grammerRule* grammer(NonTerminal* non_terminals, Terminal* terminals, char** non_terminals_map, char** terminals_map,hashTable ht_non_terminals, hashTable ht_terminals);
 char **get_non_terminals_map();
 void initialize_tnt(NonTerminal *non_terminals,Terminal *terminals,char **terminals_map,char **non_terminals_map,hashTable ht_terminals,hashTable ht_non_terminals);
-
+void print_grammer_rule(grammerRule gr);
 #endif

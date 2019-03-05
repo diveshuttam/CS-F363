@@ -5,6 +5,20 @@
 #include "populate_grammer.h"
 #include <string.h>
 
+void print_grammer_rule(grammerRule gr){
+	printf("grammer rule: ");
+	printf("%d %s:%d --> ",gr.id, gr.lhs.name,gr.lhs.key);
+	for(int i=0;i<gr.num_of_rhs;i++){
+		char type=gr.rhs[i].type;
+		if(type=='t'){
+			printf("%s:%d ",gr.rhs[i].s.t.name,gr.rhs[i].s.t.StateId);
+		}
+		else if(type=='n'){
+			printf("%s:%d ",gr.rhs[i].s.nt.name,gr.rhs[i].s.nt.key);
+		}
+	}
+	printf("\n");
+}
 void follows(NonTerminal* non_terminals, Terminal* terminals, char** non_terminals_map, char **terminals_map, hashTable ht_non_terminals,hashTable ht_terminals){
 	FILE *fp;
 	int i = 0;

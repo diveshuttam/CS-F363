@@ -20,6 +20,8 @@ Element make_stack_element(item *i){
 }
 
 item* get_item_form_element(Element e){
+    if(e==NULL)
+        return NULL;
     item *i=(item *)(e->k);
     return i;
 }
@@ -105,28 +107,29 @@ Stack operations(Stream token_stream,grammerRule **table,grammerRule *g)
     grammerRule gr;
     item* tnt;
     Token *tk;
-    while((tk=getNextToken(token_stream))!=NULL && (tnt=get_item_form_element(top(s))!=get_bottom_symbol())
+    while((tk=getNextToken(token_stream))!=NULL)
     {
         if(tk->state==TK_COMMENT||tk->state==TK_DELIM)
             continue;
         // tnt = get_item_form_element(top(s));
-        if(tnt->t.type=='n' && !table[tnt->t.s.nt.key][tk->state].isError) //need to define error rule 
+        while( (tnt=get_item_form_element(top(s)))!=NULL && tnt!=get_bottom_symbol() && tnt->t.type=='n' && !table[tnt->t.s.nt.key][tk->state].isError) //need to define error rule 
         {
             pop(s);
             push(popped_items,make_stack_element(tnt));
             gr = table[tnt->t.s.nt.key][tk->state];
             int rhs_size = gr.num_of_rhs;
-            int j=rhs_size;
+            int j=rhs_size-1;
             
-            item* to_be_pushed; //malloc
+            
             for(;j>=0;j--)
             {
-                *(to_be_pushed->gr) = gr;
+                item* to_be_pushed=malloc(sizeof(struct item)); //malloc
+                to_be_pushed->gr = &gr;
                 to_be_pushed->t = gr.rhs[j];
                 push(s,make_stack_element(to_be_pushed));
             }
         }
-        else if(tnt->t.type=='n' && !table[tnt->t.s.nt.key][tk->state].isError)
+        if(tnt->t.type=='n' && !table[tnt->t.s.nt.key][tk->state].isError)
         {
             printf("Syntax Error found at line "); //line number in token structure
         }
@@ -142,7 +145,6 @@ Stack operations(Stream token_stream,grammerRule **table,grammerRule *g)
                 push(popped_items,make_stack_element(tnt));
             }
         }
-        i++;
     }
     reverse(popped_items);
     return popped_items;

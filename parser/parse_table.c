@@ -57,7 +57,7 @@ grammerRule** gen_parse_table(grammerRule *r, int no_of_rules)
             int j=0;
             for(;j<len_first;j++)
             {
-                if(first[j].StateId!=0)
+                if(first[j].StateId!=TK_EPS)
                 {
                     table[nt_current.key][first[j].StateId] = r[i]; 
                 }

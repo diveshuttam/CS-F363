@@ -15,6 +15,7 @@
 #define MAX_LINE_LEN 150
 #define MAX_STATES 56
 #define CHAR_LEN 128
+#define NUM_KEYWORDS 20
 
 #include "hash.h"
 #include "token_names.h"
@@ -22,4 +23,5 @@
 char ** get_token_names();
 void destroy_token_name_table(char **arr);
 hashTable get_token_hasht();
+hashTable get_keyword_hasht();
 #endif

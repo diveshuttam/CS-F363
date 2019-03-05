@@ -12,16 +12,17 @@
 #include<stdio.h>
 #include<stdlib.h>
 #include"lexer.h"
+#include"non_terminal_names.h"
 
 typedef struct Terminal
 {
-    int StateId;
+    enum token_names StateId;
     char *name;
 } Terminal;
 
 typedef struct NonTerminal {
     char *name;
-    int key;
+    enum non_terminal_names key;
     Terminal *follows;
     int follows_size;
     Terminal *firsts;
@@ -57,6 +58,7 @@ struct Tree
     Tree* child;
 };
 
+void inorder(Tree t);
 grammerRule** gen_parse_table(grammerRule *r, int no_of_rules);
 Tree parseTree(Stream token_stream,grammerRule **table,grammerRule *g);
 #endif
