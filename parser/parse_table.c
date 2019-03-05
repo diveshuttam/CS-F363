@@ -38,6 +38,10 @@ grammerRule** gen_parse_table(const grammerRule *r, int no_of_rules, const Termi
     int isEps = 0;
     while(i<no_of_rules)
     {
+        printf("\n\nrules from ");
+        print_grammer_rule(r[i]);
+        printf("with lhs firsts size %d\t",r[i].lhs.firsts_size);
+        printf("with lhs follow size %d\n",r[i].lhs.follows_size);
         NonTerminal nt_current = r[i].lhs;
         TerminalNonTerminal* tnt_current = r[i].rhs;
 
@@ -49,8 +53,8 @@ grammerRule** gen_parse_table(const grammerRule *r, int no_of_rules, const Termi
         {
             table[nt_current.key][tnt_current[0].s.t.StateId] = r[i];
             grammerRule temp=table[nt_current.key][tnt_current[0].s.t.StateId];
-            printf("adding rule %s-->%s with id:%d\n",temp.lhs.name,r[i].rhs->s.t.name,temp.id);
-            printf("adding rule for %d %d\n",nt_current.key,tnt_current[0].s.t.StateId);
+            printf("adding rule for %s:%d %s:%d\n",nt_current.name,nt_current.key,tnt_current[0].s.t.name,tnt_current[0].s.t.StateId);
+            print_grammer_rule(temp);
             printf("\n");
         }
         else
@@ -63,6 +67,9 @@ grammerRule** gen_parse_table(const grammerRule *r, int no_of_rules, const Termi
                 if(first[j].StateId!=TK_EPS)
                 {
                     table[nt_current.key][first[j].StateId] = r[i]; 
+                    printf("adding rule for %s:%d %s:%d\n",nt_current.name,nt_current.key,first[j].name,first[j].StateId);
+                    print_grammer_rule(r[i]);
+                    printf("\n");
                 }
                 else
                 {
@@ -80,10 +87,12 @@ grammerRule** gen_parse_table(const grammerRule *r, int no_of_rules, const Termi
             eps_rule.isError=false;
             eps_rule.rhs[0].type='t';
             eps_rule.rhs[0].s.t=eps;
-            int j=0;
-            for(;j<len_follows;j++)
+            
+            for(int j=0;j<len_follows;j++)
             {
                 table[nt_current.key][follows[j].StateId] = eps_rule;
+                printf("adding rule for %s:%d %s:%d\n",nt_current.name,nt_current.key,follows[j].name,follows[j].StateId);
+                print_grammer_rule(eps_rule);
             }
         }
         i++;
