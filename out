@@ -660,6 +660,7 @@ grammer rule: 1 mainFunction:26 --> TK_MAIN:60 stmts:44 TK_END:57
 adding rule for mainFunction:26 TK_DOLLAR:80
 grammer rule: -2 mainFunction:26 --> TK_EPS:79 
 
+
 rules from grammer rule: 2 otherFunctions:32 --> function:16 otherFunctions:32 
 with lhs firsts size 2	with lhs follow size 2
 adding rule for otherFunctions:32 TK_FUNID:48
@@ -2690,8 +2691,7 @@ addding transition	1
 	6
 addding transition	1		6
 addding transition	1		6
-addding transition	1	
-	6
+addding transition	1		6
 addding transition	1		6
 addding transition	1		6
 addding transition	1		6
@@ -2865,8 +2865,7 @@ addding transition	7
 	9
 addding transition	7		9
 addding transition	7		9
-addding transition	7	
-	9
+addding transition	7		9
 addding transition	7		9
 addding transition	7		9
 addding transition	7		9
@@ -3039,8 +3038,7 @@ addding transition	10		10
 addding transition	10			10
 addding transition	10		10
 addding transition	10		10
-addding transition	10	
-	10
+addding transition	10		10
 addding transition	10		10
 addding transition	10		10
 addding transition	10		10
@@ -3254,8 +3252,7 @@ addding transition	14
 	16
 addding transition	14		16
 addding transition	14		16
-addding transition	14	
-	16
+addding transition	14		16
 addding transition	14		16
 addding transition	14		16
 addding transition	14		16
@@ -3403,8 +3400,7 @@ addding transition	15
 	16
 addding transition	15		16
 addding transition	15		16
-addding transition	15	
-	16
+addding transition	15		16
 addding transition	15		16
 addding transition	15		16
 addding transition	15		16
@@ -3620,8 +3616,7 @@ addding transition	13
 	18
 addding transition	13		18
 addding transition	13		18
-addding transition	13	
-	18
+addding transition	13		18
 addding transition	13		18
 addding transition	13		18
 addding transition	13		18
@@ -3792,8 +3787,7 @@ addding transition	17
 	18
 addding transition	17		18
 addding transition	17		18
-addding transition	17	
-	18
+addding transition	17		18
 addding transition	17		18
 addding transition	17		18
 addding transition	17		18
@@ -4096,8 +4090,7 @@ addding transition	25
 	29
 addding transition	25		29
 addding transition	25		29
-addding transition	25	
-	29
+addding transition	25		29
 addding transition	25		29
 addding transition	25		29
 addding transition	25		29
@@ -4587,8 +4580,7 @@ addding transition	46
 	48
 addding transition	46		48
 addding transition	46		48
-addding transition	46	
-	48
+addding transition	46		48
 addding transition	46		48
 addding transition	46		48
 addding transition	46		48
@@ -4687,8 +4679,7 @@ addding transition	47
 	48
 addding transition	47		48
 addding transition	47		48
-addding transition	47	
-	48
+addding transition	47		48
 addding transition	47		48
 addding transition	47		48
 addding transition	47		48
@@ -4904,8 +4895,7 @@ addding transition	50
 	51
 addding transition	50		51
 addding transition	50		51
-addding transition	50	
-	51
+addding transition	50		51
 addding transition	50		51
 addding transition	50		51
 addding transition	50		51
