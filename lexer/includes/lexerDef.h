@@ -10,6 +10,7 @@
 
 #include<stdbool.h>
 #include"twin_buffer.h"
+#include"token_names.h"
 
 struct State{
 	int val;
@@ -25,7 +26,7 @@ struct Transition{
 
 struct Token{
 	char* val;
-	int state;
+	enum token_names state;
 	int len;
 	int line_no;
 };

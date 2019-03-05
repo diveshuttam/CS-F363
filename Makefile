@@ -2,11 +2,10 @@ all: utility lexer parser driver
 
 driver:parser lexer utility
 	gcc -g -c -D DEBUG -D __MY_OWN_DATA_ELE -D __WITHOUT_KEY -I parser/includes/ -I utils/ -I lexer/includes/ driver.c
-	gcc populate_dfa.o driver.o token.o hash.o transition.o SeqList.o lexer.o twin_buffer.o -o stage1exe
+	gcc driver.o populate_dfa.o populate_grammer.o token.o hash.o transition.o SeqList.o lexer.o twin_buffer.o parseTree.o Stack.o parse_table.o -o stage1exe
 
-parser:utility parser/rules/firsts.txt parser/populate.c lexer/token.c parser/includes/ parser/parse_table.c lexer/token.c utility
-	gcc -g -c -D DEBUG -D __MY_OWN_DATA_ELE -D __WITHOUT_KEY -I parser/includes/ -I utils/ -I lexer/includes/ ./parser/populate.c ./lexer/token.c ./parser/parse_table.c ./parser/parseTree.c
-	gcc populate.o Stack.o token.o SeqList.o hash.o parse_table.o parseTree.o -o parser/parser
+parser:utility parser/rules/firsts.txt parser/populate_grammer.c lexer/token.c parser/includes/ parser/parse_table.c lexer/token.c utility
+	gcc -g -c -D DEBUG -D __MY_OWN_DATA_ELE -D __WITHOUT_KEY -I parser/includes/ -I utils/ -I lexer/includes/ ./parser/populate_grammer.c ./lexer/token.c ./parser/parse_table.c ./parser/parseTree.c
 
 lexer:utility lexer/token.c lexer/includes/ lexer/transition.c lexer/lexer.c lexer/populate_dfa.c lexer/twin_buffer.c utils
 	gcc -g -c -D DEBUG -D __MY_OWN_DATA_ELE -D __WITHOUT_KEY -I lexer/includes/ -I utils/ lexer/token.c lexer/transition.c lexer/lexer.c lexer/populate_dfa.c lexer/twin_buffer.c

@@ -11,7 +11,7 @@ void follows(NonTerminal* non_terminals, Terminal* terminals, char** non_termina
 	char* line = NULL;
 	size_t len = 0;
 	size_t read;
-	fp = fopen("rules/follows.txt","r");
+	fp = fopen(FOLLOWS_FILE,"r");
 	if(fp != NULL){
 		line = NULL;
 		len = 0 ;
@@ -46,7 +46,7 @@ void firsts(NonTerminal* non_terminals, Terminal* terminals, char** non_terminal
 	size_t read;
 	FILE *fp;
 	
-	fp = fopen("./rules/firsts.txt","r");
+	fp = fopen(FIRSTS_FILE,"r");
 	line[0] = '1';
 	if(fp != NULL && (line[0]!='\n') && (line[0]!='\0')){
 		line = NULL;
@@ -83,7 +83,7 @@ grammerRule* grammer(NonTerminal* non_terminals, Terminal* terminals, char** non
 	char* line = malloc(sizeof(char)*LINE_SIZE);
 	size_t len = 0;
 	size_t read;
-	fp = fopen("./rules/grammer.txt","r");
+	fp = fopen(GRAMMER_FILE,"r");
 	line[0] = '1';
 	int count=0;
 	if(fp != NULL){
@@ -142,7 +142,7 @@ char **get_non_terminals_map(){
 		non_terminals_map[i]=malloc(sizeof(char)*TOKEN_SIZE);
 		strcpy(non_terminals_map[i],"");
 	}
-	FILE* fp = fopen("rules/nonterminals.txt","r");
+	FILE* fp = fopen(NON_TERMINALS_FILE,"r");
 	int i = 0;
 	char* line = NULL;
 	size_t len = 0;

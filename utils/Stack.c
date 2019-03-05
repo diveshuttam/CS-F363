@@ -34,7 +34,8 @@ pop (Stack s)
 Stack
 push (Stack s, Element E)
 {
-  return insertAtFront (s->sl, E);
+  s->sl=insertAtFront (s->sl, E);
+  return s;
 }
 
 Element

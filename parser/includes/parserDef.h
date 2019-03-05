@@ -5,8 +5,14 @@
 #define NO_OF_NON_TERMINALS 51
 #define NO_OF_RULES 92
 #define LINE_SIZE 1000
+#define FOLLOWS_FILE "parser/rules/follows.txt"
+#define FIRSTS_FILE "parser/rules/firsts.txt"
+#define GRAMMER_FILE "parser/rules/grammer.txt"
+#define NON_TERMINALS_FILE "parser/rules/nonterminals.txt"
 #include<stdio.h>
 #include<stdlib.h>
+#include"lexer.h"
+
 typedef struct Terminal
 {
     int StateId;
@@ -41,8 +47,18 @@ typedef struct grammerRule{
     int isError;
     int id;
 } grammerRule;
-grammerRule** gen_parse_table(grammerRule *r, int no_of_rules);
 
+typedef struct Tree *Tree;
+
+struct Tree
+{
+    TerminalNonTerminal t;
+    int num_child;
+    Tree* child;
+};
+
+grammerRule** gen_parse_table(grammerRule *r, int no_of_rules);
+Tree parseTree(Stream token_stream,grammerRule **table,grammerRule *g);
 #endif
 
 

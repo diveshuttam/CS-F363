@@ -1,19 +1,11 @@
 #include"parserDef.h"
 #include"lexerDef.h"
+#include"lexer.h"
 #include"Stack.h"
 #include"SeqList.h"
 #include"populate_grammer.h"
 #include "hash.h"
 #include "token.h"
-
-typedef struct Tree *Tree;
-
-struct Tree
-{
-    TerminalNonTerminal t;
-    int num_child;
-    Tree* child;
-};
 
 struct item
 {
@@ -75,45 +67,54 @@ void deleteAll(Tree root)
 }
 
 //returns start_symbol
-item*  get_start_symbol()
+item*  get_start_symbol(grammerRule *g)
 {
-    item* i = (item*)malloc(sizeof(item));
-    i->t.type = 'n';
-    i->t.s.nt.key = 0;
+    static item *i=NULL;
+    if(i==NULL){
+        i=malloc(sizeof(item));
+        i->gr=&g[0];
+        i->t.type='n';
+        i->t.s.nt=g[0].lhs;
+    }
     return i;
 }
 
 //return bottom symbol $ feeded in as type TerminalNonTerminal
 item* get_bottom_symbol()
 {
-    item* i = (item*)malloc(sizeof(item));
-    i->t.type = 't';
-    i->t.s.t.StateId = 55; //StateID for bottom of stack symbol is 55;
-    i->t.s.t.name = "$";
+    static item* i = NULL;
+    if(i==NULL){
+        i=(item*)malloc(sizeof(item));
+        i->t.type = 't';
+        i->t.s.t.StateId = TK_DOLLAR; //StateID for bottom of stack symbol is 55;
+        i->t.s.t.name = "$";
+    }
     return i;
 }
 
 //Stack operations, parsing the token stream
-Stack operations(Token* stream,int num_tokens,grammerRule **table)
+Stack operations(Stream token_stream,grammerRule **table,grammerRule *g)
 {
     Stack s = newStack();
-    push(s,make_stack_element(get_bottom_symbol()));
-    push(s,make_stack_element(get_start_symbol()));
+    push(s,make_stack_element(get_bottom_symbol(g)));
+    push(s,make_stack_element(get_start_symbol(g)));
 
     Stack popped_items = newStack(); //A stack, this will help in building the tree
 
     int i=0;
     grammerRule gr;
     item* tnt;
-
-    while(i<num_tokens && get_item_form_element(top(s))!=get_bottom_symbol())
+    Token *tk;
+    while((tk=getNextToken(token_stream))!=NULL && (tnt=get_item_form_element(top(s))!=get_bottom_symbol())
     {
-        tnt = get_item_form_element(top(s));
-        if(tnt->t.type=='n' && !table[tnt->t.s.nt.key][stream[i].state].isError) //need to define error rule 
+        if(tk->state==TK_COMMENT||tk->state==TK_DELIM)
+            continue;
+        // tnt = get_item_form_element(top(s));
+        if(tnt->t.type=='n' && !table[tnt->t.s.nt.key][tk->state].isError) //need to define error rule 
         {
             pop(s);
             push(popped_items,make_stack_element(tnt));
-            gr = table[tnt->t.s.nt.key][stream[i].state];
+            gr = table[tnt->t.s.nt.key][tk->state];
             int rhs_size = gr.num_of_rhs;
             int j=rhs_size;
             
@@ -125,13 +126,13 @@ Stack operations(Token* stream,int num_tokens,grammerRule **table)
                 push(s,make_stack_element(to_be_pushed));
             }
         }
-        else if(tnt->t.type=='n' && !table[tnt->t.s.nt.key][stream[i].state].isError)
+        else if(tnt->t.type=='n' && !table[tnt->t.s.nt.key][tk->state].isError)
         {
             printf("Syntax Error found at line "); //line number in token structure
         }
         else
         {
-            if(tnt->t.type=='t' && tnt->t.s.t.StateId!= stream[i].state) //see the definitions of state in the two definitions
+            if(tnt->t.type=='t' && tnt->t.s.t.StateId!= tk->state) //see the definitions of state in the two definitions
             {
                 printf("Syntax Error Found"); 
             }
@@ -168,13 +169,13 @@ item* parse_get(Stack popped_items)
     return send;
 }
 
-Tree parseTree(Token* stream,int num_tokens,grammerRule **table)
+Tree parseTree(Stream token_stream,grammerRule **table, grammerRule *g)
 {
     Tree root = (Tree)malloc(sizeof(struct Tree));
     Tree ret = root;
 
-    Stack s = operations(stream,num_tokens,table);
-    root->t = get_start_symbol()->t;
+    Stack s = operations(token_stream,table,g);
+    root->t = get_start_symbol(g)->t;
 
     grammerRule* start_rule = table[0];
     make_node(start_rule,root);
@@ -215,61 +216,4 @@ void inorder(Tree root)
     {
         inorder(root->child[i]);
     }
-}
-
-
-
-int main()
-{
-    NonTerminal *non_terminals=malloc(sizeof(NonTerminal)*NO_OF_NON_TERMINALS);
-	Terminal *terminals=malloc(sizeof(Terminal)*NO_OF_TERMINALS);
-	
-	char** terminals_map = get_token_names();
-	char** non_terminals_map=get_non_terminals_map();
-
-	hashTable ht_terminals=get_token_hasht();
-	hashTable ht_non_terminals = newHashTable(NO_OF_NON_TERMINALS*ALPHA_INV,HASH_A,HASH_B);
-	for(int i=0;i<NO_OF_NON_TERMINALS;i++){
-		insert(non_terminals_map[i],i,ht_non_terminals);
-	}
-
-	initialize_tnt(non_terminals,terminals,terminals_map,non_terminals_map,ht_terminals,ht_non_terminals);
-
-	printf("firsts\n");
-	firsts(non_terminals,terminals, non_terminals_map,terminals_map,ht_non_terminals,ht_terminals);
-	
-	printf("\nfollows\n");
-	follows(non_terminals,terminals, non_terminals_map,terminals_map,ht_non_terminals,ht_terminals);
-
-	printf("\ngrammer\n");
-	grammerRule *g=NULL;
-    g=grammer(non_terminals,terminals, non_terminals_map,terminals_map,ht_non_terminals,ht_terminals);
-
-    printf("\ncreating parse table\n");
-    grammerRule **table=gen_parse_table(g,NO_OF_RULES);
-
-    printf("\nprinting terminals\n");
-    for(int i=0;i<NO_OF_TERMINALS;i++){
-        printf("%d ",i);
-        printf("%s", terminals[i].name);
-        printf("\n");
-    }
-    printf("\nprinting nonterminals\n");
-    
-    for(int i=0;i<NO_OF_NON_TERMINALS;i++){
-        printf("%s\n", non_terminals[i].name);
-    }
-
-    printf("\nprinting parse table\n");
-    for(int i=0;i<NO_OF_NON_TERMINALS;i++){
-        printf("%s\t|",non_terminals[i].name);
-        for(int j=0;j<NO_OF_TERMINALS;j++){
-            printf("%s:%d ",terminals[j].name,table[i][j].id);
-        }
-        printf("\n");
-    }
-
-    printf("\ngetting token stream\n");
-
-
 }

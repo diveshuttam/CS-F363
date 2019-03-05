@@ -11,6 +11,6 @@
 #define DFA_RULES_FILE "./lexer/dfa_states.ccsv"
 
 //get stream in twin_buffer.h
-Token getNextToken();
+Token* getNextToken();
 void removeComments(char *testcaseFile, char *cleanFile);
 #endif
