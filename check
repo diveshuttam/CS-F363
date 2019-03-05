@@ -654,8 +654,8 @@ grammer rule: -2 program:38 --> TK_EPS:79
 
 rules from grammer rule: 1 mainFunction:26 --> TK_MAIN:60 stmts:44 TK_END:57 
 with lhs firsts size 1	with lhs follow size 1
-adding rule for mainFunction:26 TK_MAIN:60
-grammer rule: 1 mainFunction:26 --> TK_MAIN:60 stmts:44 TK_END:57 
+adding rule for mainFunction:26 TK_MAIN:79
+grammer rule: 1 mainFunction:26 --> TK_MAIN:79 stmts:44 TK_END:57 
 
 adding rule for mainFunction:26 TK_DOLLAR:80
 grammer rule: -2 mainFunction:26 --> TK_EPS:79 
@@ -666,10 +666,6 @@ with lhs firsts size 2	with lhs follow size 2
 adding rule for otherFunctions:32 TK_FUNID:48
 grammer rule: 2 otherFunctions:32 --> function:16 otherFunctions:32 
 
-adding rule for otherFunctions:32 TK_MAIN:60
-grammer rule: -2 otherFunctions:32 --> TK_EPS:79 
-adding rule for otherFunctions:32 TK_DOLLAR:80
-grammer rule: -2 otherFunctions:32 --> TK_EPS:79 
 
 
 rules from grammer rule: 3 otherFunctions:32 --> TK_EPS:79 
@@ -685,8 +681,8 @@ grammer rule: -2 otherFunctions:32 --> TK_EPS:79
 
 rules from grammer rule: 4 function:16 --> TK_FUNID:48 input_par:20 output_par:34 TK_SEM:21 stmts:44 TK_END:57 
 with lhs firsts size 1	with lhs follow size 3
-adding rule for function:16 TK_FUNID:48
-grammer rule: 4 function:16 --> TK_FUNID:48 input_par:20 output_par:34 TK_SEM:21 stmts:44 TK_END:57 
+adding rule for function:16 TK_FUNID:79
+grammer rule: 4 function:16 --> TK_FUNID:79 input_par:20 output_par:34 TK_SEM:21 stmts:44 TK_END:57 
 
 adding rule for function:16 TK_FUNID:48
 grammer rule: -2 function:16 --> TK_EPS:79 
@@ -698,8 +694,8 @@ grammer rule: -2 function:16 --> TK_EPS:79
 
 rules from grammer rule: 5 input_par:20 --> TK_INPUT:64 TK_PARAMETER:62 TK_LIST:63 TK_SQL:19 parameter_list:36 TK_SQR:12 
 with lhs firsts size 1	with lhs follow size 3
-adding rule for input_par:20 TK_INPUT:64
-grammer rule: 5 input_par:20 --> TK_INPUT:64 TK_PARAMETER:62 TK_LIST:63 TK_SQL:19 parameter_list:36 TK_SQR:12 
+adding rule for input_par:20 TK_INPUT:79
+grammer rule: 5 input_par:20 --> TK_INPUT:79 TK_PARAMETER:62 TK_LIST:63 TK_SQL:19 parameter_list:36 TK_SQR:12 
 
 adding rule for input_par:20 TK_OUTPUT:65
 grammer rule: -2 input_par:20 --> TK_EPS:79 
@@ -711,8 +707,8 @@ grammer rule: -2 input_par:20 --> TK_EPS:79
 
 rules from grammer rule: 6 output_par:34 --> TK_OUTPUT:65 TK_PARAMETER:62 TK_LIST:63 TK_SQL:19 parameter_list:36 TK_SQR:12 
 with lhs firsts size 2	with lhs follow size 2
-adding rule for output_par:34 TK_OUTPUT:65
-grammer rule: 6 output_par:34 --> TK_OUTPUT:65 TK_PARAMETER:62 TK_LIST:63 TK_SQL:19 parameter_list:36 TK_SQR:12 
+adding rule for output_par:34 TK_OUTPUT:79
+grammer rule: 6 output_par:34 --> TK_OUTPUT:79 TK_PARAMETER:62 TK_LIST:63 TK_SQL:19 parameter_list:36 TK_SQR:12 
 
 adding rule for output_par:34 TK_SEM:21
 grammer rule: -2 output_par:34 --> TK_EPS:79 
@@ -742,10 +738,6 @@ grammer rule: 8 parameter_list:36 --> dataType:7 TK_ID:16 remaining_list:40
 adding rule for parameter_list:36 TK_RECORD:76
 grammer rule: 8 parameter_list:36 --> dataType:7 TK_ID:16 remaining_list:40 
 
-adding rule for parameter_list:36 TK_SQR:12
-grammer rule: -2 parameter_list:36 --> TK_EPS:79 
-adding rule for parameter_list:36 TK_DOLLAR:80
-grammer rule: -2 parameter_list:36 --> TK_EPS:79 
 
 
 rules from grammer rule: 9 dataType:7 --> primitiveDatatype:37 
@@ -756,12 +748,6 @@ grammer rule: 9 dataType:7 --> primitiveDatatype:37
 adding rule for dataType:7 TK_REAL:67
 grammer rule: 9 dataType:7 --> primitiveDatatype:37 
 
-adding rule for dataType:7 TK_ID:16
-grammer rule: -2 dataType:7 --> TK_EPS:79 
-adding rule for dataType:7 TK_COLON:22
-grammer rule: -2 dataType:7 --> TK_EPS:79 
-adding rule for dataType:7 TK_DOLLAR:80
-grammer rule: -2 dataType:7 --> TK_EPS:79 
 
 
 rules from grammer rule: 10 dataType:7 --> constructedDatatype:6 
@@ -769,18 +755,12 @@ with lhs firsts size 3	with lhs follow size 3
 adding rule for dataType:7 TK_RECORD:76
 grammer rule: 10 dataType:7 --> constructedDatatype:6 
 
-adding rule for dataType:7 TK_ID:16
-grammer rule: -2 dataType:7 --> TK_EPS:79 
-adding rule for dataType:7 TK_COLON:22
-grammer rule: -2 dataType:7 --> TK_EPS:79 
-adding rule for dataType:7 TK_DOLLAR:80
-grammer rule: -2 dataType:7 --> TK_EPS:79 
 
 
 rules from grammer rule: 11 primitiveDatatype:37 --> TK_INT:66 
 with lhs firsts size 2	with lhs follow size 3
-adding rule for primitiveDatatype:37 TK_INT:66
-grammer rule: 11 primitiveDatatype:37 --> TK_INT:66 
+adding rule for primitiveDatatype:37 TK_INT:79
+grammer rule: 11 primitiveDatatype:37 --> TK_INT:79 
 
 adding rule for primitiveDatatype:37 TK_ID:16
 grammer rule: -2 primitiveDatatype:37 --> TK_EPS:79 
@@ -792,8 +772,8 @@ grammer rule: -2 primitiveDatatype:37 --> TK_EPS:79
 
 rules from grammer rule: 12 primitiveDatatype:37 --> TK_REAL:67 
 with lhs firsts size 2	with lhs follow size 3
-adding rule for primitiveDatatype:37 TK_REAL:67
-grammer rule: 12 primitiveDatatype:37 --> TK_REAL:67 
+adding rule for primitiveDatatype:37 TK_REAL:79
+grammer rule: 12 primitiveDatatype:37 --> TK_REAL:79 
 
 adding rule for primitiveDatatype:37 TK_ID:16
 grammer rule: -2 primitiveDatatype:37 --> TK_EPS:79 
@@ -805,8 +785,8 @@ grammer rule: -2 primitiveDatatype:37 --> TK_EPS:79
 
 rules from grammer rule: 13 constructedDatatype:6 --> TK_RECORD:76 TK_RECORDID:51 
 with lhs firsts size 1	with lhs follow size 3
-adding rule for constructedDatatype:6 TK_RECORD:76
-grammer rule: 13 constructedDatatype:6 --> TK_RECORD:76 TK_RECORDID:51 
+adding rule for constructedDatatype:6 TK_RECORD:79
+grammer rule: 13 constructedDatatype:6 --> TK_RECORD:79 TK_RECORDID:51 
 
 adding rule for constructedDatatype:6 TK_ID:16
 grammer rule: -2 constructedDatatype:6 --> TK_EPS:79 
@@ -818,8 +798,8 @@ grammer rule: -2 constructedDatatype:6 --> TK_EPS:79
 
 rules from grammer rule: 14 remaining_list:40 --> TK_COMMA:30 parameter_list:36 
 with lhs firsts size 2	with lhs follow size 2
-adding rule for remaining_list:40 TK_COMMA:30
-grammer rule: 14 remaining_list:40 --> TK_COMMA:30 parameter_list:36 
+adding rule for remaining_list:40 TK_COMMA:79
+grammer rule: 14 remaining_list:40 --> TK_COMMA:79 parameter_list:36 
 
 adding rule for remaining_list:40 TK_SQR:12
 grammer rule: -2 remaining_list:40 --> TK_EPS:79 
@@ -854,26 +834,6 @@ with lhs firsts size 2	with lhs follow size 10
 adding rule for typeDefinitions:49 TK_RECORD:76
 grammer rule: 17 typeDefinitions:49 --> typeDefinition:48 typeDefinitions:49 
 
-adding rule for typeDefinitions:49 TK_TYPE:59
-grammer rule: -2 typeDefinitions:49 --> TK_EPS:79 
-adding rule for typeDefinitions:49 TK_ID:16
-grammer rule: -2 typeDefinitions:49 --> TK_EPS:79 
-adding rule for typeDefinitions:49 TK_WHILE:58
-grammer rule: -2 typeDefinitions:49 --> TK_EPS:79 
-adding rule for typeDefinitions:49 TK_IF:69
-grammer rule: -2 typeDefinitions:49 --> TK_EPS:79 
-adding rule for typeDefinitions:49 TK_READ:72
-grammer rule: -2 typeDefinitions:49 --> TK_EPS:79 
-adding rule for typeDefinitions:49 TK_WRITE:73
-grammer rule: -2 typeDefinitions:49 --> TK_EPS:79 
-adding rule for typeDefinitions:49 TK_SQL:19
-grammer rule: -2 typeDefinitions:49 --> TK_EPS:79 
-adding rule for typeDefinitions:49 TK_CALL:75
-grammer rule: -2 typeDefinitions:49 --> TK_EPS:79 
-adding rule for typeDefinitions:49 TK_RETURN:74
-grammer rule: -2 typeDefinitions:49 --> TK_EPS:79 
-adding rule for typeDefinitions:49 TK_DOLLAR:80
-grammer rule: -2 typeDefinitions:49 --> TK_EPS:79 
 
 
 rules from grammer rule: 18 typeDefinitions:49 --> TK_EPS:79 
@@ -905,8 +865,8 @@ grammer rule: -2 typeDefinitions:49 --> TK_EPS:79
 
 rules from grammer rule: 19 typeDefinition:48 --> TK_RECORD:76 TK_RECORDID:51 fieldDefinitions:14 TK_ENDRECORD:77 TK_SEM:21 
 with lhs firsts size 1	with lhs follow size 11
-adding rule for typeDefinition:48 TK_RECORD:76
-grammer rule: 19 typeDefinition:48 --> TK_RECORD:76 TK_RECORDID:51 fieldDefinitions:14 TK_ENDRECORD:77 TK_SEM:21 
+adding rule for typeDefinition:48 TK_RECORD:79
+grammer rule: 19 typeDefinition:48 --> TK_RECORD:79 TK_RECORDID:51 fieldDefinitions:14 TK_ENDRECORD:77 TK_SEM:21 
 
 adding rule for typeDefinition:48 TK_RECORD:76
 grammer rule: -2 typeDefinition:48 --> TK_EPS:79 
@@ -937,16 +897,12 @@ with lhs firsts size 1	with lhs follow size 2
 adding rule for fieldDefinitions:14 TK_TYPE:59
 grammer rule: 20 fieldDefinitions:14 --> fieldDefinition:13 fieldDefinition:13 moreFields:27 
 
-adding rule for fieldDefinitions:14 TK_ENDRECORD:77
-grammer rule: -2 fieldDefinitions:14 --> TK_EPS:79 
-adding rule for fieldDefinitions:14 TK_DOLLAR:80
-grammer rule: -2 fieldDefinitions:14 --> TK_EPS:79 
 
 
 rules from grammer rule: 21 fieldDefinition:13 --> TK_TYPE:59 primitiveDatatype:37 TK_COLON:22 TK_FIELDID:18 TK_SEM:21 
 with lhs firsts size 1	with lhs follow size 3
-adding rule for fieldDefinition:13 TK_TYPE:59
-grammer rule: 21 fieldDefinition:13 --> TK_TYPE:59 primitiveDatatype:37 TK_COLON:22 TK_FIELDID:18 TK_SEM:21 
+adding rule for fieldDefinition:13 TK_TYPE:79
+grammer rule: 21 fieldDefinition:13 --> TK_TYPE:79 primitiveDatatype:37 TK_COLON:22 TK_FIELDID:18 TK_SEM:21 
 
 adding rule for fieldDefinition:13 TK_TYPE:59
 grammer rule: -2 fieldDefinition:13 --> TK_EPS:79 
@@ -961,10 +917,6 @@ with lhs firsts size 2	with lhs follow size 2
 adding rule for moreFields:27 TK_TYPE:59
 grammer rule: 22 moreFields:27 --> fieldDefinition:13 moreFields:27 
 
-adding rule for moreFields:27 TK_ENDRECORD:77
-grammer rule: -2 moreFields:27 --> TK_EPS:79 
-adding rule for moreFields:27 TK_DOLLAR:80
-grammer rule: -2 moreFields:27 --> TK_EPS:79 
 
 
 rules from grammer rule: 23 moreFields:27 --> TK_EPS:79 
@@ -983,24 +935,6 @@ with lhs firsts size 2	with lhs follow size 9
 adding rule for declarations:9 TK_TYPE:59
 grammer rule: 24 declarations:9 --> declaration:8 declarations:9 
 
-adding rule for declarations:9 TK_ID:16
-grammer rule: -2 declarations:9 --> TK_EPS:79 
-adding rule for declarations:9 TK_WHILE:58
-grammer rule: -2 declarations:9 --> TK_EPS:79 
-adding rule for declarations:9 TK_IF:69
-grammer rule: -2 declarations:9 --> TK_EPS:79 
-adding rule for declarations:9 TK_READ:72
-grammer rule: -2 declarations:9 --> TK_EPS:79 
-adding rule for declarations:9 TK_WRITE:73
-grammer rule: -2 declarations:9 --> TK_EPS:79 
-adding rule for declarations:9 TK_SQL:19
-grammer rule: -2 declarations:9 --> TK_EPS:79 
-adding rule for declarations:9 TK_CALL:75
-grammer rule: -2 declarations:9 --> TK_EPS:79 
-adding rule for declarations:9 TK_RETURN:74
-grammer rule: -2 declarations:9 --> TK_EPS:79 
-adding rule for declarations:9 TK_DOLLAR:80
-grammer rule: -2 declarations:9 --> TK_EPS:79 
 
 
 rules from grammer rule: 25 declarations:9 --> TK_EPS:79 
@@ -1030,8 +964,8 @@ grammer rule: -2 declarations:9 --> TK_EPS:79
 
 rules from grammer rule: 26 declaration:8 --> TK_TYPE:59 dataType:7 TK_COLON:22 TK_ID:16 global_or_not:17 TK_SEM:21 
 with lhs firsts size 1	with lhs follow size 10
-adding rule for declaration:8 TK_TYPE:59
-grammer rule: 26 declaration:8 --> TK_TYPE:59 dataType:7 TK_COLON:22 TK_ID:16 global_or_not:17 TK_SEM:21 
+adding rule for declaration:8 TK_TYPE:79
+grammer rule: 26 declaration:8 --> TK_TYPE:79 dataType:7 TK_COLON:22 TK_ID:16 global_or_not:17 TK_SEM:21 
 
 adding rule for declaration:8 TK_TYPE:59
 grammer rule: -2 declaration:8 --> TK_EPS:79 
@@ -1057,8 +991,8 @@ grammer rule: -2 declaration:8 --> TK_EPS:79
 
 rules from grammer rule: 27 global_or_not:17 --> TK_COLON:22 TK_GLOBAL:61 
 with lhs firsts size 2	with lhs follow size 2
-adding rule for global_or_not:17 TK_COLON:22
-grammer rule: 27 global_or_not:17 --> TK_COLON:22 TK_GLOBAL:61 
+adding rule for global_or_not:17 TK_COLON:79
+grammer rule: 27 global_or_not:17 --> TK_COLON:79 TK_GLOBAL:61 
 
 adding rule for global_or_not:17 TK_SEM:21
 grammer rule: -2 global_or_not:17 --> TK_EPS:79 
@@ -1100,16 +1034,6 @@ grammer rule: 29 otherStmts:33 --> stmt:43 otherStmts:33
 adding rule for otherStmts:33 TK_CALL:75
 grammer rule: 29 otherStmts:33 --> stmt:43 otherStmts:33 
 
-adding rule for otherStmts:33 TK_RETURN:74
-grammer rule: -2 otherStmts:33 --> TK_EPS:79 
-adding rule for otherStmts:33 TK_ENDWHILE:68
-grammer rule: -2 otherStmts:33 --> TK_EPS:79 
-adding rule for otherStmts:33 TK_ELSE:78
-grammer rule: -2 otherStmts:33 --> TK_EPS:79 
-adding rule for otherStmts:33 TK_ENDIF:71
-grammer rule: -2 otherStmts:33 --> TK_EPS:79 
-adding rule for otherStmts:33 TK_DOLLAR:80
-grammer rule: -2 otherStmts:33 --> TK_EPS:79 
 
 
 rules from grammer rule: 30 otherStmts:33 --> TK_EPS:79 
@@ -1134,30 +1058,6 @@ with lhs firsts size 7	with lhs follow size 12
 adding rule for stmt:43 TK_ID:16
 grammer rule: 31 stmt:43 --> assignmentStmt:3 
 
-adding rule for stmt:43 TK_ID:16
-grammer rule: -2 stmt:43 --> TK_EPS:79 
-adding rule for stmt:43 TK_WHILE:58
-grammer rule: -2 stmt:43 --> TK_EPS:79 
-adding rule for stmt:43 TK_IF:69
-grammer rule: -2 stmt:43 --> TK_EPS:79 
-adding rule for stmt:43 TK_READ:72
-grammer rule: -2 stmt:43 --> TK_EPS:79 
-adding rule for stmt:43 TK_WRITE:73
-grammer rule: -2 stmt:43 --> TK_EPS:79 
-adding rule for stmt:43 TK_SQL:19
-grammer rule: -2 stmt:43 --> TK_EPS:79 
-adding rule for stmt:43 TK_CALL:75
-grammer rule: -2 stmt:43 --> TK_EPS:79 
-adding rule for stmt:43 TK_RETURN:74
-grammer rule: -2 stmt:43 --> TK_EPS:79 
-adding rule for stmt:43 TK_ENDWHILE:68
-grammer rule: -2 stmt:43 --> TK_EPS:79 
-adding rule for stmt:43 TK_ELSE:78
-grammer rule: -2 stmt:43 --> TK_EPS:79 
-adding rule for stmt:43 TK_ENDIF:71
-grammer rule: -2 stmt:43 --> TK_EPS:79 
-adding rule for stmt:43 TK_DOLLAR:80
-grammer rule: -2 stmt:43 --> TK_EPS:79 
 
 
 rules from grammer rule: 32 stmt:43 --> iterativeStmt:23 
@@ -1165,30 +1065,6 @@ with lhs firsts size 7	with lhs follow size 12
 adding rule for stmt:43 TK_WHILE:58
 grammer rule: 32 stmt:43 --> iterativeStmt:23 
 
-adding rule for stmt:43 TK_ID:16
-grammer rule: -2 stmt:43 --> TK_EPS:79 
-adding rule for stmt:43 TK_WHILE:58
-grammer rule: -2 stmt:43 --> TK_EPS:79 
-adding rule for stmt:43 TK_IF:69
-grammer rule: -2 stmt:43 --> TK_EPS:79 
-adding rule for stmt:43 TK_READ:72
-grammer rule: -2 stmt:43 --> TK_EPS:79 
-adding rule for stmt:43 TK_WRITE:73
-grammer rule: -2 stmt:43 --> TK_EPS:79 
-adding rule for stmt:43 TK_SQL:19
-grammer rule: -2 stmt:43 --> TK_EPS:79 
-adding rule for stmt:43 TK_CALL:75
-grammer rule: -2 stmt:43 --> TK_EPS:79 
-adding rule for stmt:43 TK_RETURN:74
-grammer rule: -2 stmt:43 --> TK_EPS:79 
-adding rule for stmt:43 TK_ENDWHILE:68
-grammer rule: -2 stmt:43 --> TK_EPS:79 
-adding rule for stmt:43 TK_ELSE:78
-grammer rule: -2 stmt:43 --> TK_EPS:79 
-adding rule for stmt:43 TK_ENDIF:71
-grammer rule: -2 stmt:43 --> TK_EPS:79 
-adding rule for stmt:43 TK_DOLLAR:80
-grammer rule: -2 stmt:43 --> TK_EPS:79 
 
 
 rules from grammer rule: 33 stmt:43 --> conditionalStmt:5 
@@ -1196,30 +1072,6 @@ with lhs firsts size 7	with lhs follow size 12
 adding rule for stmt:43 TK_IF:69
 grammer rule: 33 stmt:43 --> conditionalStmt:5 
 
-adding rule for stmt:43 TK_ID:16
-grammer rule: -2 stmt:43 --> TK_EPS:79 
-adding rule for stmt:43 TK_WHILE:58
-grammer rule: -2 stmt:43 --> TK_EPS:79 
-adding rule for stmt:43 TK_IF:69
-grammer rule: -2 stmt:43 --> TK_EPS:79 
-adding rule for stmt:43 TK_READ:72
-grammer rule: -2 stmt:43 --> TK_EPS:79 
-adding rule for stmt:43 TK_WRITE:73
-grammer rule: -2 stmt:43 --> TK_EPS:79 
-adding rule for stmt:43 TK_SQL:19
-grammer rule: -2 stmt:43 --> TK_EPS:79 
-adding rule for stmt:43 TK_CALL:75
-grammer rule: -2 stmt:43 --> TK_EPS:79 
-adding rule for stmt:43 TK_RETURN:74
-grammer rule: -2 stmt:43 --> TK_EPS:79 
-adding rule for stmt:43 TK_ENDWHILE:68
-grammer rule: -2 stmt:43 --> TK_EPS:79 
-adding rule for stmt:43 TK_ELSE:78
-grammer rule: -2 stmt:43 --> TK_EPS:79 
-adding rule for stmt:43 TK_ENDIF:71
-grammer rule: -2 stmt:43 --> TK_EPS:79 
-adding rule for stmt:43 TK_DOLLAR:80
-grammer rule: -2 stmt:43 --> TK_EPS:79 
 
 
 rules from grammer rule: 34 stmt:43 --> ioStmt:22 
@@ -1230,30 +1082,6 @@ grammer rule: 34 stmt:43 --> ioStmt:22
 adding rule for stmt:43 TK_WRITE:73
 grammer rule: 34 stmt:43 --> ioStmt:22 
 
-adding rule for stmt:43 TK_ID:16
-grammer rule: -2 stmt:43 --> TK_EPS:79 
-adding rule for stmt:43 TK_WHILE:58
-grammer rule: -2 stmt:43 --> TK_EPS:79 
-adding rule for stmt:43 TK_IF:69
-grammer rule: -2 stmt:43 --> TK_EPS:79 
-adding rule for stmt:43 TK_READ:72
-grammer rule: -2 stmt:43 --> TK_EPS:79 
-adding rule for stmt:43 TK_WRITE:73
-grammer rule: -2 stmt:43 --> TK_EPS:79 
-adding rule for stmt:43 TK_SQL:19
-grammer rule: -2 stmt:43 --> TK_EPS:79 
-adding rule for stmt:43 TK_CALL:75
-grammer rule: -2 stmt:43 --> TK_EPS:79 
-adding rule for stmt:43 TK_RETURN:74
-grammer rule: -2 stmt:43 --> TK_EPS:79 
-adding rule for stmt:43 TK_ENDWHILE:68
-grammer rule: -2 stmt:43 --> TK_EPS:79 
-adding rule for stmt:43 TK_ELSE:78
-grammer rule: -2 stmt:43 --> TK_EPS:79 
-adding rule for stmt:43 TK_ENDIF:71
-grammer rule: -2 stmt:43 --> TK_EPS:79 
-adding rule for stmt:43 TK_DOLLAR:80
-grammer rule: -2 stmt:43 --> TK_EPS:79 
 
 
 rules from grammer rule: 35 stmt:43 --> funCallStmt:15 
@@ -1264,30 +1092,6 @@ grammer rule: 35 stmt:43 --> funCallStmt:15
 adding rule for stmt:43 TK_CALL:75
 grammer rule: 35 stmt:43 --> funCallStmt:15 
 
-adding rule for stmt:43 TK_ID:16
-grammer rule: -2 stmt:43 --> TK_EPS:79 
-adding rule for stmt:43 TK_WHILE:58
-grammer rule: -2 stmt:43 --> TK_EPS:79 
-adding rule for stmt:43 TK_IF:69
-grammer rule: -2 stmt:43 --> TK_EPS:79 
-adding rule for stmt:43 TK_READ:72
-grammer rule: -2 stmt:43 --> TK_EPS:79 
-adding rule for stmt:43 TK_WRITE:73
-grammer rule: -2 stmt:43 --> TK_EPS:79 
-adding rule for stmt:43 TK_SQL:19
-grammer rule: -2 stmt:43 --> TK_EPS:79 
-adding rule for stmt:43 TK_CALL:75
-grammer rule: -2 stmt:43 --> TK_EPS:79 
-adding rule for stmt:43 TK_RETURN:74
-grammer rule: -2 stmt:43 --> TK_EPS:79 
-adding rule for stmt:43 TK_ENDWHILE:68
-grammer rule: -2 stmt:43 --> TK_EPS:79 
-adding rule for stmt:43 TK_ELSE:78
-grammer rule: -2 stmt:43 --> TK_EPS:79 
-adding rule for stmt:43 TK_ENDIF:71
-grammer rule: -2 stmt:43 --> TK_EPS:79 
-adding rule for stmt:43 TK_DOLLAR:80
-grammer rule: -2 stmt:43 --> TK_EPS:79 
 
 
 rules from grammer rule: 36 assignmentStmt:3 --> singleOrRecId:42 TK_ASSIGNOP:4 arithmeticExpression:2 TK_SEM:21 
@@ -1295,36 +1099,12 @@ with lhs firsts size 1	with lhs follow size 12
 adding rule for assignmentStmt:3 TK_ID:16
 grammer rule: 36 assignmentStmt:3 --> singleOrRecId:42 TK_ASSIGNOP:4 arithmeticExpression:2 TK_SEM:21 
 
-adding rule for assignmentStmt:3 TK_ID:16
-grammer rule: -2 assignmentStmt:3 --> TK_EPS:79 
-adding rule for assignmentStmt:3 TK_WHILE:58
-grammer rule: -2 assignmentStmt:3 --> TK_EPS:79 
-adding rule for assignmentStmt:3 TK_IF:69
-grammer rule: -2 assignmentStmt:3 --> TK_EPS:79 
-adding rule for assignmentStmt:3 TK_READ:72
-grammer rule: -2 assignmentStmt:3 --> TK_EPS:79 
-adding rule for assignmentStmt:3 TK_WRITE:73
-grammer rule: -2 assignmentStmt:3 --> TK_EPS:79 
-adding rule for assignmentStmt:3 TK_SQL:19
-grammer rule: -2 assignmentStmt:3 --> TK_EPS:79 
-adding rule for assignmentStmt:3 TK_CALL:75
-grammer rule: -2 assignmentStmt:3 --> TK_EPS:79 
-adding rule for assignmentStmt:3 TK_RETURN:74
-grammer rule: -2 assignmentStmt:3 --> TK_EPS:79 
-adding rule for assignmentStmt:3 TK_ENDWHILE:68
-grammer rule: -2 assignmentStmt:3 --> TK_EPS:79 
-adding rule for assignmentStmt:3 TK_ELSE:78
-grammer rule: -2 assignmentStmt:3 --> TK_EPS:79 
-adding rule for assignmentStmt:3 TK_ENDIF:71
-grammer rule: -2 assignmentStmt:3 --> TK_EPS:79 
-adding rule for assignmentStmt:3 TK_DOLLAR:80
-grammer rule: -2 assignmentStmt:3 --> TK_EPS:79 
 
 
 rules from grammer rule: 37 singleOrRecId:42 --> TK_ID:16 new24:29 
 with lhs firsts size 1	with lhs follow size 3
-adding rule for singleOrRecId:42 TK_ID:16
-grammer rule: 37 singleOrRecId:42 --> TK_ID:16 new24:29 
+adding rule for singleOrRecId:42 TK_ID:79
+grammer rule: 37 singleOrRecId:42 --> TK_ID:79 new24:29 
 
 adding rule for singleOrRecId:42 TK_ASSIGNOP:4
 grammer rule: -2 singleOrRecId:42 --> TK_EPS:79 
@@ -1336,8 +1116,8 @@ grammer rule: -2 singleOrRecId:42 --> TK_EPS:79
 
 rules from grammer rule: 38 new24:29 --> TK_DOT:20 TK_FIELDID:18 
 with lhs firsts size 2	with lhs follow size 3
-adding rule for new24:29 TK_DOT:20
-grammer rule: 38 new24:29 --> TK_DOT:20 TK_FIELDID:18 
+adding rule for new24:29 TK_DOT:79
+grammer rule: 38 new24:29 --> TK_DOT:79 TK_FIELDID:18 
 
 adding rule for new24:29 TK_ASSIGNOP:4
 grammer rule: -2 new24:29 --> TK_EPS:79 
@@ -1393,8 +1173,8 @@ grammer rule: -2 funCallStmt:15 --> TK_EPS:79
 
 rules from grammer rule: 41 outputParameters:35 --> TK_SQL:19 idList:19 TK_SQR:12 TK_ASSIGNOP:4 
 with lhs firsts size 2	with lhs follow size 2
-adding rule for outputParameters:35 TK_SQL:19
-grammer rule: 41 outputParameters:35 --> TK_SQL:19 idList:19 TK_SQR:12 TK_ASSIGNOP:4 
+adding rule for outputParameters:35 TK_SQL:79
+grammer rule: 41 outputParameters:35 --> TK_SQL:79 idList:19 TK_SQR:12 TK_ASSIGNOP:4 
 
 adding rule for outputParameters:35 TK_CALL:75
 grammer rule: -2 outputParameters:35 --> TK_EPS:79 
@@ -1415,8 +1195,8 @@ grammer rule: -2 outputParameters:35 --> TK_EPS:79
 
 rules from grammer rule: 43 inputParameters:21 --> TK_SQL:19 idList:19 TK_SQR:12 
 with lhs firsts size 1	with lhs follow size 2
-adding rule for inputParameters:21 TK_SQL:19
-grammer rule: 43 inputParameters:21 --> TK_SQL:19 idList:19 TK_SQR:12 
+adding rule for inputParameters:21 TK_SQL:79
+grammer rule: 43 inputParameters:21 --> TK_SQL:79 idList:19 TK_SQR:12 
 
 adding rule for inputParameters:21 TK_SEM:21
 grammer rule: -2 inputParameters:21 --> TK_EPS:79 
@@ -1426,8 +1206,8 @@ grammer rule: -2 inputParameters:21 --> TK_EPS:79
 
 rules from grammer rule: 44 iterativeStmt:23 --> TK_WHILE:58 TK_OP:24 booleanExpression:4 TK_CL:23 stmt:43 otherStmts:33 TK_ENDWHILE:68 
 with lhs firsts size 1	with lhs follow size 12
-adding rule for iterativeStmt:23 TK_WHILE:58
-grammer rule: 44 iterativeStmt:23 --> TK_WHILE:58 TK_OP:24 booleanExpression:4 TK_CL:23 stmt:43 otherStmts:33 TK_ENDWHILE:68 
+adding rule for iterativeStmt:23 TK_WHILE:79
+grammer rule: 44 iterativeStmt:23 --> TK_WHILE:79 TK_OP:24 booleanExpression:4 TK_CL:23 stmt:43 otherStmts:33 TK_ENDWHILE:68 
 
 adding rule for iterativeStmt:23 TK_ID:16
 grammer rule: -2 iterativeStmt:23 --> TK_EPS:79 
@@ -1457,8 +1237,8 @@ grammer rule: -2 iterativeStmt:23 --> TK_EPS:79
 
 rules from grammer rule: 45 conditionalStmt:5 --> TK_IF:69 TK_OP:24 booleanExpression:4 TK_CL:23 TK_THEN:70 stmt:43 otherStmts:33 elsePart:10 
 with lhs firsts size 1	with lhs follow size 12
-adding rule for conditionalStmt:5 TK_IF:69
-grammer rule: 45 conditionalStmt:5 --> TK_IF:69 TK_OP:24 booleanExpression:4 TK_CL:23 TK_THEN:70 stmt:43 otherStmts:33 elsePart:10 
+adding rule for conditionalStmt:5 TK_IF:79
+grammer rule: 45 conditionalStmt:5 --> TK_IF:79 TK_OP:24 booleanExpression:4 TK_CL:23 TK_THEN:70 stmt:43 otherStmts:33 elsePart:10 
 
 adding rule for conditionalStmt:5 TK_ID:16
 grammer rule: -2 conditionalStmt:5 --> TK_EPS:79 
@@ -1488,8 +1268,8 @@ grammer rule: -2 conditionalStmt:5 --> TK_EPS:79
 
 rules from grammer rule: 46 elsePart:10 --> TK_ELSE:78 stmt:43 otherStmts:33 TK_ENDIF:71 
 with lhs firsts size 2	with lhs follow size 12
-adding rule for elsePart:10 TK_ELSE:78
-grammer rule: 46 elsePart:10 --> TK_ELSE:78 stmt:43 otherStmts:33 TK_ENDIF:71 
+adding rule for elsePart:10 TK_ELSE:79
+grammer rule: 46 elsePart:10 --> TK_ELSE:79 stmt:43 otherStmts:33 TK_ENDIF:71 
 
 adding rule for elsePart:10 TK_ID:16
 grammer rule: -2 elsePart:10 --> TK_EPS:79 
@@ -1519,8 +1299,8 @@ grammer rule: -2 elsePart:10 --> TK_EPS:79
 
 rules from grammer rule: 47 elsePart:10 --> TK_ENDIF:71 
 with lhs firsts size 2	with lhs follow size 12
-adding rule for elsePart:10 TK_ENDIF:71
-grammer rule: 47 elsePart:10 --> TK_ENDIF:71 
+adding rule for elsePart:10 TK_ENDIF:79
+grammer rule: 47 elsePart:10 --> TK_ENDIF:79 
 
 adding rule for elsePart:10 TK_ID:16
 grammer rule: -2 elsePart:10 --> TK_EPS:79 
@@ -1550,8 +1330,8 @@ grammer rule: -2 elsePart:10 --> TK_EPS:79
 
 rules from grammer rule: 48 ioStmt:22 --> TK_READ:72 TK_OP:24 singleOrRecId:42 TK_CL:23 TK_SEM:21 
 with lhs firsts size 2	with lhs follow size 12
-adding rule for ioStmt:22 TK_READ:72
-grammer rule: 48 ioStmt:22 --> TK_READ:72 TK_OP:24 singleOrRecId:42 TK_CL:23 TK_SEM:21 
+adding rule for ioStmt:22 TK_READ:79
+grammer rule: 48 ioStmt:22 --> TK_READ:79 TK_OP:24 singleOrRecId:42 TK_CL:23 TK_SEM:21 
 
 adding rule for ioStmt:22 TK_ID:16
 grammer rule: -2 ioStmt:22 --> TK_EPS:79 
@@ -1581,8 +1361,8 @@ grammer rule: -2 ioStmt:22 --> TK_EPS:79
 
 rules from grammer rule: 49 ioStmt:22 --> TK_WRITE:73 TK_OP:24 allVar:1 TK_CL:23 TK_SEM:21 
 with lhs firsts size 2	with lhs follow size 12
-adding rule for ioStmt:22 TK_WRITE:73
-grammer rule: 49 ioStmt:22 --> TK_WRITE:73 TK_OP:24 allVar:1 TK_CL:23 TK_SEM:21 
+adding rule for ioStmt:22 TK_WRITE:79
+grammer rule: 49 ioStmt:22 --> TK_WRITE:79 TK_OP:24 allVar:1 TK_CL:23 TK_SEM:21 
 
 adding rule for ioStmt:22 TK_ID:16
 grammer rule: -2 ioStmt:22 --> TK_EPS:79 
@@ -1612,8 +1392,8 @@ grammer rule: -2 ioStmt:22 --> TK_EPS:79
 
 rules from grammer rule: 50 allVar:1 --> TK_ID:16 newVar:30 
 with lhs firsts size 3	with lhs follow size 2
-adding rule for allVar:1 TK_ID:16
-grammer rule: 50 allVar:1 --> TK_ID:16 newVar:30 
+adding rule for allVar:1 TK_ID:79
+grammer rule: 50 allVar:1 --> TK_ID:79 newVar:30 
 
 adding rule for allVar:1 TK_CL:23
 grammer rule: -2 allVar:1 --> TK_EPS:79 
@@ -1623,8 +1403,8 @@ grammer rule: -2 allVar:1 --> TK_EPS:79
 
 rules from grammer rule: 51 allVar:1 --> TK_NUM:29 
 with lhs firsts size 3	with lhs follow size 2
-adding rule for allVar:1 TK_NUM:29
-grammer rule: 51 allVar:1 --> TK_NUM:29 
+adding rule for allVar:1 TK_NUM:79
+grammer rule: 51 allVar:1 --> TK_NUM:79 
 
 adding rule for allVar:1 TK_CL:23
 grammer rule: -2 allVar:1 --> TK_EPS:79 
@@ -1634,8 +1414,8 @@ grammer rule: -2 allVar:1 --> TK_EPS:79
 
 rules from grammer rule: 52 allVar:1 --> TK_RNUM:28 
 with lhs firsts size 3	with lhs follow size 2
-adding rule for allVar:1 TK_RNUM:28
-grammer rule: 52 allVar:1 --> TK_RNUM:28 
+adding rule for allVar:1 TK_RNUM:79
+grammer rule: 52 allVar:1 --> TK_RNUM:79 
 
 adding rule for allVar:1 TK_CL:23
 grammer rule: -2 allVar:1 --> TK_EPS:79 
@@ -1645,8 +1425,8 @@ grammer rule: -2 allVar:1 --> TK_EPS:79
 
 rules from grammer rule: 53 newVar:30 --> TK_DOT:20 TK_FIELDID:18 
 with lhs firsts size 2	with lhs follow size 2
-adding rule for newVar:30 TK_DOT:20
-grammer rule: 53 newVar:30 --> TK_DOT:20 TK_FIELDID:18 
+adding rule for newVar:30 TK_DOT:79
+grammer rule: 53 newVar:30 --> TK_DOT:79 TK_FIELDID:18 
 
 adding rule for newVar:30 TK_CL:23
 grammer rule: -2 newVar:30 --> TK_EPS:79 
@@ -1679,12 +1459,6 @@ grammer rule: 55 arithmeticExpression:2 --> term:46 expPrime:11
 adding rule for arithmeticExpression:2 TK_ID:16
 grammer rule: 55 arithmeticExpression:2 --> term:46 expPrime:11 
 
-adding rule for arithmeticExpression:2 TK_SEM:21
-grammer rule: -2 arithmeticExpression:2 --> TK_EPS:79 
-adding rule for arithmeticExpression:2 TK_CL:23
-grammer rule: -2 arithmeticExpression:2 --> TK_EPS:79 
-adding rule for arithmeticExpression:2 TK_DOLLAR:80
-grammer rule: -2 arithmeticExpression:2 --> TK_EPS:79 
 
 
 rules from grammer rule: 56 expPrime:11 --> lowPrecedenceOperators:25 term:46 expPrime:11 
@@ -1695,12 +1469,6 @@ grammer rule: 56 expPrime:11 --> lowPrecedenceOperators:25 term:46 expPrime:11
 adding rule for expPrime:11 TK_MINUS:32
 grammer rule: 56 expPrime:11 --> lowPrecedenceOperators:25 term:46 expPrime:11 
 
-adding rule for expPrime:11 TK_SEM:21
-grammer rule: -2 expPrime:11 --> TK_EPS:79 
-adding rule for expPrime:11 TK_CL:23
-grammer rule: -2 expPrime:11 --> TK_EPS:79 
-adding rule for expPrime:11 TK_DOLLAR:80
-grammer rule: -2 expPrime:11 --> TK_EPS:79 
 
 
 rules from grammer rule: 57 expPrime:11 --> TK_EPS:79 
@@ -1730,16 +1498,6 @@ grammer rule: 58 term:46 --> factor:12 termPrime:47
 adding rule for term:46 TK_ID:16
 grammer rule: 58 term:46 --> factor:12 termPrime:47 
 
-adding rule for term:46 TK_PLUS:31
-grammer rule: -2 term:46 --> TK_EPS:79 
-adding rule for term:46 TK_MINUS:32
-grammer rule: -2 term:46 --> TK_EPS:79 
-adding rule for term:46 TK_SEM:21
-grammer rule: -2 term:46 --> TK_EPS:79 
-adding rule for term:46 TK_CL:23
-grammer rule: -2 term:46 --> TK_EPS:79 
-adding rule for term:46 TK_DOLLAR:80
-grammer rule: -2 term:46 --> TK_EPS:79 
 
 
 rules from grammer rule: 59 termPrime:47 --> highPrecedenceOperators:18 factor:12 termPrime:47 
@@ -1750,16 +1508,6 @@ grammer rule: 59 termPrime:47 --> highPrecedenceOperators:18 factor:12 termPrime
 adding rule for termPrime:47 TK_DIV:34
 grammer rule: 59 termPrime:47 --> highPrecedenceOperators:18 factor:12 termPrime:47 
 
-adding rule for termPrime:47 TK_PLUS:31
-grammer rule: -2 termPrime:47 --> TK_EPS:79 
-adding rule for termPrime:47 TK_MINUS:32
-grammer rule: -2 termPrime:47 --> TK_EPS:79 
-adding rule for termPrime:47 TK_SEM:21
-grammer rule: -2 termPrime:47 --> TK_EPS:79 
-adding rule for termPrime:47 TK_CL:23
-grammer rule: -2 termPrime:47 --> TK_EPS:79 
-adding rule for termPrime:47 TK_DOLLAR:80
-grammer rule: -2 termPrime:47 --> TK_EPS:79 
 
 
 rules from grammer rule: 60 termPrime:47 --> TK_EPS:79 
@@ -1781,8 +1529,8 @@ grammer rule: -2 termPrime:47 --> TK_EPS:79
 
 rules from grammer rule: 61 factor:12 --> TK_OP:24 arithmeticExpression:2 TK_CL:23 
 with lhs firsts size 4	with lhs follow size 7
-adding rule for factor:12 TK_OP:24
-grammer rule: 61 factor:12 --> TK_OP:24 arithmeticExpression:2 TK_CL:23 
+adding rule for factor:12 TK_OP:79
+grammer rule: 61 factor:12 --> TK_OP:79 arithmeticExpression:2 TK_CL:23 
 
 adding rule for factor:12 TK_MUL:33
 grammer rule: -2 factor:12 --> TK_EPS:79 
@@ -1811,26 +1559,12 @@ grammer rule: 62 factor:12 --> all:0
 adding rule for factor:12 TK_ID:16
 grammer rule: 62 factor:12 --> all:0 
 
-adding rule for factor:12 TK_MUL:33
-grammer rule: -2 factor:12 --> TK_EPS:79 
-adding rule for factor:12 TK_DIV:34
-grammer rule: -2 factor:12 --> TK_EPS:79 
-adding rule for factor:12 TK_PLUS:31
-grammer rule: -2 factor:12 --> TK_EPS:79 
-adding rule for factor:12 TK_MINUS:32
-grammer rule: -2 factor:12 --> TK_EPS:79 
-adding rule for factor:12 TK_SEM:21
-grammer rule: -2 factor:12 --> TK_EPS:79 
-adding rule for factor:12 TK_CL:23
-grammer rule: -2 factor:12 --> TK_EPS:79 
-adding rule for factor:12 TK_DOLLAR:80
-grammer rule: -2 factor:12 --> TK_EPS:79 
 
 
 rules from grammer rule: 63 highPrecedenceOperators:18 --> TK_MUL:33 
 with lhs firsts size 2	with lhs follow size 5
-adding rule for highPrecedenceOperators:18 TK_MUL:33
-grammer rule: 63 highPrecedenceOperators:18 --> TK_MUL:33 
+adding rule for highPrecedenceOperators:18 TK_MUL:79
+grammer rule: 63 highPrecedenceOperators:18 --> TK_MUL:79 
 
 adding rule for highPrecedenceOperators:18 TK_OP:24
 grammer rule: -2 highPrecedenceOperators:18 --> TK_EPS:79 
@@ -1846,8 +1580,8 @@ grammer rule: -2 highPrecedenceOperators:18 --> TK_EPS:79
 
 rules from grammer rule: 64 highPrecedenceOperators:18 --> TK_DIV:34 
 with lhs firsts size 2	with lhs follow size 5
-adding rule for highPrecedenceOperators:18 TK_DIV:34
-grammer rule: 64 highPrecedenceOperators:18 --> TK_DIV:34 
+adding rule for highPrecedenceOperators:18 TK_DIV:79
+grammer rule: 64 highPrecedenceOperators:18 --> TK_DIV:79 
 
 adding rule for highPrecedenceOperators:18 TK_OP:24
 grammer rule: -2 highPrecedenceOperators:18 --> TK_EPS:79 
@@ -1863,8 +1597,8 @@ grammer rule: -2 highPrecedenceOperators:18 --> TK_EPS:79
 
 rules from grammer rule: 65 lowPrecedenceOperators:25 --> TK_PLUS:31 
 with lhs firsts size 2	with lhs follow size 5
-adding rule for lowPrecedenceOperators:25 TK_PLUS:31
-grammer rule: 65 lowPrecedenceOperators:25 --> TK_PLUS:31 
+adding rule for lowPrecedenceOperators:25 TK_PLUS:79
+grammer rule: 65 lowPrecedenceOperators:25 --> TK_PLUS:79 
 
 adding rule for lowPrecedenceOperators:25 TK_OP:24
 grammer rule: -2 lowPrecedenceOperators:25 --> TK_EPS:79 
@@ -1880,8 +1614,8 @@ grammer rule: -2 lowPrecedenceOperators:25 --> TK_EPS:79
 
 rules from grammer rule: 66 lowPrecedenceOperators:25 --> TK_MINUS:32 
 with lhs firsts size 2	with lhs follow size 5
-adding rule for lowPrecedenceOperators:25 TK_MINUS:32
-grammer rule: 66 lowPrecedenceOperators:25 --> TK_MINUS:32 
+adding rule for lowPrecedenceOperators:25 TK_MINUS:79
+grammer rule: 66 lowPrecedenceOperators:25 --> TK_MINUS:79 
 
 adding rule for lowPrecedenceOperators:25 TK_OP:24
 grammer rule: -2 lowPrecedenceOperators:25 --> TK_EPS:79 
@@ -1897,8 +1631,8 @@ grammer rule: -2 lowPrecedenceOperators:25 --> TK_EPS:79
 
 rules from grammer rule: 67 all:0 --> TK_NUM:29 
 with lhs firsts size 3	with lhs follow size 7
-adding rule for all:0 TK_NUM:29
-grammer rule: 67 all:0 --> TK_NUM:29 
+adding rule for all:0 TK_NUM:79
+grammer rule: 67 all:0 --> TK_NUM:79 
 
 adding rule for all:0 TK_MUL:33
 grammer rule: -2 all:0 --> TK_EPS:79 
@@ -1918,8 +1652,8 @@ grammer rule: -2 all:0 --> TK_EPS:79
 
 rules from grammer rule: 68 all:0 --> TK_RNUM:28 
 with lhs firsts size 3	with lhs follow size 7
-adding rule for all:0 TK_RNUM:28
-grammer rule: 68 all:0 --> TK_RNUM:28 
+adding rule for all:0 TK_RNUM:79
+grammer rule: 68 all:0 --> TK_RNUM:79 
 
 adding rule for all:0 TK_MUL:33
 grammer rule: -2 all:0 --> TK_EPS:79 
@@ -1939,8 +1673,8 @@ grammer rule: -2 all:0 --> TK_EPS:79
 
 rules from grammer rule: 69 all:0 --> TK_ID:16 temp:45 
 with lhs firsts size 3	with lhs follow size 7
-adding rule for all:0 TK_ID:16
-grammer rule: 69 all:0 --> TK_ID:16 temp:45 
+adding rule for all:0 TK_ID:79
+grammer rule: 69 all:0 --> TK_ID:79 temp:45 
 
 adding rule for all:0 TK_MUL:33
 grammer rule: -2 all:0 --> TK_EPS:79 
@@ -1960,8 +1694,8 @@ grammer rule: -2 all:0 --> TK_EPS:79
 
 rules from grammer rule: 70 temp:45 --> TK_DOT:20 TK_FIELDID:18 
 with lhs firsts size 2	with lhs follow size 7
-adding rule for temp:45 TK_DOT:20
-grammer rule: 70 temp:45 --> TK_DOT:20 TK_FIELDID:18 
+adding rule for temp:45 TK_DOT:79
+grammer rule: 70 temp:45 --> TK_DOT:79 TK_FIELDID:18 
 
 adding rule for temp:45 TK_MUL:33
 grammer rule: -2 temp:45 --> TK_EPS:79 
@@ -2002,8 +1736,8 @@ grammer rule: -2 temp:45 --> TK_EPS:79
 
 rules from grammer rule: 72 booleanExpression:4 --> TK_OP:24 booleanExpression:4 TK_CL:23 logicalOp:24 TK_OP:24 booleanExpression:4 TK_CL:23 
 with lhs firsts size 5	with lhs follow size 2
-adding rule for booleanExpression:4 TK_OP:24
-grammer rule: 72 booleanExpression:4 --> TK_OP:24 booleanExpression:4 TK_CL:23 logicalOp:24 TK_OP:24 booleanExpression:4 TK_CL:23 
+adding rule for booleanExpression:4 TK_OP:79
+grammer rule: 72 booleanExpression:4 --> TK_OP:79 booleanExpression:4 TK_CL:23 logicalOp:24 TK_OP:24 booleanExpression:4 TK_CL:23 
 
 adding rule for booleanExpression:4 TK_CL:23
 grammer rule: -2 booleanExpression:4 --> TK_EPS:79 
@@ -2022,16 +1756,12 @@ grammer rule: 73 booleanExpression:4 --> var:50 relationalOp:39 var:50
 adding rule for booleanExpression:4 TK_RNUM:28
 grammer rule: 73 booleanExpression:4 --> var:50 relationalOp:39 var:50 
 
-adding rule for booleanExpression:4 TK_CL:23
-grammer rule: -2 booleanExpression:4 --> TK_EPS:79 
-adding rule for booleanExpression:4 TK_DOLLAR:80
-grammer rule: -2 booleanExpression:4 --> TK_EPS:79 
 
 
 rules from grammer rule: 74 booleanExpression:4 --> TK_NOT:52 TK_OP:24 booleanExpression:4 TK_CL:23 
 with lhs firsts size 5	with lhs follow size 2
-adding rule for booleanExpression:4 TK_NOT:52
-grammer rule: 74 booleanExpression:4 --> TK_NOT:52 TK_OP:24 booleanExpression:4 TK_CL:23 
+adding rule for booleanExpression:4 TK_NOT:79
+grammer rule: 74 booleanExpression:4 --> TK_NOT:79 TK_OP:24 booleanExpression:4 TK_CL:23 
 
 adding rule for booleanExpression:4 TK_CL:23
 grammer rule: -2 booleanExpression:4 --> TK_EPS:79 
@@ -2041,8 +1771,8 @@ grammer rule: -2 booleanExpression:4 --> TK_EPS:79
 
 rules from grammer rule: 75 var:50 --> TK_ID:16 
 with lhs firsts size 3	with lhs follow size 7
-adding rule for var:50 TK_ID:16
-grammer rule: 75 var:50 --> TK_ID:16 
+adding rule for var:50 TK_ID:79
+grammer rule: 75 var:50 --> TK_ID:79 
 
 adding rule for var:50 TK_LT:6
 grammer rule: -2 var:50 --> TK_EPS:79 
@@ -2062,8 +1792,8 @@ grammer rule: -2 var:50 --> TK_EPS:79
 
 rules from grammer rule: 76 var:50 --> TK_NUM:29 
 with lhs firsts size 3	with lhs follow size 7
-adding rule for var:50 TK_NUM:29
-grammer rule: 76 var:50 --> TK_NUM:29 
+adding rule for var:50 TK_NUM:79
+grammer rule: 76 var:50 --> TK_NUM:79 
 
 adding rule for var:50 TK_LT:6
 grammer rule: -2 var:50 --> TK_EPS:79 
@@ -2083,8 +1813,8 @@ grammer rule: -2 var:50 --> TK_EPS:79
 
 rules from grammer rule: 77 var:50 --> TK_RNUM:28 
 with lhs firsts size 3	with lhs follow size 7
-adding rule for var:50 TK_RNUM:28
-grammer rule: 77 var:50 --> TK_RNUM:28 
+adding rule for var:50 TK_RNUM:79
+grammer rule: 77 var:50 --> TK_RNUM:79 
 
 adding rule for var:50 TK_LT:6
 grammer rule: -2 var:50 --> TK_EPS:79 
@@ -2104,8 +1834,8 @@ grammer rule: -2 var:50 --> TK_EPS:79
 
 rules from grammer rule: 78 logicalOp:24 --> TK_AND:37 
 with lhs firsts size 2	with lhs follow size 2
-adding rule for logicalOp:24 TK_AND:37
-grammer rule: 78 logicalOp:24 --> TK_AND:37 
+adding rule for logicalOp:24 TK_AND:79
+grammer rule: 78 logicalOp:24 --> TK_AND:79 
 
 adding rule for logicalOp:24 TK_OP:24
 grammer rule: -2 logicalOp:24 --> TK_EPS:79 
@@ -2115,8 +1845,8 @@ grammer rule: -2 logicalOp:24 --> TK_EPS:79
 
 rules from grammer rule: 79 logicalOp:24 --> TK_OR:40 
 with lhs firsts size 2	with lhs follow size 2
-adding rule for logicalOp:24 TK_OR:40
-grammer rule: 79 logicalOp:24 --> TK_OR:40 
+adding rule for logicalOp:24 TK_OR:79
+grammer rule: 79 logicalOp:24 --> TK_OR:79 
 
 adding rule for logicalOp:24 TK_OP:24
 grammer rule: -2 logicalOp:24 --> TK_EPS:79 
@@ -2126,8 +1856,8 @@ grammer rule: -2 logicalOp:24 --> TK_EPS:79
 
 rules from grammer rule: 80 relationalOp:39 --> TK_LT:6 
 with lhs firsts size 6	with lhs follow size 4
-adding rule for relationalOp:39 TK_LT:6
-grammer rule: 80 relationalOp:39 --> TK_LT:6 
+adding rule for relationalOp:39 TK_LT:79
+grammer rule: 80 relationalOp:39 --> TK_LT:79 
 
 adding rule for relationalOp:39 TK_ID:16
 grammer rule: -2 relationalOp:39 --> TK_EPS:79 
@@ -2141,8 +1871,8 @@ grammer rule: -2 relationalOp:39 --> TK_EPS:79
 
 rules from grammer rule: 81 relationalOp:39 --> TK_LE:5 
 with lhs firsts size 6	with lhs follow size 4
-adding rule for relationalOp:39 TK_LE:5
-grammer rule: 81 relationalOp:39 --> TK_LE:5 
+adding rule for relationalOp:39 TK_LE:79
+grammer rule: 81 relationalOp:39 --> TK_LE:79 
 
 adding rule for relationalOp:39 TK_ID:16
 grammer rule: -2 relationalOp:39 --> TK_EPS:79 
@@ -2156,8 +1886,8 @@ grammer rule: -2 relationalOp:39 --> TK_EPS:79
 
 rules from grammer rule: 82 relationalOp:39 --> TK_EQ:42 
 with lhs firsts size 6	with lhs follow size 4
-adding rule for relationalOp:39 TK_EQ:42
-grammer rule: 82 relationalOp:39 --> TK_EQ:42 
+adding rule for relationalOp:39 TK_EQ:79
+grammer rule: 82 relationalOp:39 --> TK_EQ:79 
 
 adding rule for relationalOp:39 TK_ID:16
 grammer rule: -2 relationalOp:39 --> TK_EPS:79 
@@ -2171,8 +1901,8 @@ grammer rule: -2 relationalOp:39 --> TK_EPS:79
 
 rules from grammer rule: 83 relationalOp:39 --> TK_GT:9 
 with lhs firsts size 6	with lhs follow size 4
-adding rule for relationalOp:39 TK_GT:9
-grammer rule: 83 relationalOp:39 --> TK_GT:9 
+adding rule for relationalOp:39 TK_GT:79
+grammer rule: 83 relationalOp:39 --> TK_GT:79 
 
 adding rule for relationalOp:39 TK_ID:16
 grammer rule: -2 relationalOp:39 --> TK_EPS:79 
@@ -2186,8 +1916,8 @@ grammer rule: -2 relationalOp:39 --> TK_EPS:79
 
 rules from grammer rule: 84 relationalOp:39 --> TK_GE:8 
 with lhs firsts size 6	with lhs follow size 4
-adding rule for relationalOp:39 TK_GE:8
-grammer rule: 84 relationalOp:39 --> TK_GE:8 
+adding rule for relationalOp:39 TK_GE:79
+grammer rule: 84 relationalOp:39 --> TK_GE:79 
 
 adding rule for relationalOp:39 TK_ID:16
 grammer rule: -2 relationalOp:39 --> TK_EPS:79 
@@ -2201,8 +1931,8 @@ grammer rule: -2 relationalOp:39 --> TK_EPS:79
 
 rules from grammer rule: 85 relationalOp:39 --> TK_NE:44 
 with lhs firsts size 6	with lhs follow size 4
-adding rule for relationalOp:39 TK_NE:44
-grammer rule: 85 relationalOp:39 --> TK_NE:44 
+adding rule for relationalOp:39 TK_NE:79
+grammer rule: 85 relationalOp:39 --> TK_NE:79 
 
 adding rule for relationalOp:39 TK_ID:16
 grammer rule: -2 relationalOp:39 --> TK_EPS:79 
@@ -2216,8 +1946,8 @@ grammer rule: -2 relationalOp:39 --> TK_EPS:79
 
 rules from grammer rule: 86 returnStmt:41 --> TK_RETURN:74 optionalReturn:31 TK_SEM:21 
 with lhs firsts size 1	with lhs follow size 2
-adding rule for returnStmt:41 TK_RETURN:74
-grammer rule: 86 returnStmt:41 --> TK_RETURN:74 optionalReturn:31 TK_SEM:21 
+adding rule for returnStmt:41 TK_RETURN:79
+grammer rule: 86 returnStmt:41 --> TK_RETURN:79 optionalReturn:31 TK_SEM:21 
 
 adding rule for returnStmt:41 TK_END:57
 grammer rule: -2 returnStmt:41 --> TK_EPS:79 
@@ -2227,8 +1957,8 @@ grammer rule: -2 returnStmt:41 --> TK_EPS:79
 
 rules from grammer rule: 87 optionalReturn:31 --> TK_SQL:19 idList:19 TK_SQR:12 
 with lhs firsts size 2	with lhs follow size 2
-adding rule for optionalReturn:31 TK_SQL:19
-grammer rule: 87 optionalReturn:31 --> TK_SQL:19 idList:19 TK_SQR:12 
+adding rule for optionalReturn:31 TK_SQL:79
+grammer rule: 87 optionalReturn:31 --> TK_SQL:79 idList:19 TK_SQR:12 
 
 adding rule for optionalReturn:31 TK_SEM:21
 grammer rule: -2 optionalReturn:31 --> TK_EPS:79 
@@ -2249,8 +1979,8 @@ grammer rule: -2 optionalReturn:31 --> TK_EPS:79
 
 rules from grammer rule: 89 idList:19 --> TK_ID:16 more_ids:28 
 with lhs firsts size 1	with lhs follow size 2
-adding rule for idList:19 TK_ID:16
-grammer rule: 89 idList:19 --> TK_ID:16 more_ids:28 
+adding rule for idList:19 TK_ID:79
+grammer rule: 89 idList:19 --> TK_ID:79 more_ids:28 
 
 adding rule for idList:19 TK_SQR:12
 grammer rule: -2 idList:19 --> TK_EPS:79 
@@ -2260,8 +1990,8 @@ grammer rule: -2 idList:19 --> TK_EPS:79
 
 rules from grammer rule: 90 more_ids:28 --> TK_COMMA:30 idList:19 
 with lhs firsts size 2	with lhs follow size 2
-adding rule for more_ids:28 TK_COMMA:30
-grammer rule: 90 more_ids:28 --> TK_COMMA:30 idList:19 
+adding rule for more_ids:28 TK_COMMA:79
+grammer rule: 90 more_ids:28 --> TK_COMMA:79 idList:19 
 
 adding rule for more_ids:28 TK_SQR:12
 grammer rule: -2 more_ids:28 --> TK_EPS:79 
@@ -2436,88 +2166,87 @@ var
 
 printing parse table
 non_terminals,TK_ASSIGNOP:4,TK_LE:5,TK_LT:6,TK_GE:8,TK_GT:9,TK_COMMENT:11,TK_SQR:12,TK_ID:16,TK_FIELDID:18,TK_SQL:19,TK_DOT:20,TK_SEM:21,TK_COLON:22,TK_CL:23,TK_OP:24,TK_RNUM:28,TK_NUM:29,TK_COMMA:30,TK_PLUS:31,TK_MINUS:32,TK_MUL:33,TK_DIV:34,TK_AND:37,TK_OR:40,TK_EQ:42,TK_NE:44,TK_FUNID:48,TK_RECORDID:51,TK_NOT:52,TK_DELIM:53,TK_WITH:55,TK_PARAMETERS:56,TK_END:57,TK_WHILE:58,TK_TYPE:59,TK_MAIN:60,TK_GLOBAL:61,TK_PARAMETER:62,TK_LIST:63,TK_INPUT:64,TK_OUTPUT:65,TK_INT:66,TK_REAL:67,TK_ENDWHILE:68,TK_IF:69,TK_THEN:70,TK_ENDIF:71,TK_READ:72,TK_WRITE:73,TK_RETURN:74,TK_CALL:75,TK_RECORD:76,TK_ENDRECORD:77,TK_ELSE:78,TK_EPS:79,TK_DOLLAR:80,
-all:0,-1,-1,-1,-1,-1,-1,-1,69,-1,-1,-1,-2,-1,-2,-1,68,67,-1,-2,-2,-2,-2,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-2,
-allVar:1,-1,-1,-1,-1,-1,-1,-1,50,-1,-1,-1,-1,-1,-2,-1,52,51,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-2,
-arithmeticExpression:2,-1,-1,-1,-1,-1,-1,-1,55,-1,-1,-1,-2,-1,-2,55,55,55,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-2,
-assignmentStmt:3,-1,-1,-1,-1,-1,-1,-1,-2,-1,-2,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-2,-1,-1,-1,-1,-1,-1,-1,-1,-1,-2,-2,-1,-2,-2,-2,-2,-2,-1,-1,-2,-1,-2,
-booleanExpression:4,-1,-1,-1,-1,-1,-1,-1,73,-1,-1,-1,-1,-1,-2,72,73,73,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,74,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-2,
-conditionalStmt:5,-1,-1,-1,-1,-1,-1,-1,-2,-1,-2,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-2,-1,-1,-1,-1,-1,-1,-1,-1,-1,-2,-2,-1,-2,-2,-2,-2,-2,-1,-1,-2,-1,-2,
-constructedDatatype:6,-1,-1,-1,-1,-1,-1,-1,-2,-1,-1,-1,-1,-2,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,13,-1,-1,-1,-2,
-dataType:7,-1,-1,-1,-1,-1,-1,-1,-2,-1,-1,-1,-1,-2,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,9,9,-1,-1,-1,-1,-1,-1,-1,-1,10,-1,-1,-1,-2,
-declaration:8,-1,-1,-1,-1,-1,-1,-1,-2,-1,-2,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-2,-2,-1,-1,-1,-1,-1,-1,-1,-1,-1,-2,-1,-1,-2,-2,-2,-2,-1,-1,-1,-1,-2,
+all:0,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-2,-1,-2,-1,-1,-1,-1,-2,-2,-2,-2,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,69,-2,
+allVar:1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-2,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,52,-2,
+arithmeticExpression:2,-1,-1,-1,-1,-1,-1,-1,55,-1,-1,-1,-1,-1,-1,55,55,55,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,
+assignmentStmt:3,-1,-1,-1,-1,-1,-1,-1,36,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,
+booleanExpression:4,-1,-1,-1,-1,-1,-1,-1,73,-1,-1,-1,-1,-1,-2,-1,73,73,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,74,-2,
+conditionalStmt:5,-1,-1,-1,-1,-1,-1,-1,-2,-1,-2,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-2,-1,-1,-1,-1,-1,-1,-1,-1,-1,-2,-2,-1,-2,-2,-2,-2,-2,-1,-1,-2,45,-2,
+constructedDatatype:6,-1,-1,-1,-1,-1,-1,-1,-2,-1,-1,-1,-1,-2,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,13,-2,
+dataType:7,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,9,9,-1,-1,-1,-1,-1,-1,-1,-1,10,-1,-1,-1,-1,
+declaration:8,-1,-1,-1,-1,-1,-1,-1,-2,-1,-2,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-2,-2,-1,-1,-1,-1,-1,-1,-1,-1,-1,-2,-1,-1,-2,-2,-2,-2,-1,-1,-1,26,-2,
 declarations:9,-1,-1,-1,-1,-1,-1,-1,-2,-1,-2,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-2,24,-1,-1,-1,-1,-1,-1,-1,-1,-1,-2,-1,-1,-2,-2,-2,-2,-1,-1,-1,25,-2,
-elsePart:10,-1,-1,-1,-1,-1,-1,-1,-2,-1,-2,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-2,-1,-1,-1,-1,-1,-1,-1,-1,-1,-2,-2,-1,-2,-2,-2,-2,-2,-1,-1,-2,-1,-2,
+elsePart:10,-1,-1,-1,-1,-1,-1,-1,-2,-1,-2,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-2,-1,-1,-1,-1,-1,-1,-1,-1,-1,-2,-2,-1,-2,-2,-2,-2,-2,-1,-1,-2,47,-2,
 expPrime:11,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-2,-1,-2,-1,-1,-1,-1,56,56,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,57,-2,
-factor:12,-1,-1,-1,-1,-1,-1,-1,62,-1,-1,-1,-2,-1,-2,61,62,62,-1,-2,-2,-2,-2,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-2,
-fieldDefinition:13,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-2,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-2,-1,-1,-2,
-fieldDefinitions:14,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,20,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-2,-1,-1,-2,
+factor:12,-1,-1,-1,-1,-1,-1,-1,62,-1,-1,-1,-2,-1,-2,-1,62,62,-1,-2,-2,-2,-2,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,61,-2,
+fieldDefinition:13,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-2,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-2,-1,21,-2,
+fieldDefinitions:14,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,20,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,
 funCallStmt:15,-1,-1,-1,-1,-1,-1,-1,-2,-1,-2,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-2,-1,-1,-1,-1,-1,-1,-1,-1,-1,-2,-2,-1,-2,-2,-2,-2,-2,-1,-1,-2,-1,-2,
-function:16,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-2,-1,-1,-1,-1,-1,-1,-1,-1,-2,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-2,
-global_or_not:17,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-2,27,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,28,-2,
-highPrecedenceOperators:18,-1,-1,-1,-1,-1,-1,-1,-2,-1,-1,-1,-1,-1,-1,-2,-2,-2,-1,-1,-1,63,64,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-2,
-idList:19,-1,-1,-1,-1,-1,-1,-2,89,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-2,
-input_par:20,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-2,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,5,-2,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-2,
-inputParameters:21,-1,-1,-1,-1,-1,-1,-1,-1,-1,43,-1,-2,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-2,
-ioStmt:22,-1,-1,-1,-1,-1,-1,-1,-2,-1,-2,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-2,-1,-1,-1,-1,-1,-1,-1,-1,-1,-2,-2,-1,-2,-2,-2,-2,-2,-1,-1,-2,-1,-2,
-iterativeStmt:23,-1,-1,-1,-1,-1,-1,-1,-2,-1,-2,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-2,-1,-1,-1,-1,-1,-1,-1,-1,-1,-2,-2,-1,-2,-2,-2,-2,-2,-1,-1,-2,-1,-2,
-logicalOp:24,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-2,-1,-1,-1,-1,-1,-1,-1,78,79,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-2,
-lowPrecedenceOperators:25,-1,-1,-1,-1,-1,-1,-1,-2,-1,-1,-1,-1,-1,-1,-2,-2,-2,-1,65,66,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-2,
-mainFunction:26,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-2,
+function:16,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-2,-1,-1,-1,-1,-1,-1,-1,-1,-2,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,4,-2,
+global_or_not:17,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-2,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,28,-2,
+highPrecedenceOperators:18,-1,-1,-1,-1,-1,-1,-1,-2,-1,-1,-1,-1,-1,-1,-2,-2,-2,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,64,-2,
+idList:19,-1,-1,-1,-1,-1,-1,-2,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,89,-2,
+input_par:20,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-2,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-2,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,5,-2,
+inputParameters:21,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-2,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,43,-2,
+ioStmt:22,-1,-1,-1,-1,-1,-1,-1,-2,-1,-2,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-2,-1,-1,-1,-1,-1,-1,-1,-1,-1,-2,-2,-1,-2,-2,-2,-2,-2,-1,-1,-2,49,-2,
+iterativeStmt:23,-1,-1,-1,-1,-1,-1,-1,-2,-1,-2,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-2,-1,-1,-1,-1,-1,-1,-1,-1,-1,-2,-2,-1,-2,-2,-2,-2,-2,-1,-1,-2,44,-2,
+logicalOp:24,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-2,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,79,-2,
+lowPrecedenceOperators:25,-1,-1,-1,-1,-1,-1,-1,-2,-1,-1,-1,-1,-1,-1,-2,-2,-2,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,66,-2,
+mainFunction:26,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,1,-2,
 moreFields:27,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,22,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-2,-1,23,-2,
-more_ids:28,-1,-1,-1,-1,-1,-1,-2,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,90,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,91,-2,
-new24:29,-2,-1,-1,-1,-1,-1,-1,-1,-1,-1,38,-1,-1,-2,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,39,-2,
-newVar:30,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,53,-1,-1,-2,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,54,-2,
-optionalReturn:31,-1,-1,-1,-1,-1,-1,-1,-1,-1,87,-1,-2,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,88,-2,
+more_ids:28,-1,-1,-1,-1,-1,-1,-2,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,91,-2,
+new24:29,-2,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-2,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,39,-2,
+newVar:30,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-2,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,54,-2,
+optionalReturn:31,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-2,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,88,-2,
 otherFunctions:32,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,2,-1,-1,-1,-1,-1,-1,-1,-1,-2,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,3,-2,
 otherStmts:33,-1,-1,-1,-1,-1,-1,-1,29,-1,29,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,29,-1,-1,-1,-1,-1,-1,-1,-1,-1,-2,29,-1,-2,29,29,-2,29,-1,-1,-2,30,-2,
-output_par:34,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-2,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,6,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,7,-2,
-outputParameters:35,-1,-1,-1,-1,-1,-1,-1,-1,-1,41,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-2,-1,-1,-1,42,-2,
-parameter_list:36,-1,-1,-1,-1,-1,-1,-2,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,8,8,-1,-1,-1,-1,-1,-1,-1,-1,8,-1,-1,-1,-2,
-primitiveDatatype:37,-1,-1,-1,-1,-1,-1,-1,-2,-1,-1,-1,-1,-2,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,11,12,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-2,
+output_par:34,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-2,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,7,-2,
+outputParameters:35,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-2,-1,-1,-1,42,-2,
+parameter_list:36,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,8,8,-1,-1,-1,-1,-1,-1,-1,-1,8,-1,-1,-1,-1,
+primitiveDatatype:37,-1,-1,-1,-1,-1,-1,-1,-2,-1,-1,-1,-1,-2,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,12,-2,
 program:38,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,0,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-2,
-relationalOp:39,-1,81,80,84,83,-1,-1,-2,-1,-1,-1,-1,-1,-1,-1,-2,-2,-1,-1,-1,-1,-1,-1,-1,82,85,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-2,
-remaining_list:40,-1,-1,-1,-1,-1,-1,-2,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,14,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,15,-2,
-returnStmt:41,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-2,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,86,-1,-1,-1,-1,-1,-2,
-singleOrRecId:42,-2,-1,-1,-1,-1,-1,-1,37,-1,-1,-1,-1,-1,-2,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-2,
-stmt:43,-1,-1,-1,-1,-1,-1,-1,-2,-1,-2,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-2,-1,-1,-1,-1,-1,-1,-1,-1,-1,-2,-2,-1,-2,-2,-2,-2,-2,-1,-1,-2,-1,-2,
+relationalOp:39,-1,-1,-1,-1,-1,-1,-1,-2,-1,-1,-1,-1,-1,-1,-1,-2,-2,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,85,-2,
+remaining_list:40,-1,-1,-1,-1,-1,-1,-2,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,15,-2,
+returnStmt:41,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-2,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,86,-2,
+singleOrRecId:42,-2,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-2,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,37,-2,
+stmt:43,-1,-1,-1,-1,-1,-1,-1,31,-1,35,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,32,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,33,-1,-1,34,34,-1,35,-1,-1,-1,-1,-1,
 stmts:44,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-2,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,16,-1,-1,-1,-2,
-temp:45,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,70,-2,-1,-2,-1,-1,-1,-1,-2,-2,-2,-2,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,71,-2,
-term:46,-1,-1,-1,-1,-1,-1,-1,58,-1,-1,-1,-2,-1,-2,58,58,58,-1,-2,-2,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-2,
+temp:45,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-2,-1,-2,-1,-1,-1,-1,-2,-2,-2,-2,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,71,-2,
+term:46,-1,-1,-1,-1,-1,-1,-1,58,-1,-1,-1,-1,-1,-1,58,58,58,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,
 termPrime:47,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-2,-1,-2,-1,-1,-1,-1,-2,-2,59,59,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,60,-2,
-typeDefinition:48,-1,-1,-1,-1,-1,-1,-1,-2,-1,-2,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-2,-2,-1,-1,-1,-1,-1,-1,-1,-1,-1,-2,-1,-1,-2,-2,-2,-2,-2,-1,-1,-1,-2,
+typeDefinition:48,-1,-1,-1,-1,-1,-1,-1,-2,-1,-2,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-2,-2,-1,-1,-1,-1,-1,-1,-1,-1,-1,-2,-1,-1,-2,-2,-2,-2,-2,-1,-1,19,-2,
 typeDefinitions:49,-1,-1,-1,-1,-1,-1,-1,-2,-1,-2,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-2,-2,-1,-1,-1,-1,-1,-1,-1,-1,-1,-2,-1,-1,-2,-2,-2,-2,17,-1,-1,18,-2,
-var:50,-1,-2,-2,-2,-2,-1,-1,75,-1,-1,-1,-1,-1,-1,-1,77,76,-1,-1,-1,-1,-1,-1,-1,-2,-2,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-2,
-
-getting token stream
+var:50,-1,-2,-2,-2,-2,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-2,-2,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,77,-2,
+Input the file name to be compiled: testcases/testcase1.txt 
 printing Grammer rules
 grammer rule: 0 program:38 --> otherFunctions:32 mainFunction:26 
-grammer rule: 1 mainFunction:26 --> TK_MAIN:60 stmts:44 TK_END:57 
+grammer rule: 1 mainFunction:26 --> TK_MAIN:79 stmts:44 TK_END:57 
 grammer rule: 2 otherFunctions:32 --> function:16 otherFunctions:32 
 grammer rule: 3 otherFunctions:32 --> TK_EPS:79 
-grammer rule: 4 function:16 --> TK_FUNID:48 input_par:20 output_par:34 TK_SEM:21 stmts:44 TK_END:57 
-grammer rule: 5 input_par:20 --> TK_INPUT:64 TK_PARAMETER:62 TK_LIST:63 TK_SQL:19 parameter_list:36 TK_SQR:12 
-grammer rule: 6 output_par:34 --> TK_OUTPUT:65 TK_PARAMETER:62 TK_LIST:63 TK_SQL:19 parameter_list:36 TK_SQR:12 
+grammer rule: 4 function:16 --> TK_FUNID:79 input_par:20 output_par:34 TK_SEM:21 stmts:44 TK_END:57 
+grammer rule: 5 input_par:20 --> TK_INPUT:79 TK_PARAMETER:62 TK_LIST:63 TK_SQL:19 parameter_list:36 TK_SQR:12 
+grammer rule: 6 output_par:34 --> TK_OUTPUT:79 TK_PARAMETER:62 TK_LIST:63 TK_SQL:19 parameter_list:36 TK_SQR:12 
 grammer rule: 7 output_par:34 --> TK_EPS:79 
 grammer rule: 8 parameter_list:36 --> dataType:7 TK_ID:16 remaining_list:40 
 grammer rule: 9 dataType:7 --> primitiveDatatype:37 
 grammer rule: 10 dataType:7 --> constructedDatatype:6 
-grammer rule: 11 primitiveDatatype:37 --> TK_INT:66 
-grammer rule: 12 primitiveDatatype:37 --> TK_REAL:67 
-grammer rule: 13 constructedDatatype:6 --> TK_RECORD:76 TK_RECORDID:51 
-grammer rule: 14 remaining_list:40 --> TK_COMMA:30 parameter_list:36 
+grammer rule: 11 primitiveDatatype:37 --> TK_INT:79 
+grammer rule: 12 primitiveDatatype:37 --> TK_REAL:79 
+grammer rule: 13 constructedDatatype:6 --> TK_RECORD:79 TK_RECORDID:51 
+grammer rule: 14 remaining_list:40 --> TK_COMMA:79 parameter_list:36 
 grammer rule: 15 remaining_list:40 --> TK_EPS:79 
 grammer rule: 16 stmts:44 --> typeDefinitions:49 declarations:9 otherStmts:33 returnStmt:41 
 grammer rule: 17 typeDefinitions:49 --> typeDefinition:48 typeDefinitions:49 
 grammer rule: 18 typeDefinitions:49 --> TK_EPS:79 
-grammer rule: 19 typeDefinition:48 --> TK_RECORD:76 TK_RECORDID:51 fieldDefinitions:14 TK_ENDRECORD:77 TK_SEM:21 
+grammer rule: 19 typeDefinition:48 --> TK_RECORD:79 TK_RECORDID:51 fieldDefinitions:14 TK_ENDRECORD:77 TK_SEM:21 
 grammer rule: 20 fieldDefinitions:14 --> fieldDefinition:13 fieldDefinition:13 moreFields:27 
-grammer rule: 21 fieldDefinition:13 --> TK_TYPE:59 primitiveDatatype:37 TK_COLON:22 TK_FIELDID:18 TK_SEM:21 
+grammer rule: 21 fieldDefinition:13 --> TK_TYPE:79 primitiveDatatype:37 TK_COLON:22 TK_FIELDID:18 TK_SEM:21 
 grammer rule: 22 moreFields:27 --> fieldDefinition:13 moreFields:27 
 grammer rule: 23 moreFields:27 --> TK_EPS:79 
 grammer rule: 24 declarations:9 --> declaration:8 declarations:9 
 grammer rule: 25 declarations:9 --> TK_EPS:79 
-grammer rule: 26 declaration:8 --> TK_TYPE:59 dataType:7 TK_COLON:22 TK_ID:16 global_or_not:17 TK_SEM:21 
-grammer rule: 27 global_or_not:17 --> TK_COLON:22 TK_GLOBAL:61 
+grammer rule: 26 declaration:8 --> TK_TYPE:79 dataType:7 TK_COLON:22 TK_ID:16 global_or_not:17 TK_SEM:21 
+grammer rule: 27 global_or_not:17 --> TK_COLON:79 TK_GLOBAL:61 
 grammer rule: 28 global_or_not:17 --> TK_EPS:79 
 grammer rule: 29 otherStmts:33 --> stmt:43 otherStmts:33 
 grammer rule: 30 otherStmts:33 --> TK_EPS:79 
@@ -2527,23 +2256,23 @@ grammer rule: 33 stmt:43 --> conditionalStmt:5
 grammer rule: 34 stmt:43 --> ioStmt:22 
 grammer rule: 35 stmt:43 --> funCallStmt:15 
 grammer rule: 36 assignmentStmt:3 --> singleOrRecId:42 TK_ASSIGNOP:4 arithmeticExpression:2 TK_SEM:21 
-grammer rule: 37 singleOrRecId:42 --> TK_ID:16 new24:29 
-grammer rule: 38 new24:29 --> TK_DOT:20 TK_FIELDID:18 
+grammer rule: 37 singleOrRecId:42 --> TK_ID:79 new24:29 
+grammer rule: 38 new24:29 --> TK_DOT:79 TK_FIELDID:18 
 grammer rule: 39 new24:29 --> TK_EPS:79 
 grammer rule: 40 funCallStmt:15 --> outputParameters:35 TK_CALL:75 TK_FUNID:48 TK_WITH:55 TK_PARAMETERS:56 inputParameters:21 TK_SEM:21 
-grammer rule: 41 outputParameters:35 --> TK_SQL:19 idList:19 TK_SQR:12 TK_ASSIGNOP:4 
+grammer rule: 41 outputParameters:35 --> TK_SQL:79 idList:19 TK_SQR:12 TK_ASSIGNOP:4 
 grammer rule: 42 outputParameters:35 --> TK_EPS:79 
-grammer rule: 43 inputParameters:21 --> TK_SQL:19 idList:19 TK_SQR:12 
-grammer rule: 44 iterativeStmt:23 --> TK_WHILE:58 TK_OP:24 booleanExpression:4 TK_CL:23 stmt:43 otherStmts:33 TK_ENDWHILE:68 
-grammer rule: 45 conditionalStmt:5 --> TK_IF:69 TK_OP:24 booleanExpression:4 TK_CL:23 TK_THEN:70 stmt:43 otherStmts:33 elsePart:10 
-grammer rule: 46 elsePart:10 --> TK_ELSE:78 stmt:43 otherStmts:33 TK_ENDIF:71 
-grammer rule: 47 elsePart:10 --> TK_ENDIF:71 
-grammer rule: 48 ioStmt:22 --> TK_READ:72 TK_OP:24 singleOrRecId:42 TK_CL:23 TK_SEM:21 
-grammer rule: 49 ioStmt:22 --> TK_WRITE:73 TK_OP:24 allVar:1 TK_CL:23 TK_SEM:21 
-grammer rule: 50 allVar:1 --> TK_ID:16 newVar:30 
-grammer rule: 51 allVar:1 --> TK_NUM:29 
-grammer rule: 52 allVar:1 --> TK_RNUM:28 
-grammer rule: 53 newVar:30 --> TK_DOT:20 TK_FIELDID:18 
+grammer rule: 43 inputParameters:21 --> TK_SQL:79 idList:19 TK_SQR:12 
+grammer rule: 44 iterativeStmt:23 --> TK_WHILE:79 TK_OP:24 booleanExpression:4 TK_CL:23 stmt:43 otherStmts:33 TK_ENDWHILE:68 
+grammer rule: 45 conditionalStmt:5 --> TK_IF:79 TK_OP:24 booleanExpression:4 TK_CL:23 TK_THEN:70 stmt:43 otherStmts:33 elsePart:10 
+grammer rule: 46 elsePart:10 --> TK_ELSE:79 stmt:43 otherStmts:33 TK_ENDIF:71 
+grammer rule: 47 elsePart:10 --> TK_ENDIF:79 
+grammer rule: 48 ioStmt:22 --> TK_READ:79 TK_OP:24 singleOrRecId:42 TK_CL:23 TK_SEM:21 
+grammer rule: 49 ioStmt:22 --> TK_WRITE:79 TK_OP:24 allVar:1 TK_CL:23 TK_SEM:21 
+grammer rule: 50 allVar:1 --> TK_ID:79 newVar:30 
+grammer rule: 51 allVar:1 --> TK_NUM:79 
+grammer rule: 52 allVar:1 --> TK_RNUM:79 
+grammer rule: 53 newVar:30 --> TK_DOT:79 TK_FIELDID:18 
 grammer rule: 54 newVar:30 --> TK_EPS:79 
 grammer rule: 55 arithmeticExpression:2 --> term:46 expPrime:11 
 grammer rule: 56 expPrime:11 --> lowPrecedenceOperators:25 term:46 expPrime:11 
@@ -2551,36 +2280,36 @@ grammer rule: 57 expPrime:11 --> TK_EPS:79
 grammer rule: 58 term:46 --> factor:12 termPrime:47 
 grammer rule: 59 termPrime:47 --> highPrecedenceOperators:18 factor:12 termPrime:47 
 grammer rule: 60 termPrime:47 --> TK_EPS:79 
-grammer rule: 61 factor:12 --> TK_OP:24 arithmeticExpression:2 TK_CL:23 
+grammer rule: 61 factor:12 --> TK_OP:79 arithmeticExpression:2 TK_CL:23 
 grammer rule: 62 factor:12 --> all:0 
-grammer rule: 63 highPrecedenceOperators:18 --> TK_MUL:33 
-grammer rule: 64 highPrecedenceOperators:18 --> TK_DIV:34 
-grammer rule: 65 lowPrecedenceOperators:25 --> TK_PLUS:31 
-grammer rule: 66 lowPrecedenceOperators:25 --> TK_MINUS:32 
-grammer rule: 67 all:0 --> TK_NUM:29 
-grammer rule: 68 all:0 --> TK_RNUM:28 
-grammer rule: 69 all:0 --> TK_ID:16 temp:45 
-grammer rule: 70 temp:45 --> TK_DOT:20 TK_FIELDID:18 
+grammer rule: 63 highPrecedenceOperators:18 --> TK_MUL:79 
+grammer rule: 64 highPrecedenceOperators:18 --> TK_DIV:79 
+grammer rule: 65 lowPrecedenceOperators:25 --> TK_PLUS:79 
+grammer rule: 66 lowPrecedenceOperators:25 --> TK_MINUS:79 
+grammer rule: 67 all:0 --> TK_NUM:79 
+grammer rule: 68 all:0 --> TK_RNUM:79 
+grammer rule: 69 all:0 --> TK_ID:79 temp:45 
+grammer rule: 70 temp:45 --> TK_DOT:79 TK_FIELDID:18 
 grammer rule: 71 temp:45 --> TK_EPS:79 
-grammer rule: 72 booleanExpression:4 --> TK_OP:24 booleanExpression:4 TK_CL:23 logicalOp:24 TK_OP:24 booleanExpression:4 TK_CL:23 
+grammer rule: 72 booleanExpression:4 --> TK_OP:79 booleanExpression:4 TK_CL:23 logicalOp:24 TK_OP:24 booleanExpression:4 TK_CL:23 
 grammer rule: 73 booleanExpression:4 --> var:50 relationalOp:39 var:50 
-grammer rule: 74 booleanExpression:4 --> TK_NOT:52 TK_OP:24 booleanExpression:4 TK_CL:23 
-grammer rule: 75 var:50 --> TK_ID:16 
-grammer rule: 76 var:50 --> TK_NUM:29 
-grammer rule: 77 var:50 --> TK_RNUM:28 
-grammer rule: 78 logicalOp:24 --> TK_AND:37 
-grammer rule: 79 logicalOp:24 --> TK_OR:40 
-grammer rule: 80 relationalOp:39 --> TK_LT:6 
-grammer rule: 81 relationalOp:39 --> TK_LE:5 
-grammer rule: 82 relationalOp:39 --> TK_EQ:42 
-grammer rule: 83 relationalOp:39 --> TK_GT:9 
-grammer rule: 84 relationalOp:39 --> TK_GE:8 
-grammer rule: 85 relationalOp:39 --> TK_NE:44 
-grammer rule: 86 returnStmt:41 --> TK_RETURN:74 optionalReturn:31 TK_SEM:21 
-grammer rule: 87 optionalReturn:31 --> TK_SQL:19 idList:19 TK_SQR:12 
+grammer rule: 74 booleanExpression:4 --> TK_NOT:79 TK_OP:24 booleanExpression:4 TK_CL:23 
+grammer rule: 75 var:50 --> TK_ID:79 
+grammer rule: 76 var:50 --> TK_NUM:79 
+grammer rule: 77 var:50 --> TK_RNUM:79 
+grammer rule: 78 logicalOp:24 --> TK_AND:79 
+grammer rule: 79 logicalOp:24 --> TK_OR:79 
+grammer rule: 80 relationalOp:39 --> TK_LT:79 
+grammer rule: 81 relationalOp:39 --> TK_LE:79 
+grammer rule: 82 relationalOp:39 --> TK_EQ:79 
+grammer rule: 83 relationalOp:39 --> TK_GT:79 
+grammer rule: 84 relationalOp:39 --> TK_GE:79 
+grammer rule: 85 relationalOp:39 --> TK_NE:79 
+grammer rule: 86 returnStmt:41 --> TK_RETURN:79 optionalReturn:31 TK_SEM:21 
+grammer rule: 87 optionalReturn:31 --> TK_SQL:79 idList:19 TK_SQR:12 
 grammer rule: 88 optionalReturn:31 --> TK_EPS:79 
-grammer rule: 89 idList:19 --> TK_ID:16 more_ids:28 
-grammer rule: 90 more_ids:28 --> TK_COMMA:30 idList:19 
+grammer rule: 89 idList:19 --> TK_ID:79 more_ids:28 
+grammer rule: 90 more_ids:28 --> TK_COMMA:79 idList:19 
 grammer rule: 91 more_ids:28 --> TK_EPS:79 
 size 13
 printbuf	{000},<,{001}
@@ -5051,75 +4780,4 @@ inserting element TK_ID
 inserting element TK_NUM
 inserting element TK_RNUM
 inserting element TK_FUNID
-inserting element TK_RECORDID
-inserting element TK_SQL
-inserting element TK_SQR
-inserting element TK_COMMA
-inserting element TK_SEM
-inserting element TK_COLON
-inserting element TK_DOT
-inserting element TK_OP
-inserting element TK_CL
-inserting element TK_PLUS
-inserting element TK_MINUS
-inserting element TK_MUL
-inserting element TK_DIV
-inserting element TK_AND
-inserting element TK_OR
-inserting element TK_NOT
-inserting element TK_LT
-inserting element TK_LE
-inserting element TK_EQ
-inserting element TK_GT
-inserting element TK_GE
-inserting element TK_LE
-inserting element TK_NE
-inserting element TK_WITH
-inserting element TK_PARAMETERS
-inserting element TK_END
-inserting element TK_WHILE
-inserting element TK_TYPE
-inserting element TK_MAIN
-inserting element TK_GLOBAL
-inserting element TK_PARAMETER
-inserting element TK_LIST
-inserting element TK_INPUT
-inserting element TK_OUTPUT
-inserting element TK_INT
-inserting element TK_REAL
-inserting element TK_ENDWHILE
-inserting element TK_IF
-inserting element TK_THEN
-inserting element TK_ENDIF
-inserting element TK_READ
-inserting element TK_WRITE
-inserting element TK_RETURN
-inserting element TK_CALL
-inserting element TK_RECORD
-inserting element TK_ENDRECORD
-inserting element TK_ELSE
-inserting element TK_DELIM
-inserting element TK_EPS
-inserting element TK_DOLLAR
-inserting element with
-inserting element parameters
-inserting element parameter
-inserting element list
-inserting element input
-inserting element output
-inserting element int
-inserting element real
-inserting element endwhile
-inserting element if
-inserting element then
-inserting element endif
-inserting element read
-inserting element write
-inserting element return
-inserting element call
-inserting element endrecord
-inserting element else
-grammer rule: 0 program:38 --> otherFunctions:32 mainFunction:26 
-grammer rule: 2 otherFunctions:32 --> function:16 otherFunctions:32 
-grammer rule: -2 function:16 --> TK_EPS:79 
-Syntax Error FoundSyntax Error FoundSyntax Error FoundSyntax Error FoundSyntax Error FoundSyntax Error FoundSyntax Error FoundSyntax Error FoundSyntax Error FoundSyntax Error FoundSyntax Error FoundSyntax Error FoundSyntax Error FoundSyntax Error FoundSyntax Error FoundSyntax Error FoundSyntax Error FoundSyntax Error FoundSyntax Error FoundSyntax Error FoundSyntax Error FoundSyntax Error FoundSyntax Error FoundSyntax Error FoundSyntax Error FoundSyntax Error FoundSyntax Error FoundSyntax Error FoundSyntax Error FoundSyntax Error FoundSyntax Error FoundSyntax Error FoundSyntax Error FoundSyntax Error FoundSyntax Error FoundSyntax Error FoundSyntax Error FoundSyntax Error FoundSyntax Error FoundSyntax Error FoundSyntax Error FoundSyntax Error FoundSyntax Error FoundSyntax Error FoundSyntax Error FoundSyntax Error FoundSyntax Error FoundSyntax Error FoundSyntax Error FoundSyntax Error FoundSyntax Error FoundSyntax Error FoundSyntax Error FoundSyntax Error FoundSyntax Error FoundSyntax Error FoundSyntax Error FoundSyntax Error FoundSyntax Error FoundSyntax Error FoundSyntax Error FoundSyntax Error FoundSyntax Error FoundSyntax Error FoundSyntax Error FoundSyntax Error FoundSyntax Error FoundSyntax Error FoundSyntax Error FoundSyntax Error FoundSyntax Error FoundSyntax Error FoundSyntax Error FoundSyntax Error FoundSyntax Error FoundSyntax Error FoundSyntax Error FoundSyntax Error FoundSyntax Error FoundSyntax Error FoundSyntax Error FoundSyntax Error FoundSyntax Error FoundSyntax Error FoundSyntax Error FoundSyntax Error FoundSyntax Error FoundSyntax Error FoundSyntax Error FoundSyntax Error FoundSyntax Error FoundSyntax Error FoundSyntax Error FoundSyntax Error Foundprogram 38
+inserting el

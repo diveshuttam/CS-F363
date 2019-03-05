@@ -48,7 +48,7 @@ int hash(const char *str, hashTable ht)
     return hash;
 }
 
-Element createElement(int data, char *key){
+Element createElement(int data,const char *key){
 	Element e=malloc(sizeof(struct Element));
 	e->d=malloc(sizeof(int));
 	int* l=e->d;

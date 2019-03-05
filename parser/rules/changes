@@ -1,0 +1,5 @@
+changes
+
+hash(const char*) -> hash(char* ..)
+createElement(const char*)
+problem in first and follow sets, typeDefinitions doesn't have TK_TYPE in its first set, neither does stmts has it in its follow
