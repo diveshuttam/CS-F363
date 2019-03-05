@@ -1,4 +1,4 @@
-//Authro: Divesh Uttamchandani
+//Author: Divesh Uttamchandani
 //2016A7PS0045P
 
 #ifndef __SEQLIST_H
