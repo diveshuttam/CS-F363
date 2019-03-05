@@ -76,14 +76,16 @@ int main()
         printf("\n");
     }
 
-    printf("\ngetting token stream\n");
-    #ifndef DEBUG
-	char testcase_file[40];
-	printf("Input the file name to be compiled: \n");
-	scanf("%s",testcase_file);
-	#else
-	char *testcase_file="testcases/testcase1.txt";
-	#endif
+    //printf("\ngetting token stream\n");
+    //#ifndef DEBUG
+	//char testcase_file[40];
+    char* testcase_file="testcases/testcase1.txt";
+	printf("Input the file name to be compiled: %s \n",testcase_file);
+	//scanf("%s",testcase_file);
+	//#else
+	
+	//#endif
+    
     printf("printing Grammer rules\n");
     for(int i=0;i<NO_OF_RULES;i++){
         grammerRule gr=g[i];
@@ -95,5 +97,5 @@ int main()
 		return -1;
 	}
     Tree t=parseTree(s,(const grammerRule**)table,g);
-    inorder(t);
+    //inorder(t);
 }

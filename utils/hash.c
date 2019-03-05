@@ -37,7 +37,7 @@ hashTable newHashTable(int size, int significant_bits, int salt){
 	return ht;
 }
 
-int hash(char *str, hashTable ht)
+int hash(const char *str, hashTable ht)
 {
     unsigned long hash = ht->b;
     int c;
@@ -48,7 +48,7 @@ int hash(char *str, hashTable ht)
     return hash;
 }
 
-Element createElement(int data, char *key){
+Element createElement(int data,const char *key){
 	Element e=malloc(sizeof(struct Element));
 	e->d=malloc(sizeof(int));
 	int* l=e->d;

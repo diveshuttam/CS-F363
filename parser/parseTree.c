@@ -113,7 +113,8 @@ Stack operations(Stream token_stream,const grammerRule **table,const grammerRule
         if(tk->state==TK_COMMENT||tk->state==TK_DELIM)
             continue;
         // tnt = get_item_form_element(top(s));
-        while( (tnt=get_item_form_element(top(s)))!=NULL && tnt!=get_bottom_symbol() && tnt->t.type=='n' && !table[tnt->t.s.nt.key][tk->state].isError) //need to define error rule 
+        
+        while( (tnt=get_item_form_element(top(s)))!=NULL && tnt!=get_bottom_symbol() && tnt->t.type=='n' && table[tnt->t.s.nt.key][tk->state].isError!=1) //need to define error rule 
         {
             pop(s);
             push(popped_items,make_stack_element(tnt));
@@ -131,26 +132,35 @@ Stack operations(Stream token_stream,const grammerRule **table,const grammerRule
                 item* to_be_pushed=malloc(sizeof(struct item)); //malloc
                 to_be_pushed->gr = &gr;
                 to_be_pushed->t = gr.rhs[j];
-                push(s,make_stack_element(to_be_pushed));
+                if(to_be_pushed->t.type=='t' && to_be_pushed->t.s.t.StateId!=TK_EPS)
+                    push(s,make_stack_element(to_be_pushed));
+                else if(to_be_pushed->t.type=='n')
+                    push(s,make_stack_element(to_be_pushed));
             }
         }
-        if(tnt->t.type=='n' && !table[tnt->t.s.nt.key][tk->state].isError)
+        // if(tk->state == TK_SQR){
+        //     printf("\nreached and tnt is %s %d \n",tnt->t.s.nt.name,tnt->t.s.nt.key);
+        // }
+
+        if(tnt->t.type=='n' && table[tnt->t.s.nt.key][tk->state].isError==1)
         {
-            printf("Syntax Error found at line "); //line number in token structure
+            printf("Syntax Error found at line y, %s %s %d\n",tnt->t.s.nt.name,tk->val,tk->state); //line number in token structure
         }
         else
         {
             if(tnt->t.type=='t' && tnt->t.s.t.StateId!= tk->state) //see the definitions of state in the two definitions
             {
-                printf("Syntax Error Found"); 
+                printf("Syntax Error Found z %s %d %s %d\n",tnt->t.s.t.name,tnt->t.s.t.StateId,tk->val,tk->state); 
             }
             else
             {
                 pop(s);
+                if(tnt->t.type=='t' && tnt->t.s.t.StateId!=TK_EPS)
                 push(popped_items,make_stack_element(tnt));
             }
         }
     }
+    printf("\n%d\n",table[stmts][18].isError);
     reverse(popped_items);
     return popped_items;
 }

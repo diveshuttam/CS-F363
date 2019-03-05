@@ -35,13 +35,13 @@ grammerRule** gen_parse_table(const grammerRule *r, int no_of_rules, const Termi
     }
     init(table);
     int i=0;
-    int isEps = 0;
     while(i<no_of_rules)
     {
         printf("\n\nrules from ");
         print_grammer_rule(r[i]);
         printf("with lhs firsts size %d\t",r[i].lhs.firsts_size);
         printf("with lhs follow size %d\n",r[i].lhs.follows_size);
+        int isEps = 0;
         NonTerminal nt_current = r[i].lhs;
         TerminalNonTerminal* tnt_current = r[i].rhs;
 
@@ -51,6 +51,10 @@ grammerRule** gen_parse_table(const grammerRule *r, int no_of_rules, const Termi
         int len_follows = nt_current.follows_size;
         if(tnt_current[0].type=='t')
         {
+            if(tnt_current[0].s.t.StateId==TK_EPS)
+            {
+                isEps = 1;
+            }
             table[nt_current.key][tnt_current[0].s.t.StateId] = r[i];
             grammerRule temp=table[nt_current.key][tnt_current[0].s.t.StateId];
             printf("adding rule for %s:%d %s:%d\n",nt_current.name,nt_current.key,tnt_current[0].s.t.name,tnt_current[0].s.t.StateId);
