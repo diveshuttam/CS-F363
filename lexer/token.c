@@ -223,5 +223,9 @@ hashTable get_keyword_hasht(){
 	insert("call",TK_CALL,ht);
 	insert("endrecord",TK_ENDRECORD,ht);
 	insert("else",TK_ELSE,ht);
+	insert("_main",TK_MAIN,ht);
+	insert("type",TK_TYPE,ht);
+	insert("while",TK_WHILE,ht);
+	insert("end",TK_END,ht);
 	return ht;
 }

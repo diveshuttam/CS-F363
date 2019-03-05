@@ -48,6 +48,9 @@ grammerRule** gen_parse_table(const grammerRule *r, int no_of_rules, const Termi
         Terminal* first = NULL;
         Terminal* follows = nt_current.follows;
 
+        Terminal* follows2 = NULL;
+        int len_follows2 = 0;
+
         int len_follows = nt_current.follows_size;
         if(tnt_current[0].type=='t')
         {
@@ -77,6 +80,8 @@ grammerRule** gen_parse_table(const grammerRule *r, int no_of_rules, const Termi
                 }
                 else
                 {
+                    follows2 = tnt_current[0].s.nt.follows;
+                    len_follows2 = tnt_current[0].s.nt.follows_size;
                     isEps = 1;
                 }
             }
@@ -97,6 +102,14 @@ grammerRule** gen_parse_table(const grammerRule *r, int no_of_rules, const Termi
                 table[nt_current.key][follows[j].StateId] = eps_rule;
                 printf("adding rule for %s:%d %s:%d\n",nt_current.name,nt_current.key,follows[j].name,follows[j].StateId);
                 print_grammer_rule(eps_rule);
+            }
+        }
+        if(follows2!=NULL)
+        {
+            int j=0;
+            for(int j=0;j<len_follows2;j++)
+            {
+                table[nt_current.key][follows2[j].StateId] = r[i];
             }
         }
         i++;

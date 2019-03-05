@@ -25,7 +25,9 @@ Token* getNextToken(Stream s){
 	}
 	tk->line_no=line_no;
 	if(isEofStream(s)){
-		return NULL;
+		tk->state=TK_DOLLAR;
+		strcpy(tk->val,"TK_DOLLAR");
+		return tk;
 	}
 	static hashTable *ht=NULL;
 	if(ht==NULL){

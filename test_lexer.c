@@ -22,7 +22,7 @@ int main()
 	char *val;
 	int num=1;
 	char **token_names=get_token_names();
-	while(tk=getNextToken(s)){
+	while(tk=getNextToken(s) && tk!=NULL && tk->state!=TK_DOLLAR){
 		state=tk->state;
 		val=tk->val;
 		line_no=tk->line_no;
@@ -40,6 +40,6 @@ int main()
 			fflush(stdout);
 		}
 		free(val);
-	}while(!isEofStream(s));
+	}
 }
 

@@ -156,11 +156,11 @@ Stack operations(Stream token_stream,const grammerRule **table,const grammerRule
             {
                 pop(s);
                 if(tnt->t.type=='t' && tnt->t.s.t.StateId!=TK_EPS)
-                push(popped_items,make_stack_element(tnt));
+                    push(popped_items,make_stack_element(tnt));
             }
         }
     }
-    printf("\n%d\n",table[stmts][18].isError);
+    printf("\n%d\n",table[stmts][59].isError);
     reverse(popped_items);
     return popped_items;
 }
