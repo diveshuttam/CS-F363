@@ -113,8 +113,7 @@ Stack operations(Stream token_stream,const grammerRule **table,const grammerRule
         if(tk->state==TK_COMMENT||tk->state==TK_DELIM)
             continue;
         // tnt = get_item_form_element(top(s));
-        
-        while( (tnt=get_item_form_element(top(s)))!=NULL && tnt!=get_bottom_symbol() && tnt->t.type=='n' && table[tnt->t.s.nt.key][tk->state].isError!=1) //need to define error rule 
+        while(((tnt=get_item_form_element(top(s)))!=NULL && tnt!=get_bottom_symbol() && tnt->t.type=='n' && table[tnt->t.s.nt.key][tk->state].isError!=1)) //need to define error rule 
         {
             pop(s);
             push(popped_items,make_stack_element(tnt));
@@ -137,6 +136,8 @@ Stack operations(Stream token_stream,const grammerRule **table,const grammerRule
                 else if(to_be_pushed->t.type=='n')
                     push(s,make_stack_element(to_be_pushed));
             }
+            if(tk->state==TK_DOLLAR)
+                break;
         }
         // if(tk->state == TK_SQR){
         //     printf("\nreached and tnt is %s %d \n",tnt->t.s.nt.name,tnt->t.s.nt.key);
@@ -215,9 +216,9 @@ Tree parseTree(Stream token_stream,const grammerRule **table,const grammerRule *
 void visit(const Tree root)
 {
     if(root->t.type=='t')
-    printf("%s %d\n",root->t.s.t.name, root->t.s.t.StateId);
+        printf("%s %d\n",root->t.s.t.name, root->t.s.t.StateId);
     else 
-    printf("%s %d\n",root->t.s.nt.name, root->t.s.nt.key);
+        printf("%s %d\n",root->t.s.nt.name, root->t.s.nt.key);
 }
 
 void inorder(const Tree root){

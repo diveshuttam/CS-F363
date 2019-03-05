@@ -42,6 +42,7 @@ grammerRule** gen_parse_table(const grammerRule *r, int no_of_rules, const Termi
         printf("with lhs firsts size %d\t",r[i].lhs.firsts_size);
         printf("with lhs follow size %d\n",r[i].lhs.follows_size);
         int isEps = 0;
+        int isEpsL = 0;
         NonTerminal nt_current = r[i].lhs;
         TerminalNonTerminal* tnt_current = r[i].rhs;
 
@@ -56,7 +57,7 @@ grammerRule** gen_parse_table(const grammerRule *r, int no_of_rules, const Termi
         {
             if(tnt_current[0].s.t.StateId==TK_EPS)
             {
-                isEps = 1;
+                isEpsL = 1;
             }
             table[nt_current.key][tnt_current[0].s.t.StateId] = r[i];
             grammerRule temp=table[nt_current.key][tnt_current[0].s.t.StateId];
@@ -86,7 +87,7 @@ grammerRule** gen_parse_table(const grammerRule *r, int no_of_rules, const Termi
                 }
             }
         }
-        if(isEps)
+        if(isEpsL)
         {
             grammerRule eps_rule;
             eps_rule.lhs = nt_current;
