@@ -90,7 +90,7 @@ void insert(const char* str,const int index,hashTable ht){
 	if(str!=NULL){
 		printf("inserting element %s\n", str);
 		int hash_val = hash(str,ht);
-		Element e=createElement(index, str);
+		Element e=createElement(index,(char*) str);
 		if(ht->array[hash_val] == NULL){
 			printf("error in hash.c");
 			exit(0);
