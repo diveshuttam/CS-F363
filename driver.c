@@ -28,21 +28,20 @@ int main()
 		insert(non_terminals_map[i],i,ht_non_terminals);
 	}
 
-	initialize_tnt(non_terminals,terminals,terminals_map,non_terminals_map,ht_terminals,ht_non_terminals);
+	initialize_tnt(non_terminals,terminals,(const char**) terminals_map,(const char**) non_terminals_map,(const hashTable) ht_terminals,(const hashTable)ht_non_terminals);
 
 	printf("firsts\n");
-	firsts(non_terminals,terminals, non_terminals_map,terminals_map,ht_non_terminals,ht_terminals);
+	firsts(non_terminals,terminals,(const char**) non_terminals_map,(const char**)terminals_map,(const hashTable)ht_non_terminals,(const hashTable)ht_terminals);
 	
 	printf("\nfollows\n");
-	follows(non_terminals,terminals, non_terminals_map,terminals_map,ht_non_terminals,ht_terminals);
-
+	follows(non_terminals,terminals,(const char**) non_terminals_map,(const char**)terminals_map,(const hashTable)ht_non_terminals,(const hashTable)ht_terminals);
+	
 	printf("\ngrammer\n");
 	grammerRule *g=NULL;
-    g=grammer(non_terminals,terminals, non_terminals_map,terminals_map,ht_non_terminals,ht_terminals);
-
+    g=grammer(non_terminals,terminals,(const char**) non_terminals_map,(const char**)terminals_map,(const hashTable)ht_non_terminals,(const hashTable)ht_terminals);
+	
     printf("\ncreating parse table\n");
-    grammerRule **table=gen_parse_table(g,NO_OF_RULES);
-
+    grammerRule **table=gen_parse_table(g,NO_OF_RULES,terminals[TK_EPS]);
     printf("\nprinting terminals\n");
     for(int i=0;i<NO_OF_TERMINALS;i++){
         printf("%d ",i);
@@ -56,10 +55,23 @@ int main()
     }
 
     printf("\nprinting parse table\n");
-    for(int i=0;i<NO_OF_NON_TERMINALS;i++){
-        printf("%s\t|",non_terminals[i].name);
+    for(int i=-1;i<NO_OF_NON_TERMINALS;i++){
+        if(i!=-1)
+            printf("%s:%d,",non_terminals[i].name,non_terminals[i].key);
+        else
+        {
+            printf("non_terminals,");
+        }
+        
         for(int j=0;j<NO_OF_TERMINALS;j++){
-            printf("%s:%d ",terminals[j].name,table[i][j].id);
+            if(terminals[j].name!=NULL){
+                if(i==-1){
+                    printf("%s:%d,",terminals[j].name,terminals[j].StateId);
+                }
+                else{
+                    printf("%d,",table[i][j].id);
+                }
+            }
         }
         printf("\n");
     }
@@ -82,6 +94,6 @@ int main()
 		printf("error opening file %s", testcase_file);
 		return -1;
 	}
-    Tree t=parseTree(s,table,g);
+    Tree t=parseTree(s,(const grammerRule**)table,g);
     inorder(t);
 }

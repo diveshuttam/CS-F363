@@ -19,12 +19,12 @@ void print_grammer_rule(grammerRule gr){
 	}
 	printf("\n");
 }
-void follows(NonTerminal* non_terminals, Terminal* terminals, char** non_terminals_map, char **terminals_map, hashTable ht_non_terminals,hashTable ht_terminals){
-	FILE *fp;
+void follows(NonTerminal* non_terminals, Terminal* terminals, const char** non_terminals_map, const char **terminals_map, const hashTable ht_non_terminals,const hashTable ht_terminals){
 	int i = 0;
 	char* line = NULL;
 	size_t len = 0;
 	size_t read;
+	FILE *fp;
 	fp = fopen(FOLLOWS_FILE,"r");
 	if(fp != NULL){
 		line = NULL;
@@ -53,7 +53,7 @@ void follows(NonTerminal* non_terminals, Terminal* terminals, char** non_termina
 	fclose(fp);
 }
 
-void firsts(NonTerminal* non_terminals, Terminal* terminals, char** non_terminals_map, char** terminals_map,hashTable ht_non_terminals, hashTable ht_terminals){
+void firsts(NonTerminal* non_terminals, Terminal* terminals, const char** non_terminals_map,const char** terminals_map,const hashTable ht_non_terminals,const hashTable ht_terminals){
 	int i = 0;
 	char* line = malloc(sizeof(char)*LINE_SIZE);
 	size_t len = 0;
@@ -89,7 +89,7 @@ void firsts(NonTerminal* non_terminals, Terminal* terminals, char** non_terminal
 	fclose(fp);
 }
 
-grammerRule* grammer(NonTerminal* non_terminals, Terminal* terminals, char** non_terminals_map, char** terminals_map,hashTable ht_non_terminals, hashTable ht_terminals){
+grammerRule* grammer(const NonTerminal* non_terminals,const Terminal* terminals,const char** non_terminals_map, const char** terminals_map,const hashTable ht_non_terminals, const hashTable ht_terminals){
 	grammerRule *g;
 	g=malloc(sizeof(grammerRule)*NO_OF_RULES);
 	FILE *fp;
@@ -183,7 +183,7 @@ char **get_non_terminals_map(){
 	return non_terminals_map;
 }
 
-void initialize_tnt(NonTerminal *non_terminals,Terminal *terminals,char **terminals_map,char **non_terminals_map,hashTable ht_terminals,hashTable ht_non_terminals){
+void initialize_tnt(NonTerminal *non_terminals,Terminal *terminals,const char **terminals_map,const char **non_terminals_map,const hashTable ht_terminals,const hashTable ht_non_terminals){
 	for(int i=0;i<NO_OF_NON_TERMINALS;i++){
 		int k=findHT(non_terminals_map[i],ht_non_terminals);
 		printf("assigning %s with key %d\n",non_terminals_map[i],k);
@@ -205,7 +205,7 @@ void initialize_tnt(NonTerminal *non_terminals,Terminal *terminals,char **termin
 		printf("assigning terminal %s with key %d\n",terminals_map[i],k);
 		fflush(stdout);
 		if(k!=-1){
-			terminals[i].name=terminals_map[i];
+			terminals[i].name=(char *)terminals_map[i];
 			terminals[i].StateId=findHT(terminals_map[i],ht_terminals);
 		}else{
 			terminals[i].name=NULL;

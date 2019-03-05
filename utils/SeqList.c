@@ -28,7 +28,7 @@ typedef struct Iterator
 } *Iterator;
 
 Iterator
-getIterator (SeqList sl)
+getIterator (const SeqList sl)
 {
   Iterator it = malloc (sizeof (struct Iterator));
   it->previous = NULL;

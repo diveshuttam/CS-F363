@@ -4,7 +4,7 @@
 //return NULL if encounter \O
 //handle invalid_state with token state as -1
 // do error detection for max token size
-Token get_next_token_sub(Stream s, Transition** transition_table,State *states)
+Token get_next_token_sub(Stream s,const Transition** transition_table,const State *states)
 {
     State current_state=states[0];
     Token tk;

@@ -58,9 +58,9 @@ struct Tree
     Tree* child;
 };
 
-void inorder(Tree t);
-grammerRule** gen_parse_table(grammerRule *r, int no_of_rules);
-Tree parseTree(Stream token_stream,grammerRule **table,grammerRule *g);
+void inorder(const Tree t);
+grammerRule** gen_parse_table(const grammerRule *r,const int no_of_rules,const Terminal eps);
+Tree parseTree(Stream token_stream,const grammerRule **table,const grammerRule *g);
 #endif
 
 

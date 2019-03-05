@@ -21,16 +21,16 @@ SeqList clearList (SeqList sl);
 SeqList insertAtFront (SeqList sl, Element e);
 SeqList insertAtEnd (SeqList sl, Element e);
 SeqList deleteAtFront (SeqList sl);
-Iterator getIterator (SeqList sl);
+Iterator getIterator (const SeqList sl);
 Iterator next (Iterator it);
-Element getNext (Iterator it);
-bool hasNext (Iterator it);
+Element getNext (const Iterator it);
+bool hasNext (const Iterator it);
 SeqList insertBefore (SeqList sl, Iterator it, Element E);
 SeqList deleteAfter (SeqList sl, Iterator it);
 
 #ifndef __WITHOUT_KEY
-Element find (SeqList sl, Key k);
-int compare (Key k1, Key k2);
+Element find (const SeqList sl,const Key k);
+int compare (const Key k1,const Key k2);
 SeqList insertInOrder (SeqList sl, Element e);
 SeqList delete (SeqList sl, Element e);
 #endif

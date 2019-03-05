@@ -69,7 +69,7 @@ char *map[]
 1-> "abc"
 */
 
-int findHT(char* str,hashTable ht){
+int findHT(const char* str,const hashTable ht){
 	if(str==NULL){
 		return -1;
 	}
@@ -86,7 +86,7 @@ int findHT(char* str,hashTable ht){
 	return -1;
 }
 
-void insert(char* str,int index,hashTable ht){
+void insert(const char* str,const int index,hashTable ht){
 	if(str!=NULL){
 		printf("inserting element %s\n", str);
 		int hash_val = hash(str,ht);

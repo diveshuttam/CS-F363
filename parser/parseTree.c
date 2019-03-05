@@ -69,12 +69,12 @@ void deleteAll(Tree root)
 }
 
 //returns start_symbol
-item*  get_start_symbol(grammerRule *g)
+item*  get_start_symbol(const grammerRule *g)
 {
     static item *i=NULL;
     if(i==NULL){
         i=malloc(sizeof(item));
-        i->gr=&g[0];
+        i->gr=(grammerRule *)g;
         i->t.type='n';
         i->t.s.nt=g[0].lhs;
     }
@@ -90,12 +90,13 @@ item* get_bottom_symbol()
         i->t.type = 't';
         i->t.s.t.StateId = TK_DOLLAR; //StateID for bottom of stack symbol is 55;
         i->t.s.t.name = "$";
+        i->gr=NULL;
     }
     return i;
 }
 
 //Stack operations, parsing the token stream
-Stack operations(Stream token_stream,grammerRule **table,grammerRule *g)
+Stack operations(Stream token_stream,const grammerRule **table,const grammerRule *g)
 {
     Stack s = newStack();
     push(s,make_stack_element(get_bottom_symbol(g)));
@@ -116,10 +117,14 @@ Stack operations(Stream token_stream,grammerRule **table,grammerRule *g)
         {
             pop(s);
             push(popped_items,make_stack_element(tnt));
-            gr = table[tnt->t.s.nt.key][tk->state];
+            gr=table[tnt->t.s.nt.key][tk->state];
+            print_grammer_rule(gr);
+            if(gr.id==-1){
+                printf("error in parsing");
+                
+            }
             int rhs_size = gr.num_of_rhs;
             int j=rhs_size-1;
-            
             
             for(;j>=0;j--)
             {
@@ -171,15 +176,14 @@ item* parse_get(Stack popped_items)
     return send;
 }
 
-Tree parseTree(Stream token_stream,grammerRule **table, grammerRule *g)
-{
+Tree parseTree(Stream token_stream,const grammerRule **table,const grammerRule *g){
     Tree root = (Tree)malloc(sizeof(struct Tree));
     Tree ret = root;
 
     Stack s = operations(token_stream,table,g);
     root->t = get_start_symbol(g)->t;
 
-    grammerRule* start_rule = table[0];
+    grammerRule* start_rule = (grammerRule*)table[0];
     make_node(start_rule,root);
 
 
@@ -198,7 +202,7 @@ Tree parseTree(Stream token_stream,grammerRule **table, grammerRule *g)
 
 
 //root traversal
-void visit(Tree root)
+void visit(const Tree root)
 {
     if(root->t.type=='t')
     printf("%s %d\n",root->t.s.t.name, root->t.s.t.StateId);
@@ -206,8 +210,7 @@ void visit(Tree root)
     printf("%s %d\n",root->t.s.nt.name, root->t.s.nt.key);
 }
 
-void inorder(Tree root)
-{
+void inorder(const Tree root){
     if (root == NULL) 
         return;
     if(root->num_child>0){

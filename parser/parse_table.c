@@ -7,23 +7,26 @@ grammerRule init(grammerRule **table)
 {
     grammerRule ErrorRule;
     ErrorRule.lhs.firsts=NULL;
+    ErrorRule.lhs.name=NULL;
     ErrorRule.lhs.firsts_size=0;
     ErrorRule.lhs.follows=NULL;
     ErrorRule.lhs.follows_size=0;
+    ErrorRule.lhs.key=-1;
     ErrorRule.rhs = NULL;
     ErrorRule.num_of_rhs = 0;
     ErrorRule.isError = 1;
     ErrorRule.id=-1;
-    int i=0,j=0;
-    for(;i<NO_OF_NON_TERMINALS;i++)
+    for(int i=0;i<NO_OF_NON_TERMINALS;i++)
     {
-        for(;j<NO_OF_TERMINALS;j++)
+        //
+        for(int j=0;j<NO_OF_TERMINALS;j++)
         {
+            //
             table[i][j] = ErrorRule;
         }
     }
 }
-grammerRule** gen_parse_table(grammerRule *r, int no_of_rules)
+grammerRule** gen_parse_table(const grammerRule *r, int no_of_rules, const Terminal eps)
 {    
     grammerRule **table=malloc(sizeof(grammerRule*)*NO_OF_NON_TERMINALS);
     for(int i=0;i<NO_OF_NON_TERMINALS;i++)
@@ -71,7 +74,12 @@ grammerRule** gen_parse_table(grammerRule *r, int no_of_rules)
         {
             grammerRule eps_rule;
             eps_rule.lhs = nt_current;
-            eps_rule.rhs = NULL;
+            eps_rule.rhs = malloc(sizeof(TerminalNonTerminal));
+            eps_rule.num_of_rhs=1;
+            eps_rule.id=-2;
+            eps_rule.isError=false;
+            eps_rule.rhs[0].type='t';
+            eps_rule.rhs[0].s.t=eps;
             int j=0;
             for(;j<len_follows;j++)
             {

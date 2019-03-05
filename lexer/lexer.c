@@ -19,7 +19,7 @@ Token* getNextToken(Stream s){
 		d=createDFA();
 	}
 	Token *tk=malloc(sizeof(Token));
-	*tk=get_next_token_sub(s, d->transitions, d->states);
+	*tk=get_next_token_sub(s, (const Transition**)(d->transitions), d->states);
 	if(tk->state==TK_DELIM && tk->val[0]=='\n'){
 		line_no=line_no+1;
 	}
@@ -41,7 +41,7 @@ Token* getNextToken(Stream s){
 
 
 
-void removeComments(char *testcaseFile, char *cleanFile){
+void removeComments(const char *testcaseFile, const char *cleanFile){
 	Stream s=getStream(testcaseFile);
 	FILE *fp=fopen(cleanFile,"w");
 	Token *tk;

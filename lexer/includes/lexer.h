@@ -12,5 +12,5 @@
 
 //get stream in twin_buffer.h
 Token* getNextToken();
-void removeComments(char *testcaseFile, char *cleanFile);
+void removeComments(const char *testcaseFile,const char *cleanFile);
 #endif

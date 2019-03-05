@@ -24,7 +24,7 @@ struct Stream{
 };
 
 
-Stream getStream(char *filename){
+Stream getStream(const char *filename){
     FILE *fp=fopen(filename,"r");
     if(fp==NULL){
         return NULL;
