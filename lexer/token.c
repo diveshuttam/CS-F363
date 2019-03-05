@@ -117,6 +117,8 @@ char **get_token_names(){
 	arr_map[TK_ELSE]=malloc(sizeof(char*)*(strlen("TK_ELSE")+1));
 	strcpy(arr_map[TK_ELSE],"TK_ELSE");
 
+	arr_map[TK_DELIM]=malloc(sizeof(char*)*(strlen("TK_DELIM")+1));
+	strcpy(arr_map[TK_DELIM],"TK_DELIM");
 	arr_map[TK_EPS]=malloc(sizeof(char*)*(strlen("TK_EPS")+1));
 	strcpy(arr_map[TK_EPS],"TK_EPS");
 	arr_map[TK_DOLLAR]=malloc(sizeof(char*)*(strlen("TK_DOLLAR")+1));
@@ -190,6 +192,7 @@ hashTable get_token_hasht(){
 	insert("TK_ENDRECORD",TK_ENDRECORD,ht);
 	insert("TK_ELSE",TK_ELSE,ht);
 	
+	insert("TK_DELIM",TK_DELIM,ht);
 	insert("TK_EPS",TK_EPS,ht);
 	insert("TK_DOLLAR",TK_DOLLAR,ht);
 	return ht;

@@ -2,7 +2,17 @@
 #include <stdlib.h>
 #include <string.h>
 #include "hash.h"
+
 #include "SeqList.h"
+
+struct hashTable
+{	
+	int size;
+	int a;
+  	int b;
+	SeqList* array;
+};
+
 
 char* getKey(Element e){
 	char *k=e->k;
@@ -16,24 +26,25 @@ int getData(Element e){
 
 hashTable newHashTable(int size, int significant_bits, int salt){
 	hashTable ht;
-	ht.b=salt;
-	ht.a=significant_bits;
-	ht.array = (SeqList*)malloc(sizeof(SeqList)*(size+1));
+	ht=malloc(sizeof(struct hashTable));
+	ht->b=salt;
+	ht->a=significant_bits;
+	ht->array = (SeqList*)malloc(sizeof(SeqList)*(size+1));
 	for(int i=0;i<size;i++){
-		ht.array[i] = newList();
+		ht->array[i] = newList();
 	}
-	ht.size = size;
+	ht->size = size;
 	return ht;
 }
 
 int hash(char *str, hashTable ht)
 {
-    unsigned long hash = ht.b;
+    unsigned long hash = ht->b;
     int c;
 
     while (c = *str++)
-        hash = ((hash << ht.a) + hash) + c; /* hash * 33 + c */
-	hash=(hash % ht.size);
+        hash = ((hash << ht->a) + hash) + c; /* hash * 33 + c */
+	hash=(hash % ht->size);
     return hash;
 }
 
@@ -63,7 +74,7 @@ int findHT(char* str,hashTable ht){
 		return -1;
 	}
 	int hash_val = hash(str,ht);
-	Iterator it = getIterator(ht.array[hash_val]);
+	Iterator it = getIterator(ht->array[hash_val]);
 	while(hasNext(it)){
 		char* key = getKey(getNext(it));
 		int data = getData(getNext(it));
@@ -80,11 +91,11 @@ void insert(char* str,int index,hashTable ht){
 		printf("inserting element %s\n", str);
 		int hash_val = hash(str,ht);
 		Element e=createElement(index, str);
-		if(ht.array[hash_val] == NULL){
+		if(ht->array[hash_val] == NULL){
 			printf("error in hash.c");
 			exit(0);
 		}else{
-			ht.array[hash_val] = insertAtEnd(ht.array[hash_val],e);
+			ht->array[hash_val] = insertAtEnd(ht->array[hash_val],e);
 		}
 	}
 	else{

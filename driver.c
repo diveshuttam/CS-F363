@@ -1,68 +1,46 @@
 #include <stdio.h>
-#include "transition.h"
-#include "populate.h"
+#include "lexer.h"
 int main()
 {
-	char filename[40];
+	
 	#ifndef DEBUG
+	char testcase_file[40];
 	printf("Input the file name to be compiled: \n");
-	scanf("%s",filename);
+	scanf("%s",testcase_file);
 	#else
-	strcpy(filename,"a.mylang");
+	char *testcase_file="testcases/testcase1.txt";
 	#endif
-
-	FILE* fp ;
-	fp =  fopen(filename,"r");
-	fseek(fp,0,SEEK_END);
-	long fsize = ftell(fp);
-	fseek(fp,0,SEEK_SET);
-
-	char* buffer = (char*)malloc(fsize+1);
-	fread(buffer,fsize,1,fp);
-	fclose(fp);
-	buffer[fsize]= 0;
-	fp = fopen("dfa_states.ccsv","r");
-	DFA d = populate(fp);
-	fclose(fp);
-	int start = 0;
-	int state;
-	char* val = NULL;
+	
+	Stream s=getStream(testcase_file);
+	if(s==NULL){
+		printf("error opening file %s", testcase_file);
+		return -1;
+	}
 	Token tk;
+	int state;
+	int line_no;
+	char *val;
 	int num=1;
-	#ifdef DEBUG
-	printf("\n\nlexer: starting printing tokens...\n\n");
-	#endif
-	int line=1;
-	int error = false;
+	char **token_names=get_token_names();
 	do{
-		tk = get_next_token(d.transitions,d.states,buffer,fsize+1,&start);
-		state = tk.state;
-		val = tk.val;
-		if(val != NULL && state != -1 && state!=53 && state!=11){ //invalid , delimiter , comments
-			printf("token number: %d\t\tvalue: %s\t\tstate: %d\n",num++, val,state);
-			free(val);
+		tk=getNextToken(s);
+		state=tk.state;
+		val=tk.val;
+		line_no=tk.line_no;
+		if(val!=NULL && state != -1){
+			if(state!=TK_COMMENT){
+				printf("token number: %d\nvalue: %s\nToken_type: %s:%d\n\n",num++, val,token_names[state],state);
+			}
+			// else ignore
 		}
 		else{
-			if(state==53 && val[0]=='\n'){
-				line=line+1;
-			}
 			if(state==-1){
-				error=true;
-				printf("error with token at line %d\n", line);
-				printf("token number: %d\t\tvalue: %s\t\tstate: %d\n",num++, val,state);
-				free(val);
+				printf("error with token at line %d\n", line_no);
+				printf("token number: %d\nvalue: %s\nToken_type: %s:%d\n\n",num, val,"INVALID",state);
 			}
+			fflush(stdout);
 		}
-	}while(start!=(fsize));
-
-	if(error==true){
-		printf("Errors encountered by lexer\n");
-	}
-	else{
-		printf("lexer finished without any errors\n");
-	}
-	destory_DFA(d);
-	free(buffer);
-	return 0;
+		free(val);
+	}while(!isEofStream(s));
 }
 

@@ -1,11 +1,6 @@
 #include "lexerDef.h"
-#include "populate.h"
+#include "populate_dfa.h"
 #include "token.h"
-
-#define MAX_CSV_TOKEN_LEN 100
-#define MAX_LINE_LEN 150
-#define MAX_STATES 56
-#define CHAR_LEN 128
 
 #ifdef DEBUG
 void my_print_transition(Transition t){
@@ -35,7 +30,7 @@ char *get_next_csv_token(char *buf,int *start, int n){
 	return token;
 }
 
-DFA populate(FILE *fp)
+DFA populate_dfa(FILE *fp)
 {
 	Transition **transitions=malloc(sizeof(Transition)*MAX_STATES*CHAR_LEN);
 
@@ -57,7 +52,7 @@ DFA populate(FILE *fp)
 	char *buf=malloc(sizeof(char)*MAX_LINE_LEN);
 	int n;
 	while((fgets(buf,MAX_LINE_LEN,fp))!=NULL){
-		n=strlen(buf);
+		n=strlen(buf)-1;
 		if(buf[0]=='%'){
 			continue;
 		}

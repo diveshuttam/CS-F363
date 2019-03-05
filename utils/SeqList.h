@@ -5,28 +5,21 @@
 #define __SEQLIST_H
 
 #include <stdbool.h>
+#include "Element.h"
 
 #define GREATERTHAN 1
 #define LESSTHAN -1
 #define EQUALTO 0
 
-typedef struct Element *Element;
 typedef struct SeqList *SeqList;
 typedef struct Iterator *Iterator;
-typedef char *Key;
-typedef int *Data;
 
-struct Element
-{
-  Key k;
-  Data d;
-};
+
 
 SeqList newList ();
 SeqList clearList (SeqList sl);
 SeqList insertAtFront (SeqList sl, Element e);
 SeqList insertAtEnd (SeqList sl, Element e);
-SeqList delete (SeqList sl, Element e);
 SeqList deleteAtFront (SeqList sl);
 Iterator getIterator (SeqList sl);
 Iterator next (Iterator it);
@@ -39,6 +32,7 @@ SeqList deleteAfter (SeqList sl, Iterator it);
 Element find (SeqList sl, Key k);
 int compare (Key k1, Key k2);
 SeqList insertInOrder (SeqList sl, Element e);
+SeqList delete (SeqList sl, Element e);
 #endif
 
 //Following functions should be overridden by the user if key and elements are changed

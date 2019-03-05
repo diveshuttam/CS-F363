@@ -6,8 +6,10 @@
 #include "hash.h"
 #define MAX_SIZE 256
 #define MAX_TOKEN_SIZE 150
+#define BLOCK_SIZE 4096
 
 #include<stdbool.h>
+#include"twin_buffer.h"
 
 struct State{
 	int val;
@@ -25,9 +27,8 @@ struct Token{
 	char* val;
 	int state;
 	int len;
+	int line_no;
 };
-
-
 
 typedef struct Token Token;
 typedef struct State State;

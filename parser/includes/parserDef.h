@@ -1,7 +1,9 @@
 //grammer rules
+#ifndef __PARSE_TABLE_H
+#define __PARSE_TABLE_H
 #define NO_OF_TERMINALS 100
 #define NO_OF_NON_TERMINALS 51
-#define NO_OF_RULES 100
+#define NO_OF_RULES 92
 #define LINE_SIZE 1000
 #include<stdio.h>
 #include<stdlib.h>
@@ -36,6 +38,11 @@ typedef struct grammerRule{
     //seqlist of terminals
     TerminalNonTerminal *rhs; 
     int num_of_rhs;
+    int isError;
+    int id;
 } grammerRule;
+grammerRule** gen_parse_table(grammerRule *r, int no_of_rules);
+
+#endif
 
 

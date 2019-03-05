@@ -185,6 +185,7 @@ insertAtEnd (SeqList sl, Element e)
   return sl;
 }
 
+#ifndef __WITHOUT_KEY
 SeqList
 delete (SeqList sl, Element e)
 {
@@ -218,6 +219,7 @@ delete (SeqList sl, Element e)
   }
   return sl;
 }
+#endif
 
 SeqList
 deleteAtFront (SeqList sl)

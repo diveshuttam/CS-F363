@@ -28,6 +28,7 @@ enum token_names{
 	TK_GT=9,
 	TK_GE=8,
 	TK_NE=44,
+	TK_DELIM=53,
 	TK_WITH=55,
 	TK_PARAMETERS,
 	TK_END,

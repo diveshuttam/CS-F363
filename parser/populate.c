@@ -2,6 +2,7 @@
 #include "hash.h"
 #include "parserDef.h"
 #include "token.h"
+#include "populate_grammer.h"
 #include <string.h>
 
 void follows(NonTerminal* non_terminals, Terminal* terminals, char** non_terminals_map, char **terminals_map, hashTable ht_non_terminals,hashTable ht_terminals){
@@ -76,7 +77,7 @@ void firsts(NonTerminal* non_terminals, Terminal* terminals, char** non_terminal
 
 grammerRule* grammer(NonTerminal* non_terminals, Terminal* terminals, char** non_terminals_map, char** terminals_map,hashTable ht_non_terminals, hashTable ht_terminals){
 	grammerRule *g;
-	g=malloc(sizeof(grammer)*NO_OF_RULES);
+	g=malloc(sizeof(grammerRule)*NO_OF_RULES);
 	FILE *fp;
 	int i = 0;
 	char* line = malloc(sizeof(char)*LINE_SIZE);
@@ -101,6 +102,7 @@ grammerRule* grammer(NonTerminal* non_terminals, Terminal* terminals, char** non
 			g[count].lhs=non_terminals[nt];
 			g[count].rhs=malloc(sizeof(TnT)*TOKEN_SIZE);
 			g[count].num_of_rhs=0;
+			g[count].id=count;
 			int j = 0 ;
 			printf("n:%d:%s ===> ",nt,pch);
 			pch = strtok(NULL," \n");
@@ -196,33 +198,6 @@ void initialize_tnt(NonTerminal *non_terminals,Terminal *terminals,char **termin
 			terminals[i].StateId=-1;
 		}
 	}
-}
-
-grammerRule* get_grammer(void){
-	NonTerminal *non_terminals=malloc(sizeof(NonTerminal)*NO_OF_NON_TERMINALS);
-	Terminal *terminals=malloc(sizeof(Terminal)*NO_OF_TERMINALS);
-	
-	char** terminals_map = get_token_names();
-	char** non_terminals_map=get_non_terminals_map();
-
-	hashTable ht_terminals=get_token_hasht();
-	hashTable ht_non_terminals = newHashTable(NO_OF_NON_TERMINALS*ALPHA_INV,HASH_A,HASH_B);
-	for(int i=0;i<NO_OF_NON_TERMINALS;i++){
-		insert(non_terminals_map[i],i,ht_non_terminals);
-	}
-
-	initialize_tnt(non_terminals,terminals,terminals_map,non_terminals_map,ht_terminals,ht_non_terminals);
-
-	printf("firsts\n");
-	firsts(non_terminals,terminals, non_terminals_map,terminals_map,ht_non_terminals,ht_terminals);
-	
-	printf("\nfollows\n");
-	follows(non_terminals,terminals, non_terminals_map,terminals_map,ht_non_terminals,ht_terminals);
-
-	printf("\ngrammer\n");
-	grammerRule *g=NULL;
-    g=grammer(non_terminals,terminals, non_terminals_map,terminals_map,ht_non_terminals,ht_terminals);
-	return g;
 }
 
 

@@ -11,6 +11,11 @@
 #define HASH_B 5183
 #define TOKEN_SIZE 30
 #define MAX_RHS 20
+#define MAX_CSV_TOKEN_LEN 100
+#define MAX_LINE_LEN 150
+#define MAX_STATES 56
+#define CHAR_LEN 128
+
 #include "hash.h"
 #include "token_names.h"
 
