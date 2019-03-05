@@ -101,7 +101,7 @@ Stack operations(Stream token_stream,const grammerRule **table,const grammerRule
     Stack s = newStack();
     push(s,make_stack_element(get_bottom_symbol(g)));
     push(s,make_stack_element(get_start_symbol(g)));
-
+    int error = 0;
     Stack popped_items = newStack(); //A stack, this will help in building the tree
 
     int i=0;
@@ -141,17 +141,27 @@ Stack operations(Stream token_stream,const grammerRule **table,const grammerRule
         }
         // if(tk->state == TK_SQR){
         //     printf("\nreached and tnt is %s %d \n",tnt->t.s.nt.name,tnt->t.s.nt.key);
-        // }
+        // 
 
         if(tnt->t.type=='n' && table[tnt->t.s.nt.key][tk->state].isError==1)
         {
-            printf("Syntax Error found at line y, %s %s %d\n",tnt->t.s.nt.name,tk->val,tk->state); //line number in token structure
+            // printf("Syntax Error found at line y, %s %s %d\n",tnt->t.s.nt.name,tk->val,tk->state);
+            printf("Syntax Error Found at %d: %s:%d  %s:%d\n",tk->line_no,tnt->t.s.nt.name,tnt->t.s.nt.key,tk->val,tk->state); 
+            exit(0);
+            error = 1;//line number in token structure
         }
         else
         {
             if(tnt->t.type=='t' && tnt->t.s.t.StateId!= tk->state) //see the definitions of state in the two definitions
             {
-                printf("Syntax Error Found z %s %d %s %d\n",tnt->t.s.t.name,tnt->t.s.t.StateId,tk->val,tk->state); 
+                printf("Syntax Error Found at %d: %s:%d  %s:%d\n",tk->line_no,tnt->t.s.t.name,tnt->t.s.t.StateId,tk->val,tk->state); 
+                error = 1;
+                // exit(0);
+                item *i=NULL;
+                do{
+                    i=get_item_form_element(top(s));
+                    pop(s);
+                }while(i!=NULL && i->t.type=='t' && i->t.s.t.StateId==tk->state);
             }
             else
             {
@@ -161,7 +171,10 @@ Stack operations(Stream token_stream,const grammerRule **table,const grammerRule
             }
         }
     }
-    printf("\n%d\n",table[stmts][59].isError);
+    if(error==0)
+    {
+        printf("No errors!");
+    }
     reverse(popped_items);
     return popped_items;
 }
