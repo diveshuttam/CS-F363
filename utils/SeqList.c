@@ -171,6 +171,7 @@ insertAtFront (SeqList sl, Element e)
 {
   Iterator it = getIterator (sl);
   sl = insertBefore (sl, it, e);
+  return sl;
 }
 
 SeqList
@@ -225,6 +226,7 @@ SeqList
 deleteAtFront (SeqList sl)
 {
   sl = deleteAfter (sl, NULL);
+  return sl;
 }
 
 #ifndef __WITHOUT_KEY

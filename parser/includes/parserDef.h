@@ -19,22 +19,21 @@ typedef struct Terminal
 {
     enum token_names StateId;
     char *name;
-    Token *tk; //null by default
 } Terminal;
 
 typedef struct NonTerminal {
     char *name;
     enum non_terminal_names key;
-    Terminal *follows;
+    Terminal **follows;
     int follows_size;
-    Terminal *firsts;
+    Terminal **firsts;
     int firsts_size;
 } NonTerminal;
 
 typedef union TnT
 {
-    Terminal t;
-    NonTerminal nt;
+    Terminal *t;
+    NonTerminal *nt;
 } TnT;
 
 typedef struct TerminalNonTerminal{
@@ -43,9 +42,9 @@ typedef struct TerminalNonTerminal{
 } TerminalNonTerminal;
 
 typedef struct grammerRule{
-    NonTerminal lhs;
+    NonTerminal *lhs;
     //seqlist of terminals
-    TerminalNonTerminal *rhs; 
+    TerminalNonTerminal **rhs; 
     int num_of_rhs;
     int isError;
     int id;
@@ -58,11 +57,12 @@ struct Tree
     TerminalNonTerminal t;
     int num_child;
     Tree* child;
+    Token *tk;
 };
 
 void inorder(const Tree t);
-grammerRule** gen_parse_table(const grammerRule *r,const int no_of_rules,const Terminal eps);
-Tree parseTree(Stream token_stream,const grammerRule **table,const grammerRule *g);
+grammerRule** gen_parse_table(const grammerRule *r,const int no_of_rules,const Terminal* eps);
+Tree parseTree(Stream token_stream,const grammerRule **table,const grammerRule *g,const grammerRule *start_rule, const Terminal *bottom_symbol);
 #endif
 
 

@@ -14,7 +14,7 @@ DFA* createDFA(){
 Token* getNextToken(Stream s){
 	static DFA *d;
 	static int line_no=1;
-	static hashTable keywords;
+	static hashTable *keywords=NULL;
 	if(d==NULL){
 		d=createDFA();
 	}
@@ -27,12 +27,11 @@ Token* getNextToken(Stream s){
 	if(isEofStream(s)){
 		return NULL;
 	}
-	static hashTable *ht=NULL;
-	if(ht==NULL){
-		ht=malloc(sizeof(hashTable));
-		*ht=get_keyword_hasht();
+	if(keywords==NULL){
+		keywords=malloc(sizeof(hashTable));
+		*keywords=get_keyword_hasht();
 	}
-	int a=findHT(tk->val,*ht);
+	int a=findHT(tk->val,*keywords);
 	if(a!=-1){
 		tk->state=a;
 	}
@@ -48,7 +47,7 @@ void removeComments(const char *testcaseFile, const char *cleanFile){
 	int state;
 	int line_no;
 	char *val;
-	while(tk=(getNextToken(s))){
+	while((tk=(getNextToken(s)))){
 		state=tk->state;
 		val=tk->val;
 		line_no=tk->line_no;

@@ -45,6 +45,7 @@ Stream getStream(const char *filename){
     s->current_buffer=Buffer1;
     s->eof_ptr=NULL;
     s->fp=fp;
+    return s;
 }
 
 char getChar(Stream s){

@@ -7,14 +7,14 @@
 
 void print_grammer_rule(grammerRule gr){
 	debug_msg("grammer rule: ");
-	debug_msg("%d %s:%d --> ",gr.id, gr.lhs.name,gr.lhs.key);
+	debug_msg("%d %s:%d --> ",gr.id, gr.lhs->name,gr.lhs->key);
 	for(int i=0;i<gr.num_of_rhs;i++){
-		char type=gr.rhs[i].type;
+		char type=gr.rhs[i]->type;
 		if(type=='t'){
-			debug_msg("%s:%d ",gr.rhs[i].s.t.name,gr.rhs[i].s.t.StateId);
+			debug_msg("%s:%d ",gr.rhs[i]->s.t->name,gr.rhs[i]->s.t->StateId);
 		}
 		else if(type=='n'){
-			debug_msg("%s:%d ",gr.rhs[i].s.nt.name,gr.rhs[i].s.nt.key);
+			debug_msg("%s:%d ",gr.rhs[i]->s.nt->name,gr.rhs[i]->s.nt->key);
 		}
 	}
 	debug_msg("\n");
@@ -34,15 +34,15 @@ void follows(NonTerminal* non_terminals, Terminal* terminals, const char** non_t
 			pch = strtok(line," \n");
 			i = findHT(pch,ht_non_terminals);
 			non_terminals[i].follows_size=0;
-			non_terminals[i].follows = malloc(sizeof(Terminal)*MAX_RHS);
+			non_terminals[i].follows = malloc(sizeof(Terminal*)*MAX_RHS);
 			int j = 0 ;
 			debug_msg("%s ", pch);
 			fflush(stdout);
 			pch = strtok(NULL," \n");
 			while(pch != NULL){
-				non_terminals[i].follows[j] = terminals[findHT(pch,ht_terminals)];
+				non_terminals[i].follows[j] = &terminals[findHT(pch,ht_terminals)];
 				non_terminals[i].follows_size++;
-				debug_msg("%s %d ",non_terminals[i].follows[j].name,non_terminals[i].follows[j].StateId);
+				debug_msg("%s %d ",non_terminals[i].follows[j]->name,non_terminals[i].follows[j]->StateId);
 				j++;
 				pch = strtok(NULL," \n");
 			}
@@ -70,16 +70,16 @@ void firsts(NonTerminal* non_terminals, Terminal* terminals, const char** non_te
 		while((read = getline(&line,&len,fp)) != -1 && (read!=0)){
 			pch = strtok(line," \n");
 			i = findHT(pch,ht_non_terminals);
-			non_terminals[i].firsts=malloc(sizeof(Terminal)*MAX_RHS);
+			non_terminals[i].firsts=malloc(sizeof(Terminal*)*MAX_RHS);
 			non_terminals[i].firsts_size=0;
 			int j = 0 ;
 			debug_msg("%s ",pch);
 			pch = strtok(NULL," \n");
 			
 			while(pch != NULL){
-				non_terminals[i].firsts[j]=terminals[findHT(pch,ht_terminals)];
+				non_terminals[i].firsts[j]=&terminals[findHT(pch,ht_terminals)];
 				non_terminals[i].firsts_size++;
-				debug_msg("%s %d ",non_terminals[i].firsts[j].name,non_terminals[i].firsts[j].StateId);
+				debug_msg("%s %d ",non_terminals[i].firsts[j]->name,non_terminals[i].firsts[j]->StateId);
 				j++;
 				pch = strtok(NULL," \n");
 			}
@@ -93,7 +93,6 @@ grammerRule* grammer(const NonTerminal* non_terminals,const Terminal* terminals,
 	grammerRule *g;
 	g=malloc(sizeof(grammerRule)*NO_OF_RULES);
 	FILE *fp;
-	int i = 0;
 	char* line = malloc(sizeof(char)*LINE_SIZE);
 	size_t len = 0;
 	size_t read;
@@ -105,7 +104,7 @@ grammerRule* grammer(const NonTerminal* non_terminals,const Terminal* terminals,
 		len = 0 ;
 		char* pch = NULL;
 		while((read = getline(&line,&len,fp)) != -1){
-			debug_msg("for rule %s\n",line);
+			debug_msg("for line %s\n",line);
 			pch = strtok(line," \n");
 			char *pch1= strtok(NULL," \n");
 			if(strcmp(pch1, "===>")!=0){
@@ -113,8 +112,8 @@ grammerRule* grammer(const NonTerminal* non_terminals,const Terminal* terminals,
 				exit(0);
 			}
 			int nt = findHT(pch,ht_non_terminals);
-			g[count].lhs=non_terminals[nt];
-			g[count].rhs=malloc(sizeof(TnT)*TOKEN_SIZE);
+			g[count].lhs=(NonTerminal*)&non_terminals[nt];
+			g[count].rhs=malloc(sizeof(TerminalNonTerminal*)*MAX_RHS);
 			g[count].num_of_rhs=0;
 			g[count].id=count;
 			int j = 0 ;
@@ -123,18 +122,20 @@ grammerRule* grammer(const NonTerminal* non_terminals,const Terminal* terminals,
 			while(pch != NULL){
 				int nt=findHT(pch,ht_non_terminals);
 				int t=findHT(pch,ht_terminals);
-				if(t==-1 && nt==-1 || t!=-1 && nt!=-1){
+				if((t==-1 && nt==-1) || (t!=-1 && nt!=-1)){
 					debug_msg("error%s\n",pch);
 					exit(1);
 				}
 				if(t!=-1){
-					g[count].rhs[j].type='t';
-					g[count].rhs[j].s.t=terminals[t];
+					g[count].rhs[j]=malloc(sizeof(TnT));
+					g[count].rhs[j]->type='t';
+					g[count].rhs[j]->s.t=(Terminal*)&terminals[t];
 					debug_msg("t:%d:%s ",terminals[t].StateId,terminals[t].name);
 				}
 				else if(nt!=-1){
-					g[count].rhs[j].type='n';
-					g[count].rhs[j].s.nt=non_terminals[nt];
+					g[count].rhs[j]=malloc(sizeof(TnT));
+					g[count].rhs[j]->type='n';
+					g[count].rhs[j]->s.nt=(NonTerminal*)&non_terminals[nt];
 					debug_msg("n:%d:%s ",non_terminals[nt].key,non_terminals[nt].name);
 				}
 				j++;
@@ -197,7 +198,10 @@ void initialize_tnt(NonTerminal *non_terminals,Terminal *terminals,const char **
 			non_terminals[i].name=NULL;
 			non_terminals[i].key=-1;
 		}
-		
+		non_terminals[i].firsts_size=-1;
+		non_terminals[i].follows_size=-1;
+		non_terminals[i].follows=NULL;
+		non_terminals[i].firsts=NULL;
 	}
 
 	for(int i=0;i<NO_OF_TERMINALS;i++){
@@ -214,73 +218,81 @@ void initialize_tnt(NonTerminal *non_terminals,Terminal *terminals,const char **
 	}
 }
 
-void findFirst(Terminal* firstSet,int* nextPos,grammerRule* grammerRules,TerminalNonTerminal T){
+//check if e is in set1;
+bool isPresent(Terminal **set1,int set_size, Terminal *e){
+	for (int i=0;i<set_size;i++){
+		Terminal *temp=set1[i];
+		if(strcmp(temp->name,e->name)==0 && e->StateId==temp->StateId){
+			return true;
+		}
+	}
+	return false;
+}
+
+void findFirst(NonTerminal* nt,grammerRule* grammerRules, Terminal *eps_rule){
 	//firstSet is the set of firsts with size MAX_RHS,to be assigned before calling
 	// nextPos is the position to write next terminal in firstSet i.e actual size of firstSet
 	//grammerRules is the set of all grammer Rules
 	//T is the terminal or non-terminal for which we are trying to find first set
- 	if(T.type == 't'){
- 		firstSet[*nextPos].StateId = T.s.t.StateId;
- 		firstSet[*nextPos].name = (char*)malloc(sizeof(char)*(strlen(T.s.t.name)+1));
- 		strcpy(firstSet[*nextPos].name,T.s.t.name);
- 		*nextPos++;
- 		return; 
- 	}else{
- 		int i;
- 		for(i=0;i<NO_OF_RULES;i++){
- 			if(strcmp(T.s.nt.name,grammerRules[i].lhs.name)==0){
- 				break;
- 			}
- 		}
- 		// i is the rule for which lhs is T
- 		do{
-	 		int j=0;
-	 		int isEps;
-	 		while(j<grammerRules[i].num_of_rhs){
-	 			isEps=0;
-	 			Terminal* subFirstSet = (Terminal*)malloc(sizeof(Terminal)*MAX_RHS);
-	 			int* subNextPos;
-	 			*subNextPos = 0;
-	 			findFirst(subFirstSet,subNextPos,grammerRules,grammerRules[i].rhs[j]);
-	 			//Say for a rule X->Y1Y2Y3...YN,found a first set for Y1
-	 			//check if epsilon is in the first Set
-	 			int k;
-	 			for(k=0;k<*subNextPos;k++){
-	 				if(strcmp(subFirstSet[k].name,"TK_EPS")==0){
-	 					isEps=1;
-	 					break;
-	 					//TK_EPS occurs at kth position
-	 					//add subNextPos[0...k-1] to firstSet
-	 				}
-	 			}
-
-	 			for(int m=0;m<k;k++){
-	 				firstSet[*nextPos].StateId = subFirstSet[m].StateId;
-	 				firstSet[*nextPos].name = (char*)malloc(sizeof(char)*(strlen(subFirstSet[m].name)+1));
-	 				*nextPos++;
-	 			}
-	 			j++;
-	 			free(subFirstSet);
-	 			free(subNextPos);
-	 			if(!isEps) break;
-	 		}
-	 		if(j==grammerRules[i].num_of_rhs && isEps){
-	 			//This means entire rhs of the rule can go to TK_EPS
-	 			//Thus first of X is also TK_EPS
-	 			firstSet[*nextPos].StateId = 79;
-	 			char* eps = "TK_EPS";
-	 			firstSet[*nextPos].name = (char*)malloc(sizeof(char)*(strlen("TK_EPS")+1));
-	 			strcpy(firstSet[*nextPos].name,eps);
-	 			*nextPos++;
-	 			free(eps);	
-	 		}
-	 		i++;
-	 	}while(strcmp(T.s.nt.name,grammerRules[i].lhs.name) == 0);
+	int i;
+	//
+	if(nt->firsts_size!=-1){
+		return;
+	}
+	
+	for(i=0;i<NO_OF_RULES;i++){
+		if(strcmp(nt->name,grammerRules[i].lhs->name)==0){
+			int isEps=1;
+			Terminal **firstSet=malloc(sizeof(Terminal)*MAX_FF);
+			nt->firsts=firstSet;
+			int count=0;
+			grammerRule current_rule=grammerRules[i];
+			for(int j=0;j<current_rule.num_of_rhs && isEps==1;j++){
+				isEps=0;
+				TerminalNonTerminal *temp=current_rule.rhs[j];
+				if(temp->type=='t'){ 
+					if(isPresent(firstSet ,count, temp->s.t)==false){
+						firstSet[count++]=temp->s.t;
+						nt->firsts_size=count;
+						printf("adding %s:%d to firsts of %s:%d\n",temp->s.t->name,temp->s.t->StateId,nt->name,nt->key);
+					}
+				}
+				else{
+					printf("finding firsts of %s:%d for firsts of %s:%d\n",temp->s.nt->name,temp->s.nt->key,nt->name,nt->key);
+					NonTerminal *subFirst=current_rule.rhs[j]->s.nt;
+					findFirst(subFirst, grammerRules,eps_rule);
+					for(int i=0;i<subFirst->firsts_size;i++)
+					{
+						if(isPresent(firstSet,count, subFirst->firsts[i])==false){
+							firstSet[count++]=subFirst->firsts[i];
+							nt->firsts_size=count;
+						}
+					}
+					//Say for a rule X->Y1Y2Y3...YN,found a first set for Y1
+					//check if epsilon is in the first Set
+					
+					if(isPresent(subFirst->firsts,subFirst->firsts_size,eps_rule)){
+						isEps=1;
+						printf("%s:%d is nullable\n",subFirst->name,subFirst->key);
+					}
+				}
+			}
+			// if(j==grammerRules[i].num_of_rhs && isEps){
+			// 	//This means entire rhs of the rule can go to TK_EPS
+			// 	//Thus first of X is also TK_EPS
+			// 	firstSet[*nextPos].StateId = TK_EPS;
+			// 	char* eps = "TK_EPS";
+			// 	firstSet[*nextPos].name = (char*)malloc(sizeof(char)*(strlen("TK_EPS")+1));
+			// 	strcpy(firstSet[*nextPos].name,eps);
+			// 	*nextPos++;
+			// 	free(eps);
+			// }
+		}
 	}
  }
 
  		
- void findFollow(Terminal* followSet,int* nextPos,grammerRule* grammerRules,NonTerminal nt){
+ /*void findFollow(Terminal* followSet,int* nextPos,grammerRule* grammerRules,NonTerminal nt){
  	if(strcmp(nt.name,"program") == 0){
  		followSet[*nextPos].StateId = 80 ;// for TK_DOLLAR
  		char* dollar = "TK_DOLLAR";
@@ -362,7 +374,8 @@ void findFirst(Terminal* firstSet,int* nextPos,grammerRule* grammerRules,Termina
 			}
  		}
  	}
- }
+ }*/
+
 
  /*int main()
  {
