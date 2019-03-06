@@ -67,3 +67,66 @@ void removeComments(const char *testcaseFile, const char *cleanFile){
 
 	return;
 }
+
+void removeCommentsStdout(const char *testcaseFile){
+	Stream s=getStream(testcaseFile);
+	if(s==NULL){
+		printf("error opening file %s", testcaseFile);
+		return;
+	}
+	Token *tk;
+	int state;
+	int line_no;
+	char *val;
+	while(((tk=getNextToken(s)) && tk!=NULL && tk->state!=TK_DOLLAR)){
+		state=tk->state;
+		val=tk->val;
+		line_no=tk->line_no;
+		if(val!=NULL && state != -1){
+			if(state!=TK_COMMENT){
+				printf("%s",val);
+			}
+			// else ignore
+		}
+		else{
+			if(state==-1){
+				debug_msg("error with token at line %d\n", line_no);
+				debug_msg("value: %s\nToken_type: %s:%d\n\n", val,"INVALID",state);
+			}
+		}
+	}
+}
+void printTokenizedOutput(char* testcase_file)
+{
+	Stream s=getStream(testcase_file);
+	if(s==NULL){
+		printf("error opening file %s", testcase_file);
+		return;
+	}
+	Token* tk;
+	int state;
+	int line_no;
+	char *val;
+	int num=1;
+	char **token_names=get_token_names();
+	while((tk=getNextToken(s)) && tk!=NULL && tk->state!=TK_DOLLAR){
+		state=tk->state;
+		val=tk->val;
+		line_no=tk->line_no;
+		if(val!=NULL && state != -1){
+			if(state!=TK_COMMENT){
+				printf("token number: %d\nvalue: %s\nToken_type: %s:%d\n\n",num++, val,token_names[state],state);
+				debug_msg("token number: %d\nvalue: %s\nToken_type: %s:%d\n\n",num++, val,token_names[state],state);
+			}
+			// else ignore
+		}
+		else{
+			if(state==-1){
+				debug_msg("error with token at line %d\n", line_no);
+				debug_msg("token number: %d\nvalue: %s\nToken_type: %s:%d\n\n",num, val,"INVALID",state);
+			}
+			fflush(stdout);
+		}
+		free(val);
+	}
+}
