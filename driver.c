@@ -23,10 +23,20 @@ int main()
     grammerRule *g=NULL;
     g=grammer(non_terminals,terminals,(const char**) non_terminals_map,(const char**)terminals_map,(const hashTable)ht_non_terminals,(const hashTable)ht_terminals);
 
-	debug_msg("firsts\n");
-	firsts(non_terminals,terminals,(const char**) non_terminals_map,(const char**)terminals_map,(const hashTable)ht_non_terminals,(const hashTable)ht_terminals);
+    debug_msg("calculating firsts\n");
+    for(int i=0;i<NO_OF_NON_TERMINALS;i++){
+        findFirst(&non_terminals[i], g, &terminals[TK_EPS]);
+    }
+
+    // debug_msg("firsts\n");
+	// firsts(non_terminals,terminals,(const char**) non_terminals_map,(const char**)terminals_map,(const hashTable)ht_non_terminals,(const hashTable)ht_terminals);
 	
-	debug_msg("\nfollows\n");
+    // debug_msg("calculating follows\n");
+    // for(int i=0;i<NO_OF_NON_TERMINALS;i++){
+    //     findFollows(&non_terminals[i], g, &terminals[TK_EPS], &terminals[TK_DOLLAR]);
+    // }
+
+    debug_msg("firsts\n");
 	follows(non_terminals,terminals,(const char**) non_terminals_map,(const char**)terminals_map,(const hashTable)ht_non_terminals,(const hashTable)ht_terminals);
 
     debug_msg("\ncreating parse table\n");
@@ -80,7 +90,7 @@ int main()
     //debug_msg("\ngetting token stream\n");
     //#ifndef DEBUG
 	//char testcase_file[40];
-    char* testcase_file="testcases/testcase3.txt";
+    char* testcase_file="testcases/testcase4.txt";
 	debug_msg("Input the file name to be compiled: %s \n",testcase_file);
 	//scanf("%s",testcase_file);
 	//#else
