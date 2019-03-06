@@ -257,18 +257,18 @@ void findFirst(NonTerminal* nt,grammerRule* grammerRules, Terminal *eps){
 					if(isPresent(nt->firsts ,nt->firsts_size, temp->s.t)==false){
 						nt->firsts[count++]=temp->s.t;
 						nt->firsts_size=count;
-						printf("adding %s:%d to firsts of %s:%d\n",temp->s.t->name,temp->s.t->StateId,nt->name,nt->key);
+						debug_msg("adding %s:%d to firsts of %s:%d\n",temp->s.t->name,temp->s.t->StateId,nt->name,nt->key);
 					}
 				}
 				else{
-					printf("finding firsts of %s:%d for firsts of %s:%d\n",temp->s.nt->name,temp->s.nt->key,nt->name,nt->key);
+					debug_msg("finding firsts of %s:%d for firsts of %s:%d\n",temp->s.nt->name,temp->s.nt->key,nt->name,nt->key);
 					NonTerminal *subFirst=current_rule.rhs[j]->s.nt;
 					findFirst(subFirst, grammerRules,eps);
 					for(int i=0;i<subFirst->firsts_size;i++)
 					{
 						if(subFirst->firsts[i]->StateId==TK_EPS){
 							isEps=1;
-							printf("%s:%d is nullable\n",subFirst->name,subFirst->key);
+							debug_msg("%s:%d is nullable\n",subFirst->name,subFirst->key);
 							continue;
 						}
 						if(isPresent(nt->firsts ,nt->firsts_size, subFirst->firsts[i])==false){
@@ -287,7 +287,9 @@ void findFirst(NonTerminal* nt,grammerRule* grammerRules, Terminal *eps){
 		}
 	}
  }
-/*
+
+//assuming firsts are already calculated
+
 void findFollow(NonTerminal* nt,grammerRule* grammerRules, Terminal *eps, Terminal *dollar){
 	//firstSet is the set of firsts with size MAX_RHS,to be assigned before calling
 	// nextPos is the position to write next terminal in firstSet i.e actual size of firstSet
@@ -295,59 +297,85 @@ void findFollow(NonTerminal* nt,grammerRule* grammerRules, Terminal *eps, Termin
 	//T is the terminal or non-terminal for which we are trying to find first set
 	int i;
 	//
+	int count=0;
 	if(nt->follows_size!=-1){
 		return;
 	}
-	int count=0;
+	if(nt->key == program){
+		nt->follows = malloc(sizeof(Terminal*)*MAX_FF);
+		nt->follows[count] = dollar;
+		nt->follows_size=1;
+		return ;
+	}
 	for(i=0;i<NO_OF_RULES;i++){
-		grammerRule *temp=&[i];
-		if(strcmp(nt->name,grammerRules[i].lhs->name)==0){
-			int isEps=1;
-			if(nt->firsts==NULL){
-				Terminal **firstSet=malloc(sizeof(Terminal*)*MAX_FF);
-				nt->firsts=firstSet;
-				nt->firsts_size=0;
+		grammerRule *temp=&grammerRules[i];
+		int isEps=0;
+		for(int j=0;j<temp->num_of_rhs;j++){
+			TerminalNonTerminal *tnt=temp->rhs[j];
+			if(tnt->type=='n'){
+				NonTerminal *nt1=tnt->s.nt;
+				if(strcmp(nt->name,nt1->name)==0){
+					isEps=1;
+					if(nt->follows==NULL){
+						Terminal **followSet=malloc(sizeof(Terminal*)*MAX_FF);
+						nt->follows=followSet;
+						followSet[0]=dollar;
+						count++;
+						nt->follows_size=1;
+					}
+
+					for(; j<(temp->num_of_rhs-1) && isEps==1;j++){
+						isEps=0;
+						tnt=(temp->rhs)[j+1];
+						if(tnt->type=='t'){ 
+							if(isPresent(nt->follows ,nt->follows_size, tnt->s.t)==false){
+								nt->follows[count++]=tnt->s.t;
+								nt->follows_size=count;
+								debug_msg("adding %s:%d to follow of %s:%d\n",tnt->s.t->name,tnt->s.t->StateId,nt->name,nt->key);
+							}
+						}
+						else{
+							printf("finding firsts of %s:%d for follows of %s:%d\n",tnt->s.nt->name,tnt->s.nt->key,nt->name,nt->key);
+							NonTerminal *subFirst=tnt->s.nt;
+							findFirst(subFirst, grammerRules,eps);
+							for(int i=0;i<subFirst->firsts_size;i++)
+							{
+								if(subFirst->firsts[i]->StateId==TK_EPS){
+									isEps=1;
+									debug_msg("%s:%d is nullable\n",subFirst->name,subFirst->key);
+									continue;
+								}
+								if(isPresent(nt->follows ,nt->follows_size, subFirst->firsts[i])==false){
+									nt->follows[count++]=subFirst->firsts[i];
+									nt->follows_size=count;
+								}
+							}
+							//Say for a rule X->Y1Y2Y3...YN,found a first set for Y1
+							//check if epsilon is in the first Set
+						}
+					}
+					
+				}
+				
 			}
 			
-			grammerRule current_rule=grammerRules[i];
-			for(int j=0;j<current_rule.num_of_rhs && isEps==1;j++){
-				isEps=0;
-				TerminalNonTerminal *temp=current_rule.rhs[j];
-				if(temp->type=='t'){ 
-					if(isPresent(nt->firsts ,nt->firsts_size, temp->s.t)==false){
-						nt->firsts[count++]=temp->s.t;
-						nt->firsts_size=count;
-						printf("adding %s:%d to firsts of %s:%d\n",temp->s.t->name,temp->s.t->StateId,nt->name,nt->key);
+		}
+		if(isEps==1){
+			//add follows of lhs to nt
+			NonTerminal *subFollows=temp->lhs;
+			debug_msg("finding follows of %s:%d for follows of %s:%d\n",subFollows->name,subFollows->key,nt->name,nt->key);
+				findFollow(subFollows, grammerRules,eps,dollar);
+				for(int i=0;i<subFollows->follows_size;i++)
+				{
+					if(isPresent(nt->follows ,nt->follows_size, subFollows->follows[i])==false){
+						nt->follows[count++]=subFollows->follows[i];
+						nt->follows_size=count;
 					}
 				}
-				else{
-					printf("finding firsts of %s:%d for firsts of %s:%d\n",temp->s.nt->name,temp->s.nt->key,nt->name,nt->key);
-					NonTerminal *subFirst=current_rule.rhs[j]->s.nt;
-					findFirst(subFirst, grammerRules,eps);
-					for(int i=0;i<subFirst->firsts_size;i++)
-					{
-						if(subFirst->firsts[i]->StateId==TK_EPS){
-							isEps=1;
-							printf("%s:%d is nullable\n",subFirst->name,subFirst->key);
-							continue;
-						}
-						if(isPresent(nt->firsts ,nt->firsts_size, subFirst->firsts[i])==false){
-							nt->firsts[count++]=subFirst->firsts[i];
-							nt->firsts_size=count;
-						}
-					}
-					//Say for a rule X->Y1Y2Y3...YN,found a first set for Y1
-					//check if epsilon is in the first Set
-				}
-			}
-			if(isEps==1){
-				nt->firsts[count++]=eps;
-				nt->firsts_size+=1;
-			}
 		}
 	}
  }
- */
+ 
  /*void findFollow(Terminal* followSet,int* nextPos,grammerRule* grammerRules,NonTerminal nt){
  	if(strcmp(nt.name,"program") == 0){
  		followSet[*nextPos].StateId = 80 ;// for TK_DOLLAR

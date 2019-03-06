@@ -31,13 +31,13 @@ int main()
     // debug_msg("firsts\n");
 	// firsts(non_terminals,terminals,(const char**) non_terminals_map,(const char**)terminals_map,(const hashTable)ht_non_terminals,(const hashTable)ht_terminals);
 	
-    // debug_msg("calculating follows\n");
-    // for(int i=0;i<NO_OF_NON_TERMINALS;i++){
-    //     findFollows(&non_terminals[i], g, &terminals[TK_EPS], &terminals[TK_DOLLAR]);
-    // }
+    debug_msg("\n____________\n\ncalculating follows\n");
+    for(int i=0;i<NO_OF_NON_TERMINALS;i++){
+        findFollow(&non_terminals[i], g, &terminals[TK_EPS], &terminals[TK_DOLLAR]);
+    }
 
-    debug_msg("firsts\n");
-	follows(non_terminals,terminals,(const char**) non_terminals_map,(const char**)terminals_map,(const hashTable)ht_non_terminals,(const hashTable)ht_terminals);
+    // debug_msg("firsts\n");
+	// follows(non_terminals,terminals,(const char**) non_terminals_map,(const char**)terminals_map,(const hashTable)ht_non_terminals,(const hashTable)ht_terminals);
 
     debug_msg("\ncreating parse table\n");
     grammerRule **table=gen_parse_table(g,NO_OF_RULES,&terminals[TK_EPS]);
