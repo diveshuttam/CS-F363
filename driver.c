@@ -79,7 +79,7 @@ int main()
     //printf("\ngetting token stream\n");
     //#ifndef DEBUG
 	//char testcase_file[40];
-    char* testcase_file="testcases/testcase2.txt";
+    char* testcase_file="testcases/testcase1.txt";
 	printf("Input the file name to be compiled: %s \n",testcase_file);
 	//scanf("%s",testcase_file);
 	//#else

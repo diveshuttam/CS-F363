@@ -18,6 +18,7 @@ typedef struct Terminal
 {
     enum token_names StateId;
     char *name;
+    Token *tk; //null by default
 } Terminal;
 
 typedef struct NonTerminal {

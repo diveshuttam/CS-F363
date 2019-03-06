@@ -11,6 +11,7 @@ struct item
 {
     TerminalNonTerminal t;
     grammerRule* gr;
+    Tree node;
 }typedef item;
 
 Element make_stack_element(item *i){
@@ -33,27 +34,8 @@ Stack reverse(Stack s)
         push(s1,top(s));
         s=pop(s);
     }
-
+    s=s1;
     return s1;
-}
-
-Tree make_node(grammerRule *r,Tree parent)
-{
-    parent = (Tree)(malloc(sizeof(struct Tree)));
-    parent->t.s.nt = r->lhs;
-    TerminalNonTerminal* rhs = r->rhs;
-    int len_rhs = r->num_of_rhs;
-    parent->num_child = len_rhs;
-    parent->child = (Tree*)malloc(sizeof(Tree)*len_rhs);
-    int i=0;
-    for(;i<len_rhs;i++)
-    {
-        parent->child[i] = (Tree)malloc(sizeof(struct Tree));
-        parent->child[i] -> num_child=0;
-        parent->child[i] -> child = NULL;
-        parent->child[i] -> t = r->rhs[i];
-    }
-    return parent;
 }
 
 void deleteAll(Tree root)
@@ -73,10 +55,14 @@ item*  get_start_symbol(const grammerRule *g)
 {
     static item *i=NULL;
     if(i==NULL){
-        i=malloc(sizeof(item));
+        i=malloc(sizeof(struct item));
         i->gr=(grammerRule *)g;
         i->t.type='n';
         i->t.s.nt=g[0].lhs;
+        i->node=malloc(sizeof(struct Tree));
+        i->node->child=NULL;
+        i->node->num_child=-1;
+        i->node->t=i->t;
     }
     return i;
 }
@@ -91,19 +77,21 @@ item* get_bottom_symbol()
         i->t.s.t.StateId = TK_DOLLAR; //StateID for bottom of stack symbol is 55;
         i->t.s.t.name = "$";
         i->gr=NULL;
+        i->node=NULL;
     }
     return i;
 }
 
 //Stack operations, parsing the token stream
-Stack operations(Stream token_stream,const grammerRule **table,const grammerRule *g)
+Tree parseTree(Stream token_stream,const grammerRule **table,const grammerRule *g)
 {
+    Tree root=malloc(sizeof(struct Tree));
     Stack s = newStack();
-    push(s,make_stack_element(get_bottom_symbol(g)));
-    push(s,make_stack_element(get_start_symbol(g)));
+    item *start_s=get_start_symbol(g);
+    push(s,make_stack_element(get_bottom_symbol()));
+    push(s,make_stack_element(start_s));
+    root=start_s->node;
     int error = 0;
-    Stack popped_items = newStack(); //A stack, this will help in building the tree
-
     int i=0;
     grammerRule gr;
     item* tnt;
@@ -116,8 +104,9 @@ Stack operations(Stream token_stream,const grammerRule **table,const grammerRule
         while(((tnt=get_item_form_element(top(s)))!=NULL && tnt!=get_bottom_symbol() && tnt->t.type=='n' && table[tnt->t.s.nt.key][tk->state].isError!=1)) //need to define error rule 
         {
             pop(s);
-            push(popped_items,make_stack_element(tnt));
+            Tree crr=tnt->node;
             gr=table[tnt->t.s.nt.key][tk->state];
+
             print_grammer_rule(gr);
             if(gr.id==-1){
                 printf("error in parsing");
@@ -125,16 +114,22 @@ Stack operations(Stream token_stream,const grammerRule **table,const grammerRule
             }
             int rhs_size = gr.num_of_rhs;
             int j=rhs_size-1;
-            
+            crr->child=malloc(sizeof(Tree)*rhs_size);
+            crr->num_child=rhs_size;
             for(;j>=0;j--)
             {
                 item* to_be_pushed=malloc(sizeof(struct item)); //malloc
                 to_be_pushed->gr = &gr;
                 to_be_pushed->t = gr.rhs[j];
-                if(to_be_pushed->t.type=='t' && to_be_pushed->t.s.t.StateId!=TK_EPS)
+                if(to_be_pushed->t.type=='n' || (to_be_pushed->t.type=='t' && to_be_pushed->t.s.t.StateId!=TK_EPS)){
+                    (crr->child)[j]=malloc(sizeof(struct Tree));
+                    Tree tcf=(crr->child)[j];
+                    to_be_pushed->node=tcf;
+                    tcf->child=NULL;
+                    tcf->num_child=-1;
+                    tcf->t=to_be_pushed->t;
                     push(s,make_stack_element(to_be_pushed));
-                else if(to_be_pushed->t.type=='n')
-                    push(s,make_stack_element(to_be_pushed));
+                }
             }
             if(tk->state==TK_DOLLAR)
                 break;
@@ -165,18 +160,21 @@ Stack operations(Stream token_stream,const grammerRule **table,const grammerRule
             }
             else
             {
+                Tree crr=tnt->node;
                 pop(s);
-                if(tnt->t.type=='t' && tnt->t.s.t.StateId!=TK_EPS)
-                    push(popped_items,make_stack_element(tnt));
+                if(tnt->t.type=='t' && tnt->t.s.t.StateId!=TK_EPS){
+                    tnt->t.s.t.tk=tk;
+                    crr->t.s.t.tk=tk;
+                    tnt->gr=&gr;
+                }
             }
         }
     }
     if(error==0)
     {
-        printf("No errors!");
+        printf("No errors!\n");
     }
-    reverse(popped_items);
-    return popped_items;
+    return root;
 }
 
 //for finding the root item that will be expanded,i.e, the non terminal to be expanded
@@ -191,6 +189,7 @@ Tree search(Tree root,item* i)
             return root->child[itr];
         }
     }
+    return NULL;
 }
 
 item* parse_get(Stack popped_items)
@@ -200,36 +199,12 @@ item* parse_get(Stack popped_items)
     return send;
 }
 
-Tree parseTree(Stream token_stream,const grammerRule **table,const grammerRule *g){
-    Tree root = (Tree)malloc(sizeof(struct Tree));
-    Tree ret = root;
-
-    Stack s = operations(token_stream,table,g);
-    root->t = get_start_symbol(g)->t;
-
-    grammerRule* start_rule = (grammerRule*)table[0];
-    make_node(start_rule,root);
-
-
-    item* i = parse_get(s);
-    while(i!=NULL)
-    {
-        if(!(i->t.type!='t'))
-        {
-            root = search(root,i);
-            root = make_node(i->gr,root);
-        }
-        i = parse_get(s);
-    }
-    return ret;  
-}
-
 
 //root traversal
 void visit(const Tree root)
 {
     if(root->t.type=='t')
-        printf("%s %d\n",root->t.s.t.name, root->t.s.t.StateId);
+        printf("%s:%d at line %d:%s\n",root->t.s.t.name , root->t.s.t.StateId,root->t.s.t.tk->line_no,root->t.s.t.tk->val);
     else 
         printf("%s %d\n",root->t.s.nt.name, root->t.s.nt.key);
 }
