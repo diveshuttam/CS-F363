@@ -45,8 +45,8 @@ void removeComments(const char *testcaseFile, const char *cleanFile){
 	FILE *fp=fopen(cleanFile,"w");
 	Token *tk;
 	int state;
-	int line_no;
 	char *val;
+	int line_no;
 	while((tk=(getNextToken(s)))){
 		state=tk->state;
 		val=tk->val;
@@ -59,11 +59,71 @@ void removeComments(const char *testcaseFile, const char *cleanFile){
 		}
 		else{
 			if(state==-1){
-				debug_msg("error with token at line %d\n", line_no);
-				debug_msg("value: %s\nToken_type: %s:%d\n\n", val,"INVALID",state);
+				printf("error with token at line %d\n", line_no);
+				printf("value: %s\nToken_type: %s:%d\n\n", val,"INVALID",state);
 			}
 		}
 	};
 
 	return;
+}
+
+void removeCommentsStdout(const char *testcaseFile){
+	Stream s=getStream(testcaseFile);
+	if(s==NULL){
+		printf("error opening file %s\n", testcaseFile);
+		return;
+	}
+	Token *tk;
+	int state;
+	char *val;
+	int line_no;
+	while(((tk=getNextToken(s)) && tk!=NULL && tk->state!=TK_DOLLAR)){
+		state=tk->state;
+		val=tk->val;
+		line_no=tk->line_no;
+		if(val!=NULL && state != -1){
+			if(state!=TK_COMMENT){
+				printf("%s",val);
+			}
+			// else ignore
+		}
+		else{
+			if(state==-1){
+				printf("error with token at line %d\n", line_no);
+				printf("value: %s\nToken_type: %s:%d\n\n", val,"INVALID",state);
+			}
+		}
+	}
+}
+void printTokenizedOutput(char* testcase_file)
+{
+	Stream s=getStream(testcase_file);
+	if(s==NULL){
+		printf("error opening file %s\n", testcase_file);
+		return;
+	}
+	Token* tk;
+	int state;
+	int line_no;
+	char *val;
+	int num=1;
+	char **token_names=get_token_names();
+	while((tk=getNextToken(s)) && tk!=NULL && tk->state!=TK_DOLLAR){
+		state=tk->state;
+		val=tk->val;
+		line_no=tk->line_no;
+		if(val!=NULL && state != -1){
+				printf("token number: %d\nvalue: %s\nToken_type: %s:%d\nLine no:%d\n\n",num++, val,token_names[state],state,line_no);
+			// else ignore
+		}
+		else{
+			if(state==-1){
+				debug_msg("error with token at line %d\n", line_no);
+				debug_msg("token number: %d\nvalue: %s\nToken_type: %s:%d\n\n",num, val,"INVALID",state);
+			}
+			fflush(stdout);
+		}
+		free(val);
+	}
 }
