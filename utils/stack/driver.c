@@ -11,16 +11,16 @@ Stack s;
 void
 sigint_handler (int dummy)
 {
-  printf ("\nYou chose to exit!\n");
+  debug_msg ("\nYou chose to exit!\n");
   exit (0);
 }
 
 void
 sigquit_handler (int dummy)
 {
-  printf ("\nClearing the Stack now\n");
+  debug_msg ("\nClearing the Stack now\n");
   s = clearStack (s);
-  printf ("Stack List has been cleared\n");
+  debug_msg ("Stack List has been cleared\n");
 }
 
 //end of signal handling
@@ -66,25 +66,25 @@ Please enter a choice[0-5]\n\
           break;
         case 3:
           e = top (s);
-          printf ("the top of the stack is: ");
+          debug_msg ("the top of the stack is: ");
           printElement (e);
           break;
         case 4:
           fprintf (stderr, "enter the no of elements to push");
           scanf ("%d", &noOfElements);
-          printf ("inserting elements\n");
+          debug_msg ("inserting elements\n");
           s = randomElements (s, noOfElements, push);
-          printf ("Done");
+          debug_msg ("Done");
           break;
         case 5:
           fprintf (stderr, "enter the no of elements to pop");
           scanf ("%d", &noOfElements);
-          printf ("poping elements\n");
+          debug_msg ("poping elements\n");
           for (int i = 0; i < noOfElements; i++)
             {
               s = pop (s);
             }
-          printf ("Done");
+          debug_msg ("Done");
           break;
         default:
           fprintf (stderr, "invalid choice");

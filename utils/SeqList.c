@@ -28,7 +28,7 @@ typedef struct Iterator
 } *Iterator;
 
 Iterator
-getIterator (SeqList sl)
+getIterator (const SeqList sl)
 {
   Iterator it = malloc (sizeof (struct Iterator));
   it->previous = NULL;
@@ -185,6 +185,7 @@ insertAtEnd (SeqList sl, Element e)
   return sl;
 }
 
+#ifndef __WITHOUT_KEY
 SeqList
 delete (SeqList sl, Element e)
 {
@@ -218,6 +219,7 @@ delete (SeqList sl, Element e)
   }
   return sl;
 }
+#endif
 
 SeqList
 deleteAtFront (SeqList sl)

@@ -4,10 +4,14 @@
 #include<string.h>
 #include<stdlib.h>
 #include "hash.h"
+#include"debug.h"
 #define MAX_SIZE 256
 #define MAX_TOKEN_SIZE 150
+#define BLOCK_SIZE 4096
 
 #include<stdbool.h>
+#include"twin_buffer.h"
+#include"token_names.h"
 
 struct State{
 	int val;
@@ -23,11 +27,10 @@ struct Transition{
 
 struct Token{
 	char* val;
-	int state;
+	enum token_names state;
 	int len;
+	int line_no;
 };
-
-
 
 typedef struct Token Token;
 typedef struct State State;

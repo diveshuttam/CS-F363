@@ -1,18 +1,13 @@
 #include "lexerDef.h"
-#include "populate.h"
+#include "populate_dfa.h"
 #include "token.h"
-
-#define MAX_CSV_TOKEN_LEN 100
-#define MAX_LINE_LEN 150
-#define MAX_STATES 56
-#define CHAR_LEN 128
 
 #ifdef DEBUG
 void my_print_transition(Transition t){
-	printf("addding transition\t%d\t%c\t%d\n", t.current_state, t.character, t.next_state);
+	debug_msg("addding transition\t%d\t%c\t%d\n", t.current_state, t.character, t.next_state);
 }
 void my_print_state(State s){
-	printf("addding state\t%d\t%d\t%d\n", s.val, s.is_final_state, s.is_retracting_state);
+	debug_msg("addding state\t%d\t%d\t%d\n", s.val, s.is_final_state, s.is_retracting_state);
 }
 #else
 #define my_print_transition(x)
@@ -30,12 +25,12 @@ char *get_next_csv_token(char *buf,int *start, int n){
 	*start+=1;
 	token[j]='\0';
 	#ifdef DEBUG
-	printf("Start\t%d\n",*start);
+	debug_msg("Start\t%d\n",*start);
 	#endif
 	return token;
 }
 
-DFA populate(FILE *fp)
+DFA populate_dfa(FILE *fp)
 {
 	Transition **transitions=malloc(sizeof(Transition)*MAX_STATES*CHAR_LEN);
 
@@ -57,7 +52,7 @@ DFA populate(FILE *fp)
 	char *buf=malloc(sizeof(char)*MAX_LINE_LEN);
 	int n;
 	while((fgets(buf,MAX_LINE_LEN,fp))!=NULL){
-		n=strlen(buf);
+		n=strlen(buf)-1;
 		if(buf[0]=='%'){
 			continue;
 		}
@@ -65,8 +60,8 @@ DFA populate(FILE *fp)
 			continue;
 		}
 		#ifdef DEBUG
-		printf("size %d\n",n);
-		printf("printbuf\t%s\n",buf);
+		debug_msg("size %d\n",n);
+		debug_msg("printbuf\t%s\n",buf);
 		#endif
 
 		State si,sf;
@@ -76,9 +71,9 @@ DFA populate(FILE *fp)
 		char *s3=get_next_csv_token(buf,&start,n);
 
 		#ifdef DEBUG
-		printf("%s\n",s1);
-		printf("%s\n",s2);
-		printf("%s\n",s3);
+		debug_msg("%s\n",s1);
+		debug_msg("%s\n",s2);
+		debug_msg("%s\n",s3);
 		#endif
 
 	  	si.is_final_state=false, si.is_retracting_state=false;

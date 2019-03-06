@@ -117,6 +117,8 @@ char **get_token_names(){
 	arr_map[TK_ELSE]=malloc(sizeof(char*)*(strlen("TK_ELSE")+1));
 	strcpy(arr_map[TK_ELSE],"TK_ELSE");
 
+	arr_map[TK_DELIM]=malloc(sizeof(char*)*(strlen("TK_DELIM")+1));
+	strcpy(arr_map[TK_DELIM],"TK_DELIM");
 	arr_map[TK_EPS]=malloc(sizeof(char*)*(strlen("TK_EPS")+1));
 	strcpy(arr_map[TK_EPS],"TK_EPS");
 	arr_map[TK_DOLLAR]=malloc(sizeof(char*)*(strlen("TK_DOLLAR")+1));
@@ -190,6 +192,7 @@ hashTable get_token_hasht(){
 	insert("TK_ENDRECORD",TK_ENDRECORD,ht);
 	insert("TK_ELSE",TK_ELSE,ht);
 	
+	insert("TK_DELIM",TK_DELIM,ht);
 	insert("TK_EPS",TK_EPS,ht);
 	insert("TK_DOLLAR",TK_DOLLAR,ht);
 	return ht;
@@ -198,4 +201,34 @@ hashTable get_token_hasht(){
 void destroy_token_hasht(hashTable ht){
 	//todo
 	return;
+}
+
+hashTable get_keyword_hasht(){
+	hashTable ht=newHashTable((int)(NUM_KEYWORDS*ALPHA_INV),HASH_A,HASH_B);
+	insert("with",TK_WITH,ht);
+	insert("parameters",TK_PARAMETERS,ht);
+	insert("parameter",TK_PARAMETER,ht);
+	insert("list",TK_LIST,ht);
+	insert("input",TK_INPUT,ht);
+	insert("output",TK_OUTPUT,ht);
+	insert("int",TK_INT,ht);
+	insert("real",TK_REAL,ht);
+	insert("endwhile",TK_ENDWHILE,ht);
+	insert("if",TK_IF,ht);
+	insert("then",TK_THEN,ht);
+	insert("endif",TK_ENDIF,ht);
+	insert("read",TK_READ,ht);
+	insert("write",TK_WRITE,ht);
+	insert("return",TK_RETURN,ht);
+	insert("call",TK_CALL,ht);
+	insert("endrecord",TK_ENDRECORD,ht);
+	insert("else",TK_ELSE,ht);
+	insert("_main",TK_MAIN,ht);
+	insert("type",TK_TYPE,ht);
+	insert("while",TK_WHILE,ht);
+	insert("end",TK_END,ht);
+	insert("$",TK_DOLLAR,ht);
+	insert("global",TK_GLOBAL,ht);
+	insert("record",TK_RECORD,ht);
+	return ht;
 }

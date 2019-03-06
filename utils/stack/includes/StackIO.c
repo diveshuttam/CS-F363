@@ -8,11 +8,11 @@ int checkRedirect;
 void
 printElement (Element e)
 {
-  //printf ("Key:%d Next:%p\n", e->k->data, e->next);
+  //debug_msg ("Key:%d Next:%p\n", e->k->data, e->next);
   if (e == NULL)
-    printf ("nil\n");
+    debug_msg ("nil\n");
   else
-    printf ("%d\n", e->k);
+    debug_msg ("%d\n", e->k);
 }
 
 Key
@@ -65,7 +65,7 @@ setRedirection ()
   char link1[256];
   rval = readlink ("/proc/self/fd/2", link1, sizeof (link1));
   link1[rval] = '\0';
-  //printf("%s\n%s", link1, link);
+  //debug_msg("%s\n%s", link1, link);
 
   if (strcmp (link, link1) != 0)
     checkRedirect = 1;

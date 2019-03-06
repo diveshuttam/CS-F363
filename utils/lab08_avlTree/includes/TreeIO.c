@@ -7,7 +7,7 @@ printTree (BinarySearchTree N){
     if(isEmpty(N))
         return;
     printTree(getLeft(N));
-    printf("%d\n",getRoot(N)->k);
+    debug_msg("%d\n",getRoot(N)->k);
     printTree(getRight(N));
 
 }

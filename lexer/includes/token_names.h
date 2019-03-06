@@ -1,3 +1,5 @@
+#ifndef __TOKEN_NAMES_H
+#define __TOKEN_NAMES_H
 enum token_names{
 	TK_ASSIGNOP=4,
 	TK_COMMENT=11,
@@ -28,6 +30,7 @@ enum token_names{
 	TK_GT=9,
 	TK_GE=8,
 	TK_NE=44,
+	TK_DELIM=53,
 	TK_WITH=55,
 	TK_PARAMETERS,
 	TK_END,
@@ -55,3 +58,4 @@ enum token_names{
 	TK_EPS,
 	TK_DOLLAR
 };
+#endif

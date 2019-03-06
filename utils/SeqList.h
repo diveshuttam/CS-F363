@@ -1,44 +1,38 @@
-//Authro: Divesh Uttamchandani
+//Author: Divesh Uttamchandani
 //2016A7PS0045P
 
 #ifndef __SEQLIST_H
 #define __SEQLIST_H
 
 #include <stdbool.h>
+#include "Element.h"
 
 #define GREATERTHAN 1
 #define LESSTHAN -1
 #define EQUALTO 0
 
-typedef struct Element *Element;
 typedef struct SeqList *SeqList;
 typedef struct Iterator *Iterator;
-typedef char *Key;
-typedef int *Data;
 
-struct Element
-{
-  Key k;
-  Data d;
-};
+
 
 SeqList newList ();
 SeqList clearList (SeqList sl);
 SeqList insertAtFront (SeqList sl, Element e);
 SeqList insertAtEnd (SeqList sl, Element e);
-SeqList delete (SeqList sl, Element e);
 SeqList deleteAtFront (SeqList sl);
-Iterator getIterator (SeqList sl);
+Iterator getIterator (const SeqList sl);
 Iterator next (Iterator it);
-Element getNext (Iterator it);
-bool hasNext (Iterator it);
+Element getNext (const Iterator it);
+bool hasNext (const Iterator it);
 SeqList insertBefore (SeqList sl, Iterator it, Element E);
 SeqList deleteAfter (SeqList sl, Iterator it);
 
 #ifndef __WITHOUT_KEY
-Element find (SeqList sl, Key k);
-int compare (Key k1, Key k2);
+Element find (const SeqList sl,const Key k);
+int compare (const Key k1,const Key k2);
 SeqList insertInOrder (SeqList sl, Element e);
+SeqList delete (SeqList sl, Element e);
 #endif
 
 //Following functions should be overridden by the user if key and elements are changed

@@ -1,19 +1,28 @@
-all: utility lexer parser
+all: utility lexer parser driver
 
-parser:utility parser/rules/firsts.txt parser/populate.c lexer/token.c parser/includes/
-	gcc -g -c -I parser/includes/ -I utils/ -I lexer/includes/ ./parser/populate.c ./lexer/token.c
-	gcc populate.o token.o SeqList.o hash.o -o parser/parser
+driver:parser lexer utility
+	gcc -g -c -D NOT_DEBUG -D __MY_OWN_DATA_ELE -D __WITHOUT_KEY -I parser/includes/ -I utils/ -I lexer/includes/ driver.c
+	gcc driver.o populate_dfa.o populate_grammer.o token.o hash.o transition.o SeqList.o lexer.o twin_buffer.o parseTree.o Stack.o parse_table.o -o stage1exe
 
-lexer:utility lexer/driver.c lexer/token.c lexer/includes/ lexer/transition.c lexer/lexer.c lexer/populate.c utils
-	gcc -g -c -I lexer/includes/ -I utils/ lexer/driver.c lexer/token.c lexer/transition.c lexer/lexer.c lexer/populate.c
-	gcc populate.o driver.o token.o hash.o transition.o SeqList.o lexer.o -o ./lexer/lexer
+parser:utility parser/rules/firsts.txt parser/populate_grammer.c lexer/token.c parser/includes/ parser/parse_table.c lexer/token.c utility
+	gcc -g -c -D NOT_DEBUG -D __MY_OWN_DATA_ELE -D __WITHOUT_KEY -I parser/includes/ -I utils/ -I lexer/includes/ ./parser/populate_grammer.c ./lexer/token.c ./parser/parse_table.c ./parser/parseTree.c
+
+lexer:utility lexer/token.c lexer/includes/ lexer/transition.c lexer/lexer.c lexer/populate_dfa.c lexer/twin_buffer.c utils
+	gcc -g -c -D NOT_DEBUG -D __MY_OWN_DATA_ELE -D __WITHOUT_KEY -I lexer/includes/ -I utils/ lexer/token.c lexer/transition.c lexer/lexer.c lexer/populate_dfa.c lexer/twin_buffer.c
 
 hash.o: utils/hash.c utils/hash.h utils/SeqList.h
-	gcc -g -c utils/hash.c
+	gcc -g -c -D NOT_DEBUG -D __MY_OWN_DATA_ELE -D __WITHOUT_KEY utils/hash.c
+
+StackTree.o: utils/SeqListTree.c utils/SeqListTree.h utils/StackTree.c
+	gcc -g -c -D NOT_DEBUG -D __MY_OWN_DATA_ELE -D __WITHOUT_KEY utils/StackTree.c
 
 SeqList.o: utils/SeqList.h utils/SeqList.c
-	gcc -g -c utils/SeqList.c
+	gcc -g -c -D NOT_DEBUG -D __MY_OWN_DATA_ELE -D __WITHOUT_KEY utils/SeqList.c
 
-utility:hash.o SeqList.o
+Stack.o:
+	gcc -g -c -D NOT_DEBUG -D __MY_OWN_DATA_ELE -D __WITHOUT_KEY utils/Stack.c 
 
+utility:hash.o SeqList.o Stack.o
 
+clean:
+	rm -rf *.o

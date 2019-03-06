@@ -1,5 +1,7 @@
 #ifndef _TRANSITION
 #define _TRANSITION
 #include "lexerDef.h"
-Token get_next_token(Transition** transition_table,State *states,char* buffer,int buffersize,int* start);
+#include "debug.h"
+#define MAX_TOKEN_NUMS 200
+Token get_next_token_sub(Stream s,const Transition** transition_table,const State *states);
 #endif
