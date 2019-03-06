@@ -110,7 +110,7 @@ DFA populate_dfa(FILE *fp)
 				t.character=s2[0];
 			if(charsize==3)
 				t.character=(char)atoi(s2);
-			transitions[t.current_state][t.character]=t;
+			transitions[t.current_state][(int)(t.character)]=t;
 			my_print_transition(t);
 		}
 		else if(strcmp(s2,"other")==0){
@@ -119,8 +119,8 @@ DFA populate_dfa(FILE *fp)
 			t.next_state=sf.val;
 			for(int i=0;i<CHAR_LEN;i++){
 				t.character=i;
-				if(transitions[t.current_state][t.character].next_state==-1){
-					transitions[t.current_state][t.character]=t;
+				if(transitions[t.current_state][(int)(t.character)].next_state==-1){
+					transitions[t.current_state][(int)(t.character)]=t;
 					my_print_transition(t);
 				}
 			}
@@ -133,7 +133,7 @@ DFA populate_dfa(FILE *fp)
 			t.next_state=sf.val;
 			for(int i=init;i<=finish;i++){
 				t.character=i;
-				transitions[t.current_state][t.character]=t;
+				transitions[t.current_state][(int)(t.character)]=t;
 				my_print_transition(t);
 			}
 		}
@@ -161,4 +161,5 @@ void destory_DFA(DFA d){
 		free(t[i]);
 	}
 	free(t);
+	free(ht);
 }

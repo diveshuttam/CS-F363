@@ -18,7 +18,7 @@ Token get_next_token_sub(Stream s,const Transition** transition_table,const Stat
     {
         if(current_state.is_final_state==1 && current_state.is_retracting_state==false)
         {
-            tk.val[idx]=='\0';
+            // tk.val[idx]=='\0';
             tk.len=idx;
             tk.state = current_state.val;
             return tk;
@@ -34,7 +34,7 @@ Token get_next_token_sub(Stream s,const Transition** transition_table,const Stat
         ch=getChar(s);
         tk.val[idx++]=ch;
 
-        Transition t = transition_table[current_state.val][ch];
+        Transition t = transition_table[current_state.val][(int)ch];
         State next_state = states[t.next_state];
 
         //special case of invalid next state

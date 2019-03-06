@@ -51,31 +51,31 @@ void deleteAll(Tree root)
 }
 
 //returns start_symbol
-item*  get_start_symbol(const grammerRule *g)
+item*  get_start_symbol_item(const grammerRule* start_rule)
 {
     static item *i=NULL;
     if(i==NULL){
         i=malloc(sizeof(struct item));
-        i->gr=(grammerRule *)g;
+        i->gr=(grammerRule *)start_rule;
         i->t.type='n';
-        i->t.s.nt=g[0].lhs;
+        i->t.s.nt=start_rule[0].lhs;
         i->node=malloc(sizeof(struct Tree));
         i->node->child=NULL;
         i->node->num_child=-1;
         i->node->t=i->t;
+        i->node->tk=NULL;
     }
     return i;
 }
 
 //return bottom symbol $ feeded in as type TerminalNonTerminal
-item* get_bottom_symbol()
+item* get_bottom_symbol_item(const Terminal *bottom_symbol)
 {
     static item* i = NULL;
     if(i==NULL){
         i=(item*)malloc(sizeof(item));
         i->t.type = 't';
-        i->t.s.t.StateId = TK_DOLLAR; //StateID for bottom of stack symbol is 55;
-        i->t.s.t.name = "$";
+        i->t.s.t=(Terminal *)bottom_symbol;
         i->gr=NULL;
         i->node=NULL;
     }
@@ -83,29 +83,29 @@ item* get_bottom_symbol()
 }
 
 //Stack operations, parsing the token stream
-Tree parseTree(Stream token_stream,const grammerRule **table,const grammerRule *g)
+Tree parseTree(Stream token_stream,const grammerRule **table,const grammerRule *g, const grammerRule *start_rule, const Terminal *bottom_symbol)
 {
     Tree root=malloc(sizeof(struct Tree));
     Stack s = newStack();
-    item *start_s=get_start_symbol(g);
-    push(s,make_stack_element(get_bottom_symbol()));
+    item *start_s=get_start_symbol_item(g);
+    item *bottom_s=get_bottom_symbol_item(bottom_symbol);
+    push(s,make_stack_element(bottom_s));
     push(s,make_stack_element(start_s));
     root=start_s->node;
     int error = 0;
-    int i=0;
     grammerRule gr;
-    item* tnt;
-    Token *tk;
+    item* tnt=NULL;
+    Token *tk=NULL;
     while((tk=getNextToken(token_stream))!=NULL)
     {
         if(tk->state==TK_COMMENT||tk->state==TK_DELIM)
             continue;
         // tnt = get_item_form_element(top(s));
-        while(((tnt=get_item_form_element(top(s)))!=NULL && tnt!=get_bottom_symbol() && tnt->t.type=='n' && table[tnt->t.s.nt.key][tk->state].isError!=1)) //need to define error rule 
+        while(((tnt=get_item_form_element(top(s)))!=NULL && tnt!=bottom_s && tnt->t.type=='n' && table[tnt->t.s.nt->key][tk->state].isError!=1)) //need to define error rule 
         {
             pop(s);
             Tree crr=tnt->node;
-            gr=table[tnt->t.s.nt.key][tk->state];
+            gr=table[tnt->t.s.nt->key][tk->state];
 
             print_grammer_rule(gr);
             if(gr.id==-1){
@@ -120,14 +120,15 @@ Tree parseTree(Stream token_stream,const grammerRule **table,const grammerRule *
             {
                 item* to_be_pushed=malloc(sizeof(struct item)); //malloc
                 to_be_pushed->gr = &gr;
-                to_be_pushed->t = gr.rhs[j];
-                if(to_be_pushed->t.type=='n' || (to_be_pushed->t.type=='t' && to_be_pushed->t.s.t.StateId!=TK_EPS)){
+                to_be_pushed->t = *(gr.rhs[j]);
+                if(to_be_pushed->t.type=='n' || (to_be_pushed->t.type=='t' && to_be_pushed->t.s.t->StateId!=TK_EPS)){
                     (crr->child)[j]=malloc(sizeof(struct Tree));
                     Tree tcf=(crr->child)[j];
                     to_be_pushed->node=tcf;
                     tcf->child=NULL;
                     tcf->num_child=-1;
                     tcf->t=to_be_pushed->t;
+                    tcf->tk=NULL;
                     push(s,make_stack_element(to_be_pushed));
                 }
             }
@@ -138,33 +139,32 @@ Tree parseTree(Stream token_stream,const grammerRule **table,const grammerRule *
         //     debug_msg("\nreached and tnt is %s %d \n",tnt->t.s.nt.name,tnt->t.s.nt.key);
         // 
 
-        if(tnt->t.type=='n' && table[tnt->t.s.nt.key][tk->state].isError==1)
+        if(tnt->t.type=='n' && table[tnt->t.s.nt->key][tk->state].isError==1)
         {
             // debug_msg("Syntax Error found at line y, %s %s %d\n",tnt->t.s.nt.name,tk->val,tk->state);
-            debug_msg("Syntax Error Found at %d: %s:%d  %s:%d\n",tk->line_no,tnt->t.s.nt.name,tnt->t.s.nt.key,tk->val,tk->state); 
+            debug_msg("Syntax Error Found at %d: %s:%d  %s:%d\n",tk->line_no,tnt->t.s.nt->name,tnt->t.s.nt->key,tk->val,tk->state); 
             exit(0);
             error = 1;//line number in token structure
         }
         else
         {
-            if(tnt->t.type=='t' && tnt->t.s.t.StateId!= tk->state) //see the definitions of state in the two definitions
+            if(tnt->t.type=='t' && tnt->t.s.t->StateId!= tk->state) //see the definitions of state in the two definitions
             {
-                debug_msg("Syntax Error Found at %d: %s:%d  %s:%d\n",tk->line_no,tnt->t.s.t.name,tnt->t.s.t.StateId,tk->val,tk->state); 
+                debug_msg("Syntax Error Found at %d: %s:%d  %s:%d\n",tk->line_no,tnt->t.s.t->name,tnt->t.s.t->StateId,tk->val,tk->state); 
                 error = 1;
                 // exit(0);
                 item *i=NULL;
                 do{
                     i=get_item_form_element(top(s));
                     pop(s);
-                }while(i!=NULL && i->t.type=='t' && i->t.s.t.StateId==tk->state);
+                }while(i!=NULL && i->t.type=='t' && i->t.s.t->StateId==tk->state);
             }
             else
             {
                 Tree crr=tnt->node;
                 pop(s);
-                if(tnt->t.type=='t' && tnt->t.s.t.StateId!=TK_EPS){
-                    tnt->t.s.t.tk=tk;
-                    crr->t.s.t.tk=tk;
+                if(tnt->t.type=='t' && tnt->t.s.t->StateId!=TK_EPS){
+                    crr->tk=tk;
                     tnt->gr=&gr;
                 }
             }
@@ -184,7 +184,7 @@ Tree search(Tree root,item* i)
     int itr = 0;
     for(;itr<num_child;itr++)
     {
-        if(root->child[itr]->t.s.nt.key == i->t.s.nt.key)
+        if(root->child[itr]->t.s.nt->key == i->t.s.nt->key)
         {
             return root->child[itr];
         }
@@ -204,9 +204,16 @@ item* parse_get(Stack popped_items)
 void visit(const Tree root)
 {
     if(root->t.type=='t')
-        printf("%s:%d at line %d:%s\n",root->t.s.t.name , root->t.s.t.StateId,root->t.s.t.tk->line_no,root->t.s.t.tk->val);
-    else 
-        printf("%s %d\n",root->t.s.nt.name, root->t.s.nt.key);
+        {
+            if(root->tk==NULL){
+            printf("error with tree node %s:%d terminal Token points to NULL \n",root->t.s.t->name , root->t.s.t->StateId);
+            exit(0);
+            }
+        printf("%s:%d at line %d:%s\n",root->t.s.t->name , root->t.s.t->StateId,root->tk->line_no,root->tk->val);
+    }
+    else{ 
+        printf("%s %d\n",root->t.s.nt->name, root->t.s.nt->key);
+    }
 }
 
 void inorder(const Tree root){

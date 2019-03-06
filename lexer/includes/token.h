@@ -17,6 +17,7 @@
 #define MAX_STATES 56
 #define CHAR_LEN 128
 #define NUM_KEYWORDS 20
+#define MAX_FF 22
 
 #include "hash.h"
 #include "token_names.h"
