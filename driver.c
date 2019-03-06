@@ -1,4 +1,5 @@
 #include "parserDef.h"
+#include "debug.h"
 #include "lexer.h"
 #include "populate_grammer.h"
 
@@ -30,70 +31,71 @@ int main()
 
 	initialize_tnt(non_terminals,terminals,(const char**) terminals_map,(const char**) non_terminals_map,(const hashTable) ht_terminals,(const hashTable)ht_non_terminals);
 
-	printf("firsts\n");
+	debug_msg("firsts\n");
 	firsts(non_terminals,terminals,(const char**) non_terminals_map,(const char**)terminals_map,(const hashTable)ht_non_terminals,(const hashTable)ht_terminals);
 	
-	printf("\nfollows\n");
+	debug_msg("\nfollows\n");
 	follows(non_terminals,terminals,(const char**) non_terminals_map,(const char**)terminals_map,(const hashTable)ht_non_terminals,(const hashTable)ht_terminals);
 	
-	printf("\ngrammer\n");
+	debug_msg("\ngrammer\n");
 	grammerRule *g=NULL;
     g=grammer(non_terminals,terminals,(const char**) non_terminals_map,(const char**)terminals_map,(const hashTable)ht_non_terminals,(const hashTable)ht_terminals);
 	
-    printf("\ncreating parse table\n");
+    debug_msg("\ncreating parse table\n");
     grammerRule **table=gen_parse_table(g,NO_OF_RULES,terminals[TK_EPS]);
-    printf("\nprinting terminals\n");
+    debug_msg("\nprinting terminals\n");
     for(int i=0;i<NO_OF_TERMINALS;i++){
-        printf("%d ",i);
-        printf("%s", terminals[i].name);
-        printf("\n");
+        debug_msg("%d ",i);
+        debug_msg("%s", terminals[i].name);
+        debug_msg("\n");
     }
-    printf("\nprinting nonterminals\n");
+    debug_msg("\nprinting nonterminals\n");
     
     for(int i=0;i<NO_OF_NON_TERMINALS;i++){
-        printf("%s\n", non_terminals[i].name);
+        debug_msg("%s\n", non_terminals[i].name);
     }
 
-    printf("\nprinting parse table\n");
+    debug_msg("\nprinting parse table\n");
     for(int i=-1;i<NO_OF_NON_TERMINALS;i++){
-        if(i!=-1)
-            printf("%s:%d,",non_terminals[i].name,non_terminals[i].key);
+        if(i!=-1){
+            debug_msg("%s:%d,",non_terminals[i].name,non_terminals[i].key);
+        }
         else
         {
-            printf("non_terminals,");
+            debug_msg("non_terminals,");
         }
         
         for(int j=0;j<NO_OF_TERMINALS;j++){
             if(terminals[j].name!=NULL){
                 if(i==-1){
-                    printf("%s:%d,",terminals[j].name,terminals[j].StateId);
+                    debug_msg("%s:%d,",terminals[j].name,terminals[j].StateId);
                 }
                 else{
-                    printf("%d,",table[i][j].id);
+                    debug_msg("%d,",table[i][j].id);
                 }
             }
         }
-        printf("\n");
+        debug_msg("\n");
     }
 
-    //printf("\ngetting token stream\n");
+    //debug_msg("\ngetting token stream\n");
     //#ifndef DEBUG
 	//char testcase_file[40];
-    char* testcase_file="testcases/testcase1.txt";
-	printf("Input the file name to be compiled: %s \n",testcase_file);
+    char* testcase_file="testcases/testcase3.txt";
+	debug_msg("Input the file name to be compiled: %s \n",testcase_file);
 	//scanf("%s",testcase_file);
 	//#else
 	
 	//#endif
     
-    printf("printing Grammer rules\n");
+    debug_msg("printing Grammer rules\n");
     for(int i=0;i<NO_OF_RULES;i++){
         grammerRule gr=g[i];
         print_grammer_rule(gr);
     }
 	Stream s=getStream(testcase_file);
 	if(s==NULL){
-		printf("error opening file %s", testcase_file);
+		debug_msg("error opening file %s", testcase_file);
 		return -1;
 	}
     Tree t=parseTree(s,(const grammerRule**)table,g);

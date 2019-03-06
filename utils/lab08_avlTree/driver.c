@@ -27,7 +27,7 @@ main ()
   int ch, val;
   do
     {
-      printf ("Main Menu\n"
+      debug_msg ("Main Menu\n"
               "1. ADD a NODE\n"
               "2. Print tree\n"
               "3. find a node\n"
@@ -38,7 +38,7 @@ main ()
       switch (ch)
         {
         case 1:
-          printf ("Enter the value:");
+          debug_msg ("Enter the value:");
           scanf ("%d", &val);
           Element E=getElement(val);
           bst = add (bst, E);
@@ -47,19 +47,19 @@ main ()
           printTree (bst);
           break;
         case 3:
-          printf ("Enter the value:");
+          debug_msg ("Enter the value:");
           scanf ("%d", &val);
           if (find (bst, val) != NULL)
-            printf ("value found\n");
+            debug_msg ("value found\n");
           else
-            printf ("value not found\n");
+            debug_msg ("value not found\n");
           break;
         case 4:
           //add 10000 random no. between 150 and 170
           bst = populateTree (bst);
           break;
         case 5:
-          printf ("Enter the value:");
+          debug_msg ("Enter the value:");
           scanf ("%d", &val);
           bst = delete(bst, val);
           break;

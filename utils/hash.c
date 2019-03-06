@@ -60,7 +60,7 @@ Element createElement(int data,const char *key){
 }
 
 void printElement(Element e){
-	printf("%d : %s \n", *(int *)(e->d), (char*)(e->k));
+	debug_msg("%d : %s \n", *(int *)(e->d), (char*)(e->k));
 }
 
 /*
@@ -88,18 +88,18 @@ int findHT(const char* str,const hashTable ht){
 
 void insert(const char* str,const int index,hashTable ht){
 	if(str!=NULL){
-		printf("inserting element %s\n", str);
+		debug_msg("inserting element %s\n", str);
 		int hash_val = hash(str,ht);
 		Element e=createElement(index,(char*) str);
 		if(ht->array[hash_val] == NULL){
-			printf("error in hash.c");
+			debug_msg("error in hash.c");
 			exit(0);
 		}else{
 			ht->array[hash_val] = insertAtEnd(ht->array[hash_val],e);
 		}
 	}
 	else{
-		printf("str passed null to insert\n");
+		debug_msg("str passed null to insert\n");
 	}
 	return ;
 }

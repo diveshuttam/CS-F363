@@ -7,7 +7,7 @@
 #include"token.h"
 #include"populate_dfa.h"
 #include"transition.h"
-
+#include"debug.h"
 #define DFA_RULES_FILE "./lexer/dfa_states.ccsv"
 
 //get stream in twin_buffer.h

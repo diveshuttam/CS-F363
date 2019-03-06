@@ -3,6 +3,7 @@
 #include <string.h>
 #include <stdlib.h>
 #include <stdio.h>
+#include "debug.h"
 
 #define TYPES_OF_TOKEN 100
 #define TK_NAME_SIZE 30

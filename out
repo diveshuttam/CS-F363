@@ -1,0 +1,2572 @@
+inserting element TK_ASSIGNOP
+inserting element TK_COMMENT
+inserting element TK_FIELDID
+inserting element TK_ID
+inserting element TK_NUM
+inserting element TK_RNUM
+inserting element TK_FUNID
+inserting element TK_RECORDID
+inserting element TK_SQL
+inserting element TK_SQR
+inserting element TK_COMMA
+inserting element TK_SEM
+inserting element TK_COLON
+inserting element TK_DOT
+inserting element TK_OP
+inserting element TK_CL
+inserting element TK_PLUS
+inserting element TK_MINUS
+inserting element TK_MUL
+inserting element TK_DIV
+inserting element TK_AND
+inserting element TK_OR
+inserting element TK_NOT
+inserting element TK_LT
+inserting element TK_LE
+inserting element TK_EQ
+inserting element TK_GT
+inserting element TK_GE
+inserting element TK_LE
+inserting element TK_NE
+inserting element TK_WITH
+inserting element TK_PARAMETERS
+inserting element TK_END
+inserting element TK_WHILE
+inserting element TK_TYPE
+inserting element TK_MAIN
+inserting element TK_GLOBAL
+inserting element TK_PARAMETER
+inserting element TK_LIST
+inserting element TK_INPUT
+inserting element TK_OUTPUT
+inserting element TK_INT
+inserting element TK_REAL
+inserting element TK_ENDWHILE
+inserting element TK_IF
+inserting element TK_THEN
+inserting element TK_ENDIF
+inserting element TK_READ
+inserting element TK_WRITE
+inserting element TK_RETURN
+inserting element TK_CALL
+inserting element TK_RECORD
+inserting element TK_ENDRECORD
+inserting element TK_ELSE
+inserting element TK_DELIM
+inserting element TK_EPS
+inserting element TK_DOLLAR
+inserting element all
+inserting element allVar
+inserting element arithmeticExpression
+inserting element assignmentStmt
+inserting element booleanExpression
+inserting element conditionalStmt
+inserting element constructedDatatype
+inserting element dataType
+inserting element declaration
+inserting element declarations
+inserting element elsePart
+inserting element expPrime
+inserting element factor
+inserting element fieldDefinition
+inserting element fieldDefinitions
+inserting element funCallStmt
+inserting element function
+inserting element global_or_not
+inserting element highPrecedenceOperators
+inserting element idList
+inserting element input_par
+inserting element inputParameters
+inserting element ioStmt
+inserting element iterativeStmt
+inserting element logicalOp
+inserting element lowPrecedenceOperators
+inserting element mainFunction
+inserting element moreFields
+inserting element more_ids
+inserting element new24
+inserting element newVar
+inserting element optionalReturn
+inserting element otherFunctions
+inserting element otherStmts
+inserting element output_par
+inserting element outputParameters
+inserting element parameter_list
+inserting element primitiveDatatype
+inserting element program
+inserting element relationalOp
+inserting element remaining_list
+inserting element returnStmt
+inserting element singleOrRecId
+inserting element stmt
+inserting element stmts
+inserting element temp
+inserting element term
+inserting element termPrime
+inserting element typeDefinition
+inserting element typeDefinitions
+inserting element var
+assigning all with key 0
+assigning allVar with key 1
+assigning arithmeticExpression with key 2
+assigning assignmentStmt with key 3
+assigning booleanExpression with key 4
+assigning conditionalStmt with key 5
+assigning constructedDatatype with key 6
+assigning dataType with key 7
+assigning declaration with key 8
+assigning declarations with key 9
+assigning elsePart with key 10
+assigning expPrime with key 11
+assigning factor with key 12
+assigning fieldDefinition with key 13
+assigning fieldDefinitions with key 14
+assigning funCallStmt with key 15
+assigning function with key 16
+assigning global_or_not with key 17
+assigning highPrecedenceOperators with key 18
+assigning idList with key 19
+assigning input_par with key 20
+assigning inputParameters with key 21
+assigning ioStmt with key 22
+assigning iterativeStmt with key 23
+assigning logicalOp with key 24
+assigning lowPrecedenceOperators with key 25
+assigning mainFunction with key 26
+assigning moreFields with key 27
+assigning more_ids with key 28
+assigning new24 with key 29
+assigning newVar with key 30
+assigning optionalReturn with key 31
+assigning otherFunctions with key 32
+assigning otherStmts with key 33
+assigning output_par with key 34
+assigning outputParameters with key 35
+assigning parameter_list with key 36
+assigning primitiveDatatype with key 37
+assigning program with key 38
+assigning relationalOp with key 39
+assigning remaining_list with key 40
+assigning returnStmt with key 41
+assigning singleOrRecId with key 42
+assigning stmt with key 43
+assigning stmts with key 44
+assigning temp with key 45
+assigning term with key 46
+assigning termPrime with key 47
+assigning typeDefinition with key 48
+assigning typeDefinitions with key 49
+assigning var with key 50
+assigning terminal (null) with key -1
+assigning terminal (null) with key -1
+assigning terminal (null) with key -1
+assigning terminal (null) with key -1
+assigning terminal TK_ASSIGNOP with key 4
+assigning terminal TK_LE with key 5
+assigning terminal TK_LT with key 6
+assigning terminal (null) with key -1
+assigning terminal TK_GE with key 8
+assigning terminal TK_GT with key 9
+assigning terminal (null) with key -1
+assigning terminal TK_COMMENT with key 11
+assigning terminal TK_SQR with key 12
+assigning terminal (null) with key -1
+assigning terminal (null) with key -1
+assigning terminal (null) with key -1
+assigning terminal TK_ID with key 16
+assigning terminal (null) with key -1
+assigning terminal TK_FIELDID with key 18
+assigning terminal TK_SQL with key 19
+assigning terminal TK_DOT with key 20
+assigning terminal TK_SEM with key 21
+assigning terminal TK_COLON with key 22
+assigning terminal TK_CL with key 23
+assigning terminal TK_OP with key 24
+assigning terminal (null) with key -1
+assigning terminal (null) with key -1
+assigning terminal (null) with key -1
+assigning terminal TK_RNUM with key 28
+assigning terminal TK_NUM with key 29
+assigning terminal TK_COMMA with key 30
+assigning terminal TK_PLUS with key 31
+assigning terminal TK_MINUS with key 32
+assigning terminal TK_MUL with key 33
+assigning terminal TK_DIV with key 34
+assigning terminal (null) with key -1
+assigning terminal (null) with key -1
+assigning terminal TK_AND with key 37
+assigning terminal (null) with key -1
+assigning terminal (null) with key -1
+assigning terminal TK_OR with key 40
+assigning terminal (null) with key -1
+assigning terminal TK_EQ with key 42
+assigning terminal (null) with key -1
+assigning terminal TK_NE with key 44
+assigning terminal (null) with key -1
+assigning terminal (null) with key -1
+assigning terminal (null) with key -1
+assigning terminal TK_FUNID with key 48
+assigning terminal (null) with key -1
+assigning terminal (null) with key -1
+assigning terminal TK_RECORDID with key 51
+assigning terminal TK_NOT with key 52
+assigning terminal TK_DELIM with key 53
+assigning terminal (null) with key -1
+assigning terminal TK_WITH with key 55
+assigning terminal TK_PARAMETERS with key 56
+assigning terminal TK_END with key 57
+assigning terminal TK_WHILE with key 58
+assigning terminal TK_TYPE with key 59
+assigning terminal TK_MAIN with key 60
+assigning terminal TK_GLOBAL with key 61
+assigning terminal TK_PARAMETER with key 62
+assigning terminal TK_LIST with key 63
+assigning terminal TK_INPUT with key 64
+assigning terminal TK_OUTPUT with key 65
+assigning terminal TK_INT with key 66
+assigning terminal TK_REAL with key 67
+assigning terminal TK_ENDWHILE with key 68
+assigning terminal TK_IF with key 69
+assigning terminal TK_THEN with key 70
+assigning terminal TK_ENDIF with key 71
+assigning terminal TK_READ with key 72
+assigning terminal TK_WRITE with key 73
+assigning terminal TK_RETURN with key 74
+assigning terminal TK_CALL with key 75
+assigning terminal TK_RECORD with key 76
+assigning terminal TK_ENDRECORD with key 77
+assigning terminal TK_ELSE with key 78
+assigning terminal TK_EPS with key 79
+assigning terminal TK_DOLLAR with key 80
+assigning terminal (null) with key -1
+assigning terminal (null) with key -1
+assigning terminal (null) with key -1
+assigning terminal (null) with key -1
+assigning terminal (null) with key -1
+assigning terminal (null) with key -1
+assigning terminal (null) with key -1
+assigning terminal (null) with key -1
+assigning terminal (null) with key -1
+assigning terminal (null) with key -1
+assigning terminal (null) with key -1
+assigning terminal (null) with key -1
+assigning terminal (null) with key -1
+assigning terminal (null) with key -1
+assigning terminal (null) with key -1
+assigning terminal (null) with key -1
+assigning terminal (null) with key -1
+assigning terminal (null) with key -1
+assigning terminal (null) with key -1
+firsts
+all TK_NUM 29 TK_RNUM 28 TK_ID 16 
+allVar TK_ID 16 TK_NUM 29 TK_RNUM 28 
+arithmeticExpression TK_OP 24 TK_NUM 29 TK_RNUM 28 TK_ID 16 
+assignmentStmt TK_ID 16 
+booleanExpression TK_OP 24 TK_ID 16 TK_NUM 29 TK_RNUM 28 TK_NOT 52 
+conditionalStmt TK_IF 69 
+constructedDatatype TK_RECORD 76 
+dataType TK_INT 66 TK_REAL 67 TK_RECORD 76 
+declarations TK_TYPE 59 TK_EPS 79 
+declaration TK_TYPE 59 
+elsePart TK_ELSE 78 TK_ENDIF 71 
+expPrime TK_PLUS 31 TK_MINUS 32 TK_EPS 79 
+factor TK_OP 24 TK_NUM 29 TK_RNUM 28 TK_ID 16 
+fieldDefinitions TK_TYPE 59 
+fieldDefinition TK_TYPE 59 
+funCallStmt TK_SQL 19 TK_CALL 75 
+function TK_FUNID 48 
+global_or_not TK_COLON 22 TK_EPS 79 
+highPrecedenceOperators TK_MUL 33 TK_DIV 34 
+idList TK_ID 16 
+inputParameters TK_SQL 19 
+input_par TK_INPUT 64 
+ioStmt TK_READ 72 TK_WRITE 73 
+iterativeStmt TK_WHILE 58 
+logicalOp TK_AND 37 TK_OR 40 
+lowPrecedenceOperators TK_PLUS 31 TK_MINUS 32 
+mainFunction TK_MAIN 60 
+moreFields TK_TYPE 59 TK_EPS 79 
+more_ids TK_COMMA 30 TK_EPS 79 
+new24 TK_DOT 20 TK_EPS 79 
+newVar TK_DOT 20 TK_EPS 79 
+optionalReturn TK_SQL 19 TK_EPS 79 
+otherFunctions TK_FUNID 48 TK_EPS 79 
+otherStmts TK_ID 16 TK_WHILE 58 TK_IF 69 TK_READ 72 TK_WRITE 73 TK_SQL 19 TK_CALL 75 TK_EPS 79 
+outputParameters TK_SQL 19 TK_EPS 79 
+output_par TK_OUTPUT 65 TK_EPS 79 
+parameter_list TK_INT 66 TK_REAL 67 TK_RECORD 76 
+primitiveDatatype TK_INT 66 TK_REAL 67 
+program TK_FUNID 48 TK_MAIN 60 
+relationalOp TK_LT 6 TK_LE 5 TK_EQ 42 TK_GT 9 TK_GE 8 TK_NE 44 
+remaining_list TK_COMMA 30 TK_EPS 79 
+returnStmt TK_RETURN 74 
+singleOrRecId TK_ID 16 
+stmts TK_RECORD 76 TK_TYPE 59 TK_ID 16 TK_WHILE 58 TK_IF 69 TK_READ 72 TK_WRITE 73 TK_SQL 19 TK_CALL 75 TK_RETURN 74 
+stmt TK_ID 16 TK_WHILE 58 TK_IF 69 TK_READ 72 TK_WRITE 73 TK_SQL 19 TK_CALL 75 
+temp TK_DOT 20 TK_EPS 79 
+termPrime TK_MUL 33 TK_DIV 34 TK_EPS 79 
+term TK_OP 24 TK_NUM 29 TK_RNUM 28 TK_ID 16 
+typeDefinitions TK_RECORD 76 TK_EPS 79 
+typeDefinition TK_RECORD 76 
+var TK_ID 16 TK_NUM 29 TK_RNUM 28 
+
+follows
+program TK_DOLLAR 80 
+mainFunction TK_DOLLAR 80 
+otherFunctions TK_MAIN 60 TK_DOLLAR 80 
+function TK_FUNID 48 TK_MAIN 60 TK_DOLLAR 80 
+input_par TK_OUTPUT 65 TK_SEM 21 TK_DOLLAR 80 
+output_par TK_SEM 21 TK_DOLLAR 80 
+parameter_list TK_SQR 12 TK_DOLLAR 80 
+dataType TK_ID 16 TK_COLON 22 TK_DOLLAR 80 
+primitiveDatatype TK_ID 16 TK_COLON 22 TK_DOLLAR 80 
+constructedDatatype TK_ID 16 TK_COLON 22 TK_DOLLAR 80 
+remaining_list TK_SQR 12 TK_DOLLAR 80 
+stmts TK_END 57 TK_DOLLAR 80 
+typeDefinitions TK_TYPE 59 TK_ID 16 TK_WHILE 58 TK_IF 69 TK_READ 72 TK_WRITE 73 TK_SQL 19 TK_CALL 75 TK_RETURN 74 TK_DOLLAR 80 
+typeDefinition TK_RECORD 76 TK_TYPE 59 TK_ID 16 TK_WHILE 58 TK_IF 69 TK_READ 72 TK_WRITE 73 TK_SQL 19 TK_CALL 75 TK_RETURN 74 TK_DOLLAR 80 
+fieldDefinitions TK_ENDRECORD 77 TK_DOLLAR 80 
+fieldDefinition TK_TYPE 59 TK_ENDRECORD 77 TK_DOLLAR 80 
+moreFields TK_ENDRECORD 77 TK_DOLLAR 80 
+declarations TK_ID 16 TK_WHILE 58 TK_IF 69 TK_READ 72 TK_WRITE 73 TK_SQL 19 TK_CALL 75 TK_RETURN 74 TK_DOLLAR 80 
+declaration TK_TYPE 59 TK_ID 16 TK_WHILE 58 TK_IF 69 TK_READ 72 TK_WRITE 73 TK_SQL 19 TK_CALL 75 TK_RETURN 74 TK_DOLLAR 80 
+global_or_not TK_SEM 21 TK_DOLLAR 80 
+otherStmts TK_RETURN 74 TK_ENDWHILE 68 TK_ELSE 78 TK_ENDIF 71 TK_DOLLAR 80 
+stmt TK_ID 16 TK_WHILE 58 TK_IF 69 TK_READ 72 TK_WRITE 73 TK_SQL 19 TK_CALL 75 TK_RETURN 74 TK_ENDWHILE 68 TK_ELSE 78 TK_ENDIF 71 TK_DOLLAR 80 
+assignmentStmt TK_ID 16 TK_WHILE 58 TK_IF 69 TK_READ 72 TK_WRITE 73 TK_SQL 19 TK_CALL 75 TK_RETURN 74 TK_ENDWHILE 68 TK_ELSE 78 TK_ENDIF 71 TK_DOLLAR 80 
+singleOrRecId TK_ASSIGNOP 4 TK_CL 23 TK_DOLLAR 80 
+new24 TK_ASSIGNOP 4 TK_CL 23 TK_DOLLAR 80 
+funCallStmt TK_ID 16 TK_WHILE 58 TK_IF 69 TK_READ 72 TK_WRITE 73 TK_SQL 19 TK_CALL 75 TK_RETURN 74 TK_ENDWHILE 68 TK_ELSE 78 TK_ENDIF 71 TK_DOLLAR 80 
+outputParameters TK_CALL 75 TK_DOLLAR 80 
+inputParameters TK_SEM 21 TK_DOLLAR 80 
+iterativeStmt TK_ID 16 TK_WHILE 58 TK_IF 69 TK_READ 72 TK_WRITE 73 TK_SQL 19 TK_CALL 75 TK_RETURN 74 TK_ENDWHILE 68 TK_ELSE 78 TK_ENDIF 71 TK_DOLLAR 80 
+conditionalStmt TK_ID 16 TK_WHILE 58 TK_IF 69 TK_READ 72 TK_WRITE 73 TK_SQL 19 TK_CALL 75 TK_RETURN 74 TK_ENDWHILE 68 TK_ELSE 78 TK_ENDIF 71 TK_DOLLAR 80 
+elsePart TK_ID 16 TK_WHILE 58 TK_IF 69 TK_READ 72 TK_WRITE 73 TK_SQL 19 TK_CALL 75 TK_RETURN 74 TK_ENDWHILE 68 TK_ELSE 78 TK_ENDIF 71 TK_DOLLAR 80 
+ioStmt TK_ID 16 TK_WHILE 58 TK_IF 69 TK_READ 72 TK_WRITE 73 TK_SQL 19 TK_CALL 75 TK_RETURN 74 TK_ENDWHILE 68 TK_ELSE 78 TK_ENDIF 71 TK_DOLLAR 80 
+allVar TK_CL 23 TK_DOLLAR 80 
+newVar TK_CL 23 TK_DOLLAR 80 
+arithmeticExpression TK_SEM 21 TK_CL 23 TK_DOLLAR 80 
+expPrime TK_SEM 21 TK_CL 23 TK_DOLLAR 80 
+term TK_PLUS 31 TK_MINUS 32 TK_SEM 21 TK_CL 23 TK_DOLLAR 80 
+termPrime TK_PLUS 31 TK_MINUS 32 TK_SEM 21 TK_CL 23 TK_DOLLAR 80 
+factor TK_MUL 33 TK_DIV 34 TK_PLUS 31 TK_MINUS 32 TK_SEM 21 TK_CL 23 TK_DOLLAR 80 
+highPrecedenceOperators TK_OP 24 TK_NUM 29 TK_RNUM 28 TK_ID 16 TK_DOLLAR 80 
+lowPrecedenceOperators TK_OP 24 TK_NUM 29 TK_RNUM 28 TK_ID 16 TK_DOLLAR 80 
+all TK_MUL 33 TK_DIV 34 TK_PLUS 31 TK_MINUS 32 TK_SEM 21 TK_CL 23 TK_DOLLAR 80 
+temp TK_MUL 33 TK_DIV 34 TK_PLUS 31 TK_MINUS 32 TK_SEM 21 TK_CL 23 TK_DOLLAR 80 
+booleanExpression TK_CL 23 TK_DOLLAR 80 
+var TK_LT 6 TK_LE 5 TK_EQ 42 TK_GT 9 TK_GE 8 TK_NE 44 TK_DOLLAR 80 
+logicalOp TK_OP 24 TK_DOLLAR 80 
+relationalOp TK_ID 16 TK_NUM 29 TK_RNUM 28 TK_DOLLAR 80 
+returnStmt TK_END 57 TK_DOLLAR 80 
+optionalReturn TK_SEM 21 TK_DOLLAR 80 
+idList TK_SQR 12 TK_DOLLAR 80 
+more_ids TK_SQR 12 TK_DOLLAR 80 
+
+grammer
+for rule program ===> otherFunctions mainFunction
+
+n:38:program ===> n:32:otherFunctions n:26:mainFunction 
+for rule mainFunction ===> TK_MAIN stmts TK_END
+
+n:26:mainFunction ===> t:60:TK_MAIN n:44:stmts t:57:TK_END 
+for rule otherFunctions ===> function otherFunctions
+
+n:32:otherFunctions ===> n:16:function n:32:otherFunctions 
+for rule otherFunctions ===> TK_EPS
+
+n:32:otherFunctions ===> t:79:TK_EPS 
+for rule function ===> TK_FUNID input_par output_par TK_SEM stmts TK_END
+
+n:16:function ===> t:48:TK_FUNID n:20:input_par n:34:output_par t:21:TK_SEM n:44:stmts t:57:TK_END 
+for rule input_par ===> TK_INPUT TK_PARAMETER TK_LIST TK_SQL parameter_list TK_SQR
+
+n:20:input_par ===> t:64:TK_INPUT t:62:TK_PARAMETER t:63:TK_LIST t:19:TK_SQL n:36:parameter_list t:12:TK_SQR 
+for rule output_par ===> TK_OUTPUT TK_PARAMETER TK_LIST TK_SQL parameter_list TK_SQR
+
+n:34:output_par ===> t:65:TK_OUTPUT t:62:TK_PARAMETER t:63:TK_LIST t:19:TK_SQL n:36:parameter_list t:12:TK_SQR 
+for rule output_par ===> TK_EPS
+
+n:34:output_par ===> t:79:TK_EPS 
+for rule parameter_list ===> dataType TK_ID remaining_list
+
+n:36:parameter_list ===> n:7:dataType t:16:TK_ID n:40:remaining_list 
+for rule dataType ===> primitiveDatatype
+
+n:7:dataType ===> n:37:primitiveDatatype 
+for rule dataType ===> constructedDatatype
+
+n:7:dataType ===> n:6:constructedDatatype 
+for rule primitiveDatatype ===> TK_INT
+
+n:37:primitiveDatatype ===> t:66:TK_INT 
+for rule primitiveDatatype ===> TK_REAL
+
+n:37:primitiveDatatype ===> t:67:TK_REAL 
+for rule constructedDatatype ===> TK_RECORD TK_RECORDID
+
+n:6:constructedDatatype ===> t:76:TK_RECORD t:51:TK_RECORDID 
+for rule remaining_list ===> TK_COMMA parameter_list
+
+n:40:remaining_list ===> t:30:TK_COMMA n:36:parameter_list 
+for rule remaining_list ===> TK_EPS
+
+n:40:remaining_list ===> t:79:TK_EPS 
+for rule stmts ===> typeDefinitions declarations otherStmts returnStmt
+
+n:44:stmts ===> n:49:typeDefinitions n:9:declarations n:33:otherStmts n:41:returnStmt 
+for rule typeDefinitions ===> typeDefinition typeDefinitions
+
+n:49:typeDefinitions ===> n:48:typeDefinition n:49:typeDefinitions 
+for rule typeDefinitions ===> TK_EPS
+
+n:49:typeDefinitions ===> t:79:TK_EPS 
+for rule typeDefinition ===> TK_RECORD TK_RECORDID fieldDefinitions TK_ENDRECORD TK_SEM
+
+n:48:typeDefinition ===> t:76:TK_RECORD t:51:TK_RECORDID n:14:fieldDefinitions t:77:TK_ENDRECORD t:21:TK_SEM 
+for rule fieldDefinitions ===> fieldDefinition fieldDefinition moreFields
+
+n:14:fieldDefinitions ===> n:13:fieldDefinition n:13:fieldDefinition n:27:moreFields 
+for rule fieldDefinition ===> TK_TYPE primitiveDatatype TK_COLON TK_FIELDID TK_SEM
+
+n:13:fieldDefinition ===> t:59:TK_TYPE n:37:primitiveDatatype t:22:TK_COLON t:18:TK_FIELDID t:21:TK_SEM 
+for rule moreFields ===> fieldDefinition moreFields
+
+n:27:moreFields ===> n:13:fieldDefinition n:27:moreFields 
+for rule moreFields ===> TK_EPS
+
+n:27:moreFields ===> t:79:TK_EPS 
+for rule declarations ===> declaration declarations
+
+n:9:declarations ===> n:8:declaration n:9:declarations 
+for rule declarations ===> TK_EPS
+
+n:9:declarations ===> t:79:TK_EPS 
+for rule declaration ===> TK_TYPE dataType TK_COLON TK_ID global_or_not TK_SEM
+
+n:8:declaration ===> t:59:TK_TYPE n:7:dataType t:22:TK_COLON t:16:TK_ID n:17:global_or_not t:21:TK_SEM 
+for rule global_or_not ===> TK_COLON TK_GLOBAL
+
+n:17:global_or_not ===> t:22:TK_COLON t:61:TK_GLOBAL 
+for rule global_or_not ===> TK_EPS
+
+n:17:global_or_not ===> t:79:TK_EPS 
+for rule otherStmts ===> stmt otherStmts
+
+n:33:otherStmts ===> n:43:stmt n:33:otherStmts 
+for rule otherStmts ===> TK_EPS
+
+n:33:otherStmts ===> t:79:TK_EPS 
+for rule stmt ===> assignmentStmt
+
+n:43:stmt ===> n:3:assignmentStmt 
+for rule stmt ===> iterativeStmt
+
+n:43:stmt ===> n:23:iterativeStmt 
+for rule stmt ===> conditionalStmt
+
+n:43:stmt ===> n:5:conditionalStmt 
+for rule stmt ===> ioStmt
+
+n:43:stmt ===> n:22:ioStmt 
+for rule stmt ===> funCallStmt
+
+n:43:stmt ===> n:15:funCallStmt 
+for rule assignmentStmt ===> singleOrRecId TK_ASSIGNOP arithmeticExpression TK_SEM
+
+n:3:assignmentStmt ===> n:42:singleOrRecId t:4:TK_ASSIGNOP n:2:arithmeticExpression t:21:TK_SEM 
+for rule singleOrRecId ===> TK_ID new24
+
+n:42:singleOrRecId ===> t:16:TK_ID n:29:new24 
+for rule new24 ===> TK_DOT TK_FIELDID
+
+n:29:new24 ===> t:20:TK_DOT t:18:TK_FIELDID 
+for rule new24 ===> TK_EPS
+
+n:29:new24 ===> t:79:TK_EPS 
+for rule funCallStmt ===> outputParameters TK_CALL TK_FUNID TK_WITH TK_PARAMETERS inputParameters TK_SEM
+
+n:15:funCallStmt ===> n:35:outputParameters t:75:TK_CALL t:48:TK_FUNID t:55:TK_WITH t:56:TK_PARAMETERS n:21:inputParameters t:21:TK_SEM 
+for rule outputParameters ===> TK_SQL idList TK_SQR TK_ASSIGNOP
+
+n:35:outputParameters ===> t:19:TK_SQL n:19:idList t:12:TK_SQR t:4:TK_ASSIGNOP 
+for rule outputParameters ===> TK_EPS
+
+n:35:outputParameters ===> t:79:TK_EPS 
+for rule inputParameters ===> TK_SQL idList TK_SQR
+
+n:21:inputParameters ===> t:19:TK_SQL n:19:idList t:12:TK_SQR 
+for rule iterativeStmt ===> TK_WHILE TK_OP booleanExpression TK_CL stmt otherStmts TK_ENDWHILE
+
+n:23:iterativeStmt ===> t:58:TK_WHILE t:24:TK_OP n:4:booleanExpression t:23:TK_CL n:43:stmt n:33:otherStmts t:68:TK_ENDWHILE 
+for rule conditionalStmt ===> TK_IF TK_OP booleanExpression TK_CL TK_THEN stmt otherStmts elsePart
+
+n:5:conditionalStmt ===> t:69:TK_IF t:24:TK_OP n:4:booleanExpression t:23:TK_CL t:70:TK_THEN n:43:stmt n:33:otherStmts n:10:elsePart 
+for rule elsePart ===> TK_ELSE stmt otherStmts TK_ENDIF
+
+n:10:elsePart ===> t:78:TK_ELSE n:43:stmt n:33:otherStmts t:71:TK_ENDIF 
+for rule elsePart ===> TK_ENDIF
+
+n:10:elsePart ===> t:71:TK_ENDIF 
+for rule ioStmt ===> TK_READ TK_OP singleOrRecId TK_CL TK_SEM
+
+n:22:ioStmt ===> t:72:TK_READ t:24:TK_OP n:42:singleOrRecId t:23:TK_CL t:21:TK_SEM 
+for rule ioStmt ===> TK_WRITE TK_OP allVar TK_CL TK_SEM
+
+n:22:ioStmt ===> t:73:TK_WRITE t:24:TK_OP n:1:allVar t:23:TK_CL t:21:TK_SEM 
+for rule allVar ===> TK_ID newVar
+
+n:1:allVar ===> t:16:TK_ID n:30:newVar 
+for rule allVar ===> TK_NUM
+
+n:1:allVar ===> t:29:TK_NUM 
+for rule allVar ===> TK_RNUM
+
+n:1:allVar ===> t:28:TK_RNUM 
+for rule newVar ===> TK_DOT TK_FIELDID
+
+n:30:newVar ===> t:20:TK_DOT t:18:TK_FIELDID 
+for rule newVar ===> TK_EPS
+
+n:30:newVar ===> t:79:TK_EPS 
+for rule arithmeticExpression ===> term expPrime
+
+n:2:arithmeticExpression ===> n:46:term n:11:expPrime 
+for rule expPrime ===> lowPrecedenceOperators term expPrime
+
+n:11:expPrime ===> n:25:lowPrecedenceOperators n:46:term n:11:expPrime 
+for rule expPrime ===> TK_EPS
+
+n:11:expPrime ===> t:79:TK_EPS 
+for rule term ===> factor termPrime
+
+n:46:term ===> n:12:factor n:47:termPrime 
+for rule termPrime ===> highPrecedenceOperators factor termPrime
+
+n:47:termPrime ===> n:18:highPrecedenceOperators n:12:factor n:47:termPrime 
+for rule termPrime ===> TK_EPS
+
+n:47:termPrime ===> t:79:TK_EPS 
+for rule factor ===> TK_OP arithmeticExpression TK_CL
+
+n:12:factor ===> t:24:TK_OP n:2:arithmeticExpression t:23:TK_CL 
+for rule factor ===> all
+
+n:12:factor ===> n:0:all 
+for rule highPrecedenceOperators ===> TK_MUL
+
+n:18:highPrecedenceOperators ===> t:33:TK_MUL 
+for rule highPrecedenceOperators ===> TK_DIV
+
+n:18:highPrecedenceOperators ===> t:34:TK_DIV 
+for rule lowPrecedenceOperators ===> TK_PLUS
+
+n:25:lowPrecedenceOperators ===> t:31:TK_PLUS 
+for rule lowPrecedenceOperators ===> TK_MINUS
+
+n:25:lowPrecedenceOperators ===> t:32:TK_MINUS 
+for rule all ===> TK_NUM
+
+n:0:all ===> t:29:TK_NUM 
+for rule all ===> TK_RNUM
+
+n:0:all ===> t:28:TK_RNUM 
+for rule all ===> TK_ID temp
+
+n:0:all ===> t:16:TK_ID n:45:temp 
+for rule temp ===> TK_DOT TK_FIELDID
+
+n:45:temp ===> t:20:TK_DOT t:18:TK_FIELDID 
+for rule temp ===> TK_EPS
+
+n:45:temp ===> t:79:TK_EPS 
+for rule booleanExpression ===> TK_OP booleanExpression TK_CL logicalOp TK_OP booleanExpression TK_CL
+
+n:4:booleanExpression ===> t:24:TK_OP n:4:booleanExpression t:23:TK_CL n:24:logicalOp t:24:TK_OP n:4:booleanExpression t:23:TK_CL 
+for rule booleanExpression ===> var relationalOp var
+
+n:4:booleanExpression ===> n:50:var n:39:relationalOp n:50:var 
+for rule booleanExpression ===> TK_NOT TK_OP booleanExpression TK_CL
+
+n:4:booleanExpression ===> t:52:TK_NOT t:24:TK_OP n:4:booleanExpression t:23:TK_CL 
+for rule var ===> TK_ID
+
+n:50:var ===> t:16:TK_ID 
+for rule var ===> TK_NUM
+
+n:50:var ===> t:29:TK_NUM 
+for rule var ===> TK_RNUM
+
+n:50:var ===> t:28:TK_RNUM 
+for rule logicalOp ===> TK_AND
+
+n:24:logicalOp ===> t:37:TK_AND 
+for rule logicalOp ===> TK_OR
+
+n:24:logicalOp ===> t:40:TK_OR 
+for rule relationalOp ===> TK_LT
+
+n:39:relationalOp ===> t:6:TK_LT 
+for rule relationalOp ===> TK_LE
+
+n:39:relationalOp ===> t:5:TK_LE 
+for rule relationalOp ===> TK_EQ
+
+n:39:relationalOp ===> t:42:TK_EQ 
+for rule relationalOp ===> TK_GT
+
+n:39:relationalOp ===> t:9:TK_GT 
+for rule relationalOp ===> TK_GE
+
+n:39:relationalOp ===> t:8:TK_GE 
+for rule relationalOp ===> TK_NE
+
+n:39:relationalOp ===> t:44:TK_NE 
+for rule returnStmt ===> TK_RETURN optionalReturn TK_SEM
+
+n:41:returnStmt ===> t:74:TK_RETURN n:31:optionalReturn t:21:TK_SEM 
+for rule optionalReturn ===> TK_SQL idList TK_SQR
+
+n:31:optionalReturn ===> t:19:TK_SQL n:19:idList t:12:TK_SQR 
+for rule optionalReturn ===> TK_EPS
+
+n:31:optionalReturn ===> t:79:TK_EPS 
+for rule idList ===> TK_ID more_ids
+
+n:19:idList ===> t:16:TK_ID n:28:more_ids 
+for rule more_ids ===> TK_COMMA idList
+
+n:28:more_ids ===> t:30:TK_COMMA n:19:idList 
+for rule more_ids ===> TK_EPS
+n:28:more_ids ===> t:79:TK_EPS 
+
+creating parse table
+
+
+rules from grammer rule: 0 program:38 --> otherFunctions:32 mainFunction:26 
+with lhs firsts size 2	with lhs follow size 1
+adding rule for program:38 TK_FUNID:48
+grammer rule: 0 program:38 --> otherFunctions:32 mainFunction:26 
+
+
+
+rules from grammer rule: 1 mainFunction:26 --> TK_MAIN:60 stmts:44 TK_END:57 
+with lhs firsts size 1	with lhs follow size 1
+adding rule for mainFunction:26 TK_MAIN:60
+grammer rule: 1 mainFunction:26 --> TK_MAIN:60 stmts:44 TK_END:57 
+
+
+
+rules from grammer rule: 2 otherFunctions:32 --> function:16 otherFunctions:32 
+with lhs firsts size 2	with lhs follow size 2
+adding rule for otherFunctions:32 TK_FUNID:48
+grammer rule: 2 otherFunctions:32 --> function:16 otherFunctions:32 
+
+
+
+rules from grammer rule: 3 otherFunctions:32 --> TK_EPS:79 
+with lhs firsts size 2	with lhs follow size 2
+adding rule for otherFunctions:32 TK_EPS:79
+grammer rule: 3 otherFunctions:32 --> TK_EPS:79 
+
+adding rule for otherFunctions:32 TK_MAIN:60
+grammer rule: -2 otherFunctions:32 --> TK_EPS:79 
+adding rule for otherFunctions:32 TK_DOLLAR:80
+grammer rule: -2 otherFunctions:32 --> TK_EPS:79 
+
+
+rules from grammer rule: 4 function:16 --> TK_FUNID:48 input_par:20 output_par:34 TK_SEM:21 stmts:44 TK_END:57 
+with lhs firsts size 1	with lhs follow size 3
+adding rule for function:16 TK_FUNID:48
+grammer rule: 4 function:16 --> TK_FUNID:48 input_par:20 output_par:34 TK_SEM:21 stmts:44 TK_END:57 
+
+
+
+rules from grammer rule: 5 input_par:20 --> TK_INPUT:64 TK_PARAMETER:62 TK_LIST:63 TK_SQL:19 parameter_list:36 TK_SQR:12 
+with lhs firsts size 1	with lhs follow size 3
+adding rule for input_par:20 TK_INPUT:64
+grammer rule: 5 input_par:20 --> TK_INPUT:64 TK_PARAMETER:62 TK_LIST:63 TK_SQL:19 parameter_list:36 TK_SQR:12 
+
+
+
+rules from grammer rule: 6 output_par:34 --> TK_OUTPUT:65 TK_PARAMETER:62 TK_LIST:63 TK_SQL:19 parameter_list:36 TK_SQR:12 
+with lhs firsts size 2	with lhs follow size 2
+adding rule for output_par:34 TK_OUTPUT:65
+grammer rule: 6 output_par:34 --> TK_OUTPUT:65 TK_PARAMETER:62 TK_LIST:63 TK_SQL:19 parameter_list:36 TK_SQR:12 
+
+
+
+rules from grammer rule: 7 output_par:34 --> TK_EPS:79 
+with lhs firsts size 2	with lhs follow size 2
+adding rule for output_par:34 TK_EPS:79
+grammer rule: 7 output_par:34 --> TK_EPS:79 
+
+adding rule for output_par:34 TK_SEM:21
+grammer rule: -2 output_par:34 --> TK_EPS:79 
+adding rule for output_par:34 TK_DOLLAR:80
+grammer rule: -2 output_par:34 --> TK_EPS:79 
+
+
+rules from grammer rule: 8 parameter_list:36 --> dataType:7 TK_ID:16 remaining_list:40 
+with lhs firsts size 3	with lhs follow size 2
+adding rule for parameter_list:36 TK_INT:66
+grammer rule: 8 parameter_list:36 --> dataType:7 TK_ID:16 remaining_list:40 
+
+adding rule for parameter_list:36 TK_REAL:67
+grammer rule: 8 parameter_list:36 --> dataType:7 TK_ID:16 remaining_list:40 
+
+adding rule for parameter_list:36 TK_RECORD:76
+grammer rule: 8 parameter_list:36 --> dataType:7 TK_ID:16 remaining_list:40 
+
+
+
+rules from grammer rule: 9 dataType:7 --> primitiveDatatype:37 
+with lhs firsts size 3	with lhs follow size 3
+adding rule for dataType:7 TK_INT:66
+grammer rule: 9 dataType:7 --> primitiveDatatype:37 
+
+adding rule for dataType:7 TK_REAL:67
+grammer rule: 9 dataType:7 --> primitiveDatatype:37 
+
+
+
+rules from grammer rule: 10 dataType:7 --> constructedDatatype:6 
+with lhs firsts size 3	with lhs follow size 3
+adding rule for dataType:7 TK_RECORD:76
+grammer rule: 10 dataType:7 --> constructedDatatype:6 
+
+
+
+rules from grammer rule: 11 primitiveDatatype:37 --> TK_INT:66 
+with lhs firsts size 2	with lhs follow size 3
+adding rule for primitiveDatatype:37 TK_INT:66
+grammer rule: 11 primitiveDatatype:37 --> TK_INT:66 
+
+
+
+rules from grammer rule: 12 primitiveDatatype:37 --> TK_REAL:67 
+with lhs firsts size 2	with lhs follow size 3
+adding rule for primitiveDatatype:37 TK_REAL:67
+grammer rule: 12 primitiveDatatype:37 --> TK_REAL:67 
+
+
+
+rules from grammer rule: 13 constructedDatatype:6 --> TK_RECORD:76 TK_RECORDID:51 
+with lhs firsts size 1	with lhs follow size 3
+adding rule for constructedDatatype:6 TK_RECORD:76
+grammer rule: 13 constructedDatatype:6 --> TK_RECORD:76 TK_RECORDID:51 
+
+
+
+rules from grammer rule: 14 remaining_list:40 --> TK_COMMA:30 parameter_list:36 
+with lhs firsts size 2	with lhs follow size 2
+adding rule for remaining_list:40 TK_COMMA:30
+grammer rule: 14 remaining_list:40 --> TK_COMMA:30 parameter_list:36 
+
+
+
+rules from grammer rule: 15 remaining_list:40 --> TK_EPS:79 
+with lhs firsts size 2	with lhs follow size 2
+adding rule for remaining_list:40 TK_EPS:79
+grammer rule: 15 remaining_list:40 --> TK_EPS:79 
+
+adding rule for remaining_list:40 TK_SQR:12
+grammer rule: -2 remaining_list:40 --> TK_EPS:79 
+adding rule for remaining_list:40 TK_DOLLAR:80
+grammer rule: -2 remaining_list:40 --> TK_EPS:79 
+
+
+rules from grammer rule: 16 stmts:44 --> typeDefinitions:49 declarations:9 otherStmts:33 returnStmt:41 
+with lhs firsts size 10	with lhs follow size 2
+adding rule for stmts:44 TK_RECORD:76
+grammer rule: 16 stmts:44 --> typeDefinitions:49 declarations:9 otherStmts:33 returnStmt:41 
+
+
+
+rules from grammer rule: 17 typeDefinitions:49 --> typeDefinition:48 typeDefinitions:49 
+with lhs firsts size 2	with lhs follow size 10
+adding rule for typeDefinitions:49 TK_RECORD:76
+grammer rule: 17 typeDefinitions:49 --> typeDefinition:48 typeDefinitions:49 
+
+
+
+rules from grammer rule: 18 typeDefinitions:49 --> TK_EPS:79 
+with lhs firsts size 2	with lhs follow size 10
+adding rule for typeDefinitions:49 TK_EPS:79
+grammer rule: 18 typeDefinitions:49 --> TK_EPS:79 
+
+adding rule for typeDefinitions:49 TK_TYPE:59
+grammer rule: -2 typeDefinitions:49 --> TK_EPS:79 
+adding rule for typeDefinitions:49 TK_ID:16
+grammer rule: -2 typeDefinitions:49 --> TK_EPS:79 
+adding rule for typeDefinitions:49 TK_WHILE:58
+grammer rule: -2 typeDefinitions:49 --> TK_EPS:79 
+adding rule for typeDefinitions:49 TK_IF:69
+grammer rule: -2 typeDefinitions:49 --> TK_EPS:79 
+adding rule for typeDefinitions:49 TK_READ:72
+grammer rule: -2 typeDefinitions:49 --> TK_EPS:79 
+adding rule for typeDefinitions:49 TK_WRITE:73
+grammer rule: -2 typeDefinitions:49 --> TK_EPS:79 
+adding rule for typeDefinitions:49 TK_SQL:19
+grammer rule: -2 typeDefinitions:49 --> TK_EPS:79 
+adding rule for typeDefinitions:49 TK_CALL:75
+grammer rule: -2 typeDefinitions:49 --> TK_EPS:79 
+adding rule for typeDefinitions:49 TK_RETURN:74
+grammer rule: -2 typeDefinitions:49 --> TK_EPS:79 
+adding rule for typeDefinitions:49 TK_DOLLAR:80
+grammer rule: -2 typeDefinitions:49 --> TK_EPS:79 
+
+
+rules from grammer rule: 19 typeDefinition:48 --> TK_RECORD:76 TK_RECORDID:51 fieldDefinitions:14 TK_ENDRECORD:77 TK_SEM:21 
+with lhs firsts size 1	with lhs follow size 11
+adding rule for typeDefinition:48 TK_RECORD:76
+grammer rule: 19 typeDefinition:48 --> TK_RECORD:76 TK_RECORDID:51 fieldDefinitions:14 TK_ENDRECORD:77 TK_SEM:21 
+
+
+
+rules from grammer rule: 20 fieldDefinitions:14 --> fieldDefinition:13 fieldDefinition:13 moreFields:27 
+with lhs firsts size 1	with lhs follow size 2
+adding rule for fieldDefinitions:14 TK_TYPE:59
+grammer rule: 20 fieldDefinitions:14 --> fieldDefinition:13 fieldDefinition:13 moreFields:27 
+
+
+
+rules from grammer rule: 21 fieldDefinition:13 --> TK_TYPE:59 primitiveDatatype:37 TK_COLON:22 TK_FIELDID:18 TK_SEM:21 
+with lhs firsts size 1	with lhs follow size 3
+adding rule for fieldDefinition:13 TK_TYPE:59
+grammer rule: 21 fieldDefinition:13 --> TK_TYPE:59 primitiveDatatype:37 TK_COLON:22 TK_FIELDID:18 TK_SEM:21 
+
+
+
+rules from grammer rule: 22 moreFields:27 --> fieldDefinition:13 moreFields:27 
+with lhs firsts size 2	with lhs follow size 2
+adding rule for moreFields:27 TK_TYPE:59
+grammer rule: 22 moreFields:27 --> fieldDefinition:13 moreFields:27 
+
+
+
+rules from grammer rule: 23 moreFields:27 --> TK_EPS:79 
+with lhs firsts size 2	with lhs follow size 2
+adding rule for moreFields:27 TK_EPS:79
+grammer rule: 23 moreFields:27 --> TK_EPS:79 
+
+adding rule for moreFields:27 TK_ENDRECORD:77
+grammer rule: -2 moreFields:27 --> TK_EPS:79 
+adding rule for moreFields:27 TK_DOLLAR:80
+grammer rule: -2 moreFields:27 --> TK_EPS:79 
+
+
+rules from grammer rule: 24 declarations:9 --> declaration:8 declarations:9 
+with lhs firsts size 2	with lhs follow size 9
+adding rule for declarations:9 TK_TYPE:59
+grammer rule: 24 declarations:9 --> declaration:8 declarations:9 
+
+
+
+rules from grammer rule: 25 declarations:9 --> TK_EPS:79 
+with lhs firsts size 2	with lhs follow size 9
+adding rule for declarations:9 TK_EPS:79
+grammer rule: 25 declarations:9 --> TK_EPS:79 
+
+adding rule for declarations:9 TK_ID:16
+grammer rule: -2 declarations:9 --> TK_EPS:79 
+adding rule for declarations:9 TK_WHILE:58
+grammer rule: -2 declarations:9 --> TK_EPS:79 
+adding rule for declarations:9 TK_IF:69
+grammer rule: -2 declarations:9 --> TK_EPS:79 
+adding rule for declarations:9 TK_READ:72
+grammer rule: -2 declarations:9 --> TK_EPS:79 
+adding rule for declarations:9 TK_WRITE:73
+grammer rule: -2 declarations:9 --> TK_EPS:79 
+adding rule for declarations:9 TK_SQL:19
+grammer rule: -2 declarations:9 --> TK_EPS:79 
+adding rule for declarations:9 TK_CALL:75
+grammer rule: -2 declarations:9 --> TK_EPS:79 
+adding rule for declarations:9 TK_RETURN:74
+grammer rule: -2 declarations:9 --> TK_EPS:79 
+adding rule for declarations:9 TK_DOLLAR:80
+grammer rule: -2 declarations:9 --> TK_EPS:79 
+
+
+rules from grammer rule: 26 declaration:8 --> TK_TYPE:59 dataType:7 TK_COLON:22 TK_ID:16 global_or_not:17 TK_SEM:21 
+with lhs firsts size 1	with lhs follow size 10
+adding rule for declaration:8 TK_TYPE:59
+grammer rule: 26 declaration:8 --> TK_TYPE:59 dataType:7 TK_COLON:22 TK_ID:16 global_or_not:17 TK_SEM:21 
+
+
+
+rules from grammer rule: 27 global_or_not:17 --> TK_COLON:22 TK_GLOBAL:61 
+with lhs firsts size 2	with lhs follow size 2
+adding rule for global_or_not:17 TK_COLON:22
+grammer rule: 27 global_or_not:17 --> TK_COLON:22 TK_GLOBAL:61 
+
+
+
+rules from grammer rule: 28 global_or_not:17 --> TK_EPS:79 
+with lhs firsts size 2	with lhs follow size 2
+adding rule for global_or_not:17 TK_EPS:79
+grammer rule: 28 global_or_not:17 --> TK_EPS:79 
+
+adding rule for global_or_not:17 TK_SEM:21
+grammer rule: -2 global_or_not:17 --> TK_EPS:79 
+adding rule for global_or_not:17 TK_DOLLAR:80
+grammer rule: -2 global_or_not:17 --> TK_EPS:79 
+
+
+rules from grammer rule: 29 otherStmts:33 --> stmt:43 otherStmts:33 
+with lhs firsts size 8	with lhs follow size 5
+adding rule for otherStmts:33 TK_ID:16
+grammer rule: 29 otherStmts:33 --> stmt:43 otherStmts:33 
+
+adding rule for otherStmts:33 TK_WHILE:58
+grammer rule: 29 otherStmts:33 --> stmt:43 otherStmts:33 
+
+adding rule for otherStmts:33 TK_IF:69
+grammer rule: 29 otherStmts:33 --> stmt:43 otherStmts:33 
+
+adding rule for otherStmts:33 TK_READ:72
+grammer rule: 29 otherStmts:33 --> stmt:43 otherStmts:33 
+
+adding rule for otherStmts:33 TK_WRITE:73
+grammer rule: 29 otherStmts:33 --> stmt:43 otherStmts:33 
+
+adding rule for otherStmts:33 TK_SQL:19
+grammer rule: 29 otherStmts:33 --> stmt:43 otherStmts:33 
+
+adding rule for otherStmts:33 TK_CALL:75
+grammer rule: 29 otherStmts:33 --> stmt:43 otherStmts:33 
+
+
+
+rules from grammer rule: 30 otherStmts:33 --> TK_EPS:79 
+with lhs firsts size 8	with lhs follow size 5
+adding rule for otherStmts:33 TK_EPS:79
+grammer rule: 30 otherStmts:33 --> TK_EPS:79 
+
+adding rule for otherStmts:33 TK_RETURN:74
+grammer rule: -2 otherStmts:33 --> TK_EPS:79 
+adding rule for otherStmts:33 TK_ENDWHILE:68
+grammer rule: -2 otherStmts:33 --> TK_EPS:79 
+adding rule for otherStmts:33 TK_ELSE:78
+grammer rule: -2 otherStmts:33 --> TK_EPS:79 
+adding rule for otherStmts:33 TK_ENDIF:71
+grammer rule: -2 otherStmts:33 --> TK_EPS:79 
+adding rule for otherStmts:33 TK_DOLLAR:80
+grammer rule: -2 otherStmts:33 --> TK_EPS:79 
+
+
+rules from grammer rule: 31 stmt:43 --> assignmentStmt:3 
+with lhs firsts size 7	with lhs follow size 12
+adding rule for stmt:43 TK_ID:16
+grammer rule: 31 stmt:43 --> assignmentStmt:3 
+
+
+
+rules from grammer rule: 32 stmt:43 --> iterativeStmt:23 
+with lhs firsts size 7	with lhs follow size 12
+adding rule for stmt:43 TK_WHILE:58
+grammer rule: 32 stmt:43 --> iterativeStmt:23 
+
+
+
+rules from grammer rule: 33 stmt:43 --> conditionalStmt:5 
+with lhs firsts size 7	with lhs follow size 12
+adding rule for stmt:43 TK_IF:69
+grammer rule: 33 stmt:43 --> conditionalStmt:5 
+
+
+
+rules from grammer rule: 34 stmt:43 --> ioStmt:22 
+with lhs firsts size 7	with lhs follow size 12
+adding rule for stmt:43 TK_READ:72
+grammer rule: 34 stmt:43 --> ioStmt:22 
+
+adding rule for stmt:43 TK_WRITE:73
+grammer rule: 34 stmt:43 --> ioStmt:22 
+
+
+
+rules from grammer rule: 35 stmt:43 --> funCallStmt:15 
+with lhs firsts size 7	with lhs follow size 12
+adding rule for stmt:43 TK_SQL:19
+grammer rule: 35 stmt:43 --> funCallStmt:15 
+
+adding rule for stmt:43 TK_CALL:75
+grammer rule: 35 stmt:43 --> funCallStmt:15 
+
+
+
+rules from grammer rule: 36 assignmentStmt:3 --> singleOrRecId:42 TK_ASSIGNOP:4 arithmeticExpression:2 TK_SEM:21 
+with lhs firsts size 1	with lhs follow size 12
+adding rule for assignmentStmt:3 TK_ID:16
+grammer rule: 36 assignmentStmt:3 --> singleOrRecId:42 TK_ASSIGNOP:4 arithmeticExpression:2 TK_SEM:21 
+
+
+
+rules from grammer rule: 37 singleOrRecId:42 --> TK_ID:16 new24:29 
+with lhs firsts size 1	with lhs follow size 3
+adding rule for singleOrRecId:42 TK_ID:16
+grammer rule: 37 singleOrRecId:42 --> TK_ID:16 new24:29 
+
+
+
+rules from grammer rule: 38 new24:29 --> TK_DOT:20 TK_FIELDID:18 
+with lhs firsts size 2	with lhs follow size 3
+adding rule for new24:29 TK_DOT:20
+grammer rule: 38 new24:29 --> TK_DOT:20 TK_FIELDID:18 
+
+
+
+rules from grammer rule: 39 new24:29 --> TK_EPS:79 
+with lhs firsts size 2	with lhs follow size 3
+adding rule for new24:29 TK_EPS:79
+grammer rule: 39 new24:29 --> TK_EPS:79 
+
+adding rule for new24:29 TK_ASSIGNOP:4
+grammer rule: -2 new24:29 --> TK_EPS:79 
+adding rule for new24:29 TK_CL:23
+grammer rule: -2 new24:29 --> TK_EPS:79 
+adding rule for new24:29 TK_DOLLAR:80
+grammer rule: -2 new24:29 --> TK_EPS:79 
+
+
+rules from grammer rule: 40 funCallStmt:15 --> outputParameters:35 TK_CALL:75 TK_FUNID:48 TK_WITH:55 TK_PARAMETERS:56 inputParameters:21 TK_SEM:21 
+with lhs firsts size 2	with lhs follow size 12
+adding rule for funCallStmt:15 TK_SQL:19
+grammer rule: 40 funCallStmt:15 --> outputParameters:35 TK_CALL:75 TK_FUNID:48 TK_WITH:55 TK_PARAMETERS:56 inputParameters:21 TK_SEM:21 
+
+
+
+rules from grammer rule: 41 outputParameters:35 --> TK_SQL:19 idList:19 TK_SQR:12 TK_ASSIGNOP:4 
+with lhs firsts size 2	with lhs follow size 2
+adding rule for outputParameters:35 TK_SQL:19
+grammer rule: 41 outputParameters:35 --> TK_SQL:19 idList:19 TK_SQR:12 TK_ASSIGNOP:4 
+
+
+
+rules from grammer rule: 42 outputParameters:35 --> TK_EPS:79 
+with lhs firsts size 2	with lhs follow size 2
+adding rule for outputParameters:35 TK_EPS:79
+grammer rule: 42 outputParameters:35 --> TK_EPS:79 
+
+adding rule for outputParameters:35 TK_CALL:75
+grammer rule: -2 outputParameters:35 --> TK_EPS:79 
+adding rule for outputParameters:35 TK_DOLLAR:80
+grammer rule: -2 outputParameters:35 --> TK_EPS:79 
+
+
+rules from grammer rule: 43 inputParameters:21 --> TK_SQL:19 idList:19 TK_SQR:12 
+with lhs firsts size 1	with lhs follow size 2
+adding rule for inputParameters:21 TK_SQL:19
+grammer rule: 43 inputParameters:21 --> TK_SQL:19 idList:19 TK_SQR:12 
+
+
+
+rules from grammer rule: 44 iterativeStmt:23 --> TK_WHILE:58 TK_OP:24 booleanExpression:4 TK_CL:23 stmt:43 otherStmts:33 TK_ENDWHILE:68 
+with lhs firsts size 1	with lhs follow size 12
+adding rule for iterativeStmt:23 TK_WHILE:58
+grammer rule: 44 iterativeStmt:23 --> TK_WHILE:58 TK_OP:24 booleanExpression:4 TK_CL:23 stmt:43 otherStmts:33 TK_ENDWHILE:68 
+
+
+
+rules from grammer rule: 45 conditionalStmt:5 --> TK_IF:69 TK_OP:24 booleanExpression:4 TK_CL:23 TK_THEN:70 stmt:43 otherStmts:33 elsePart:10 
+with lhs firsts size 1	with lhs follow size 12
+adding rule for conditionalStmt:5 TK_IF:69
+grammer rule: 45 conditionalStmt:5 --> TK_IF:69 TK_OP:24 booleanExpression:4 TK_CL:23 TK_THEN:70 stmt:43 otherStmts:33 elsePart:10 
+
+
+
+rules from grammer rule: 46 elsePart:10 --> TK_ELSE:78 stmt:43 otherStmts:33 TK_ENDIF:71 
+with lhs firsts size 2	with lhs follow size 12
+adding rule for elsePart:10 TK_ELSE:78
+grammer rule: 46 elsePart:10 --> TK_ELSE:78 stmt:43 otherStmts:33 TK_ENDIF:71 
+
+
+
+rules from grammer rule: 47 elsePart:10 --> TK_ENDIF:71 
+with lhs firsts size 2	with lhs follow size 12
+adding rule for elsePart:10 TK_ENDIF:71
+grammer rule: 47 elsePart:10 --> TK_ENDIF:71 
+
+
+
+rules from grammer rule: 48 ioStmt:22 --> TK_READ:72 TK_OP:24 singleOrRecId:42 TK_CL:23 TK_SEM:21 
+with lhs firsts size 2	with lhs follow size 12
+adding rule for ioStmt:22 TK_READ:72
+grammer rule: 48 ioStmt:22 --> TK_READ:72 TK_OP:24 singleOrRecId:42 TK_CL:23 TK_SEM:21 
+
+
+
+rules from grammer rule: 49 ioStmt:22 --> TK_WRITE:73 TK_OP:24 allVar:1 TK_CL:23 TK_SEM:21 
+with lhs firsts size 2	with lhs follow size 12
+adding rule for ioStmt:22 TK_WRITE:73
+grammer rule: 49 ioStmt:22 --> TK_WRITE:73 TK_OP:24 allVar:1 TK_CL:23 TK_SEM:21 
+
+
+
+rules from grammer rule: 50 allVar:1 --> TK_ID:16 newVar:30 
+with lhs firsts size 3	with lhs follow size 2
+adding rule for allVar:1 TK_ID:16
+grammer rule: 50 allVar:1 --> TK_ID:16 newVar:30 
+
+
+
+rules from grammer rule: 51 allVar:1 --> TK_NUM:29 
+with lhs firsts size 3	with lhs follow size 2
+adding rule for allVar:1 TK_NUM:29
+grammer rule: 51 allVar:1 --> TK_NUM:29 
+
+
+
+rules from grammer rule: 52 allVar:1 --> TK_RNUM:28 
+with lhs firsts size 3	with lhs follow size 2
+adding rule for allVar:1 TK_RNUM:28
+grammer rule: 52 allVar:1 --> TK_RNUM:28 
+
+
+
+rules from grammer rule: 53 newVar:30 --> TK_DOT:20 TK_FIELDID:18 
+with lhs firsts size 2	with lhs follow size 2
+adding rule for newVar:30 TK_DOT:20
+grammer rule: 53 newVar:30 --> TK_DOT:20 TK_FIELDID:18 
+
+
+
+rules from grammer rule: 54 newVar:30 --> TK_EPS:79 
+with lhs firsts size 2	with lhs follow size 2
+adding rule for newVar:30 TK_EPS:79
+grammer rule: 54 newVar:30 --> TK_EPS:79 
+
+adding rule for newVar:30 TK_CL:23
+grammer rule: -2 newVar:30 --> TK_EPS:79 
+adding rule for newVar:30 TK_DOLLAR:80
+grammer rule: -2 newVar:30 --> TK_EPS:79 
+
+
+rules from grammer rule: 55 arithmeticExpression:2 --> term:46 expPrime:11 
+with lhs firsts size 4	with lhs follow size 3
+adding rule for arithmeticExpression:2 TK_OP:24
+grammer rule: 55 arithmeticExpression:2 --> term:46 expPrime:11 
+
+adding rule for arithmeticExpression:2 TK_NUM:29
+grammer rule: 55 arithmeticExpression:2 --> term:46 expPrime:11 
+
+adding rule for arithmeticExpression:2 TK_RNUM:28
+grammer rule: 55 arithmeticExpression:2 --> term:46 expPrime:11 
+
+adding rule for arithmeticExpression:2 TK_ID:16
+grammer rule: 55 arithmeticExpression:2 --> term:46 expPrime:11 
+
+
+
+rules from grammer rule: 56 expPrime:11 --> lowPrecedenceOperators:25 term:46 expPrime:11 
+with lhs firsts size 3	with lhs follow size 3
+adding rule for expPrime:11 TK_PLUS:31
+grammer rule: 56 expPrime:11 --> lowPrecedenceOperators:25 term:46 expPrime:11 
+
+adding rule for expPrime:11 TK_MINUS:32
+grammer rule: 56 expPrime:11 --> lowPrecedenceOperators:25 term:46 expPrime:11 
+
+
+
+rules from grammer rule: 57 expPrime:11 --> TK_EPS:79 
+with lhs firsts size 3	with lhs follow size 3
+adding rule for expPrime:11 TK_EPS:79
+grammer rule: 57 expPrime:11 --> TK_EPS:79 
+
+adding rule for expPrime:11 TK_SEM:21
+grammer rule: -2 expPrime:11 --> TK_EPS:79 
+adding rule for expPrime:11 TK_CL:23
+grammer rule: -2 expPrime:11 --> TK_EPS:79 
+adding rule for expPrime:11 TK_DOLLAR:80
+grammer rule: -2 expPrime:11 --> TK_EPS:79 
+
+
+rules from grammer rule: 58 term:46 --> factor:12 termPrime:47 
+with lhs firsts size 4	with lhs follow size 5
+adding rule for term:46 TK_OP:24
+grammer rule: 58 term:46 --> factor:12 termPrime:47 
+
+adding rule for term:46 TK_NUM:29
+grammer rule: 58 term:46 --> factor:12 termPrime:47 
+
+adding rule for term:46 TK_RNUM:28
+grammer rule: 58 term:46 --> factor:12 termPrime:47 
+
+adding rule for term:46 TK_ID:16
+grammer rule: 58 term:46 --> factor:12 termPrime:47 
+
+
+
+rules from grammer rule: 59 termPrime:47 --> highPrecedenceOperators:18 factor:12 termPrime:47 
+with lhs firsts size 3	with lhs follow size 5
+adding rule for termPrime:47 TK_MUL:33
+grammer rule: 59 termPrime:47 --> highPrecedenceOperators:18 factor:12 termPrime:47 
+
+adding rule for termPrime:47 TK_DIV:34
+grammer rule: 59 termPrime:47 --> highPrecedenceOperators:18 factor:12 termPrime:47 
+
+
+
+rules from grammer rule: 60 termPrime:47 --> TK_EPS:79 
+with lhs firsts size 3	with lhs follow size 5
+adding rule for termPrime:47 TK_EPS:79
+grammer rule: 60 termPrime:47 --> TK_EPS:79 
+
+adding rule for termPrime:47 TK_PLUS:31
+grammer rule: -2 termPrime:47 --> TK_EPS:79 
+adding rule for termPrime:47 TK_MINUS:32
+grammer rule: -2 termPrime:47 --> TK_EPS:79 
+adding rule for termPrime:47 TK_SEM:21
+grammer rule: -2 termPrime:47 --> TK_EPS:79 
+adding rule for termPrime:47 TK_CL:23
+grammer rule: -2 termPrime:47 --> TK_EPS:79 
+adding rule for termPrime:47 TK_DOLLAR:80
+grammer rule: -2 termPrime:47 --> TK_EPS:79 
+
+
+rules from grammer rule: 61 factor:12 --> TK_OP:24 arithmeticExpression:2 TK_CL:23 
+with lhs firsts size 4	with lhs follow size 7
+adding rule for factor:12 TK_OP:24
+grammer rule: 61 factor:12 --> TK_OP:24 arithmeticExpression:2 TK_CL:23 
+
+
+
+rules from grammer rule: 62 factor:12 --> all:0 
+with lhs firsts size 4	with lhs follow size 7
+adding rule for factor:12 TK_NUM:29
+grammer rule: 62 factor:12 --> all:0 
+
+adding rule for factor:12 TK_RNUM:28
+grammer rule: 62 factor:12 --> all:0 
+
+adding rule for factor:12 TK_ID:16
+grammer rule: 62 factor:12 --> all:0 
+
+
+
+rules from grammer rule: 63 highPrecedenceOperators:18 --> TK_MUL:33 
+with lhs firsts size 2	with lhs follow size 5
+adding rule for highPrecedenceOperators:18 TK_MUL:33
+grammer rule: 63 highPrecedenceOperators:18 --> TK_MUL:33 
+
+
+
+rules from grammer rule: 64 highPrecedenceOperators:18 --> TK_DIV:34 
+with lhs firsts size 2	with lhs follow size 5
+adding rule for highPrecedenceOperators:18 TK_DIV:34
+grammer rule: 64 highPrecedenceOperators:18 --> TK_DIV:34 
+
+
+
+rules from grammer rule: 65 lowPrecedenceOperators:25 --> TK_PLUS:31 
+with lhs firsts size 2	with lhs follow size 5
+adding rule for lowPrecedenceOperators:25 TK_PLUS:31
+grammer rule: 65 lowPrecedenceOperators:25 --> TK_PLUS:31 
+
+
+
+rules from grammer rule: 66 lowPrecedenceOperators:25 --> TK_MINUS:32 
+with lhs firsts size 2	with lhs follow size 5
+adding rule for lowPrecedenceOperators:25 TK_MINUS:32
+grammer rule: 66 lowPrecedenceOperators:25 --> TK_MINUS:32 
+
+
+
+rules from grammer rule: 67 all:0 --> TK_NUM:29 
+with lhs firsts size 3	with lhs follow size 7
+adding rule for all:0 TK_NUM:29
+grammer rule: 67 all:0 --> TK_NUM:29 
+
+
+
+rules from grammer rule: 68 all:0 --> TK_RNUM:28 
+with lhs firsts size 3	with lhs follow size 7
+adding rule for all:0 TK_RNUM:28
+grammer rule: 68 all:0 --> TK_RNUM:28 
+
+
+
+rules from grammer rule: 69 all:0 --> TK_ID:16 temp:45 
+with lhs firsts size 3	with lhs follow size 7
+adding rule for all:0 TK_ID:16
+grammer rule: 69 all:0 --> TK_ID:16 temp:45 
+
+
+
+rules from grammer rule: 70 temp:45 --> TK_DOT:20 TK_FIELDID:18 
+with lhs firsts size 2	with lhs follow size 7
+adding rule for temp:45 TK_DOT:20
+grammer rule: 70 temp:45 --> TK_DOT:20 TK_FIELDID:18 
+
+
+
+rules from grammer rule: 71 temp:45 --> TK_EPS:79 
+with lhs firsts size 2	with lhs follow size 7
+adding rule for temp:45 TK_EPS:79
+grammer rule: 71 temp:45 --> TK_EPS:79 
+
+adding rule for temp:45 TK_MUL:33
+grammer rule: -2 temp:45 --> TK_EPS:79 
+adding rule for temp:45 TK_DIV:34
+grammer rule: -2 temp:45 --> TK_EPS:79 
+adding rule for temp:45 TK_PLUS:31
+grammer rule: -2 temp:45 --> TK_EPS:79 
+adding rule for temp:45 TK_MINUS:32
+grammer rule: -2 temp:45 --> TK_EPS:79 
+adding rule for temp:45 TK_SEM:21
+grammer rule: -2 temp:45 --> TK_EPS:79 
+adding rule for temp:45 TK_CL:23
+grammer rule: -2 temp:45 --> TK_EPS:79 
+adding rule for temp:45 TK_DOLLAR:80
+grammer rule: -2 temp:45 --> TK_EPS:79 
+
+
+rules from grammer rule: 72 booleanExpression:4 --> TK_OP:24 booleanExpression:4 TK_CL:23 logicalOp:24 TK_OP:24 booleanExpression:4 TK_CL:23 
+with lhs firsts size 5	with lhs follow size 2
+adding rule for booleanExpression:4 TK_OP:24
+grammer rule: 72 booleanExpression:4 --> TK_OP:24 booleanExpression:4 TK_CL:23 logicalOp:24 TK_OP:24 booleanExpression:4 TK_CL:23 
+
+
+
+rules from grammer rule: 73 booleanExpression:4 --> var:50 relationalOp:39 var:50 
+with lhs firsts size 5	with lhs follow size 2
+adding rule for booleanExpression:4 TK_ID:16
+grammer rule: 73 booleanExpression:4 --> var:50 relationalOp:39 var:50 
+
+adding rule for booleanExpression:4 TK_NUM:29
+grammer rule: 73 booleanExpression:4 --> var:50 relationalOp:39 var:50 
+
+adding rule for booleanExpression:4 TK_RNUM:28
+grammer rule: 73 booleanExpression:4 --> var:50 relationalOp:39 var:50 
+
+
+
+rules from grammer rule: 74 booleanExpression:4 --> TK_NOT:52 TK_OP:24 booleanExpression:4 TK_CL:23 
+with lhs firsts size 5	with lhs follow size 2
+adding rule for booleanExpression:4 TK_NOT:52
+grammer rule: 74 booleanExpression:4 --> TK_NOT:52 TK_OP:24 booleanExpression:4 TK_CL:23 
+
+
+
+rules from grammer rule: 75 var:50 --> TK_ID:16 
+with lhs firsts size 3	with lhs follow size 7
+adding rule for var:50 TK_ID:16
+grammer rule: 75 var:50 --> TK_ID:16 
+
+
+
+rules from grammer rule: 76 var:50 --> TK_NUM:29 
+with lhs firsts size 3	with lhs follow size 7
+adding rule for var:50 TK_NUM:29
+grammer rule: 76 var:50 --> TK_NUM:29 
+
+
+
+rules from grammer rule: 77 var:50 --> TK_RNUM:28 
+with lhs firsts size 3	with lhs follow size 7
+adding rule for var:50 TK_RNUM:28
+grammer rule: 77 var:50 --> TK_RNUM:28 
+
+
+
+rules from grammer rule: 78 logicalOp:24 --> TK_AND:37 
+with lhs firsts size 2	with lhs follow size 2
+adding rule for logicalOp:24 TK_AND:37
+grammer rule: 78 logicalOp:24 --> TK_AND:37 
+
+
+
+rules from grammer rule: 79 logicalOp:24 --> TK_OR:40 
+with lhs firsts size 2	with lhs follow size 2
+adding rule for logicalOp:24 TK_OR:40
+grammer rule: 79 logicalOp:24 --> TK_OR:40 
+
+
+
+rules from grammer rule: 80 relationalOp:39 --> TK_LT:6 
+with lhs firsts size 6	with lhs follow size 4
+adding rule for relationalOp:39 TK_LT:6
+grammer rule: 80 relationalOp:39 --> TK_LT:6 
+
+
+
+rules from grammer rule: 81 relationalOp:39 --> TK_LE:5 
+with lhs firsts size 6	with lhs follow size 4
+adding rule for relationalOp:39 TK_LE:5
+grammer rule: 81 relationalOp:39 --> TK_LE:5 
+
+
+
+rules from grammer rule: 82 relationalOp:39 --> TK_EQ:42 
+with lhs firsts size 6	with lhs follow size 4
+adding rule for relationalOp:39 TK_EQ:42
+grammer rule: 82 relationalOp:39 --> TK_EQ:42 
+
+
+
+rules from grammer rule: 83 relationalOp:39 --> TK_GT:9 
+with lhs firsts size 6	with lhs follow size 4
+adding rule for relationalOp:39 TK_GT:9
+grammer rule: 83 relationalOp:39 --> TK_GT:9 
+
+
+
+rules from grammer rule: 84 relationalOp:39 --> TK_GE:8 
+with lhs firsts size 6	with lhs follow size 4
+adding rule for relationalOp:39 TK_GE:8
+grammer rule: 84 relationalOp:39 --> TK_GE:8 
+
+
+
+rules from grammer rule: 85 relationalOp:39 --> TK_NE:44 
+with lhs firsts size 6	with lhs follow size 4
+adding rule for relationalOp:39 TK_NE:44
+grammer rule: 85 relationalOp:39 --> TK_NE:44 
+
+
+
+rules from grammer rule: 86 returnStmt:41 --> TK_RETURN:74 optionalReturn:31 TK_SEM:21 
+with lhs firsts size 1	with lhs follow size 2
+adding rule for returnStmt:41 TK_RETURN:74
+grammer rule: 86 returnStmt:41 --> TK_RETURN:74 optionalReturn:31 TK_SEM:21 
+
+
+
+rules from grammer rule: 87 optionalReturn:31 --> TK_SQL:19 idList:19 TK_SQR:12 
+with lhs firsts size 2	with lhs follow size 2
+adding rule for optionalReturn:31 TK_SQL:19
+grammer rule: 87 optionalReturn:31 --> TK_SQL:19 idList:19 TK_SQR:12 
+
+
+
+rules from grammer rule: 88 optionalReturn:31 --> TK_EPS:79 
+with lhs firsts size 2	with lhs follow size 2
+adding rule for optionalReturn:31 TK_EPS:79
+grammer rule: 88 optionalReturn:31 --> TK_EPS:79 
+
+adding rule for optionalReturn:31 TK_SEM:21
+grammer rule: -2 optionalReturn:31 --> TK_EPS:79 
+adding rule for optionalReturn:31 TK_DOLLAR:80
+grammer rule: -2 optionalReturn:31 --> TK_EPS:79 
+
+
+rules from grammer rule: 89 idList:19 --> TK_ID:16 more_ids:28 
+with lhs firsts size 1	with lhs follow size 2
+adding rule for idList:19 TK_ID:16
+grammer rule: 89 idList:19 --> TK_ID:16 more_ids:28 
+
+
+
+rules from grammer rule: 90 more_ids:28 --> TK_COMMA:30 idList:19 
+with lhs firsts size 2	with lhs follow size 2
+adding rule for more_ids:28 TK_COMMA:30
+grammer rule: 90 more_ids:28 --> TK_COMMA:30 idList:19 
+
+
+
+rules from grammer rule: 91 more_ids:28 --> TK_EPS:79 
+with lhs firsts size 2	with lhs follow size 2
+adding rule for more_ids:28 TK_EPS:79
+grammer rule: 91 more_ids:28 --> TK_EPS:79 
+
+adding rule for more_ids:28 TK_SQR:12
+grammer rule: -2 more_ids:28 --> TK_EPS:79 
+adding rule for more_ids:28 TK_DOLLAR:80
+grammer rule: -2 more_ids:28 --> TK_EPS:79 
+
+printing terminals
+0 (null)
+1 (null)
+2 (null)
+3 (null)
+4 TK_ASSIGNOP
+5 TK_LE
+6 TK_LT
+7 (null)
+8 TK_GE
+9 TK_GT
+10 (null)
+11 TK_COMMENT
+12 TK_SQR
+13 (null)
+14 (null)
+15 (null)
+16 TK_ID
+17 (null)
+18 TK_FIELDID
+19 TK_SQL
+20 TK_DOT
+21 TK_SEM
+22 TK_COLON
+23 TK_CL
+24 TK_OP
+25 (null)
+26 (null)
+27 (null)
+28 TK_RNUM
+29 TK_NUM
+30 TK_COMMA
+31 TK_PLUS
+32 TK_MINUS
+33 TK_MUL
+34 TK_DIV
+35 (null)
+36 (null)
+37 TK_AND
+38 (null)
+39 (null)
+40 TK_OR
+41 (null)
+42 TK_EQ
+43 (null)
+44 TK_NE
+45 (null)
+46 (null)
+47 (null)
+48 TK_FUNID
+49 (null)
+50 (null)
+51 TK_RECORDID
+52 TK_NOT
+53 TK_DELIM
+54 (null)
+55 TK_WITH
+56 TK_PARAMETERS
+57 TK_END
+58 TK_WHILE
+59 TK_TYPE
+60 TK_MAIN
+61 TK_GLOBAL
+62 TK_PARAMETER
+63 TK_LIST
+64 TK_INPUT
+65 TK_OUTPUT
+66 TK_INT
+67 TK_REAL
+68 TK_ENDWHILE
+69 TK_IF
+70 TK_THEN
+71 TK_ENDIF
+72 TK_READ
+73 TK_WRITE
+74 TK_RETURN
+75 TK_CALL
+76 TK_RECORD
+77 TK_ENDRECORD
+78 TK_ELSE
+79 TK_EPS
+80 TK_DOLLAR
+81 (null)
+82 (null)
+83 (null)
+84 (null)
+85 (null)
+86 (null)
+87 (null)
+88 (null)
+89 (null)
+90 (null)
+91 (null)
+92 (null)
+93 (null)
+94 (null)
+95 (null)
+96 (null)
+97 (null)
+98 (null)
+99 (null)
+
+printing nonterminals
+all
+allVar
+arithmeticExpression
+assignmentStmt
+booleanExpression
+conditionalStmt
+constructedDatatype
+dataType
+declaration
+declarations
+elsePart
+expPrime
+factor
+fieldDefinition
+fieldDefinitions
+funCallStmt
+function
+global_or_not
+highPrecedenceOperators
+idList
+input_par
+inputParameters
+ioStmt
+iterativeStmt
+logicalOp
+lowPrecedenceOperators
+mainFunction
+moreFields
+more_ids
+new24
+newVar
+optionalReturn
+otherFunctions
+otherStmts
+output_par
+outputParameters
+parameter_list
+primitiveDatatype
+program
+relationalOp
+remaining_list
+returnStmt
+singleOrRecId
+stmt
+stmts
+temp
+term
+termPrime
+typeDefinition
+typeDefinitions
+var
+
+printing parse table
+non_terminals,TK_ASSIGNOP:4,TK_LE:5,TK_LT:6,TK_GE:8,TK_GT:9,TK_COMMENT:11,TK_SQR:12,TK_ID:16,TK_FIELDID:18,TK_SQL:19,TK_DOT:20,TK_SEM:21,TK_COLON:22,TK_CL:23,TK_OP:24,TK_RNUM:28,TK_NUM:29,TK_COMMA:30,TK_PLUS:31,TK_MINUS:32,TK_MUL:33,TK_DIV:34,TK_AND:37,TK_OR:40,TK_EQ:42,TK_NE:44,TK_FUNID:48,TK_RECORDID:51,TK_NOT:52,TK_DELIM:53,TK_WITH:55,TK_PARAMETERS:56,TK_END:57,TK_WHILE:58,TK_TYPE:59,TK_MAIN:60,TK_GLOBAL:61,TK_PARAMETER:62,TK_LIST:63,TK_INPUT:64,TK_OUTPUT:65,TK_INT:66,TK_REAL:67,TK_ENDWHILE:68,TK_IF:69,TK_THEN:70,TK_ENDIF:71,TK_READ:72,TK_WRITE:73,TK_RETURN:74,TK_CALL:75,TK_RECORD:76,TK_ENDRECORD:77,TK_ELSE:78,TK_EPS:79,TK_DOLLAR:80,
+all:0,-1,-1,-1,-1,-1,-1,-1,69,-1,-1,-1,-1,-1,-1,-1,68,67,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,
+allVar:1,-1,-1,-1,-1,-1,-1,-1,50,-1,-1,-1,-1,-1,-1,-1,52,51,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,
+arithmeticExpression:2,-1,-1,-1,-1,-1,-1,-1,55,-1,-1,-1,-1,-1,-1,55,55,55,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,
+assignmentStmt:3,-1,-1,-1,-1,-1,-1,-1,36,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,
+booleanExpression:4,-1,-1,-1,-1,-1,-1,-1,73,-1,-1,-1,-1,-1,-1,72,73,73,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,74,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,
+conditionalStmt:5,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,45,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,
+constructedDatatype:6,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,13,-1,-1,-1,-1,
+dataType:7,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,9,9,-1,-1,-1,-1,-1,-1,-1,-1,10,-1,-1,-1,-1,
+declaration:8,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,26,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,
+declarations:9,-1,-1,-1,-1,-1,-1,-1,-2,-1,-2,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-2,24,-1,-1,-1,-1,-1,-1,-1,-1,-1,-2,-1,-1,-2,-2,-2,-2,-1,-1,-1,25,-2,
+elsePart:10,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,47,-1,-1,-1,-1,-1,-1,46,-1,-1,
+expPrime:11,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-2,-1,-2,-1,-1,-1,-1,56,56,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,57,-2,
+factor:12,-1,-1,-1,-1,-1,-1,-1,62,-1,-1,-1,-1,-1,-1,61,62,62,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,
+fieldDefinition:13,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,21,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,
+fieldDefinitions:14,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,20,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,
+funCallStmt:15,-1,-1,-1,-1,-1,-1,-1,-1,-1,40,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,40,-1,-1,-1,-1,40,
+function:16,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,4,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,
+global_or_not:17,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-2,27,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,28,-2,
+highPrecedenceOperators:18,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,63,64,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,
+idList:19,-1,-1,-1,-1,-1,-1,-1,89,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,
+input_par:20,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,5,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,
+inputParameters:21,-1,-1,-1,-1,-1,-1,-1,-1,-1,43,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,
+ioStmt:22,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,48,49,-1,-1,-1,-1,-1,-1,-1,
+iterativeStmt:23,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,44,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,
+logicalOp:24,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,78,79,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,
+lowPrecedenceOperators:25,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,65,66,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,
+mainFunction:26,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,
+moreFields:27,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,22,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-2,-1,23,-2,
+more_ids:28,-1,-1,-1,-1,-1,-1,-2,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,90,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,91,-2,
+new24:29,-2,-1,-1,-1,-1,-1,-1,-1,-1,-1,38,-1,-1,-2,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,39,-2,
+newVar:30,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,53,-1,-1,-2,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,54,-2,
+optionalReturn:31,-1,-1,-1,-1,-1,-1,-1,-1,-1,87,-1,-2,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,88,-2,
+otherFunctions:32,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,2,-1,-1,-1,-1,-1,-1,-1,-1,-2,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,3,-2,
+otherStmts:33,-1,-1,-1,-1,-1,-1,-1,29,-1,29,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,29,-1,-1,-1,-1,-1,-1,-1,-1,-1,-2,29,-1,-2,29,29,-2,29,-1,-1,-2,30,-2,
+output_par:34,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-2,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,6,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,7,-2,
+outputParameters:35,-1,-1,-1,-1,-1,-1,-1,-1,-1,41,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-2,-1,-1,-1,42,-2,
+parameter_list:36,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,8,8,-1,-1,-1,-1,-1,-1,-1,-1,8,-1,-1,-1,-1,
+primitiveDatatype:37,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,11,12,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,
+program:38,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,0,-1,-1,-1,-1,-1,-1,-1,-1,0,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,0,
+relationalOp:39,-1,81,80,84,83,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,82,85,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,
+remaining_list:40,-1,-1,-1,-1,-1,-1,-2,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,14,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,15,-2,
+returnStmt:41,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,86,-1,-1,-1,-1,-1,-1,
+singleOrRecId:42,-1,-1,-1,-1,-1,-1,-1,37,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,
+stmt:43,-1,-1,-1,-1,-1,-1,-1,31,-1,35,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,32,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,33,-1,-1,34,34,-1,35,-1,-1,-1,-1,-1,
+stmts:44,-1,-1,-1,-1,-1,-1,-1,16,-1,16,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,16,16,-1,-1,-1,-1,-1,-1,-1,-1,-1,16,-1,-1,16,16,16,16,16,-1,-1,-1,16,
+temp:45,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,70,-2,-1,-2,-1,-1,-1,-1,-2,-2,-2,-2,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,71,-2,
+term:46,-1,-1,-1,-1,-1,-1,-1,58,-1,-1,-1,-1,-1,-1,58,58,58,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,
+termPrime:47,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-2,-1,-2,-1,-1,-1,-1,-2,-2,59,59,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,60,-2,
+typeDefinition:48,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,19,-1,-1,-1,-1,
+typeDefinitions:49,-1,-1,-1,-1,-1,-1,-1,-2,-1,-2,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-2,-2,-1,-1,-1,-1,-1,-1,-1,-1,-1,-2,-1,-1,-2,-2,-2,-2,17,-1,-1,18,-2,
+var:50,-1,-1,-1,-1,-1,-1,-1,75,-1,-1,-1,-1,-1,-1,-1,77,76,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,
+Input the file name to be compiled: testcases/testcase3.txt 
+printing Grammer rules
+grammer rule: 0 program:38 --> otherFunctions:32 mainFunction:26 
+grammer rule: 1 mainFunction:26 --> TK_MAIN:60 stmts:44 TK_END:57 
+grammer rule: 2 otherFunctions:32 --> function:16 otherFunctions:32 
+grammer rule: 3 otherFunctions:32 --> TK_EPS:79 
+grammer rule: 4 function:16 --> TK_FUNID:48 input_par:20 output_par:34 TK_SEM:21 stmts:44 TK_END:57 
+grammer rule: 5 input_par:20 --> TK_INPUT:64 TK_PARAMETER:62 TK_LIST:63 TK_SQL:19 parameter_list:36 TK_SQR:12 
+grammer rule: 6 output_par:34 --> TK_OUTPUT:65 TK_PARAMETER:62 TK_LIST:63 TK_SQL:19 parameter_list:36 TK_SQR:12 
+grammer rule: 7 output_par:34 --> TK_EPS:79 
+grammer rule: 8 parameter_list:36 --> dataType:7 TK_ID:16 remaining_list:40 
+grammer rule: 9 dataType:7 --> primitiveDatatype:37 
+grammer rule: 10 dataType:7 --> constructedDatatype:6 
+grammer rule: 11 primitiveDatatype:37 --> TK_INT:66 
+grammer rule: 12 primitiveDatatype:37 --> TK_REAL:67 
+grammer rule: 13 constructedDatatype:6 --> TK_RECORD:76 TK_RECORDID:51 
+grammer rule: 14 remaining_list:40 --> TK_COMMA:30 parameter_list:36 
+grammer rule: 15 remaining_list:40 --> TK_EPS:79 
+grammer rule: 16 stmts:44 --> typeDefinitions:49 declarations:9 otherStmts:33 returnStmt:41 
+grammer rule: 17 typeDefinitions:49 --> typeDefinition:48 typeDefinitions:49 
+grammer rule: 18 typeDefinitions:49 --> TK_EPS:79 
+grammer rule: 19 typeDefinition:48 --> TK_RECORD:76 TK_RECORDID:51 fieldDefinitions:14 TK_ENDRECORD:77 TK_SEM:21 
+grammer rule: 20 fieldDefinitions:14 --> fieldDefinition:13 fieldDefinition:13 moreFields:27 
+grammer rule: 21 fieldDefinition:13 --> TK_TYPE:59 primitiveDatatype:37 TK_COLON:22 TK_FIELDID:18 TK_SEM:21 
+grammer rule: 22 moreFields:27 --> fieldDefinition:13 moreFields:27 
+grammer rule: 23 moreFields:27 --> TK_EPS:79 
+grammer rule: 24 declarations:9 --> declaration:8 declarations:9 
+grammer rule: 25 declarations:9 --> TK_EPS:79 
+grammer rule: 26 declaration:8 --> TK_TYPE:59 dataType:7 TK_COLON:22 TK_ID:16 global_or_not:17 TK_SEM:21 
+grammer rule: 27 global_or_not:17 --> TK_COLON:22 TK_GLOBAL:61 
+grammer rule: 28 global_or_not:17 --> TK_EPS:79 
+grammer rule: 29 otherStmts:33 --> stmt:43 otherStmts:33 
+grammer rule: 30 otherStmts:33 --> TK_EPS:79 
+grammer rule: 31 stmt:43 --> assignmentStmt:3 
+grammer rule: 32 stmt:43 --> iterativeStmt:23 
+grammer rule: 33 stmt:43 --> conditionalStmt:5 
+grammer rule: 34 stmt:43 --> ioStmt:22 
+grammer rule: 35 stmt:43 --> funCallStmt:15 
+grammer rule: 36 assignmentStmt:3 --> singleOrRecId:42 TK_ASSIGNOP:4 arithmeticExpression:2 TK_SEM:21 
+grammer rule: 37 singleOrRecId:42 --> TK_ID:16 new24:29 
+grammer rule: 38 new24:29 --> TK_DOT:20 TK_FIELDID:18 
+grammer rule: 39 new24:29 --> TK_EPS:79 
+grammer rule: 40 funCallStmt:15 --> outputParameters:35 TK_CALL:75 TK_FUNID:48 TK_WITH:55 TK_PARAMETERS:56 inputParameters:21 TK_SEM:21 
+grammer rule: 41 outputParameters:35 --> TK_SQL:19 idList:19 TK_SQR:12 TK_ASSIGNOP:4 
+grammer rule: 42 outputParameters:35 --> TK_EPS:79 
+grammer rule: 43 inputParameters:21 --> TK_SQL:19 idList:19 TK_SQR:12 
+grammer rule: 44 iterativeStmt:23 --> TK_WHILE:58 TK_OP:24 booleanExpression:4 TK_CL:23 stmt:43 otherStmts:33 TK_ENDWHILE:68 
+grammer rule: 45 conditionalStmt:5 --> TK_IF:69 TK_OP:24 booleanExpression:4 TK_CL:23 TK_THEN:70 stmt:43 otherStmts:33 elsePart:10 
+grammer rule: 46 elsePart:10 --> TK_ELSE:78 stmt:43 otherStmts:33 TK_ENDIF:71 
+grammer rule: 47 elsePart:10 --> TK_ENDIF:71 
+grammer rule: 48 ioStmt:22 --> TK_READ:72 TK_OP:24 singleOrRecId:42 TK_CL:23 TK_SEM:21 
+grammer rule: 49 ioStmt:22 --> TK_WRITE:73 TK_OP:24 allVar:1 TK_CL:23 TK_SEM:21 
+grammer rule: 50 allVar:1 --> TK_ID:16 newVar:30 
+grammer rule: 51 allVar:1 --> TK_NUM:29 
+grammer rule: 52 allVar:1 --> TK_RNUM:28 
+grammer rule: 53 newVar:30 --> TK_DOT:20 TK_FIELDID:18 
+grammer rule: 54 newVar:30 --> TK_EPS:79 
+grammer rule: 55 arithmeticExpression:2 --> term:46 expPrime:11 
+grammer rule: 56 expPrime:11 --> lowPrecedenceOperators:25 term:46 expPrime:11 
+grammer rule: 57 expPrime:11 --> TK_EPS:79 
+grammer rule: 58 term:46 --> factor:12 termPrime:47 
+grammer rule: 59 termPrime:47 --> highPrecedenceOperators:18 factor:12 termPrime:47 
+grammer rule: 60 termPrime:47 --> TK_EPS:79 
+grammer rule: 61 factor:12 --> TK_OP:24 arithmeticExpression:2 TK_CL:23 
+grammer rule: 62 factor:12 --> all:0 
+grammer rule: 63 highPrecedenceOperators:18 --> TK_MUL:33 
+grammer rule: 64 highPrecedenceOperators:18 --> TK_DIV:34 
+grammer rule: 65 lowPrecedenceOperators:25 --> TK_PLUS:31 
+grammer rule: 66 lowPrecedenceOperators:25 --> TK_MINUS:32 
+grammer rule: 67 all:0 --> TK_NUM:29 
+grammer rule: 68 all:0 --> TK_RNUM:28 
+grammer rule: 69 all:0 --> TK_ID:16 temp:45 
+grammer rule: 70 temp:45 --> TK_DOT:20 TK_FIELDID:18 
+grammer rule: 71 temp:45 --> TK_EPS:79 
+grammer rule: 72 booleanExpression:4 --> TK_OP:24 booleanExpression:4 TK_CL:23 logicalOp:24 TK_OP:24 booleanExpression:4 TK_CL:23 
+grammer rule: 73 booleanExpression:4 --> var:50 relationalOp:39 var:50 
+grammer rule: 74 booleanExpression:4 --> TK_NOT:52 TK_OP:24 booleanExpression:4 TK_CL:23 
+grammer rule: 75 var:50 --> TK_ID:16 
+grammer rule: 76 var:50 --> TK_NUM:29 
+grammer rule: 77 var:50 --> TK_RNUM:28 
+grammer rule: 78 logicalOp:24 --> TK_AND:37 
+grammer rule: 79 logicalOp:24 --> TK_OR:40 
+grammer rule: 80 relationalOp:39 --> TK_LT:6 
+grammer rule: 81 relationalOp:39 --> TK_LE:5 
+grammer rule: 82 relationalOp:39 --> TK_EQ:42 
+grammer rule: 83 relationalOp:39 --> TK_GT:9 
+grammer rule: 84 relationalOp:39 --> TK_GE:8 
+grammer rule: 85 relationalOp:39 --> TK_NE:44 
+grammer rule: 86 returnStmt:41 --> TK_RETURN:74 optionalReturn:31 TK_SEM:21 
+grammer rule: 87 optionalReturn:31 --> TK_SQL:19 idList:19 TK_SQR:12 
+grammer rule: 88 optionalReturn:31 --> TK_EPS:79 
+grammer rule: 89 idList:19 --> TK_ID:16 more_ids:28 
+grammer rule: 90 more_ids:28 --> TK_COMMA:30 idList:19 
+grammer rule: 91 more_ids:28 --> TK_EPS:79 
+inserting element TK_ASSIGNOP
+inserting element TK_COMMENT
+inserting element TK_FIELDID
+inserting element TK_ID
+inserting element TK_NUM
+inserting element TK_RNUM
+inserting element TK_FUNID
+inserting element TK_RECORDID
+inserting element TK_SQL
+inserting element TK_SQR
+inserting element TK_COMMA
+inserting element TK_SEM
+inserting element TK_COLON
+inserting element TK_DOT
+inserting element TK_OP
+inserting element TK_CL
+inserting element TK_PLUS
+inserting element TK_MINUS
+inserting element TK_MUL
+inserting element TK_DIV
+inserting element TK_AND
+inserting element TK_OR
+inserting element TK_NOT
+inserting element TK_LT
+inserting element TK_LE
+inserting element TK_EQ
+inserting element TK_GT
+inserting element TK_GE
+inserting element TK_LE
+inserting element TK_NE
+inserting element TK_WITH
+inserting element TK_PARAMETERS
+inserting element TK_END
+inserting element TK_WHILE
+inserting element TK_TYPE
+inserting element TK_MAIN
+inserting element TK_GLOBAL
+inserting element TK_PARAMETER
+inserting element TK_LIST
+inserting element TK_INPUT
+inserting element TK_OUTPUT
+inserting element TK_INT
+inserting element TK_REAL
+inserting element TK_ENDWHILE
+inserting element TK_IF
+inserting element TK_THEN
+inserting element TK_ENDIF
+inserting element TK_READ
+inserting element TK_WRITE
+inserting element TK_RETURN
+inserting element TK_CALL
+inserting element TK_RECORD
+inserting element TK_ENDRECORD
+inserting element TK_ELSE
+inserting element TK_DELIM
+inserting element TK_EPS
+inserting element TK_DOLLAR
+inserting element with
+inserting element parameters
+inserting element parameter
+inserting element list
+inserting element input
+inserting element output
+inserting element int
+inserting element real
+inserting element endwhile
+inserting element if
+inserting element then
+inserting element endif
+inserting element read
+inserting element write
+inserting element return
+inserting element call
+inserting element endrecord
+inserting element else
+inserting element _main
+inserting element type
+inserting element while
+inserting element end
+inserting element $
+inserting element global
+inserting element record
+grammer rule: 0 program:38 --> otherFunctions:32 mainFunction:26 
+grammer rule: 2 otherFunctions:32 --> function:16 otherFunctions:32 
+grammer rule: 4 function:16 --> TK_FUNID:48 input_par:20 output_par:34 TK_SEM:21 stmts:44 TK_END:57 
+grammer rule: 5 input_par:20 --> TK_INPUT:64 TK_PARAMETER:62 TK_LIST:63 TK_SQL:19 parameter_list:36 TK_SQR:12 
+grammer rule: 8 parameter_list:36 --> dataType:7 TK_ID:16 remaining_list:40 
+grammer rule: 9 dataType:7 --> primitiveDatatype:37 
+grammer rule: 11 primitiveDatatype:37 --> TK_INT:66 
+grammer rule: 14 remaining_list:40 --> TK_COMMA:30 parameter_list:36 
+grammer rule: 8 parameter_list:36 --> dataType:7 TK_ID:16 remaining_list:40 
+grammer rule: 9 dataType:7 --> primitiveDatatype:37 
+grammer rule: 11 primitiveDatatype:37 --> TK_INT:66 
+grammer rule: 14 remaining_list:40 --> TK_COMMA:30 parameter_list:36 
+grammer rule: 8 parameter_list:36 --> dataType:7 TK_ID:16 remaining_list:40 
+grammer rule: 9 dataType:7 --> primitiveDatatype:37 
+grammer rule: 11 primitiveDatatype:37 --> TK_INT:66 
+grammer rule: -2 remaining_list:40 --> TK_EPS:79 
+grammer rule: 6 output_par:34 --> TK_OUTPUT:65 TK_PARAMETER:62 TK_LIST:63 TK_SQL:19 parameter_list:36 TK_SQR:12 
+grammer rule: 8 parameter_list:36 --> dataType:7 TK_ID:16 remaining_list:40 
+grammer rule: 9 dataType:7 --> primitiveDatatype:37 
+grammer rule: 12 primitiveDatatype:37 --> TK_REAL:67 
+grammer rule: -2 remaining_list:40 --> TK_EPS:79 
+grammer rule: 16 stmts:44 --> typeDefinitions:49 declarations:9 otherStmts:33 returnStmt:41 
+grammer rule: -2 typeDefinitions:49 --> TK_EPS:79 
+grammer rule: 24 declarations:9 --> declaration:8 declarations:9 
+grammer rule: 26 declaration:8 --> TK_TYPE:59 dataType:7 TK_COLON:22 TK_ID:16 global_or_not:17 TK_SEM:21 
+grammer rule: 9 dataType:7 --> primitiveDatatype:37 
+grammer rule: 12 primitiveDatatype:37 --> TK_REAL:67 
+grammer rule: -2 global_or_not:17 --> TK_EPS:79 
+grammer rule: 24 declarations:9 --> declaration:8 declarations:9 
+grammer rule: 26 declaration:8 --> TK_TYPE:59 dataType:7 TK_COLON:22 TK_ID:16 global_or_not:17 TK_SEM:21 
+grammer rule: 9 dataType:7 --> primitiveDatatype:37 
+grammer rule: 12 primitiveDatatype:37 --> TK_REAL:67 
+grammer rule: -2 global_or_not:17 --> TK_EPS:79 
+grammer rule: -2 declarations:9 --> TK_EPS:79 
+grammer rule: 29 otherStmts:33 --> stmt:43 otherStmts:33 
+grammer rule: 31 stmt:43 --> assignmentStmt:3 
+grammer rule: 36 assignmentStmt:3 --> singleOrRecId:42 TK_ASSIGNOP:4 arithmeticExpression:2 TK_SEM:21 
+grammer rule: 37 singleOrRecId:42 --> TK_ID:16 new24:29 
+grammer rule: -2 new24:29 --> TK_EPS:79 
+grammer rule: 55 arithmeticExpression:2 --> term:46 expPrime:11 
+grammer rule: 58 term:46 --> factor:12 termPrime:47 
+grammer rule: 62 factor:12 --> all:0 
+grammer rule: 68 all:0 --> TK_RNUM:28 
+grammer rule: -2 termPrime:47 --> TK_EPS:79 
+grammer rule: -2 expPrime:11 --> TK_EPS:79 
+grammer rule: 29 otherStmts:33 --> stmt:43 otherStmts:33 
+grammer rule: 31 stmt:43 --> assignmentStmt:3 
+grammer rule: 36 assignmentStmt:3 --> singleOrRecId:42 TK_ASSIGNOP:4 arithmeticExpression:2 TK_SEM:21 
+grammer rule: 37 singleOrRecId:42 --> TK_ID:16 new24:29 
+grammer rule: -2 new24:29 --> TK_EPS:79 
+grammer rule: 55 arithmeticExpression:2 --> term:46 expPrime:11 
+grammer rule: 58 term:46 --> factor:12 termPrime:47 
+grammer rule: 61 factor:12 --> TK_OP:24 arithmeticExpression:2 TK_CL:23 
+grammer rule: 55 arithmeticExpression:2 --> term:46 expPrime:11 
+grammer rule: 58 term:46 --> factor:12 termPrime:47 
+grammer rule: 61 factor:12 --> TK_OP:24 arithmeticExpression:2 TK_CL:23 
+grammer rule: 55 arithmeticExpression:2 --> term:46 expPrime:11 
+grammer rule: 58 term:46 --> factor:12 termPrime:47 
+grammer rule: 62 factor:12 --> all:0 
+grammer rule: 69 all:0 --> TK_ID:16 temp:45 
+grammer rule: -2 temp:45 --> TK_EPS:79 
+grammer rule: -2 termPrime:47 --> TK_EPS:79 
+grammer rule: 56 expPrime:11 --> lowPrecedenceOperators:25 term:46 expPrime:11 
+grammer rule: 65 lowPrecedenceOperators:25 --> TK_PLUS:31 
+grammer rule: 58 term:46 --> factor:12 termPrime:47 
+grammer rule: 62 factor:12 --> all:0 
+grammer rule: 67 all:0 --> TK_NUM:29 
+grammer rule: 59 termPrime:47 --> highPrecedenceOperators:18 factor:12 termPrime:47 
+grammer rule: 63 highPrecedenceOperators:18 --> TK_MUL:33 
+grammer rule: 62 factor:12 --> all:0 
+grammer rule: 69 all:0 --> TK_ID:16 temp:45 
+grammer rule: -2 temp:45 --> TK_EPS:79 
+grammer rule: -2 termPrime:47 --> TK_EPS:79 
+grammer rule: -2 expPrime:11 --> TK_EPS:79 
+grammer rule: -2 termPrime:47 --> TK_EPS:79 
+grammer rule: 56 expPrime:11 --> lowPrecedenceOperators:25 term:46 expPrime:11 
+grammer rule: 66 lowPrecedenceOperators:25 --> TK_MINUS:32 
+grammer rule: 58 term:46 --> factor:12 termPrime:47 
+grammer rule: 61 factor:12 --> TK_OP:24 arithmeticExpression:2 TK_CL:23 
+grammer rule: 55 arithmeticExpression:2 --> term:46 expPrime:11 
+grammer rule: 58 term:46 --> factor:12 termPrime:47 
+grammer rule: 62 factor:12 --> all:0 
+grammer rule: 69 all:0 --> TK_ID:16 temp:45 
+grammer rule: -2 temp:45 --> TK_EPS:79 
+grammer rule: -2 termPrime:47 --> TK_EPS:79 
+grammer rule: 56 expPrime:11 --> lowPrecedenceOperators:25 term:46 expPrime:11 
+grammer rule: 66 lowPrecedenceOperators:25 --> TK_MINUS:32 
+grammer rule: 58 term:46 --> factor:12 termPrime:47 
+grammer rule: 62 factor:12 --> all:0 
+grammer rule: 67 all:0 --> TK_NUM:29 
+grammer rule: -2 termPrime:47 --> TK_EPS:79 
+grammer rule: -2 expPrime:11 --> TK_EPS:79 
+grammer rule: -2 termPrime:47 --> TK_EPS:79 
+grammer rule: -2 expPrime:11 --> TK_EPS:79 
+grammer rule: 59 termPrime:47 --> highPrecedenceOperators:18 factor:12 termPrime:47 
+grammer rule: 64 highPrecedenceOperators:18 --> TK_DIV:34 
+grammer rule: 62 factor:12 --> all:0 
+grammer rule: 67 all:0 --> TK_NUM:29 
+grammer rule: -2 termPrime:47 --> TK_EPS:79 
+grammer rule: -2 expPrime:11 --> TK_EPS:79 
+grammer rule: 29 otherStmts:33 --> stmt:43 otherStmts:33 
+grammer rule: 31 stmt:43 --> assignmentStmt:3 
+grammer rule: 36 assignmentStmt:3 --> singleOrRecId:42 TK_ASSIGNOP:4 arithmeticExpression:2 TK_SEM:21 
+grammer rule: 37 singleOrRecId:42 --> TK_ID:16 new24:29 
+grammer rule: -2 new24:29 --> TK_EPS:79 
+grammer rule: 55 arithmeticExpression:2 --> term:46 expPrime:11 
+grammer rule: 58 term:46 --> factor:12 termPrime:47 
+grammer rule: 61 factor:12 --> TK_OP:24 arithmeticExpression:2 TK_CL:23 
+grammer rule: 55 arithmeticExpression:2 --> term:46 expPrime:11 
+grammer rule: 58 term:46 --> factor:12 termPrime:47 
+grammer rule: 61 factor:12 --> TK_OP:24 arithmeticExpression:2 TK_CL:23 
+grammer rule: 55 arithmeticExpression:2 --> term:46 expPrime:11 
+grammer rule: 58 term:46 --> factor:12 termPrime:47 
+grammer rule: 62 factor:12 --> all:0 
+grammer rule: 69 all:0 --> TK_ID:16 temp:45 
+grammer rule: -2 temp:45 --> TK_EPS:79 
+grammer rule: -2 termPrime:47 --> TK_EPS:79 
+grammer rule: 56 expPrime:11 --> lowPrecedenceOperators:25 term:46 expPrime:11 
+grammer rule: 66 lowPrecedenceOperators:25 --> TK_MINUS:32 
+grammer rule: 58 term:46 --> factor:12 termPrime:47 
+grammer rule: 62 factor:12 --> all:0 
+grammer rule: 68 all:0 --> TK_RNUM:28 
+grammer rule: -2 termPrime:47 --> TK_EPS:79 
+grammer rule: -2 expPrime:11 --> TK_EPS:79 
+grammer rule: 59 termPrime:47 --> highPrecedenceOperators:18 factor:12 termPrime:47 
+grammer rule: 63 highPrecedenceOperators:18 --> TK_MUL:33 
+grammer rule: 61 factor:12 --> TK_OP:24 arithmeticExpression:2 TK_CL:23 
+grammer rule: 55 arithmeticExpression:2 --> term:46 expPrime:11 
+grammer rule: 58 term:46 --> factor:12 termPrime:47 
+grammer rule: 62 factor:12 --> all:0 
+grammer rule: 67 all:0 --> TK_NUM:29 
+grammer rule: -2 termPrime:47 --> TK_EPS:79 
+grammer rule: 56 expPrime:11 --> lowPrecedenceOperators:25 term:46 expPrime:11 
+grammer rule: 66 lowPrecedenceOperators:25 --> TK_MINUS:32 
+grammer rule: 58 term:46 --> factor:12 termPrime:47 
+grammer rule: 62 factor:12 --> all:0 
+grammer rule: 67 all:0 --> TK_NUM:29 
+grammer rule: 59 termPrime:47 --> highPrecedenceOperators:18 factor:12 termPrime:47 
+grammer rule: 63 highPrecedenceOperators:18 --> TK_MUL:33 
+grammer rule: 62 factor:12 --> all:0 
+grammer rule: 67 all:0 --> TK_NUM:29 
+grammer rule: -2 termPrime:47 --> TK_EPS:79 
+grammer rule: -2 expPrime:11 --> TK_EPS:79 
+grammer rule: -2 termPrime:47 --> TK_EPS:79 
+grammer rule: -2 expPrime:11 --> TK_EPS:79 
+grammer rule: -2 termPrime:47 --> TK_EPS:79 
+grammer rule: 56 expPrime:11 --> lowPrecedenceOperators:25 term:46 expPrime:11 
+grammer rule: 65 lowPrecedenceOperators:25 --> TK_PLUS:31 
+grammer rule: 58 term:46 --> factor:12 termPrime:47 
+grammer rule: 62 factor:12 --> all:0 
+grammer rule: 67 all:0 --> TK_NUM:29 
+grammer rule: 59 termPrime:47 --> highPrecedenceOperators:18 factor:12 termPrime:47 
+grammer rule: 63 highPrecedenceOperators:18 --> TK_MUL:33 
+grammer rule: 62 factor:12 --> all:0 
+grammer rule: 69 all:0 --> TK_ID:16 temp:45 
+grammer rule: -2 temp:45 --> TK_EPS:79 
+grammer rule: -2 termPrime:47 --> TK_EPS:79 
+grammer rule: -2 expPrime:11 --> TK_EPS:79 
+grammer rule: 29 otherStmts:33 --> stmt:43 otherStmts:33 
+grammer rule: 33 stmt:43 --> conditionalStmt:5 
+grammer rule: 45 conditionalStmt:5 --> TK_IF:69 TK_OP:24 booleanExpression:4 TK_CL:23 TK_THEN:70 stmt:43 otherStmts:33 elsePart:10 
+grammer rule: 72 booleanExpression:4 --> TK_OP:24 booleanExpression:4 TK_CL:23 logicalOp:24 TK_OP:24 booleanExpression:4 TK_CL:23 
+grammer rule: 74 booleanExpression:4 --> TK_NOT:52 TK_OP:24 booleanExpression:4 TK_CL:23 
+grammer rule: 73 booleanExpression:4 --> var:50 relationalOp:39 var:50 
+grammer rule: 75 var:50 --> TK_ID:16 
+grammer rule: 82 relationalOp:39 --> TK_EQ:42 
+grammer rule: 76 var:50 --> TK_NUM:29 
+grammer rule: 78 logicalOp:24 --> TK_AND:37 
+grammer rule: 73 booleanExpression:4 --> var:50 relationalOp:39 var:50 
+grammer rule: 75 var:50 --> TK_ID:16 
+grammer rule: 83 relationalOp:39 --> TK_GT:9 
+grammer rule: 77 var:50 --> TK_RNUM:28 
+grammer rule: 31 stmt:43 --> assignmentStmt:3 
+grammer rule: 36 assignmentStmt:3 --> singleOrRecId:42 TK_ASSIGNOP:4 arithmeticExpression:2 TK_SEM:21 
+grammer rule: 37 singleOrRecId:42 --> TK_ID:16 new24:29 
+grammer rule: -2 new24:29 --> TK_EPS:79 
+grammer rule: 55 arithmeticExpression:2 --> term:46 expPrime:11 
+grammer rule: 58 term:46 --> factor:12 termPrime:47 
+grammer rule: 62 factor:12 --> all:0 
+grammer rule: 69 all:0 --> TK_ID:16 temp:45 
+grammer rule: -2 temp:45 --> TK_EPS:79 
+grammer rule: 59 termPrime:47 --> highPrecedenceOperators:18 factor:12 termPrime:47 
+grammer rule: 64 highPrecedenceOperators:18 --> TK_DIV:34 
+grammer rule: 62 factor:12 --> all:0 
+grammer rule: 69 all:0 --> TK_ID:16 temp:45 
+grammer rule: -2 temp:45 --> TK_EPS:79 
+grammer rule: -2 termPrime:47 --> TK_EPS:79 
+grammer rule: -2 expPrime:11 --> TK_EPS:79 
+grammer rule: -2 otherStmts:33 --> TK_EPS:79 
+grammer rule: 46 elsePart:10 --> TK_ELSE:78 stmt:43 otherStmts:33 TK_ENDIF:71 
+grammer rule: 34 stmt:43 --> ioStmt:22 
+grammer rule: 49 ioStmt:22 --> TK_WRITE:73 TK_OP:24 allVar:1 TK_CL:23 TK_SEM:21 
+grammer rule: 50 allVar:1 --> TK_ID:16 newVar:30 
+grammer rule: -2 newVar:30 --> TK_EPS:79 
+grammer rule: -2 otherStmts:33 --> TK_EPS:79 
+grammer rule: -2 otherStmts:33 --> TK_EPS:79 
+grammer rule: 86 returnStmt:41 --> TK_RETURN:74 optionalReturn:31 TK_SEM:21 
+grammer rule: 87 optionalReturn:31 --> TK_SQL:19 idList:19 TK_SQR:12 
+grammer rule: 89 idList:19 --> TK_ID:16 more_ids:28 
+grammer rule: -2 more_ids:28 --> TK_EPS:79 
+grammer rule: -2 otherFunctions:32 --> TK_EPS:79 
+grammer rule: 1 mainFunction:26 --> TK_MAIN:60 stmts:44 TK_END:57 
+grammer rule: 16 stmts:44 --> typeDefinitions:49 declarations:9 otherStmts:33 returnStmt:41 
+grammer rule: -2 typeDefinitions:49 --> TK_EPS:79 
+grammer rule: 24 declarations:9 --> declaration:8 declarations:9 
+grammer rule: 26 declaration:8 --> TK_TYPE:59 dataType:7 TK_COLON:22 TK_ID:16 global_or_not:17 TK_SEM:21 
+grammer rule: 9 dataType:7 --> primitiveDatatype:37 
+grammer rule: 11 primitiveDatatype:37 --> TK_INT:66 
+grammer rule: -2 global_or_not:17 --> TK_EPS:79 
+grammer rule: 24 declarations:9 --> declaration:8 declarations:9 
+grammer rule: 26 declaration:8 --> TK_TYPE:59 dataType:7 TK_COLON:22 TK_ID:16 global_or_not:17 TK_SEM:21 
+grammer rule: 9 dataType:7 --> primitiveDatatype:37 
+grammer rule: 11 primitiveDatatype:37 --> TK_INT:66 
+grammer rule: -2 global_or_not:17 --> TK_EPS:79 
+grammer rule: 24 declarations:9 --> declaration:8 declarations:9 
+grammer rule: 26 declaration:8 --> TK_TYPE:59 dataType:7 TK_COLON:22 TK_ID:16 global_or_not:17 TK_SEM:21 
+grammer rule: 9 dataType:7 --> primitiveDatatype:37 
+grammer rule: 11 primitiveDatatype:37 --> TK_INT:66 
+grammer rule: 27 global_or_not:17 --> TK_COLON:22 TK_GLOBAL:61 
+grammer rule: 24 declarations:9 --> declaration:8 declarations:9 
+grammer rule: 26 declaration:8 --> TK_TYPE:59 dataType:7 TK_COLON:22 TK_ID:16 global_or_not:17 TK_SEM:21 
+grammer rule: 9 dataType:7 --> primitiveDatatype:37 
+grammer rule: 12 primitiveDatatype:37 --> TK_REAL:67 
+grammer rule: -2 global_or_not:17 --> TK_EPS:79 
+grammer rule: -2 declarations:9 --> TK_EPS:79 
+grammer rule: 29 otherStmts:33 --> stmt:43 otherStmts:33 
+grammer rule: 31 stmt:43 --> assignmentStmt:3 
+grammer rule: 36 assignmentStmt:3 --> singleOrRecId:42 TK_ASSIGNOP:4 arithmeticExpression:2 TK_SEM:21 
+grammer rule: 37 singleOrRecId:42 --> TK_ID:16 new24:29 
+grammer rule: -2 new24:29 --> TK_EPS:79 
+grammer rule: 55 arithmeticExpression:2 --> term:46 expPrime:11 
+grammer rule: 58 term:46 --> factor:12 termPrime:47 
+grammer rule: 62 factor:12 --> all:0 
+grammer rule: 67 all:0 --> TK_NUM:29 
+grammer rule: -2 termPrime:47 --> TK_EPS:79 
+grammer rule: -2 expPrime:11 --> TK_EPS:79 
+grammer rule: 29 otherStmts:33 --> stmt:43 otherStmts:33 
+grammer rule: 34 stmt:43 --> ioStmt:22 
+grammer rule: 48 ioStmt:22 --> TK_READ:72 TK_OP:24 singleOrRecId:42 TK_CL:23 TK_SEM:21 
+grammer rule: 37 singleOrRecId:42 --> TK_ID:16 new24:29 
+grammer rule: -2 new24:29 --> TK_EPS:79 
+grammer rule: 29 otherStmts:33 --> stmt:43 otherStmts:33 
+grammer rule: 34 stmt:43 --> ioStmt:22 
+grammer rule: 48 ioStmt:22 --> TK_READ:72 TK_OP:24 singleOrRecId:42 TK_CL:23 TK_SEM:21 
+grammer rule: 37 singleOrRecId:42 --> TK_ID:16 new24:29 
+grammer rule: -2 new24:29 --> TK_EPS:79 
+grammer rule: 29 otherStmts:33 --> stmt:43 otherStmts:33 
+grammer rule: 35 stmt:43 --> funCallStmt:15 
+grammer rule: 40 funCallStmt:15 --> outputParameters:35 TK_CALL:75 TK_FUNID:48 TK_WITH:55 TK_PARAMETERS:56 inputParameters:21 TK_SEM:21 
+grammer rule: 41 outputParameters:35 --> TK_SQL:19 idList:19 TK_SQR:12 TK_ASSIGNOP:4 
+grammer rule: 89 idList:19 --> TK_ID:16 more_ids:28 
+grammer rule: -2 more_ids:28 --> TK_EPS:79 
+grammer rule: 43 inputParameters:21 --> TK_SQL:19 idList:19 TK_SQR:12 
+grammer rule: 89 idList:19 --> TK_ID:16 more_ids:28 
+grammer rule: 90 more_ids:28 --> TK_COMMA:30 idList:19 
+grammer rule: 89 idList:19 --> TK_ID:16 more_ids:28 
+grammer rule: 90 more_ids:28 --> TK_COMMA:30 idList:19 
+grammer rule: 89 idList:19 --> TK_ID:16 more_ids:28 
+grammer rule: -2 more_ids:28 --> TK_EPS:79 
+grammer rule: 29 otherStmts:33 --> stmt:43 otherStmts:33 
+grammer rule: 34 stmt:43 --> ioStmt:22 
+grammer rule: 49 ioStmt:22 --> TK_WRITE:73 TK_OP:24 allVar:1 TK_CL:23 TK_SEM:21 
+grammer rule: 50 allVar:1 --> TK_ID:16 newVar:30 
+grammer rule: -2 newVar:30 --> TK_EPS:79 
+grammer rule: -2 otherStmts:33 --> TK_EPS:79 
+grammer rule: 86 returnStmt:41 --> TK_RETURN:74 optionalReturn:31 TK_SEM:21 
+grammer rule: -2 optionalReturn:31 --> TK_EPS:79 
+No errors!
+TK_FUNID:48 at line 6:_computeFunctionValue
+function 16
+TK_INPUT:64 at line 6:input
+input_par 20
+TK_PARAMETER:62 at line 6:parameter
+TK_LIST:63 at line 6:list
+TK_SQL:19 at line 6:[
+TK_INT:66 at line 6:int
+primitiveDatatype 37
+dataType 7
+parameter_list 36
+TK_ID:16 at line 6:c3
+TK_COMMA:30 at line 6:,
+remaining_list 40
+TK_INT:66 at line 6:int
+primitiveDatatype 37
+dataType 7
+parameter_list 36
+TK_ID:16 at line 6:c4
+TK_COMMA:30 at line 6:,
+remaining_list 40
+TK_INT:66 at line 6:int
+primitiveDatatype 37
+dataType 7
+parameter_list 36
+TK_ID:16 at line 6:c5
+remaining_list 40
+TK_SQR:12 at line 6:]
+TK_OUTPUT:65 at line 7:output
+output_par 34
+TK_PARAMETER:62 at line 7:parameter
+TK_LIST:63 at line 7:list
+TK_SQL:19 at line 7:[
+TK_REAL:67 at line 7:real
+primitiveDatatype 37
+dataType 7
+parameter_list 36
+TK_ID:16 at line 7:c6
+remaining_list 40
+TK_SQR:12 at line 7:]
+TK_SEM:21 at line 7:;
+typeDefinitions 49
+stmts 44
+TK_TYPE:59 at line 8:type
+declaration 8
+TK_REAL:67 at line 8:real
+primitiveDatatype 37
+dataType 7
+TK_COLON:22 at line 8::
+TK_ID:16 at line 8:d4cbcd5677
+global_or_not 17
+TK_SEM:21 at line 8:;
+declarations 9
+TK_TYPE:59 at line 9:type
+declaration 8
+TK_REAL:67 at line 9:real
+primitiveDatatype 37
+dataType 7
+TK_COLON:22 at line 9::
+TK_ID:16 at line 9:c4bbb
+global_or_not 17
+TK_SEM:21 at line 9:;
+declarations 9
+declarations 9
+TK_ID:16 at line 10:c6
+singleOrRecId 42
+new24 29
+assignmentStmt 3
+TK_ASSIGNOP:4 at line 10:<---
+TK_RNUM:28 at line 10:5000.79
+all 0
+factor 12
+term 46
+termPrime 47
+arithmeticExpression 2
+expPrime 11
+TK_SEM:21 at line 10:;
+stmt 43
+otherStmts 33
+TK_ID:16 at line 11:d4cbcd5677
+singleOrRecId 42
+new24 29
+assignmentStmt 3
+TK_ASSIGNOP:4 at line 11:<---
+TK_OP:24 at line 11:(
+factor 12
+TK_OP:24 at line 11:(
+factor 12
+TK_ID:16 at line 11:c3
+all 0
+temp 45
+factor 12
+term 46
+termPrime 47
+arithmeticExpression 2
+TK_PLUS:31 at line 11:+
+lowPrecedenceOperators 25
+expPrime 11
+TK_NUM:29 at line 11:2
+all 0
+factor 12
+term 46
+TK_MUL:33 at line 11:*
+highPrecedenceOperators 18
+termPrime 47
+TK_ID:16 at line 11:c4
+all 0
+temp 45
+factor 12
+termPrime 47
+expPrime 11
+TK_CL:23 at line 11:)
+term 46
+termPrime 47
+arithmeticExpression 2
+TK_MINUS:32 at line 11:-
+lowPrecedenceOperators 25
+expPrime 11
+TK_OP:24 at line 11:(
+factor 12
+TK_ID:16 at line 11:c5
+all 0
+temp 45
+factor 12
+term 46
+termPrime 47
+arithmeticExpression 2
+TK_MINUS:32 at line 11:-
+lowPrecedenceOperators 25
+expPrime 11
+TK_NUM:29 at line 11:5
+all 0
+factor 12
+term 46
+termPrime 47
+expPrime 11
+TK_CL:23 at line 11:)
+term 46
+termPrime 47
+expPrime 11
+TK_CL:23 at line 11:)
+term 46
+TK_DIV:34 at line 11:/
+highPrecedenceOperators 18
+termPrime 47
+TK_NUM:29 at line 11:4
+all 0
+factor 12
+termPrime 47
+arithmeticExpression 2
+expPrime 11
+TK_SEM:21 at line 11:;
+stmt 43
+otherStmts 33
+TK_ID:16 at line 12:c4bbb
+singleOrRecId 42
+new24 29
+assignmentStmt 3
+TK_ASSIGNOP:4 at line 12:<---
+TK_OP:24 at line 12:(
+factor 12
+TK_OP:24 at line 12:(
+factor 12
+TK_ID:16 at line 12:d4cbcd5677
+all 0
+temp 45
+factor 12
+term 46
+termPrime 47
+arithmeticExpression 2
+TK_MINUS:32 at line 12:-
+lowPrecedenceOperators 25
+expPrime 11
+TK_RNUM:28 at line 12:2.35
+all 0
+factor 12
+term 46
+termPrime 47
+expPrime 11
+TK_CL:23 at line 12:)
+term 46
+TK_MUL:33 at line 12:*
+highPrecedenceOperators 18
+termPrime 47
+TK_OP:24 at line 12:(
+factor 12
+TK_NUM:29 at line 12:2345
+all 0
+factor 12
+term 46
+termPrime 47
+arithmeticExpression 2
+TK_MINUS:32 at line 12:-
+lowPrecedenceOperators 25
+expPrime 11
+TK_NUM:29 at line 12:234
+all 0
+factor 12
+term 46
+TK_MUL:33 at line 12:*
+highPrecedenceOperators 18
+termPrime 47
+TK_NUM:29 at line 12:8
+all 0
+factor 12
+termPrime 47
+expPrime 11
+TK_CL:23 at line 12:)
+termPrime 47
+arithmeticExpression 2
+expPrime 11
+TK_CL:23 at line 12:)
+term 46
+termPrime 47
+arithmeticExpression 2
+TK_PLUS:31 at line 12:+
+lowPrecedenceOperators 25
+expPrime 11
+TK_NUM:29 at line 12:5
+all 0
+factor 12
+term 46
+TK_MUL:33 at line 12:*
+highPrecedenceOperators 18
+termPrime 47
+TK_ID:16 at line 12:c3
+all 0
+temp 45
+factor 12
+termPrime 47
+expPrime 11
+TK_SEM:21 at line 12:;
+stmt 43
+otherStmts 33
+TK_IF:69 at line 13:if
+conditionalStmt 5
+TK_OP:24 at line 13:(
+TK_OP:24 at line 13:(
+booleanExpression 4
+TK_NOT:52 at line 13:~
+booleanExpression 4
+TK_OP:24 at line 13:(
+TK_ID:16 at line 13:c4bbb
+var 50
+booleanExpression 4
+TK_EQ:42 at line 13:==
+relationalOp 39
+TK_NUM:29 at line 13:0
+var 50
+TK_CL:23 at line 13:)
+TK_CL:23 at line 13:)
+TK_AND:37 at line 13:&&&
+logicalOp 24
+TK_OP:24 at line 13:(
+TK_ID:16 at line 13:c4bbb
+var 50
+booleanExpression 4
+TK_GT:9 at line 13:>
+relationalOp 39
+TK_RNUM:28 at line 13:78.56
+var 50
+TK_CL:23 at line 13:)
+TK_CL:23 at line 13:)
+TK_THEN:70 at line 14:then
+TK_ID:16 at line 15:c6
+singleOrRecId 42
+new24 29
+assignmentStmt 3
+TK_ASSIGNOP:4 at line 15:<---
+TK_ID:16 at line 15:d4cbcd5677
+all 0
+temp 45
+factor 12
+term 46
+TK_DIV:34 at line 15:/
+highPrecedenceOperators 18
+termPrime 47
+TK_ID:16 at line 15:c4bbb
+all 0
+temp 45
+factor 12
+termPrime 47
+arithmeticExpression 2
+expPrime 11
+TK_SEM:21 at line 15:;
+stmt 43
+otherStmts 33
+TK_ELSE:78 at line 16:else
+elsePart 10
+TK_WRITE:73 at line 17:write
+ioStmt 22
+TK_OP:24 at line 17:(
+TK_ID:16 at line 17:c4bbb
+allVar 1
+newVar 30
+TK_CL:23 at line 17:)
+TK_SEM:21 at line 17:;
+stmt 43
+otherStmts 33
+TK_ENDIF:71 at line 18:endif
+stmt 43
+otherStmts 33
+otherStmts 33
+TK_RETURN:74 at line 20:return
+returnStmt 41
+TK_SQL:19 at line 20:[
+optionalReturn 31
+TK_ID:16 at line 20:c6
+idList 19
+more_ids 28
+TK_SQR:12 at line 20:]
+TK_SEM:21 at line 20:;
+TK_END:57 at line 21:end
+otherFunctions 32
+otherFunctions 32
+program 38
+TK_MAIN:60 at line 25:_main
+mainFunction 26
+typeDefinitions 49
+stmts 44
+TK_TYPE:59 at line 26:type
+declaration 8
+TK_INT:66 at line 26:int
+primitiveDatatype 37
+dataType 7
+TK_COLON:22 at line 26::
+TK_ID:16 at line 26:b5
+global_or_not 17
+TK_SEM:21 at line 26:;
+declarations 9
+TK_TYPE:59 at line 27:type
+declaration 8
+TK_INT:66 at line 27:int
+primitiveDatatype 37
+dataType 7
+TK_COLON:22 at line 27::
+TK_ID:16 at line 27:d5cb34567
+global_or_not 17
+TK_SEM:21 at line 27:;
+declarations 9
+TK_TYPE:59 at line 28:type
+declaration 8
+TK_INT:66 at line 28:int
+primitiveDatatype 37
+dataType 7
+TK_COLON:22 at line 28::
+TK_ID:16 at line 28:b3b444
+TK_COLON:22 at line 28::
+global_or_not 17
+TK_GLOBAL:61 at line 28:global
+TK_SEM:21 at line 28:;
+declarations 9
+TK_TYPE:59 at line 29:type
+declaration 8
+TK_REAL:67 at line 29:real
+primitiveDatatype 37
+dataType 7
+TK_COLON:22 at line 29::
+TK_ID:16 at line 29:c3
+global_or_not 17
+TK_SEM:21 at line 29:;
+declarations 9
+declarations 9
+TK_ID:16 at line 30:b5
+singleOrRecId 42
+new24 29
+assignmentStmt 3
+TK_ASSIGNOP:4 at line 30:<---
+TK_NUM:29 at line 30:1
+all 0
+factor 12
+term 46
+termPrime 47
+arithmeticExpression 2
+expPrime 11
+TK_SEM:21 at line 30:;
+stmt 43
+otherStmts 33
+TK_READ:72 at line 31:read
+ioStmt 22
+TK_OP:24 at line 31:(
+TK_ID:16 at line 31:d5cb34567
+singleOrRecId 42
+new24 29
+TK_CL:23 at line 31:)
+TK_SEM:21 at line 31:;
+stmt 43
+otherStmts 33
+TK_READ:72 at line 32:read
+ioStmt 22
+TK_OP:24 at line 32:(
+TK_ID:16 at line 32:b3b444
+singleOrRecId 42
+new24 29
+TK_CL:23 at line 32:)
+TK_SEM:21 at line 32:;
+stmt 43
+otherStmts 33
+TK_SQL:19 at line 34:[
+outputParameters 35
+TK_ID:16 at line 34:c3
+idList 19
+more_ids 28
+TK_SQR:12 at line 34:]
+TK_ASSIGNOP:4 at line 34:<---
+funCallStmt 15
+TK_CALL:75 at line 34:call
+TK_FUNID:48 at line 34:_computeFunctionValue
+TK_WITH:55 at line 34:with
+TK_PARAMETERS:56 at line 34:parameters
+TK_SQL:19 at line 34:[
+inputParameters 21
+TK_ID:16 at line 34:b5
+idList 19
+TK_COMMA:30 at line 34:,
+more_ids 28
+TK_ID:16 at line 34:d5cb34567
+idList 19
+TK_COMMA:30 at line 34:,
+more_ids 28
+TK_ID:16 at line 34:b3b444
+idList 19
+more_ids 28
+TK_SQR:12 at line 34:]
+TK_SEM:21 at line 34:;
+stmt 43
+otherStmts 33
+TK_WRITE:73 at line 35:write
+ioStmt 22
+TK_OP:24 at line 35:(
+TK_ID:16 at line 35:c3
+allVar 1
+newVar 30
+TK_CL:23 at line 35:)
+TK_SEM:21 at line 35:;
+stmt 43
+otherStmts 33
+otherStmts 33
+TK_RETURN:74 at line 36:return
+returnStmt 41
+optionalReturn 31
+TK_SEM:21 at line 36:;
+TK_END:57 at line 37:end

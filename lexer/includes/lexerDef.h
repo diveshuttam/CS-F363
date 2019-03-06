@@ -4,6 +4,7 @@
 #include<string.h>
 #include<stdlib.h>
 #include "hash.h"
+#include"debug.h"
 #define MAX_SIZE 256
 #define MAX_TOKEN_SIZE 150
 #define BLOCK_SIZE 4096

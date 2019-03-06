@@ -13,6 +13,7 @@
 #include<stdlib.h>
 #include"lexer.h"
 #include"non_terminal_names.h"
+#include"debug.h"
 
 typedef struct Terminal
 {

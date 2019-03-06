@@ -8,7 +8,7 @@
 	ht = insert("Rahul",1,ht);
 	ht = insert("Divesh",3,ht);
 	char* map[] = {"1","Rahul","2","Divesh"};
-	printf("%d\n", findHT("Divesh",ht,map,4));
+	debug_msg("%d\n", findHT("Divesh",ht,map,4));
 	return 0;
 }*/
 
@@ -42,7 +42,7 @@ Element createElement(int data){
 }
 
 void printElement(Element e){
-	printf("%d\n", e->k->data);
+	debug_msg("%d\n", e->k->data);
 }
 
 /*

@@ -5,7 +5,7 @@ int main()
 	
 	#ifndef DEBUG
 	char testcase_file[40];
-	printf("Input the file name to be compiled: \n");
+	debug_msg("Input the file name to be compiled: \n");
 	scanf("%s",testcase_file);
 	#else
 	char *testcase_file="testcases/testcase1.txt";
@@ -13,7 +13,7 @@ int main()
 	
 	Stream s=getStream(testcase_file);
 	if(s==NULL){
-		printf("error opening file %s", testcase_file);
+		debug_msg("error opening file %s", testcase_file);
 		return -1;
 	}
 	Token* tk;
@@ -28,14 +28,14 @@ int main()
 		line_no=tk->line_no;
 		if(val!=NULL && state != -1){
 			if(state!=TK_COMMENT){
-				printf("token number: %d\nvalue: %s\nToken_type: %s:%d\n\n",num++, val,token_names[state],state);
+				debug_msg("token number: %d\nvalue: %s\nToken_type: %s:%d\n\n",num++, val,token_names[state],state);
 			}
 			// else ignore
 		}
 		else{
 			if(state==-1){
-				printf("error with token at line %d\n", line_no);
-				printf("token number: %d\nvalue: %s\nToken_type: %s:%d\n\n",num, val,"INVALID",state);
+				debug_msg("error with token at line %d\n", line_no);
+				debug_msg("token number: %d\nvalue: %s\nToken_type: %s:%d\n\n",num, val,"INVALID",state);
 			}
 			fflush(stdout);
 		}

@@ -1,6 +1,6 @@
 #ifndef __HASHT
 #define __HASHT
-
+#include "debug.h"
 typedef struct hashTable *hashTable;
 
 hashTable newHashTable(const int size,const int a,const int b);

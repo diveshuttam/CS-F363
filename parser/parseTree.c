@@ -109,7 +109,7 @@ Tree parseTree(Stream token_stream,const grammerRule **table,const grammerRule *
 
             print_grammer_rule(gr);
             if(gr.id==-1){
-                printf("error in parsing");
+                debug_msg("error in parsing");
                 
             }
             int rhs_size = gr.num_of_rhs;
@@ -135,13 +135,13 @@ Tree parseTree(Stream token_stream,const grammerRule **table,const grammerRule *
                 break;
         }
         // if(tk->state == TK_SQR){
-        //     printf("\nreached and tnt is %s %d \n",tnt->t.s.nt.name,tnt->t.s.nt.key);
+        //     debug_msg("\nreached and tnt is %s %d \n",tnt->t.s.nt.name,tnt->t.s.nt.key);
         // 
 
         if(tnt->t.type=='n' && table[tnt->t.s.nt.key][tk->state].isError==1)
         {
-            // printf("Syntax Error found at line y, %s %s %d\n",tnt->t.s.nt.name,tk->val,tk->state);
-            printf("Syntax Error Found at %d: %s:%d  %s:%d\n",tk->line_no,tnt->t.s.nt.name,tnt->t.s.nt.key,tk->val,tk->state); 
+            // debug_msg("Syntax Error found at line y, %s %s %d\n",tnt->t.s.nt.name,tk->val,tk->state);
+            debug_msg("Syntax Error Found at %d: %s:%d  %s:%d\n",tk->line_no,tnt->t.s.nt.name,tnt->t.s.nt.key,tk->val,tk->state); 
             exit(0);
             error = 1;//line number in token structure
         }
@@ -149,7 +149,7 @@ Tree parseTree(Stream token_stream,const grammerRule **table,const grammerRule *
         {
             if(tnt->t.type=='t' && tnt->t.s.t.StateId!= tk->state) //see the definitions of state in the two definitions
             {
-                printf("Syntax Error Found at %d: %s:%d  %s:%d\n",tk->line_no,tnt->t.s.t.name,tnt->t.s.t.StateId,tk->val,tk->state); 
+                debug_msg("Syntax Error Found at %d: %s:%d  %s:%d\n",tk->line_no,tnt->t.s.t.name,tnt->t.s.t.StateId,tk->val,tk->state); 
                 error = 1;
                 // exit(0);
                 item *i=NULL;
@@ -172,7 +172,7 @@ Tree parseTree(Stream token_stream,const grammerRule **table,const grammerRule *
     }
     if(error==0)
     {
-        printf("No errors!\n");
+        debug_msg("No errors!\n");
     }
     return root;
 }

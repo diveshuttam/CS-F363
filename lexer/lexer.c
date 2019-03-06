@@ -60,8 +60,8 @@ void removeComments(const char *testcaseFile, const char *cleanFile){
 		}
 		else{
 			if(state==-1){
-				printf("error with token at line %d\n", line_no);
-				printf("value: %s\nToken_type: %s:%d\n\n", val,"INVALID",state);
+				debug_msg("error with token at line %d\n", line_no);
+				debug_msg("value: %s\nToken_type: %s:%d\n\n", val,"INVALID",state);
 			}
 		}
 	};
