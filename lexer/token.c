@@ -227,7 +227,6 @@ hashTable get_keyword_hasht(){
 	insert("type",TK_TYPE,ht);
 	insert("while",TK_WHILE,ht);
 	insert("end",TK_END,ht);
-	insert("$",TK_DOLLAR,ht);
 	insert("global",TK_GLOBAL,ht);
 	insert("record",TK_RECORD,ht);
 	return ht;
