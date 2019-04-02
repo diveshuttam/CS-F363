@@ -1,11 +1,11 @@
-all: utility lexer parser driver
+all: clean utility lexer parser driver clean
 
-driver:parser lexer utility
+driver: parser lexer utility
 	gcc -g -c -Wall -Wpedantic -D NON_DEBUG  -D __MY_OWN_DATA_ELE -D __WITHOUT_KEY -I parser/includes/ -I utils/ -I lexer/includes/ -I ast/includes driver.c
-	gcc driver.o populate_dfa.o populate_grammer.o token.o hash.o transition.o SeqList.o lexer.o twin_buffer.o parser.o Stack.o parse_table.o semantic_functions.o -o stage1exe
+	gcc driver.o populate_dfa.o populate_grammer.o token.o hash.o transition.o SeqList.o lexer.o twin_buffer.o parser.o Stack.o parse_table.o semantic_functions.o traversal.o semantic_actions.o -o stage1exe
 
-parser:utility parser/rules/firsts.txt parser/populate_grammer.c lexer/token.c parser/includes/ parser/parse_table.c lexer/token.c ast/semantic_functions.c utility
-	gcc -g -c -Wall -Wpedantic -D NON_DEBUG  -D __MY_OWN_DATA_ELE -D __WITHOUT_KEY -I parser/includes/ -I utils/ -I lexer/includes/ -I ast/includes ./parser/populate_grammer.c ./lexer/token.c ./parser/parse_table.c ./parser/parser.c ./ast/semantic_functions.c
+parser:utility parser/rules/firsts.txt parser/populate_grammer.c lexer/token.c parser/includes/ parser/parse_table.c lexer/token.c ast/semantic_functions.c ast/traversal.c ast/semantic_actions.c utility
+	gcc -g -c -Wall -Wpedantic -D NON_DEBUG  -D __MY_OWN_DATA_ELE -D __WITHOUT_KEY -I parser/includes/ -I utils/ -I lexer/includes/ -I ast/includes ./parser/populate_grammer.c ./lexer/token.c ./parser/parse_table.c ./parser/parser.c ./ast/semantic_functions.c ./ast/traversal.c ./ast/semantic_actions.c
 
 lexer:utility lexer/token.c lexer/includes/ lexer/transition.c lexer/lexer.c lexer/populate_dfa.c lexer/twin_buffer.c utils
 	gcc -g -c -Wall -Wpedantic -D NON_DEBUG  -D __MY_OWN_DATA_ELE -D __WITHOUT_KEY -I lexer/includes/ -I utils/ lexer/token.c lexer/transition.c lexer/lexer.c lexer/populate_dfa.c lexer/twin_buffer.c

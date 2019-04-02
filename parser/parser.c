@@ -108,7 +108,7 @@ Tree parseTree(Stream token_stream,const grammerRule **table,const grammerRule *
             Tree crr=tnt->node;
             
             gr=table[tnt->t.s.nt->key][tk->state];
-
+            assign_semantic_actions(root,&gr);
             print_grammer_rule(gr);
             if(gr.id==-1){
                 debug_msg("error in parsing");

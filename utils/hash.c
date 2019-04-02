@@ -42,8 +42,9 @@ int hash(const char *str, hashTable ht)
     unsigned long hash = ht->b;
     int c;
 
-    while ((c = *str++))
+    while ((c = *str++)){
         hash = ((hash << ht->a) + hash) + c; /* hash * 33 + c */
+	}
 	hash=(hash % ht->size);
     return hash;
 }
