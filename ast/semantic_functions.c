@@ -9,5 +9,5 @@ void check_type_arithmetic(Tree t){
     }else
     {
         printf("error..");
-    }   
+    }
 }
