@@ -1,27 +1,7 @@
 
 #include "twin_buffer.h"
 
-typedef enum BufferName{
-	Buffer1,
-	Buffer2
-} BufferName;
 
-
-struct Stream{
-	bool valid;
-	char *filename;
-	char *current_ptr;
-    char *eof_ptr;
-	int remaining_buffer_size;
-	int total_size;
-	int half_size;
-	int min_threshold;
-	bool reached_eof;
-	char *twin_buffer; // the twin buffer
-	char *buffers[2];  // Both buffer[0] and buffer[1] are pointers to part of the twin_buffer
-	BufferName current_buffer;
-	FILE *fp;
-};
 
 
 Stream getStream(const char *filename){

@@ -63,6 +63,7 @@ struct Tree
 void inorder(const Tree t);
 grammerRule** gen_parse_table(const grammerRule *r,const int no_of_rules,const Terminal* eps);
 Tree parseTree(Stream token_stream,const grammerRule **table,const grammerRule *g,const grammerRule *start_rule, const Terminal *bottom_symbol);
+void printParsedOutput(char *filename);
 #endif
 
 

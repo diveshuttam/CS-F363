@@ -6,8 +6,8 @@
 #include <string.h>
 
 void print_grammer_rule(grammerRule gr){
-	debug_msg("grammer rule: ");
-	debug_msg("%d %s:%d --> ",gr.id, gr.lhs->name,gr.lhs->key);
+	printf("using grammer rule: ");
+	printf("%d %s:%d --> ",gr.id, gr.lhs->name,gr.lhs->key);
 	for(int i=0;i<gr.num_of_rhs;i++){
 		char type=gr.rhs[i]->type;
 		if(type=='t'){
@@ -335,7 +335,7 @@ void findFollow(NonTerminal* nt,grammerRule* grammerRules, Terminal *eps, Termin
 							}
 						}
 						else{
-							printf("finding firsts of %s:%d for follows of %s:%d\n",tnt->s.nt->name,tnt->s.nt->key,nt->name,nt->key);
+							debug_msg("finding firsts of %s:%d for follows of %s:%d\n",tnt->s.nt->name,tnt->s.nt->key,nt->name,nt->key);
 							NonTerminal *subFirst=tnt->s.nt;
 							findFirst(subFirst, grammerRules,eps);
 							for(int i=0;i<subFirst->firsts_size;i++)
