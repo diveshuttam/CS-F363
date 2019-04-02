@@ -14,6 +14,7 @@
 #include"lexer.h"
 #include"non_terminal_names.h"
 #include"debug.h"
+#include"function_ptr.h"
 
 typedef struct Terminal
 {
@@ -58,6 +59,11 @@ struct Tree
     int num_child;
     Tree* child;
     Token *tk;
+
+    int num_rules;
+    ptr_to_func_ptr SemanticActions;
+
+    #include "derived_attributes.xfile"
 };
 
 void inorder(const Tree t);

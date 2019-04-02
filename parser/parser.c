@@ -6,6 +6,7 @@
 #include"populate_grammer.h"
 #include "hash.h"
 #include "token.h"
+#include "semantic_actions.h"
 
 struct item
 {
