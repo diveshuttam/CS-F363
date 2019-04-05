@@ -9,7 +9,7 @@ int main (int argc, char *argv[])
 {
   if(argc!=3){
     printf("Invalid arguments\n");
-    printf("Usage ./graphics_driver testcasefile outputfile\n\n");
+    printf("Usage %s testcasefile.txt outputfile.json\n\n",argv[0]);
     return 1;
   }
   printParseTreeForHTML(argv[1],argv[2]);
