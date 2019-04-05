@@ -1,4 +1,8 @@
-all: clean utility lexer parser driver clean
+all: clean utility lexer parser driver graphics clean
+
+graphics: parser lexer utility
+	gcc -g -c -Wall -Wpedantic -D NON_DEBUG  -D __MY_OWN_DATA_ELE -D __WITHOUT_KEY -I parser/includes/ -I utils/ -I lexer/includes/ -I ast/includes graphics_driver.c
+	gcc graphics_driver.o populate_dfa.o populate_grammer.o token.o hash.o transition.o SeqList.o lexer.o twin_buffer.o parser.o Stack.o parse_table.o semantic_functions.o traversal.o semantic_actions.o -o graphics_exe
 
 driver: parser lexer utility
 	gcc -g -c -Wall -Wpedantic -D NON_DEBUG  -D __MY_OWN_DATA_ELE -D __WITHOUT_KEY -I parser/includes/ -I utils/ -I lexer/includes/ -I ast/includes driver.c
