@@ -1,4 +1,5 @@
 #include "lexer.h"
+#include "colors.h"
 #include <stdio.h>
 
 
@@ -80,11 +81,9 @@ void removeCommentsStdout(const char *testcaseFile){
 	Token *tk;
 	int state;
 	char *val;
-	int line_no;
 	while(((tk=getNextToken(s)) && tk!=NULL && tk->state!=TK_DOLLAR)){
 		state=tk->state;
 		val=tk->val;
-		line_no=tk->line_no;
 		if(val!=NULL && state != -1){
 			if(state!=TK_COMMENT){
 				printf("%s",val);
@@ -93,10 +92,10 @@ void removeCommentsStdout(const char *testcaseFile){
 		}
 		else{
 			if(state==-1){
-				//invalid comment
+				//invalid state
+				printf(ANSI_COLOR_RED);
 				printf("%s",val);
-				printf("error with token at line %d\n", line_no);
-				printf("value: %s\nToken_type: %s:%d\n\n", val,"INVALID",state);
+				printf(ANSI_COLOR_RESET);
 			}
 		}
 	}
@@ -116,17 +115,44 @@ void printTokenizedOutput(char* testcase_file)
 	while((tk=getNextToken(s)) && tk!=NULL && tk->state!=TK_DOLLAR){
 		state=tk->state;
 		val=tk->val;
+		int line_no=tk->line_no;
 		if(val!=NULL && state != -1){
-				printf("token number: %d\nvalue: %s\nToken_type: %s:%d\n\n",num++, val,token_names[state],state);
+				printf("token number: %d\nvalue: %s\nToken_type: %s:%d\n Line no: %d\n\n",num++, val,token_names[state],state, line_no);
 			// else ignore
 		}
 		else{
 			if(state==-1){
-				printf("error with token\n");
+				printf(ANSI_COLOR_RED "\n[31m error with token\n" ANSI_COLOR_RED);
 				printf("token number: %d\nvalue: %s\nToken_type: %s:%d\n\n",num, val,"INVALID",state);
 			}
 			fflush(stdout);
 		}
 		free(val);
+	}
+}
+
+void printFileErrorsHighlight(const char *testcaseFile){
+	Stream s=getStream(testcaseFile);
+	if(s==NULL){
+		printf("error opening file %s\n", testcaseFile);
+		return;
+	}
+	Token *tk;
+	int state;
+	char *val;
+	while(((tk=getNextToken(s)) && tk!=NULL && tk->state!=TK_DOLLAR)){
+		state=tk->state;
+		val=tk->val;
+		if(val!=NULL && state != -1){
+				printf("%s",val);
+		}
+		else{
+			if(state==-1){
+				//invalid state
+				printf(ANSI_COLOR_RED);
+				printf("%s",val);
+				printf(ANSI_COLOR_RESET);
+			}
+		}
 	}
 }

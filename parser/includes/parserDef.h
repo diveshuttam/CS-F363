@@ -1,6 +1,6 @@
 //grammer rules
-#ifndef __PARSE_TABLE_H
-#define __PARSE_TABLE_H
+#ifndef __PARSER_DEF_H
+#define __PARSER_DEF_H
 #define NO_OF_TERMINALS 100
 #define NO_OF_NON_TERMINALS 51
 #define NO_OF_RULES 92

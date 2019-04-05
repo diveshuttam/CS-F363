@@ -16,4 +16,5 @@ void removeComments(const char *testcaseFile,const char *cleanFile);
 void removeCommentsStdout(const char *testcaseFile);
 void printTokenizedOutput(char* testcase_file);
 void removeCommentsStdout(const char *testcaseFile);
+void printFileErrorsHighlight(const char *testcaseFile);
 #endif
