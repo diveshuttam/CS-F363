@@ -110,8 +110,8 @@ Tree parseTree(Stream token_stream,const grammerRule **table,const grammerRule *
             Tree crr=tnt->node;
             
             gr=table[tnt->t.s.nt->key][tk->state];
-            assign_semantic_actions(crr,&gr);
             print_grammer_rule(gr);
+            assign_semantic_actions(crr,&gr);
             if(gr.id==-1){
                 debug_msg("error in parsing");
 
@@ -135,6 +135,8 @@ Tree parseTree(Stream token_stream,const grammerRule **table,const grammerRule *
                     (crr->child)[j]->num_child=-1;
                     (crr->child)[j]->t=to_be_pushed->t;
                     (crr->child)[j]->tk=NULL;
+                    (crr->child)[j]->SemanticActions=NULL;
+                    (crr->child)[j]->num_rules=0;
                     push(s,make_stack_element(to_be_pushed));
                 }
             }
@@ -171,6 +173,7 @@ Tree parseTree(Stream token_stream,const grammerRule **table,const grammerRule *
             if(tnt->t.type=='t' && tnt->t.s.t->StateId ==tk->state)
             {
                 Tree crr=tnt->node;
+                // assign_semantic_actions(crr,&gr);
                 pop(s);
                 if(tnt->t.type=='t' && tnt->t.s.t->StateId!=TK_EPS){
                     crr->tk=tk;
@@ -389,7 +392,7 @@ void printJSON(Tree t, FILE *fp){
 		return;
 	}
     Tree t=parseTree(s,(const grammerRule**)table,g,&g[0],&terminals[TK_DOLLAR]);
-    //post_order_traversal(t);
+    post_order_traversal(t);
     FILE *fp=fopen(outfile,"w");
     if(fp==NULL){
         printf("Error opening file %s\n",outfile);

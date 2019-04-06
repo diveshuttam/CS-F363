@@ -97,6 +97,10 @@ static func_ptr_t semantic_action_map[NO_OF_RULES][NO_OF_ATTRIBUTES]={
 
 
 void assign_semantic_actions(Tree t, grammerRule *gr){
+    if(t==NULL)
+        return;
+    if(t->t.type=='n')
+        debug_msg("assigning semantic actions to %s\n", t->t.s.nt->name);
     t->SemanticActions = malloc(sizeof(func_ptr_t)*NO_OF_ATTRIBUTES);
     t->num_rules = NO_OF_ATTRIBUTES;
     for(int j=0;j<NO_OF_ATTRIBUTES;j++){

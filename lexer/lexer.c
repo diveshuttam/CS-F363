@@ -4,7 +4,7 @@
 
 
 DFA* createDFA(){
-	DFA *d=malloc(sizeof(DFA));
+	DFA *d=malloc(sizeof(struct DFA));
     FILE* fp ;
 	fp = fopen(DFA_RULES_FILE,"r");
 	*d = populate_dfa(fp);
