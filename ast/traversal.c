@@ -1,5 +1,6 @@
 
 #include "semantic_actions.h"
+
 void post_order_traversal(Tree root){
     if(root==NULL || root->t.type=='t')
         return;

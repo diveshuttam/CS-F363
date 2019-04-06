@@ -11,8 +11,7 @@ Compiler Construction Group 34
 
 # Graphics output
 - run `make graphics` to print graphics output
-- create json file for tree using `./visualize_exe ./testcases/testcase1.txt
-  ./testcases/testcase1.json`
+- create json file for tree using `./visualize_exe ./testcases/testcase1.txt ./testcases/testcase1.json`
 - open visualize/visualize.html in a browser
 - select the json file (here testcases1.json) to visualize the tree output
 
