@@ -92,6 +92,13 @@ void firsts(NonTerminal* non_terminals, Terminal* terminals, const char** non_te
 grammerRule* grammer(const NonTerminal* non_terminals,const Terminal* terminals,const char** non_terminals_map, const char** terminals_map,const hashTable ht_non_terminals, const hashTable ht_terminals){
 	grammerRule *g;
 	g=malloc(sizeof(grammerRule)*NO_OF_RULES);
+	for(int i=0;i<NO_OF_RULES;i++){
+		g[i].id=-1;
+		g[i].isError=-1;
+		g[i].lhs=NULL;
+		g[i].rhs=NULL;
+		g[i].num_of_rhs=-1;
+	}
 	FILE *fp;
 	char* line = malloc(sizeof(char)*LINE_SIZE);
 	size_t len = 0;
@@ -113,7 +120,7 @@ grammerRule* grammer(const NonTerminal* non_terminals,const Terminal* terminals,
 			}
 			int nt = findHT(pch,ht_non_terminals);
 			g[count].lhs=(NonTerminal*)&non_terminals[nt];
-			g[count].rhs=malloc(sizeof(TerminalNonTerminal*)*MAX_RHS);
+			g[count].rhs=(TerminalNonTerminal**)malloc(sizeof(TerminalNonTerminal*)*MAX_RHS);
 			g[count].num_of_rhs=0;
 			g[count].id=count;
 			int j = 0 ;
@@ -127,13 +134,13 @@ grammerRule* grammer(const NonTerminal* non_terminals,const Terminal* terminals,
 					exit(1);
 				}
 				if(t!=-1){
-					g[count].rhs[j]=malloc(sizeof(TnT));
+					g[count].rhs[j]=malloc(sizeof(TerminalNonTerminal));
 					g[count].rhs[j]->type='t';
-					g[count].rhs[j]->s.t=(Terminal*)&terminals[t];
+					g[count].rhs[j]->s.t=(Terminal*)&(terminals[t]);
 					debug_msg("t:%d:%s ",terminals[t].StateId,terminals[t].name);
 				}
 				else if(nt!=-1){
-					g[count].rhs[j]=malloc(sizeof(TnT));
+					g[count].rhs[j]=malloc(sizeof(TerminalNonTerminal));
 					g[count].rhs[j]->type='n';
 					g[count].rhs[j]->s.nt=(NonTerminal*)&non_terminals[nt];
 					debug_msg("n:%d:%s ",non_terminals[nt].key,non_terminals[nt].name);
@@ -319,9 +326,6 @@ void findFollow(NonTerminal* nt,grammerRule* grammerRules, Terminal *eps, Termin
 					if(nt->follows==NULL){
 						Terminal **followSet=malloc(sizeof(Terminal*)*MAX_FF);
 						nt->follows=followSet;
-						followSet[0]=dollar;
-						count++;
-						nt->follows_size=1;
 					}
 
 					for(; j<(temp->num_of_rhs-1) && isEps==1;j++){
@@ -375,93 +379,3 @@ void findFollow(NonTerminal* nt,grammerRule* grammerRules, Terminal *eps, Termin
 		}
 	}
  }
- 
- /*void findFollow(Terminal* followSet,int* nextPos,grammerRule* grammerRules,NonTerminal nt){
- 	if(strcmp(nt.name,"program") == 0){
- 		followSet[*nextPos].StateId = 80 ;// for TK_DOLLAR
- 		char* dollar = "TK_DOLLAR";
- 		followSet[*nextPos].name = (char*)malloc(sizeof(char)*(strlen("TK_DOLLAR")+1));
- 		strcpy(followSet[*nextPos].name,dollar);
- 		*nextPos++;
- 		free(dollar);
- 	}else{
- 		//because generally start state does not occur in the rhs
- 		int i,j;
- 		for(i = 0;i<NO_OF_RULES;i++){
-			
-			for(j=0;j<grammerRules[i].num_of_rhs;j++){
-				if(grammerRules[i].rhs[j].type == 'n'){
-					//we are searching for our non terminal
-					if(strcmp(grammerRules[i].rhs[j].s.nt.name,nt.name) == 0){
-						// rhs[j] is our non terminal,add firsts from rhs[j+1..]
-						int isEps;
-						int k;
-						for(k=1;k+j<grammerRules[i].num_of_rhs;k++){
-							if(grammerRules[i].rhs[j+k].type == 't'){
-								// symbol following nt is a terminal and hence the only follow from this rule
-								followSet[*nextPos].StateId = grammerRules[i].rhs[j+k].s.t.StateId;
-								followSet[*nextPos].name = (char*)malloc(sizeof(char)*(strlen(grammerRules[i].rhs[j+k].s.t.name)+1));
-								strcpy(followSet[*nextPos].name,grammerRules[i].rhs[j+k].s.t.name);
-								break;
-							}else{
-								//symbol following is a non terminal and hence we must continue adding firsts until
-								// eps is found.
-								Terminal* followSubset = (Terminal*)malloc(sizeof(Terminal)*MAX_RHS);
-								int* nextSubPos;
-								*nextSubPos=0;
-								findFirst(followSubset,nextSubPos,grammerRules,grammerRules[i].rhs[j+k]);
-								isEps=0;
-								int n;
-								for(n=0;n<*nextSubPos;n++){
-	 								if(strcmp(followSubset[n].name,"TK_EPS")==0){
-		 								isEps=1;
-					 					break;
-					 					//TK_EPS occurs at nth position
-					 					//add subNextPos[0...n-1] to firstSet
-	 								}
-	 							}
-
-	 							for(int m=0;m<n;m++){
-	 								followSet[*nextPos].StateId = followSubset[m].StateId;
-	 								followSet[*nextPos].name = (char*)malloc(sizeof(char)*(strlen(followSubset[m].name)+1));
-	 								strcpy(followSet[*nextPos].name,followSubset[m].name);
-	 								*nextPos++;
-	 							}
-	 							if(!isEps){
-	 								//Symbol following X doesnt have eps in its first
-	 								// Hence no need to look forward in this rule's rhs
-	 								break;
-	 							}
-								free(followSubset);
-								free(nextSubPos);
-							}
-
-						}
-						if(k+j == grammerRules[i].num_of_rhs && isEps){
-							// While finding follow in rule with rhs Y1Y2..X..Yn
-							// All symbols after X can go to epsilon
-							Terminal* trailingFollow = (Terminal*)malloc(sizeof(Terminal)*MAX_RHS);
-							int* nextTrailPos ;
-							*nextTrailPos = 0;
-							findFollow(trailingFollow,nextTrailPos,grammerRules,grammerRules[i].lhs);
-							for(int m=0;m<*nextTrailPos;m++){
-								followSet[*nextPos].StateId = trailingFollow[m].StateId;
-								followSet[*nextPos].name = (char*)malloc(sizeof(char)*(strlen(trailingFollow[m].name)+1));
-								strcpy(followSet[*nextPos].name,trailingFollow[m].name);
-								*nextPos++;
-							}
-						}
-						
-						break; //because a nonTerminal does not occur more than once in rhs
-					}else continue;
-				}
-			}
- 		}
- 	}
- }*/
-
-
- /*int main()
- {
- 	grammerRule* g = grammer(non_terminals_map,)
- }*/

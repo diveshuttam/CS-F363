@@ -84,21 +84,11 @@ grammerRule** gen_parse_table(const grammerRule *r, int no_of_rules, const Termi
         }
         if(isEpsL)
         {
-            grammerRule eps_rule;
-            eps_rule.lhs = nt_current;
-            eps_rule.rhs = malloc(sizeof(TerminalNonTerminal*));
-            eps_rule.num_of_rhs=1;
-            eps_rule.id=-2;
-            eps_rule.isError=false;
-            eps_rule.rhs[0]=malloc(sizeof(TerminalNonTerminal));
-            eps_rule.rhs[0]->type='t';
-            eps_rule.rhs[0]->s.t=(Terminal *)eps;
-            
             for(int j=0;j<len_follows;j++)
             {
-                table[nt_current->key][follows[j]->StateId] = eps_rule;
+                table[nt_current->key][follows[j]->StateId] = r[i];
                 debug_msg("adding rule for %s:%d %s:%d\n",nt_current->name,nt_current->key,follows[j]->name,follows[j]->StateId);
-                print_grammer_rule(eps_rule);
+                print_grammer_rule(r[i]);
             }
         }
         if(follows2!=NULL)
