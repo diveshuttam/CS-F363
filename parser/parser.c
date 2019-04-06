@@ -372,6 +372,7 @@ void printJSON(Tree t, FILE *fp){
     }
     fprintf(fp,"{\n");
     fprintf(fp,"\"nodeStructure\":");
+    fprintf(fp,"\"collapsed\": true,\n");
     printJSON(t,fp);
     fprintf(fp,"}\n");
  }

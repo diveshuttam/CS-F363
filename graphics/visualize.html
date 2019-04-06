@@ -7,17 +7,9 @@
 </head>
 
 <link rel="stylesheet" href="./js/Treant.css" type="text/css"/>
+<link rel="stylesheet" href="visualize.css" type="text/css"/>
 <script src="js/vendor/raphael.js"></script>
 <script src="js/Treant.js"></script>
-<style>
-.chart { height: 600px; margin: 5px; width: 900px; }
-.Treant > .node { padding: 3px; border: 1px solid #484848; border-radius: 3px; }
-.Treant > .node img { width: 100%; height: 100%; }
-
-.Treant .collapse-switch { width: 100%; height: 100%; border: none; }
-.Treant .node.collapsed { background-color: #DEF82D; }
-.Treant .node.collapsed .collapse-switch { background: none;
-</style>
 <script>
     function visualize(){
         const selectedFile = document.getElementById('file').files[0];
@@ -55,7 +47,6 @@
     <table>
     <tr><td><input type="file" id="file"></input></td></tr>
     <tr><td><input type="submit" onclick="visualize()"></input></td></tr>
-    <tr><td><input type="button" onclick="collapse_all()"> collapse all</td></tr>
     </table>
 
     <div id="tree-simple"> </div>
