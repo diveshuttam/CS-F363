@@ -173,6 +173,8 @@ Tree parseTree(Stream token_stream,const grammerRule **table,const grammerRule *
             if(tnt->t.type=='t' && tnt->t.s.t->StateId ==tk->state)
             {
                 Tree crr=tnt->node;
+                crr->SemanticActions=NULL;
+                crr->SemanticActions=0;
                 // assign_semantic_actions(crr,&gr);
                 pop(s);
                 if(tnt->t.type=='t' && tnt->t.s.t->StateId!=TK_EPS){

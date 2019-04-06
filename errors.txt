@@ -1,83 +1,83 @@
-==23543== Memcheck, a memory error detector
-==23543== Copyright (C) 2002-2015, and GNU GPL'd, by Julian Seward et al.
-==23543== Using Valgrind-3.11.0 and LibVEX; rerun with -h for copyright info
-==23543== Command: ./visualize_exe testcases/testcase1.txt testcases/testcase1.json
-==23543== 
---23543-- Valgrind options:
---23543--    -v
---23543--    --track-origins=yes
---23543-- Contents of /proc/version:
---23543--   Linux version 4.4.0-143-generic (buildd@lgw01-amd64-041) (gcc version 5.4.0 20160609 (Ubuntu 5.4.0-6ubuntu1~16.04.10) ) #169-Ubuntu SMP Thu Feb 7 07:56:38 UTC 2019
---23543-- 
---23543-- Arch and hwcaps: AMD64, LittleEndian, amd64-cx16-rdtscp-sse3-avx
---23543-- Page sizes: currently 4096, max supported 4096
---23543-- Valgrind library directory: /usr/lib/valgrind
---23543-- Reading syms from /home/divesh/Desktop/cc/CS-F363/visualize_exe
---23543-- Reading syms from /lib/x86_64-linux-gnu/ld-2.23.so
---23543--   Considering /lib/x86_64-linux-gnu/ld-2.23.so ..
---23543--   .. CRC mismatch (computed 10d8ea02 wanted 4fdda1aa)
---23543--   Considering /usr/lib/debug/lib/x86_64-linux-gnu/ld-2.23.so ..
---23543--   .. CRC is valid
---23543-- Reading syms from /usr/lib/valgrind/memcheck-amd64-linux
---23543--   Considering /usr/lib/valgrind/memcheck-amd64-linux ..
---23543--   .. CRC mismatch (computed eea41ea9 wanted 2009db78)
---23543--    object doesn't have a symbol table
---23543--    object doesn't have a dynamic symbol table
---23543-- Scheduler: using generic scheduler lock implementation.
---23543-- Reading suppressions file: /usr/lib/valgrind/default.supp
-==23543== embedded gdbserver: reading from /tmp/vgdb-pipe-from-vgdb-to-23543-by-divesh-on-???
-==23543== embedded gdbserver: writing to   /tmp/vgdb-pipe-to-vgdb-from-23543-by-divesh-on-???
-==23543== embedded gdbserver: shared mem   /tmp/vgdb-pipe-shared-mem-vgdb-23543-by-divesh-on-???
-==23543== 
-==23543== TO CONTROL THIS PROCESS USING vgdb (which you probably
-==23543== don't want to do, unless you know exactly what you're doing,
-==23543== or are doing some strange experiment):
-==23543==   /usr/lib/valgrind/../../bin/vgdb --pid=23543 ...command...
-==23543== 
-==23543== TO DEBUG THIS PROCESS USING GDB: start GDB like this
-==23543==   /path/to/gdb ./visualize_exe
-==23543== and then give GDB the following command
-==23543==   target remote | /usr/lib/valgrind/../../bin/vgdb --pid=23543
-==23543== --pid is optional if only one valgrind process is running
-==23543== 
---23543-- REDIR: 0x401cf10 (ld-linux-x86-64.so.2:strlen) redirected to 0x3809e181 (???)
---23543-- Reading syms from /usr/lib/valgrind/vgpreload_core-amd64-linux.so
---23543--   Considering /usr/lib/valgrind/vgpreload_core-amd64-linux.so ..
---23543--   .. CRC mismatch (computed 2567ccf6 wanted 49420590)
---23543--    object doesn't have a symbol table
---23543-- Reading syms from /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so
---23543--   Considering /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so ..
---23543--   .. CRC mismatch (computed 0e27c9a8 wanted ac585421)
---23543--    object doesn't have a symbol table
-==23543== WARNING: new redirection conflicts with existing -- ignoring it
---23543--     old: 0x0401cf10 (strlen              ) R-> (0000.0) 0x3809e181 ???
---23543--     new: 0x0401cf10 (strlen              ) R-> (2007.0) 0x04c31020 strlen
---23543-- REDIR: 0x401b860 (ld-linux-x86-64.so.2:index) redirected to 0x4c30bc0 (index)
---23543-- REDIR: 0x401ba80 (ld-linux-x86-64.so.2:strcmp) redirected to 0x4c320d0 (strcmp)
---23543-- REDIR: 0x401dc70 (ld-linux-x86-64.so.2:mempcpy) redirected to 0x4c35270 (mempcpy)
---23543-- Reading syms from /lib/x86_64-linux-gnu/libc-2.23.so
---23543--   Considering /lib/x86_64-linux-gnu/libc-2.23.so ..
---23543--   .. CRC mismatch (computed 10016417 wanted 1f868c97)
---23543--   Considering /usr/lib/debug/lib/x86_64-linux-gnu/libc-2.23.so ..
---23543--   .. CRC is valid
---23543-- REDIR: 0x4ec9a00 (libc.so.6:strcasecmp) redirected to 0x4a286f0 (_vgnU_ifunc_wrapper)
---23543-- REDIR: 0x4ec5280 (libc.so.6:strcspn) redirected to 0x4a286f0 (_vgnU_ifunc_wrapper)
---23543-- REDIR: 0x4ecbcf0 (libc.so.6:strncasecmp) redirected to 0x4a286f0 (_vgnU_ifunc_wrapper)
---23543-- REDIR: 0x4ec76f0 (libc.so.6:strpbrk) redirected to 0x4a286f0 (_vgnU_ifunc_wrapper)
---23543-- REDIR: 0x4ec7a80 (libc.so.6:strspn) redirected to 0x4a286f0 (_vgnU_ifunc_wrapper)
---23543-- REDIR: 0x4ec914b (libc.so.6:memcpy@GLIBC_2.2.5) redirected to 0x4a286f0 (_vgnU_ifunc_wrapper)
---23543-- REDIR: 0x4ec7400 (libc.so.6:rindex) redirected to 0x4c308a0 (rindex)
---23543-- REDIR: 0x4ebe130 (libc.so.6:malloc) redirected to 0x4c2db20 (malloc)
---23543-- REDIR: 0x4ec8060 (libc.so.6:__GI_strstr) redirected to 0x4c354d0 (__strstr_sse2)
---23543-- REDIR: 0x4ec8860 (libc.so.6:memchr) redirected to 0x4c32170 (memchr)
---23543-- REDIR: 0x4ece470 (libc.so.6:__GI_memcpy) redirected to 0x4c32b00 (__GI_memcpy)
---23543-- REDIR: 0x4ec5160 (libc.so.6:strcpy) redirected to 0x4a286f0 (_vgnU_ifunc_wrapper)
---23543-- REDIR: 0x4edf9d0 (libc.so.6:__strcpy_sse2_unaligned) redirected to 0x4c31040 (strcpy)
---23543-- REDIR: 0x4ebe4f0 (libc.so.6:free) redirected to 0x4c2ed80 (free)
---23543-- REDIR: 0x4ed0760 (libc.so.6:strchrnul) redirected to 0x4c34da0 (strchrnul)
---23543-- REDIR: 0x4ec93b0 (libc.so.6:__GI_mempcpy) redirected to 0x4c34fa0 (__GI_mempcpy)
+==26365== Memcheck, a memory error detector
+==26365== Copyright (C) 2002-2015, and GNU GPL'd, by Julian Seward et al.
+==26365== Using Valgrind-3.11.0 and LibVEX; rerun with -h for copyright info
+==26365== Command: ./visualize_exe testcases/testcase1.txt testcases/testcase1.json
+==26365== 
+--26365-- Valgrind options:
+--26365--    -v
+--26365--    --track-origins=yes
+--26365-- Contents of /proc/version:
+--26365--   Linux version 4.4.0-143-generic (buildd@lgw01-amd64-041) (gcc version 5.4.0 20160609 (Ubuntu 5.4.0-6ubuntu1~16.04.10) ) #169-Ubuntu SMP Thu Feb 7 07:56:38 UTC 2019
+--26365-- 
+--26365-- Arch and hwcaps: AMD64, LittleEndian, amd64-cx16-rdtscp-sse3-avx
+--26365-- Page sizes: currently 4096, max supported 4096
+--26365-- Valgrind library directory: /usr/lib/valgrind
+--26365-- Reading syms from /home/divesh/Desktop/cc/CS-F363/visualize_exe
+--26365-- Reading syms from /lib/x86_64-linux-gnu/ld-2.23.so
+--26365--   Considering /lib/x86_64-linux-gnu/ld-2.23.so ..
+--26365--   .. CRC mismatch (computed 10d8ea02 wanted 4fdda1aa)
+--26365--   Considering /usr/lib/debug/lib/x86_64-linux-gnu/ld-2.23.so ..
+--26365--   .. CRC is valid
+--26365-- Reading syms from /usr/lib/valgrind/memcheck-amd64-linux
+--26365--   Considering /usr/lib/valgrind/memcheck-amd64-linux ..
+--26365--   .. CRC mismatch (computed eea41ea9 wanted 2009db78)
+--26365--    object doesn't have a symbol table
+--26365--    object doesn't have a dynamic symbol table
+--26365-- Scheduler: using generic scheduler lock implementation.
+--26365-- Reading suppressions file: /usr/lib/valgrind/default.supp
+==26365== embedded gdbserver: reading from /tmp/vgdb-pipe-from-vgdb-to-26365-by-divesh-on-???
+==26365== embedded gdbserver: writing to   /tmp/vgdb-pipe-to-vgdb-from-26365-by-divesh-on-???
+==26365== embedded gdbserver: shared mem   /tmp/vgdb-pipe-shared-mem-vgdb-26365-by-divesh-on-???
+==26365== 
+==26365== TO CONTROL THIS PROCESS USING vgdb (which you probably
+==26365== don't want to do, unless you know exactly what you're doing,
+==26365== or are doing some strange experiment):
+==26365==   /usr/lib/valgrind/../../bin/vgdb --pid=26365 ...command...
+==26365== 
+==26365== TO DEBUG THIS PROCESS USING GDB: start GDB like this
+==26365==   /path/to/gdb ./visualize_exe
+==26365== and then give GDB the following command
+==26365==   target remote | /usr/lib/valgrind/../../bin/vgdb --pid=26365
+==26365== --pid is optional if only one valgrind process is running
+==26365== 
+--26365-- REDIR: 0x401cf10 (ld-linux-x86-64.so.2:strlen) redirected to 0x3809e181 (???)
+--26365-- Reading syms from /usr/lib/valgrind/vgpreload_core-amd64-linux.so
+--26365--   Considering /usr/lib/valgrind/vgpreload_core-amd64-linux.so ..
+--26365--   .. CRC mismatch (computed 2567ccf6 wanted 49420590)
+--26365--    object doesn't have a symbol table
+--26365-- Reading syms from /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so
+--26365--   Considering /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so ..
+--26365--   .. CRC mismatch (computed 0e27c9a8 wanted ac585421)
+--26365--    object doesn't have a symbol table
+==26365== WARNING: new redirection conflicts with existing -- ignoring it
+--26365--     old: 0x0401cf10 (strlen              ) R-> (0000.0) 0x3809e181 ???
+--26365--     new: 0x0401cf10 (strlen              ) R-> (2007.0) 0x04c31020 strlen
+--26365-- REDIR: 0x401b860 (ld-linux-x86-64.so.2:index) redirected to 0x4c30bc0 (index)
+--26365-- REDIR: 0x401ba80 (ld-linux-x86-64.so.2:strcmp) redirected to 0x4c320d0 (strcmp)
+--26365-- REDIR: 0x401dc70 (ld-linux-x86-64.so.2:mempcpy) redirected to 0x4c35270 (mempcpy)
+--26365-- Reading syms from /lib/x86_64-linux-gnu/libc-2.23.so
+--26365--   Considering /lib/x86_64-linux-gnu/libc-2.23.so ..
+--26365--   .. CRC mismatch (computed 10016417 wanted 1f868c97)
+--26365--   Considering /usr/lib/debug/lib/x86_64-linux-gnu/libc-2.23.so ..
+--26365--   .. CRC is valid
+--26365-- REDIR: 0x4ec9a00 (libc.so.6:strcasecmp) redirected to 0x4a286f0 (_vgnU_ifunc_wrapper)
+--26365-- REDIR: 0x4ec5280 (libc.so.6:strcspn) redirected to 0x4a286f0 (_vgnU_ifunc_wrapper)
+--26365-- REDIR: 0x4ecbcf0 (libc.so.6:strncasecmp) redirected to 0x4a286f0 (_vgnU_ifunc_wrapper)
+--26365-- REDIR: 0x4ec76f0 (libc.so.6:strpbrk) redirected to 0x4a286f0 (_vgnU_ifunc_wrapper)
+--26365-- REDIR: 0x4ec7a80 (libc.so.6:strspn) redirected to 0x4a286f0 (_vgnU_ifunc_wrapper)
+--26365-- REDIR: 0x4ec914b (libc.so.6:memcpy@GLIBC_2.2.5) redirected to 0x4a286f0 (_vgnU_ifunc_wrapper)
+--26365-- REDIR: 0x4ec7400 (libc.so.6:rindex) redirected to 0x4c308a0 (rindex)
+--26365-- REDIR: 0x4ebe130 (libc.so.6:malloc) redirected to 0x4c2db20 (malloc)
+--26365-- REDIR: 0x4ec8060 (libc.so.6:__GI_strstr) redirected to 0x4c354d0 (__strstr_sse2)
+--26365-- REDIR: 0x4ec8860 (libc.so.6:memchr) redirected to 0x4c32170 (memchr)
+--26365-- REDIR: 0x4ece470 (libc.so.6:__GI_memcpy) redirected to 0x4c32b00 (__GI_memcpy)
+--26365-- REDIR: 0x4ec5160 (libc.so.6:strcpy) redirected to 0x4a286f0 (_vgnU_ifunc_wrapper)
+--26365-- REDIR: 0x4edf9d0 (libc.so.6:__strcpy_sse2_unaligned) redirected to 0x4c31040 (strcpy)
+--26365-- REDIR: 0x4ebe4f0 (libc.so.6:free) redirected to 0x4c2ed80 (free)
+--26365-- REDIR: 0x4ed0760 (libc.so.6:strchrnul) redirected to 0x4c34da0 (strchrnul)
+--26365-- REDIR: 0x4ec93b0 (libc.so.6:__GI_mempcpy) redirected to 0x4c34fa0 (__GI_mempcpy)
 inserting element TK_ASSIGNOP
---23543-- REDIR: 0x4ec5720 (libc.so.6:strlen) redirected to 0x4c30f60 (strlen)
+--26365-- REDIR: 0x4ec5720 (libc.so.6:strlen) redirected to 0x4c30f60 (strlen)
 inserting element TK_COMMENT
 inserting element TK_FIELDID
 inserting element TK_ID
@@ -185,8 +185,8 @@ inserting element termPrime
 inserting element typeDefinition
 inserting element typeDefinitions
 inserting element var
---23543-- REDIR: 0x4ec3cd0 (libc.so.6:strcmp) redirected to 0x4a286f0 (_vgnU_ifunc_wrapper)
---23543-- REDIR: 0x4ed9570 (libc.so.6:__strcmp_sse2_unaligned) redirected to 0x4c31f90 (strcmp)
+--26365-- REDIR: 0x4ec3cd0 (libc.so.6:strcmp) redirected to 0x4a286f0 (_vgnU_ifunc_wrapper)
+--26365-- REDIR: 0x4ed9570 (libc.so.6:__strcmp_sse2_unaligned) redirected to 0x4c31f90 (strcmp)
 assigning all with key 0
 assigning allVar with key 1
 assigning arithmeticExpression with key 2
@@ -1729,8 +1729,8 @@ using grammer rule: 91 more_ids:28 --> TK_EPS:79
 
 adding rule for more_ids:28 TK_SQR:12
 using grammer rule: 91 more_ids:28 --> TK_EPS:79 
---23543-- REDIR: 0x4ec91b0 (libc.so.6:memset) redirected to 0x4a286f0 (_vgnU_ifunc_wrapper)
---23543-- REDIR: 0x4ec9240 (libc.so.6:__GI_memset) redirected to 0x4c344c0 (memset)
+--26365-- REDIR: 0x4ec91b0 (libc.so.6:memset) redirected to 0x4a286f0 (_vgnU_ifunc_wrapper)
+--26365-- REDIR: 0x4ec9240 (libc.so.6:__GI_memset) redirected to 0x4c344c0 (memset)
 inserting element TK_ASSIGNOP
 inserting element TK_COMMENT
 inserting element TK_FIELDID
@@ -2100,154 +2100,294 @@ traversing input_par
 traversing parameter_list
 traversing dataType
 traversing primitiveDatatype
+traversing back primitiveDatatype
+traversing back dataType
 traversing remaining_list
+traversing back remaining_list
+traversing back parameter_list
+traversing back input_par
 traversing output_par
 traversing parameter_list
 traversing dataType
 traversing primitiveDatatype
+traversing back primitiveDatatype
+traversing back dataType
 traversing remaining_list
+traversing back remaining_list
+traversing back parameter_list
+traversing back output_par
 traversing stmts
 traversing typeDefinitions
+traversing back typeDefinitions
 traversing declarations
 traversing declaration
 traversing dataType
 traversing primitiveDatatype
+traversing back primitiveDatatype
+traversing back dataType
 traversing global_or_not
+traversing back global_or_not
+traversing back declaration
 traversing declarations
+traversing back declarations
+traversing back declarations
 traversing otherStmts
 traversing stmt
 traversing assignmentStmt
 traversing singleOrRecId
 traversing new24
+traversing back new24
+traversing back singleOrRecId
 traversing arithmeticExpression
 traversing term
 traversing factor
 traversing all
+traversing back all
+traversing back factor
 traversing termPrime
+traversing back termPrime
+traversing back term
 traversing expPrime
+traversing back expPrime
+traversing back arithmeticExpression
+traversing back assignmentStmt
+traversing back stmt
 traversing otherStmts
 traversing stmt
 traversing assignmentStmt
 traversing singleOrRecId
 traversing new24
+traversing back new24
+traversing back singleOrRecId
 traversing arithmeticExpression
 traversing term
 traversing factor
 traversing all
+traversing back all
+traversing back factor
 traversing termPrime
+traversing back termPrime
+traversing back term
 traversing expPrime
+traversing back expPrime
+traversing back arithmeticExpression
+traversing back assignmentStmt
+traversing back stmt
 traversing otherStmts
 traversing stmt
 traversing iterativeStmt
 traversing booleanExpression
 traversing var
+traversing back var
 traversing relationalOp
+traversing back relationalOp
 traversing var
+traversing back var
+traversing back booleanExpression
 traversing stmt
 traversing ioStmt
 traversing singleOrRecId
 traversing new24
+traversing back new24
+traversing back singleOrRecId
+traversing back ioStmt
+traversing back stmt
 traversing otherStmts
 traversing stmt
 traversing assignmentStmt
 traversing singleOrRecId
 traversing new24
+traversing back new24
+traversing back singleOrRecId
 traversing arithmeticExpression
 traversing term
 traversing factor
 traversing all
 traversing temp
+traversing back temp
+traversing back all
+traversing back factor
 traversing termPrime
+traversing back termPrime
+traversing back term
 traversing expPrime
 traversing lowPrecedenceOperators
+traversing back lowPrecedenceOperators
 traversing term
 traversing factor
 traversing all
 traversing temp
+traversing back temp
+traversing back all
+traversing back factor
 traversing termPrime
+traversing back termPrime
+traversing back term
 traversing expPrime
+traversing back expPrime
+traversing back expPrime
+traversing back arithmeticExpression
+traversing back assignmentStmt
+traversing back stmt
 traversing otherStmts
 traversing stmt
 traversing assignmentStmt
 traversing singleOrRecId
 traversing new24
+traversing back new24
+traversing back singleOrRecId
 traversing arithmeticExpression
 traversing term
 traversing factor
 traversing all
 traversing temp
+traversing back temp
+traversing back all
+traversing back factor
 traversing termPrime
+traversing back termPrime
+traversing back term
 traversing expPrime
 traversing lowPrecedenceOperators
+traversing back lowPrecedenceOperators
 traversing term
 traversing factor
 traversing all
+traversing back all
+traversing back factor
 traversing termPrime
+traversing back termPrime
+traversing back term
 traversing expPrime
+traversing back expPrime
+traversing back expPrime
+traversing back arithmeticExpression
+traversing back assignmentStmt
+traversing back stmt
 traversing otherStmts
+traversing back otherStmts
+traversing back otherStmts
+traversing back otherStmts
+traversing back iterativeStmt
+traversing back stmt
 traversing otherStmts
+traversing back otherStmts
+traversing back otherStmts
+traversing back otherStmts
+traversing back otherStmts
 traversing returnStmt
 traversing optionalReturn
 traversing idList
 traversing more_ids
+traversing back more_ids
+traversing back idList
+traversing back optionalReturn
+traversing back returnStmt
+traversing back stmts
+traversing back function
 traversing otherFunctions
+traversing back otherFunctions
+traversing back otherFunctions
 traversing mainFunction
 traversing stmts
 traversing typeDefinitions
+traversing back typeDefinitions
 traversing declarations
 traversing declaration
 traversing dataType
 traversing primitiveDatatype
+traversing back primitiveDatatype
+traversing back dataType
 traversing global_or_not
+traversing back global_or_not
+traversing back declaration
 traversing declarations
 traversing declaration
 traversing dataType
 traversing primitiveDatatype
+traversing back primitiveDatatype
+traversing back dataType
 traversing global_or_not
+traversing back global_or_not
+traversing back declaration
 traversing declarations
+traversing back declarations
+traversing back declarations
+traversing back declarations
 traversing otherStmts
 traversing stmt
 traversing assignmentStmt
 traversing singleOrRecId
 traversing new24
+traversing back new24
+traversing back singleOrRecId
 traversing arithmeticExpression
 traversing term
 traversing factor
 traversing all
+traversing back all
+traversing back factor
 traversing termPrime
+traversing back termPrime
+traversing back term
 traversing expPrime
+traversing back expPrime
+traversing back arithmeticExpression
+traversing back assignmentStmt
+traversing back stmt
 traversing otherStmts
 traversing stmt
 traversing funCallStmt
 traversing outputParameters
 traversing idList
 traversing more_ids
+traversing back more_ids
+traversing back idList
+traversing back outputParameters
 traversing inputParameters
 traversing idList
 traversing more_ids
+traversing back more_ids
+traversing back idList
+traversing back inputParameters
+traversing back funCallStmt
+traversing back stmt
 traversing otherStmts
 traversing stmt
 traversing ioStmt
 traversing allVar
 traversing newVar
+traversing back newVar
+traversing back allVar
+traversing back ioStmt
+traversing back stmt
 traversing otherStmts
+traversing back otherStmts
+traversing back otherStmts
+traversing back otherStmts
+traversing back otherStmts
 traversing returnStmt
 traversing optionalReturn
-==23543== 
-==23543== HEAP SUMMARY:
-==23543==     in use at exit: 529,663 bytes in 5,096 blocks
-==23543==   total heap usage: 5,568 allocs, 472 frees, 582,589 bytes allocated
-==23543== 
-==23543== Searching for pointers to 5,096 not-freed blocks
-==23543== Checked 139,232 bytes
-==23543== 
-==23543== LEAK SUMMARY:
-==23543==    definitely lost: 39,229 bytes in 2,211 blocks
-==23543==    indirectly lost: 211,200 bytes in 1,063 blocks
-==23543==      possibly lost: 5,456 bytes in 58 blocks
-==23543==    still reachable: 273,778 bytes in 1,764 blocks
-==23543==         suppressed: 0 bytes in 0 blocks
-==23543== Rerun with --leak-check=full to see details of leaked memory
-==23543== 
-==23543== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
-==23543== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
+traversing back optionalReturn
+traversing back returnStmt
+traversing back stmts
+traversing back mainFunction
+traversing back program
+==26365== 
+==26365== HEAP SUMMARY:
+==26365==     in use at exit: 523,743 bytes in 5,022 blocks
+==26365==   total heap usage: 5,568 allocs, 546 frees, 582,589 bytes allocated
+==26365== 
+==26365== Searching for pointers to 5,022 not-freed blocks
+==26365== Checked 134,496 bytes
+==26365== 
+==26365== LEAK SUMMARY:
+==26365==    definitely lost: 41,597 bytes in 2,359 blocks
+==26365==    indirectly lost: 211,200 bytes in 1,063 blocks
+==26365==      possibly lost: 5,456 bytes in 58 blocks
+==26365==    still reachable: 265,490 bytes in 1,542 blocks
+==26365==         suppressed: 0 bytes in 0 blocks
+==26365== Rerun with --leak-check=full to see details of leaked memory
+==26365== 
+==26365== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
+==26365== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)

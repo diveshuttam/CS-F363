@@ -8,7 +8,8 @@ void post_order_traversal(Tree root){
         if(root->child!=NULL)
             post_order_traversal((root->child)[i]);
     }
-    for(int i=0;i<NO_OF_ATTRIBUTES;i++){
+    debug_msg("traversing back %s\n",root->t.s.nt->name);
+    for(int i=0;i<NO_OF_ATTRIBUTES&&root!=NULL&&root->t.type=='n';i++){
         if((root->SemanticActions)[i]!=NULL)
             ((root->SemanticActions)[i])(root);
     }

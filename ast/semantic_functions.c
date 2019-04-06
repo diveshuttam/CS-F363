@@ -16,11 +16,14 @@ void check_type_arithmetic(void* tv){
 
 void free_single_nodes(void *tv){
     Tree t=(Tree)tv;
-    if(t->num_child==1){
-        Tree temp=t->child[0];
-        *t=*t->child[0];
-        if(t->child!=NULL)
-            t->child[0]=NULL;
-        free(temp);
+    if(t==NULL){
+        return;
+    }
+    for(int i=0;i<t->num_child;i++){
+        Tree c=t->child[i];
+        if(c!=NULL&&c->num_child==1){
+            t->child[i]=c->child[0];
+            free(c);
+        }
     }
 }

@@ -40,34 +40,16 @@
 "collapsed": true,
 "children": [
 {
-"text": { "name": "dataType" },
-"collapsed": true,
-"children": [
-{
-"text": { "name": "primitiveDatatype" },
-"collapsed": true,
-"children": [
-{
 "text": { "name": "TK_INT:int" },
 "children":[]
-}
-]
-}
-]
 }
 ,{
 "text": { "name": "TK_ID:d5cc34" },
 "children":[]
 }
 ,{
-"text": { "name": "remaining_list" },
-"collapsed": true,
-"children": [
-{
 "text": { "name": "NULL" },
 "children": []
-}
-]
 }
 ]
 }
@@ -102,34 +84,16 @@
 "collapsed": true,
 "children": [
 {
-"text": { "name": "dataType" },
-"collapsed": true,
-"children": [
-{
-"text": { "name": "primitiveDatatype" },
-"collapsed": true,
-"children": [
-{
 "text": { "name": "TK_REAL:real" },
 "children":[]
-}
-]
-}
-]
 }
 ,{
 "text": { "name": "TK_ID:d3" },
 "children":[]
 }
 ,{
-"text": { "name": "remaining_list" },
-"collapsed": true,
-"children": [
-{
 "text": { "name": "NULL" },
 "children": []
-}
-]
 }
 ]
 }
@@ -148,14 +112,8 @@
 "collapsed": true,
 "children": [
 {
-"text": { "name": "typeDefinitions" },
-"collapsed": true,
-"children": [
-{
 "text": { "name": "NULL" },
 "children": []
-}
-]
 }
 ,{
 "text": { "name": "declarations" },
@@ -170,20 +128,8 @@
 "children":[]
 }
 ,{
-"text": { "name": "dataType" },
-"collapsed": true,
-"children": [
-{
-"text": { "name": "primitiveDatatype" },
-"collapsed": true,
-"children": [
-{
 "text": { "name": "TK_INT:int" },
 "children":[]
-}
-]
-}
-]
 }
 ,{
 "text": { "name": "TK_COLON::" },
@@ -194,14 +140,8 @@
 "children":[]
 }
 ,{
-"text": { "name": "global_or_not" },
-"collapsed": true,
-"children": [
-{
 "text": { "name": "NULL" },
 "children": []
-}
-]
 }
 ,{
 "text": { "name": "TK_SEM:;" },
@@ -210,23 +150,13 @@
 ]
 }
 ,{
-"text": { "name": "declarations" },
-"collapsed": true,
-"children": [
-{
 "text": { "name": "NULL" },
 "children": []
 }
 ]
 }
-]
-}
 ,{
 "text": { "name": "otherStmts" },
-"collapsed": true,
-"children": [
-{
-"text": { "name": "stmt" },
 "collapsed": true,
 "children": [
 {
@@ -242,14 +172,8 @@
 "children":[]
 }
 ,{
-"text": { "name": "new24" },
-"collapsed": true,
-"children": [
-{
 "text": { "name": "NULL" },
 "children": []
-}
-]
 }
 ]
 }
@@ -266,42 +190,18 @@
 "collapsed": true,
 "children": [
 {
-"text": { "name": "factor" },
-"collapsed": true,
-"children": [
-{
-"text": { "name": "all" },
-"collapsed": true,
-"children": [
-{
 "text": { "name": "TK_NUM:1" },
 "children":[]
 }
-]
-}
-]
-}
 ,{
-"text": { "name": "termPrime" },
-"collapsed": true,
-"children": [
-{
 "text": { "name": "NULL" },
 "children": []
 }
 ]
 }
-]
-}
 ,{
-"text": { "name": "expPrime" },
-"collapsed": true,
-"children": [
-{
 "text": { "name": "NULL" },
 "children": []
-}
-]
 }
 ]
 }
@@ -311,14 +211,8 @@
 }
 ]
 }
-]
-}
 ,{
 "text": { "name": "otherStmts" },
-"collapsed": true,
-"children": [
-{
-"text": { "name": "stmt" },
 "collapsed": true,
 "children": [
 {
@@ -334,14 +228,8 @@
 "children":[]
 }
 ,{
-"text": { "name": "new24" },
-"collapsed": true,
-"children": [
-{
 "text": { "name": "NULL" },
 "children": []
-}
-]
 }
 ]
 }
@@ -358,42 +246,18 @@
 "collapsed": true,
 "children": [
 {
-"text": { "name": "factor" },
-"collapsed": true,
-"children": [
-{
-"text": { "name": "all" },
-"collapsed": true,
-"children": [
-{
 "text": { "name": "TK_RNUM:0.00" },
 "children":[]
 }
-]
-}
-]
-}
 ,{
-"text": { "name": "termPrime" },
-"collapsed": true,
-"children": [
-{
 "text": { "name": "NULL" },
 "children": []
 }
 ]
 }
-]
-}
 ,{
-"text": { "name": "expPrime" },
-"collapsed": true,
-"children": [
-{
 "text": { "name": "NULL" },
 "children": []
-}
-]
 }
 ]
 }
@@ -403,14 +267,8 @@
 }
 ]
 }
-]
-}
 ,{
 "text": { "name": "otherStmts" },
-"collapsed": true,
-"children": [
-{
-"text": { "name": "stmt" },
 "collapsed": true,
 "children": [
 {
@@ -430,34 +288,16 @@
 "collapsed": true,
 "children": [
 {
-"text": { "name": "var" },
-"collapsed": true,
-"children": [
-{
 "text": { "name": "TK_ID:b5b567" },
 "children":[]
 }
-]
-}
 ,{
-"text": { "name": "relationalOp" },
-"collapsed": true,
-"children": [
-{
 "text": { "name": "TK_LE:<=" },
 "children":[]
 }
-]
-}
 ,{
-"text": { "name": "var" },
-"collapsed": true,
-"children": [
-{
 "text": { "name": "TK_ID:d5cc34" },
 "children":[]
-}
-]
 }
 ]
 }
@@ -466,10 +306,6 @@
 "children":[]
 }
 ,{
-"text": { "name": "stmt" },
-"collapsed": true,
-"children": [
-{
 "text": { "name": "ioStmt" },
 "collapsed": true,
 "children": [
@@ -490,14 +326,8 @@
 "children":[]
 }
 ,{
-"text": { "name": "new24" },
-"collapsed": true,
-"children": [
-{
 "text": { "name": "NULL" },
 "children": []
-}
-]
 }
 ]
 }
@@ -511,14 +341,8 @@
 }
 ]
 }
-]
-}
 ,{
 "text": { "name": "otherStmts" },
-"collapsed": true,
-"children": [
-{
-"text": { "name": "stmt" },
 "collapsed": true,
 "children": [
 {
@@ -534,14 +358,8 @@
 "children":[]
 }
 ,{
-"text": { "name": "new24" },
-"collapsed": true,
-"children": [
-{
 "text": { "name": "NULL" },
 "children": []
-}
-]
 }
 ]
 }
@@ -558,10 +376,6 @@
 "collapsed": true,
 "children": [
 {
-"text": { "name": "factor" },
-"collapsed": true,
-"children": [
-{
 "text": { "name": "all" },
 "collapsed": true,
 "children": [
@@ -570,28 +384,14 @@
 "children":[]
 }
 ,{
-"text": { "name": "temp" },
-"collapsed": true,
-"children": [
-{
 "text": { "name": "NULL" },
 "children": []
-}
-]
-}
-]
 }
 ]
 }
 ,{
-"text": { "name": "termPrime" },
-"collapsed": true,
-"children": [
-{
 "text": { "name": "NULL" },
 "children": []
-}
-]
 }
 ]
 }
@@ -600,21 +400,11 @@
 "collapsed": true,
 "children": [
 {
-"text": { "name": "lowPrecedenceOperators" },
-"collapsed": true,
-"children": [
-{
 "text": { "name": "TK_PLUS:+" },
 "children":[]
 }
-]
-}
 ,{
 "text": { "name": "term" },
-"collapsed": true,
-"children": [
-{
-"text": { "name": "factor" },
 "collapsed": true,
 "children": [
 {
@@ -626,40 +416,20 @@
 "children":[]
 }
 ,{
-"text": { "name": "temp" },
-"collapsed": true,
-"children": [
-{
 "text": { "name": "NULL" },
 "children": []
-}
-]
-}
-]
 }
 ]
 }
 ,{
-"text": { "name": "termPrime" },
-"collapsed": true,
-"children": [
-{
 "text": { "name": "NULL" },
 "children": []
-}
-]
 }
 ]
 }
 ,{
-"text": { "name": "expPrime" },
-"collapsed": true,
-"children": [
-{
 "text": { "name": "NULL" },
 "children": []
-}
-]
 }
 ]
 }
@@ -671,14 +441,8 @@
 }
 ]
 }
-]
-}
 ,{
 "text": { "name": "otherStmts" },
-"collapsed": true,
-"children": [
-{
-"text": { "name": "stmt" },
 "collapsed": true,
 "children": [
 {
@@ -694,14 +458,8 @@
 "children":[]
 }
 ,{
-"text": { "name": "new24" },
-"collapsed": true,
-"children": [
-{
 "text": { "name": "NULL" },
 "children": []
-}
-]
 }
 ]
 }
@@ -718,10 +476,6 @@
 "collapsed": true,
 "children": [
 {
-"text": { "name": "factor" },
-"collapsed": true,
-"children": [
-{
 "text": { "name": "all" },
 "collapsed": true,
 "children": [
@@ -730,86 +484,42 @@
 "children":[]
 }
 ,{
-"text": { "name": "temp" },
-"collapsed": true,
-"children": [
-{
 "text": { "name": "NULL" },
 "children": []
-}
-]
-}
-]
 }
 ]
 }
 ,{
-"text": { "name": "termPrime" },
-"collapsed": true,
-"children": [
-{
 "text": { "name": "NULL" },
 "children": []
-}
-]
 }
 ]
 }
 ,{
 "text": { "name": "expPrime" },
-"collapsed": true,
-"children": [
-{
-"text": { "name": "lowPrecedenceOperators" },
 "collapsed": true,
 "children": [
 {
 "text": { "name": "TK_PLUS:+" },
 "children":[]
 }
-]
-}
 ,{
 "text": { "name": "term" },
-"collapsed": true,
-"children": [
-{
-"text": { "name": "factor" },
-"collapsed": true,
-"children": [
-{
-"text": { "name": "all" },
 "collapsed": true,
 "children": [
 {
 "text": { "name": "TK_NUM:1" },
 "children":[]
 }
-]
-}
-]
-}
 ,{
-"text": { "name": "termPrime" },
-"collapsed": true,
-"children": [
-{
 "text": { "name": "NULL" },
 "children": []
 }
 ]
 }
-]
-}
 ,{
-"text": { "name": "expPrime" },
-"collapsed": true,
-"children": [
-{
 "text": { "name": "NULL" },
 "children": []
-}
-]
 }
 ]
 }
@@ -821,17 +531,9 @@
 }
 ]
 }
-]
-}
 ,{
-"text": { "name": "otherStmts" },
-"collapsed": true,
-"children": [
-{
 "text": { "name": "NULL" },
 "children": []
-}
-]
 }
 ]
 }
@@ -843,17 +545,9 @@
 }
 ]
 }
-]
-}
 ,{
-"text": { "name": "otherStmts" },
-"collapsed": true,
-"children": [
-{
 "text": { "name": "NULL" },
 "children": []
-}
-]
 }
 ]
 }
@@ -886,14 +580,8 @@
 "children":[]
 }
 ,{
-"text": { "name": "more_ids" },
-"collapsed": true,
-"children": [
-{
 "text": { "name": "NULL" },
 "children": []
-}
-]
 }
 ]
 }
@@ -918,14 +606,8 @@
 ]
 }
 ,{
-"text": { "name": "otherFunctions" },
-"collapsed": true,
-"children": [
-{
 "text": { "name": "NULL" },
 "children": []
-}
-]
 }
 ]
 }
@@ -942,14 +624,8 @@
 "collapsed": true,
 "children": [
 {
-"text": { "name": "typeDefinitions" },
-"collapsed": true,
-"children": [
-{
 "text": { "name": "NULL" },
 "children": []
-}
-]
 }
 ,{
 "text": { "name": "declarations" },
@@ -964,20 +640,8 @@
 "children":[]
 }
 ,{
-"text": { "name": "dataType" },
-"collapsed": true,
-"children": [
-{
-"text": { "name": "primitiveDatatype" },
-"collapsed": true,
-"children": [
-{
 "text": { "name": "TK_INT:int" },
 "children":[]
-}
-]
-}
-]
 }
 ,{
 "text": { "name": "TK_COLON::" },
@@ -988,14 +652,8 @@
 "children":[]
 }
 ,{
-"text": { "name": "global_or_not" },
-"collapsed": true,
-"children": [
-{
 "text": { "name": "NULL" },
 "children": []
-}
-]
 }
 ,{
 "text": { "name": "TK_SEM:;" },
@@ -1016,20 +674,8 @@
 "children":[]
 }
 ,{
-"text": { "name": "dataType" },
-"collapsed": true,
-"children": [
-{
-"text": { "name": "primitiveDatatype" },
-"collapsed": true,
-"children": [
-{
 "text": { "name": "TK_REAL:real" },
 "children":[]
-}
-]
-}
-]
 }
 ,{
 "text": { "name": "TK_COLON::" },
@@ -1040,14 +686,8 @@
 "children":[]
 }
 ,{
-"text": { "name": "global_or_not" },
-"collapsed": true,
-"children": [
-{
 "text": { "name": "NULL" },
 "children": []
-}
-]
 }
 ,{
 "text": { "name": "TK_SEM:;" },
@@ -1056,10 +696,6 @@
 ]
 }
 ,{
-"text": { "name": "declarations" },
-"collapsed": true,
-"children": [
-{
 "text": { "name": "NULL" },
 "children": []
 }
@@ -1067,14 +703,8 @@
 }
 ]
 }
-]
-}
 ,{
 "text": { "name": "otherStmts" },
-"collapsed": true,
-"children": [
-{
-"text": { "name": "stmt" },
 "collapsed": true,
 "children": [
 {
@@ -1090,14 +720,8 @@
 "children":[]
 }
 ,{
-"text": { "name": "new24" },
-"collapsed": true,
-"children": [
-{
 "text": { "name": "NULL" },
 "children": []
-}
-]
 }
 ]
 }
@@ -1114,42 +738,18 @@
 "collapsed": true,
 "children": [
 {
-"text": { "name": "factor" },
-"collapsed": true,
-"children": [
-{
-"text": { "name": "all" },
-"collapsed": true,
-"children": [
-{
 "text": { "name": "TK_NUM:7" },
 "children":[]
 }
-]
-}
-]
-}
 ,{
-"text": { "name": "termPrime" },
-"collapsed": true,
-"children": [
-{
 "text": { "name": "NULL" },
 "children": []
 }
 ]
 }
-]
-}
 ,{
-"text": { "name": "expPrime" },
-"collapsed": true,
-"children": [
-{
 "text": { "name": "NULL" },
 "children": []
-}
-]
 }
 ]
 }
@@ -1159,14 +759,8 @@
 }
 ]
 }
-]
-}
 ,{
 "text": { "name": "otherStmts" },
-"collapsed": true,
-"children": [
-{
-"text": { "name": "stmt" },
 "collapsed": true,
 "children": [
 {
@@ -1190,14 +784,8 @@
 "children":[]
 }
 ,{
-"text": { "name": "more_ids" },
-"collapsed": true,
-"children": [
-{
 "text": { "name": "NULL" },
 "children": []
-}
-]
 }
 ]
 }
@@ -1244,14 +832,8 @@
 "children":[]
 }
 ,{
-"text": { "name": "more_ids" },
-"collapsed": true,
-"children": [
-{
 "text": { "name": "NULL" },
 "children": []
-}
-]
 }
 ]
 }
@@ -1267,14 +849,8 @@
 }
 ]
 }
-]
-}
 ,{
 "text": { "name": "otherStmts" },
-"collapsed": true,
-"children": [
-{
-"text": { "name": "stmt" },
 "collapsed": true,
 "children": [
 {
@@ -1298,14 +874,8 @@
 "children":[]
 }
 ,{
-"text": { "name": "newVar" },
-"collapsed": true,
-"children": [
-{
 "text": { "name": "NULL" },
 "children": []
-}
-]
 }
 ]
 }
@@ -1319,17 +889,9 @@
 }
 ]
 }
-]
-}
 ,{
-"text": { "name": "otherStmts" },
-"collapsed": true,
-"children": [
-{
 "text": { "name": "NULL" },
 "children": []
-}
-]
 }
 ]
 }
@@ -1346,14 +908,8 @@
 "children":[]
 }
 ,{
-"text": { "name": "optionalReturn" },
-"collapsed": true,
-"children": [
-{
 "text": { "name": "NULL" },
 "children": []
-}
-]
 }
 ,{
 "text": { "name": "TK_SEM:;" },
