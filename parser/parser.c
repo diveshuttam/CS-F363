@@ -120,7 +120,7 @@ Tree parseTree(Stream token_stream,const grammerRule **table,const grammerRule *
             int j=rhs_size-1;
             crr->child=malloc(sizeof(Tree)*rhs_size);
             for(int ch=0;ch<rhs_size;ch++){
-                crr->child[ch]=NULL;
+                (crr->child)[ch]=NULL;
             }
             crr->num_child=rhs_size;
             for(;j>=0;j--)
@@ -129,13 +129,12 @@ Tree parseTree(Stream token_stream,const grammerRule **table,const grammerRule *
                 to_be_pushed->gr = &gr;
                 to_be_pushed->t = *(gr.rhs[j]);
                 if(to_be_pushed->t.type=='n' || (to_be_pushed->t.type=='t' && to_be_pushed->t.s.t->StateId!=TK_EPS)){
-                    Tree tcf=(crr->child)[j];
-                    tcf=malloc(sizeof(struct Tree));
-                    to_be_pushed->node=tcf;
-                    tcf->child=NULL;
-                    tcf->num_child=-1;
-                    tcf->t=to_be_pushed->t;
-                    tcf->tk=NULL;
+                    (crr->child)[j]=malloc(sizeof(struct Tree));
+                    to_be_pushed->node=(crr->child)[j];
+                    (crr->child)[j]->child=NULL;
+                    (crr->child)[j]->num_child=-1;
+                    (crr->child)[j]->t=to_be_pushed->t;
+                    (crr->child)[j]->tk=NULL;
                     push(s,make_stack_element(to_be_pushed));
                 }
             }
@@ -302,7 +301,7 @@ void printJSON(Tree t, FILE *fp){
         s=t->t.s.nt->name;
     }
     else{
-        s=malloc(snprintf(NULL, 0, "%s:%s",t->t.s.t->name,t->tk->val));
+        s=malloc(snprintf(NULL, 0, "%s:%s",t->t.s.t->name,t->tk->val)+1);
         sprintf(s,"%s:%s",t->t.s.t->name,t->tk->val);
         //printf("%s\n",s);
     }
