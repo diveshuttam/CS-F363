@@ -12,7 +12,7 @@
 "collapsed": true,
 "children": [
 {
-"text": { "name": "TK_FUNID" },
+"text": { "name": "TK_FUNID:_sumN" },
 "children":[]
 }
 ,{
@@ -20,19 +20,19 @@
 "collapsed": true,
 "children": [
 {
-"text": { "name": "TK_INPUT" },
+"text": { "name": "TK_INPUT:input" },
 "children":[]
 }
 ,{
-"text": { "name": "TK_PARAMETER" },
+"text": { "name": "TK_PARAMETER:parameter" },
 "children":[]
 }
 ,{
-"text": { "name": "TK_LIST" },
+"text": { "name": "TK_LIST:list" },
 "children":[]
 }
 ,{
-"text": { "name": "TK_SQL" },
+"text": { "name": "TK_SQL:[" },
 "children":[]
 }
 ,{
@@ -48,7 +48,7 @@
 "collapsed": true,
 "children": [
 {
-"text": { "name": "TK_INT" },
+"text": { "name": "TK_INT:int" },
 "children":[]
 }
 ]
@@ -56,7 +56,7 @@
 ]
 }
 ,{
-"text": { "name": "TK_ID" },
+"text": { "name": "TK_ID:d5cc34" },
 "children":[]
 }
 ,{
@@ -72,7 +72,7 @@
 ]
 }
 ,{
-"text": { "name": "TK_SQR" },
+"text": { "name": "TK_SQR:]" },
 "children":[]
 }
 ]
@@ -82,19 +82,19 @@
 "collapsed": true,
 "children": [
 {
-"text": { "name": "TK_OUTPUT" },
+"text": { "name": "TK_OUTPUT:output" },
 "children":[]
 }
 ,{
-"text": { "name": "TK_PARAMETER" },
+"text": { "name": "TK_PARAMETER:parameter" },
 "children":[]
 }
 ,{
-"text": { "name": "TK_LIST" },
+"text": { "name": "TK_LIST:list" },
 "children":[]
 }
 ,{
-"text": { "name": "TK_SQL" },
+"text": { "name": "TK_SQL:[" },
 "children":[]
 }
 ,{
@@ -110,7 +110,7 @@
 "collapsed": true,
 "children": [
 {
-"text": { "name": "TK_REAL" },
+"text": { "name": "TK_REAL:real" },
 "children":[]
 }
 ]
@@ -118,7 +118,7 @@
 ]
 }
 ,{
-"text": { "name": "TK_ID" },
+"text": { "name": "TK_ID:d3" },
 "children":[]
 }
 ,{
@@ -134,13 +134,13 @@
 ]
 }
 ,{
-"text": { "name": "TK_SQR" },
+"text": { "name": "TK_SQR:]" },
 "children":[]
 }
 ]
 }
 ,{
-"text": { "name": "TK_SEM" },
+"text": { "name": "TK_SEM:;" },
 "children":[]
 }
 ,{
@@ -166,7 +166,7 @@
 "collapsed": true,
 "children": [
 {
-"text": { "name": "TK_TYPE" },
+"text": { "name": "TK_TYPE:type" },
 "children":[]
 }
 ,{
@@ -178,7 +178,7 @@
 "collapsed": true,
 "children": [
 {
-"text": { "name": "TK_INT" },
+"text": { "name": "TK_INT:int" },
 "children":[]
 }
 ]
@@ -186,11 +186,11 @@
 ]
 }
 ,{
-"text": { "name": "TK_COLON" },
+"text": { "name": "TK_COLON::" },
 "children":[]
 }
 ,{
-"text": { "name": "TK_ID" },
+"text": { "name": "TK_ID:b5b567" },
 "children":[]
 }
 ,{
@@ -204,7 +204,7 @@
 ]
 }
 ,{
-"text": { "name": "TK_SEM" },
+"text": { "name": "TK_SEM:;" },
 "children":[]
 }
 ]
@@ -238,7 +238,7 @@
 "collapsed": true,
 "children": [
 {
-"text": { "name": "TK_ID" },
+"text": { "name": "TK_ID:b5b567" },
 "children":[]
 }
 ,{
@@ -254,7 +254,7 @@
 ]
 }
 ,{
-"text": { "name": "TK_ASSIGNOP" },
+"text": { "name": "TK_ASSIGNOP:<---" },
 "children":[]
 }
 ,{
@@ -274,7 +274,7 @@
 "collapsed": true,
 "children": [
 {
-"text": { "name": "TK_NUM" },
+"text": { "name": "TK_NUM:1" },
 "children":[]
 }
 ]
@@ -306,7 +306,7 @@
 ]
 }
 ,{
-"text": { "name": "TK_SEM" },
+"text": { "name": "TK_SEM:;" },
 "children":[]
 }
 ]
@@ -330,7 +330,7 @@
 "collapsed": true,
 "children": [
 {
-"text": { "name": "TK_ID" },
+"text": { "name": "TK_ID:d3" },
 "children":[]
 }
 ,{
@@ -346,7 +346,7 @@
 ]
 }
 ,{
-"text": { "name": "TK_ASSIGNOP" },
+"text": { "name": "TK_ASSIGNOP:<---" },
 "children":[]
 }
 ,{
@@ -366,7 +366,7 @@
 "collapsed": true,
 "children": [
 {
-"text": { "name": "TK_RNUM" },
+"text": { "name": "TK_RNUM:0.00" },
 "children":[]
 }
 ]
@@ -398,7 +398,7 @@
 ]
 }
 ,{
-"text": { "name": "TK_SEM" },
+"text": { "name": "TK_SEM:;" },
 "children":[]
 }
 ]
@@ -418,11 +418,11 @@
 "collapsed": true,
 "children": [
 {
-"text": { "name": "TK_WHILE" },
+"text": { "name": "TK_WHILE:while" },
 "children":[]
 }
 ,{
-"text": { "name": "TK_OP" },
+"text": { "name": "TK_OP:(" },
 "children":[]
 }
 ,{
@@ -434,7 +434,7 @@
 "collapsed": true,
 "children": [
 {
-"text": { "name": "TK_ID" },
+"text": { "name": "TK_ID:b5b567" },
 "children":[]
 }
 ]
@@ -444,7 +444,7 @@
 "collapsed": true,
 "children": [
 {
-"text": { "name": "TK_LE" },
+"text": { "name": "TK_LE:<=" },
 "children":[]
 }
 ]
@@ -454,7 +454,7 @@
 "collapsed": true,
 "children": [
 {
-"text": { "name": "TK_ID" },
+"text": { "name": "TK_ID:d5cc34" },
 "children":[]
 }
 ]
@@ -462,7 +462,7 @@
 ]
 }
 ,{
-"text": { "name": "TK_CL" },
+"text": { "name": "TK_CL:)" },
 "children":[]
 }
 ,{
@@ -474,11 +474,11 @@
 "collapsed": true,
 "children": [
 {
-"text": { "name": "TK_READ" },
+"text": { "name": "TK_READ:read" },
 "children":[]
 }
 ,{
-"text": { "name": "TK_OP" },
+"text": { "name": "TK_OP:(" },
 "children":[]
 }
 ,{
@@ -486,7 +486,7 @@
 "collapsed": true,
 "children": [
 {
-"text": { "name": "TK_ID" },
+"text": { "name": "TK_ID:c3bd" },
 "children":[]
 }
 ,{
@@ -502,11 +502,11 @@
 ]
 }
 ,{
-"text": { "name": "TK_CL" },
+"text": { "name": "TK_CL:)" },
 "children":[]
 }
 ,{
-"text": { "name": "TK_SEM" },
+"text": { "name": "TK_SEM:;" },
 "children":[]
 }
 ]
@@ -530,7 +530,7 @@
 "collapsed": true,
 "children": [
 {
-"text": { "name": "TK_ID" },
+"text": { "name": "TK_ID:d3" },
 "children":[]
 }
 ,{
@@ -546,7 +546,7 @@
 ]
 }
 ,{
-"text": { "name": "TK_ASSIGNOP" },
+"text": { "name": "TK_ASSIGNOP:<---" },
 "children":[]
 }
 ,{
@@ -566,7 +566,7 @@
 "collapsed": true,
 "children": [
 {
-"text": { "name": "TK_ID" },
+"text": { "name": "TK_ID:d3" },
 "children":[]
 }
 ,{
@@ -604,7 +604,7 @@
 "collapsed": true,
 "children": [
 {
-"text": { "name": "TK_PLUS" },
+"text": { "name": "TK_PLUS:+" },
 "children":[]
 }
 ]
@@ -622,7 +622,7 @@
 "collapsed": true,
 "children": [
 {
-"text": { "name": "TK_ID" },
+"text": { "name": "TK_ID:c3bd" },
 "children":[]
 }
 ,{
@@ -666,7 +666,7 @@
 ]
 }
 ,{
-"text": { "name": "TK_SEM" },
+"text": { "name": "TK_SEM:;" },
 "children":[]
 }
 ]
@@ -690,7 +690,7 @@
 "collapsed": true,
 "children": [
 {
-"text": { "name": "TK_ID" },
+"text": { "name": "TK_ID:b5b567" },
 "children":[]
 }
 ,{
@@ -706,7 +706,7 @@
 ]
 }
 ,{
-"text": { "name": "TK_ASSIGNOP" },
+"text": { "name": "TK_ASSIGNOP:<---" },
 "children":[]
 }
 ,{
@@ -726,7 +726,7 @@
 "collapsed": true,
 "children": [
 {
-"text": { "name": "TK_ID" },
+"text": { "name": "TK_ID:b5b567" },
 "children":[]
 }
 ,{
@@ -764,7 +764,7 @@
 "collapsed": true,
 "children": [
 {
-"text": { "name": "TK_PLUS" },
+"text": { "name": "TK_PLUS:+" },
 "children":[]
 }
 ]
@@ -782,7 +782,7 @@
 "collapsed": true,
 "children": [
 {
-"text": { "name": "TK_NUM" },
+"text": { "name": "TK_NUM:1" },
 "children":[]
 }
 ]
@@ -816,7 +816,7 @@
 ]
 }
 ,{
-"text": { "name": "TK_SEM" },
+"text": { "name": "TK_SEM:;" },
 "children":[]
 }
 ]
@@ -838,7 +838,7 @@
 ]
 }
 ,{
-"text": { "name": "TK_ENDWHILE" },
+"text": { "name": "TK_ENDWHILE:endwhile" },
 "children":[]
 }
 ]
@@ -866,7 +866,7 @@
 "collapsed": true,
 "children": [
 {
-"text": { "name": "TK_RETURN" },
+"text": { "name": "TK_RETURN:return" },
 "children":[]
 }
 ,{
@@ -874,7 +874,7 @@
 "collapsed": true,
 "children": [
 {
-"text": { "name": "TK_SQL" },
+"text": { "name": "TK_SQL:[" },
 "children":[]
 }
 ,{
@@ -882,7 +882,7 @@
 "collapsed": true,
 "children": [
 {
-"text": { "name": "TK_ID" },
+"text": { "name": "TK_ID:d3" },
 "children":[]
 }
 ,{
@@ -898,13 +898,13 @@
 ]
 }
 ,{
-"text": { "name": "TK_SQR" },
+"text": { "name": "TK_SQR:]" },
 "children":[]
 }
 ]
 }
 ,{
-"text": { "name": "TK_SEM" },
+"text": { "name": "TK_SEM:;" },
 "children":[]
 }
 ]
@@ -912,7 +912,7 @@
 ]
 }
 ,{
-"text": { "name": "TK_END" },
+"text": { "name": "TK_END:end" },
 "children":[]
 }
 ]
@@ -934,7 +934,7 @@
 "collapsed": true,
 "children": [
 {
-"text": { "name": "TK_MAIN" },
+"text": { "name": "TK_MAIN:_main" },
 "children":[]
 }
 ,{
@@ -960,7 +960,7 @@
 "collapsed": true,
 "children": [
 {
-"text": { "name": "TK_TYPE" },
+"text": { "name": "TK_TYPE:type" },
 "children":[]
 }
 ,{
@@ -972,7 +972,7 @@
 "collapsed": true,
 "children": [
 {
-"text": { "name": "TK_INT" },
+"text": { "name": "TK_INT:int" },
 "children":[]
 }
 ]
@@ -980,11 +980,11 @@
 ]
 }
 ,{
-"text": { "name": "TK_COLON" },
+"text": { "name": "TK_COLON::" },
 "children":[]
 }
 ,{
-"text": { "name": "TK_ID" },
+"text": { "name": "TK_ID:b3" },
 "children":[]
 }
 ,{
@@ -998,7 +998,7 @@
 ]
 }
 ,{
-"text": { "name": "TK_SEM" },
+"text": { "name": "TK_SEM:;" },
 "children":[]
 }
 ]
@@ -1012,7 +1012,7 @@
 "collapsed": true,
 "children": [
 {
-"text": { "name": "TK_TYPE" },
+"text": { "name": "TK_TYPE:type" },
 "children":[]
 }
 ,{
@@ -1024,7 +1024,7 @@
 "collapsed": true,
 "children": [
 {
-"text": { "name": "TK_REAL" },
+"text": { "name": "TK_REAL:real" },
 "children":[]
 }
 ]
@@ -1032,11 +1032,11 @@
 ]
 }
 ,{
-"text": { "name": "TK_COLON" },
+"text": { "name": "TK_COLON::" },
 "children":[]
 }
 ,{
-"text": { "name": "TK_ID" },
+"text": { "name": "TK_ID:c4bd56" },
 "children":[]
 }
 ,{
@@ -1050,7 +1050,7 @@
 ]
 }
 ,{
-"text": { "name": "TK_SEM" },
+"text": { "name": "TK_SEM:;" },
 "children":[]
 }
 ]
@@ -1086,7 +1086,7 @@
 "collapsed": true,
 "children": [
 {
-"text": { "name": "TK_ID" },
+"text": { "name": "TK_ID:b3" },
 "children":[]
 }
 ,{
@@ -1102,7 +1102,7 @@
 ]
 }
 ,{
-"text": { "name": "TK_ASSIGNOP" },
+"text": { "name": "TK_ASSIGNOP:<---" },
 "children":[]
 }
 ,{
@@ -1122,7 +1122,7 @@
 "collapsed": true,
 "children": [
 {
-"text": { "name": "TK_NUM" },
+"text": { "name": "TK_NUM:7" },
 "children":[]
 }
 ]
@@ -1154,7 +1154,7 @@
 ]
 }
 ,{
-"text": { "name": "TK_SEM" },
+"text": { "name": "TK_SEM:;" },
 "children":[]
 }
 ]
@@ -1178,7 +1178,7 @@
 "collapsed": true,
 "children": [
 {
-"text": { "name": "TK_SQL" },
+"text": { "name": "TK_SQL:[" },
 "children":[]
 }
 ,{
@@ -1186,7 +1186,7 @@
 "collapsed": true,
 "children": [
 {
-"text": { "name": "TK_ID" },
+"text": { "name": "TK_ID:c4bd56" },
 "children":[]
 }
 ,{
@@ -1202,29 +1202,29 @@
 ]
 }
 ,{
-"text": { "name": "TK_SQR" },
+"text": { "name": "TK_SQR:]" },
 "children":[]
 }
 ,{
-"text": { "name": "TK_ASSIGNOP" },
+"text": { "name": "TK_ASSIGNOP:<---" },
 "children":[]
 }
 ]
 }
 ,{
-"text": { "name": "TK_CALL" },
+"text": { "name": "TK_CALL:call" },
 "children":[]
 }
 ,{
-"text": { "name": "TK_FUNID" },
+"text": { "name": "TK_FUNID:_sumN" },
 "children":[]
 }
 ,{
-"text": { "name": "TK_WITH" },
+"text": { "name": "TK_WITH:with" },
 "children":[]
 }
 ,{
-"text": { "name": "TK_PARAMETERS" },
+"text": { "name": "TK_PARAMETERS:parameters" },
 "children":[]
 }
 ,{
@@ -1232,7 +1232,7 @@
 "collapsed": true,
 "children": [
 {
-"text": { "name": "TK_SQL" },
+"text": { "name": "TK_SQL:[" },
 "children":[]
 }
 ,{
@@ -1240,7 +1240,7 @@
 "collapsed": true,
 "children": [
 {
-"text": { "name": "TK_ID" },
+"text": { "name": "TK_ID:b3" },
 "children":[]
 }
 ,{
@@ -1256,13 +1256,13 @@
 ]
 }
 ,{
-"text": { "name": "TK_SQR" },
+"text": { "name": "TK_SQR:]" },
 "children":[]
 }
 ]
 }
 ,{
-"text": { "name": "TK_SEM" },
+"text": { "name": "TK_SEM:;" },
 "children":[]
 }
 ]
@@ -1282,11 +1282,11 @@
 "collapsed": true,
 "children": [
 {
-"text": { "name": "TK_WRITE" },
+"text": { "name": "TK_WRITE:write" },
 "children":[]
 }
 ,{
-"text": { "name": "TK_OP" },
+"text": { "name": "TK_OP:(" },
 "children":[]
 }
 ,{
@@ -1294,7 +1294,7 @@
 "collapsed": true,
 "children": [
 {
-"text": { "name": "TK_ID" },
+"text": { "name": "TK_ID:c4bd56" },
 "children":[]
 }
 ,{
@@ -1310,11 +1310,11 @@
 ]
 }
 ,{
-"text": { "name": "TK_CL" },
+"text": { "name": "TK_CL:)" },
 "children":[]
 }
 ,{
-"text": { "name": "TK_SEM" },
+"text": { "name": "TK_SEM:;" },
 "children":[]
 }
 ]
@@ -1342,7 +1342,7 @@
 "collapsed": true,
 "children": [
 {
-"text": { "name": "TK_RETURN" },
+"text": { "name": "TK_RETURN:return" },
 "children":[]
 }
 ,{
@@ -1356,7 +1356,7 @@
 ]
 }
 ,{
-"text": { "name": "TK_SEM" },
+"text": { "name": "TK_SEM:;" },
 "children":[]
 }
 ]
@@ -1364,7 +1364,7 @@
 ]
 }
 ,{
-"text": { "name": "TK_END" },
+"text": { "name": "TK_END:end" },
 "children":[]
 }
 ]

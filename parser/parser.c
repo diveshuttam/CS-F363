@@ -8,6 +8,7 @@
 #include "token.h"
 #include "semantic_actions.h"
 #include "colors.h"
+#include "traversal.h"
 
 struct item
 {
@@ -109,7 +110,7 @@ Tree parseTree(Stream token_stream,const grammerRule **table,const grammerRule *
             Tree crr=tnt->node;
             
             gr=table[tnt->t.s.nt->key][tk->state];
-            assign_semantic_actions(root,&gr);
+            assign_semantic_actions(crr,&gr);
             print_grammer_rule(gr);
             if(gr.id==-1){
                 debug_msg("error in parsing");
@@ -298,7 +299,9 @@ void printJSON(Tree t, FILE *fp){
         s=t->t.s.nt->name;
     }
     else{
-        s=t->t.s.t->name;
+        s=malloc(snprintf(NULL, 0, "%s:%s",t->t.s.t->name,t->tk->val));
+        sprintf(s,"%s:%s",t->t.s.t->name,t->tk->val);
+        //printf("%s\n",s);
     }
     fprintf(fp,"{\n");
         fprintf(fp,"\"text\": { \"name\": \"%s\" },\n",s);
@@ -327,7 +330,7 @@ void printJSON(Tree t, FILE *fp){
     terminals_map=get_token_names();
 
 	char** non_terminals_map=NULL;
-        non_terminals_map=get_non_terminals_map();
+    non_terminals_map=get_non_terminals_map();
 
 	hashTable ht_terminals=get_token_hasht();
 	hashTable ht_non_terminals = NULL;
@@ -341,18 +344,18 @@ void printJSON(Tree t, FILE *fp){
     debug_msg("\ngrammer\n");
     grammerRule *g=NULL;
     g=grammer(non_terminals,terminals,(const char**) non_terminals_map,(const char**)terminals_map,(const hashTable)ht_non_terminals,(const hashTable)ht_terminals);
-        debug_msg("calculating firsts\n");
-        for(int i=0;i<NO_OF_NON_TERMINALS;i++){
-            findFirst(&non_terminals[i], g, &terminals[TK_EPS]);
-        }
+    debug_msg("calculating firsts\n");
+    for(int i=0;i<NO_OF_NON_TERMINALS;i++){
+        findFirst(&non_terminals[i], g, &terminals[TK_EPS]);
+    }
 
-        // debug_msg("firsts\n");
-        // firsts(non_terminals,terminals,(const char**) non_terminals_map,(const char**)terminals_map,(const hashTable)ht_non_terminals,(const hashTable)ht_terminals);
+    // debug_msg("firsts\n");
+    // firsts(non_terminals,terminals,(const char**) non_terminals_map,(const char**)terminals_map,(const hashTable)ht_non_terminals,(const hashTable)ht_terminals);
 
-        debug_msg("calculating follows\n");
-        for(int i=0;i<NO_OF_NON_TERMINALS;i++){
-            findFollow(&non_terminals[i], g, &terminals[TK_EPS], &terminals[TK_DOLLAR]);
-        }
+    debug_msg("calculating follows\n");
+    for(int i=0;i<NO_OF_NON_TERMINALS;i++){
+        findFollow(&non_terminals[i], g, &terminals[TK_EPS], &terminals[TK_DOLLAR]);
+    }
 
     // debug_msg("firsts\n");
 	// follows(non_terminals,terminals,(const char**) non_terminals_map,(const char**)terminals_map,(const hashTable)ht_non_terminals,(const hashTable)ht_terminals);
@@ -365,6 +368,7 @@ void printJSON(Tree t, FILE *fp){
 		return;
 	}
     Tree t=parseTree(s,(const grammerRule**)table,g,&g[0],&terminals[TK_DOLLAR]);
+    post_order_traversal(t);
     FILE *fp=fopen(outfile,"w");
     if(fp==NULL){
         printf("Error opening file %s\n",outfile);
@@ -372,7 +376,6 @@ void printJSON(Tree t, FILE *fp){
     }
     fprintf(fp,"{\n");
     fprintf(fp,"\"nodeStructure\":");
-    fprintf(fp,"\"collapsed\": true,\n");
     printJSON(t,fp);
     fprintf(fp,"}\n");
  }
