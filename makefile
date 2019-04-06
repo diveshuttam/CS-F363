@@ -1,4 +1,4 @@
-all: clean utility lexer parser driver
+all: clean utility lexer parser driver graphics
 
 graphics: parser lexer utility
 	gcc -g -c -Wall -Wpedantic -D NON_DEBUG  -D __MY_OWN_DATA_ELE -D __WITHOUT_KEY -I parser/includes/ -I utils/ -I lexer/includes/ -I ast/includes graphics/visualize.c
