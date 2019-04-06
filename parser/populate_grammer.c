@@ -92,6 +92,13 @@ void firsts(NonTerminal* non_terminals, Terminal* terminals, const char** non_te
 grammerRule* grammer(const NonTerminal* non_terminals,const Terminal* terminals,const char** non_terminals_map, const char** terminals_map,const hashTable ht_non_terminals, const hashTable ht_terminals){
 	grammerRule *g;
 	g=malloc(sizeof(grammerRule)*NO_OF_RULES);
+	for(int i=0;i<NO_OF_RULES;i++){
+		g[i].id=-1;
+		g[i].isError=-1;
+		g[i].lhs=NULL;
+		g[i].rhs=NULL;
+		g[i].num_of_rhs=-1;
+	}
 	FILE *fp;
 	char* line = malloc(sizeof(char)*LINE_SIZE);
 	size_t len = 0;
@@ -113,7 +120,7 @@ grammerRule* grammer(const NonTerminal* non_terminals,const Terminal* terminals,
 			}
 			int nt = findHT(pch,ht_non_terminals);
 			g[count].lhs=(NonTerminal*)&non_terminals[nt];
-			g[count].rhs=malloc(sizeof(TerminalNonTerminal*)*MAX_RHS);
+			g[count].rhs=(TerminalNonTerminal**)malloc(sizeof(TerminalNonTerminal*)*MAX_RHS);
 			g[count].num_of_rhs=0;
 			g[count].id=count;
 			int j = 0 ;
@@ -127,13 +134,13 @@ grammerRule* grammer(const NonTerminal* non_terminals,const Terminal* terminals,
 					exit(1);
 				}
 				if(t!=-1){
-					g[count].rhs[j]=malloc(sizeof(TnT));
+					g[count].rhs[j]=malloc(sizeof(TerminalNonTerminal));
 					g[count].rhs[j]->type='t';
-					g[count].rhs[j]->s.t=(Terminal*)&terminals[t];
+					g[count].rhs[j]->s.t=(Terminal*)&(terminals[t]);
 					debug_msg("t:%d:%s ",terminals[t].StateId,terminals[t].name);
 				}
 				else if(nt!=-1){
-					g[count].rhs[j]=malloc(sizeof(TnT));
+					g[count].rhs[j]=malloc(sizeof(TerminalNonTerminal));
 					g[count].rhs[j]->type='n';
 					g[count].rhs[j]->s.nt=(NonTerminal*)&non_terminals[nt];
 					debug_msg("n:%d:%s ",non_terminals[nt].key,non_terminals[nt].name);

@@ -119,6 +119,9 @@ Tree parseTree(Stream token_stream,const grammerRule **table,const grammerRule *
             int rhs_size = gr.num_of_rhs;
             int j=rhs_size-1;
             crr->child=malloc(sizeof(Tree)*rhs_size);
+            for(int ch=0;ch<rhs_size;ch++){
+                crr->child[ch]=NULL;
+            }
             crr->num_child=rhs_size;
             for(;j>=0;j--)
             {
@@ -126,8 +129,8 @@ Tree parseTree(Stream token_stream,const grammerRule **table,const grammerRule *
                 to_be_pushed->gr = &gr;
                 to_be_pushed->t = *(gr.rhs[j]);
                 if(to_be_pushed->t.type=='n' || (to_be_pushed->t.type=='t' && to_be_pushed->t.s.t->StateId!=TK_EPS)){
-                    (crr->child)[j]=malloc(sizeof(struct Tree));
                     Tree tcf=(crr->child)[j];
+                    tcf=malloc(sizeof(struct Tree));
                     to_be_pushed->node=tcf;
                     tcf->child=NULL;
                     tcf->num_child=-1;
@@ -357,6 +360,25 @@ void printJSON(Tree t, FILE *fp){
         findFollow(&non_terminals[i], g, &terminals[TK_EPS], &terminals[TK_DOLLAR]);
     }
 
+    debug_msg("printing firsts\n");
+    for(int i=0;i<NO_OF_NON_TERMINALS;i++){
+        NonTerminal nt=non_terminals[i];
+        debug_msg("%s:\t",nt.name);
+        for(int j=0;j<nt.firsts_size;j++){
+            debug_msg("%s,",nt.firsts[j]->name);
+        }
+        debug_msg("\n");
+    }
+
+    debug_msg("__________\n\nprinting follows\n");
+    for(int i=0;i<NO_OF_NON_TERMINALS;i++){
+        NonTerminal nt=non_terminals[i];
+        debug_msg("%s:\t",nt.name);
+        for(int j=0;j<nt.follows_size;j++){
+            debug_msg("%s,",nt.follows[j]->name);
+        }
+        debug_msg("\n");
+    }
     // debug_msg("firsts\n");
 	// follows(non_terminals,terminals,(const char**) non_terminals_map,(const char**)terminals_map,(const hashTable)ht_non_terminals,(const hashTable)ht_terminals);
 
@@ -368,7 +390,7 @@ void printJSON(Tree t, FILE *fp){
 		return;
 	}
     Tree t=parseTree(s,(const grammerRule**)table,g,&g[0],&terminals[TK_DOLLAR]);
-    post_order_traversal(t);
+    //post_order_traversal(t);
     FILE *fp=fopen(outfile,"w");
     if(fp==NULL){
         printf("Error opening file %s\n",outfile);
