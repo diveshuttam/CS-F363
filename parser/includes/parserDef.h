@@ -1,6 +1,6 @@
 //grammer rules
-#ifndef __PARSE_TABLE_H
-#define __PARSE_TABLE_H
+#ifndef __PARSER_DEF_H
+#define __PARSER_DEF_H
 #define NO_OF_TERMINALS 100
 #define NO_OF_NON_TERMINALS 51
 #define NO_OF_RULES 92
@@ -14,6 +14,7 @@
 #include"lexer.h"
 #include"non_terminal_names.h"
 #include"debug.h"
+#include"function_ptr.h"
 
 typedef struct Terminal
 {
@@ -58,12 +59,18 @@ struct Tree
     int num_child;
     Tree* child;
     Token *tk;
+
+    int num_rules;
+    ptr_to_func_ptr SemanticActions;
+
+    #include "derived_attributes.xfile"
 };
 
 void inorder(const Tree t);
 grammerRule** gen_parse_table(const grammerRule *r,const int no_of_rules,const Terminal* eps);
 Tree parseTree(Stream token_stream,const grammerRule **table,const grammerRule *g,const grammerRule *start_rule, const Terminal *bottom_symbol);
 void printParsedOutput(char *filename);
+void printParseTreeForHTML(char* testcase_file, char *outfile);
 #endif
 
 

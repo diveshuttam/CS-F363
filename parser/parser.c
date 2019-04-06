@@ -6,6 +6,8 @@
 #include"populate_grammer.h"
 #include "hash.h"
 #include "token.h"
+#include "semantic_actions.h"
+#include "colors.h"
 
 struct item
 {
@@ -107,7 +109,7 @@ Tree parseTree(Stream token_stream,const grammerRule **table,const grammerRule *
             Tree crr=tnt->node;
             
             gr=table[tnt->t.s.nt->key][tk->state];
-
+            assign_semantic_actions(root,&gr);
             print_grammer_rule(gr);
             if(gr.id==-1){
                 debug_msg("error in parsing");
@@ -176,7 +178,7 @@ Tree parseTree(Stream token_stream,const grammerRule **table,const grammerRule *
     }
     if(error==0)
     {
-        printf("No errors were encountered!\n");
+        printf(ANSI_COLOR_GREEN "Compilation Successful\n" ANSI_COLOR_RESET);
     }
     return root;
 }
@@ -275,65 +277,6 @@ void printParsedOutput(char* testcase_file){
 
     debug_msg("\ncreating parse table\n");
     grammerRule **table=gen_parse_table(g,NO_OF_RULES,&terminals[TK_EPS]);
-    debug_msg("\nprinting terminals\n");
-    // for(int i=0;i<NO_OF_TERMINALS;i++){
-    //     debug_msg("%d ",i);
-    //     debug_msg("%s", terminals[i].name);
-    //     debug_msg("\n");
-    // }
-    // debug_msg("\nprinting nonterminals,with firsts and follows\n");
-
-    // for(int i=0;i<NO_OF_NON_TERMINALS;i++){
-    //     NonTerminal curr=non_terminals[i];
-    //     debug_msg("\n%s:%d, firsts:%d follows:%d\n", curr.name,curr.key,curr.firsts_size,curr.follows_size);
-    //     debug_msg("firsts: ");
-    //     for(int j=0;j<curr.firsts_size;j++){
-    //         debug_msg("%s:%d ",curr.firsts[j]->name, curr.firsts[j]->StateId);
-    //     }
-    //     debug_msg("\n");
-    //     debug_msg("follows: ");
-    //     for(int j=0;j<curr.follows_size;j++){
-    //         debug_msg("%s:%d ",curr.follows[j]->name, curr.follows[j]->StateId);
-    //     }
-    //     debug_msg("\n");
-    // }
-
-    // debug_msg("\nprinting parse table\n");
-    // for(int i=-1;i<NO_OF_NON_TERMINALS;i++){
-    //     if(i!=-1){
-    //         debug_msg("%s:%d,",non_terminals[i].name,non_terminals[i].key);
-    //     }
-    //     else
-    //     {
-    //         debug_msg("non_terminals,");
-    //     }
-
-    //     for(int j=0;j<NO_OF_TERMINALS;j++){
-    //         if(terminals[j].name!=NULL){
-    //             if(i==-1){
-    //                 debug_msg("%s:%d,",terminals[j].name,terminals[j].StateId);
-    //             }
-    //             else{
-    //                 debug_msg("%d,",table[i][j].id);
-    //             }
-    //         }
-    //     }
-    //     debug_msg("\n");
-    // }
-
-    //debug_msg("\ngetting token stream\n");
-    //#ifndef DEBUG
-    //char* testcase_file="testcases/testcase4.txt";
-	// debug_msg("Input the file name to be compiled: %s \n",testcase_file);
-	//#else
-
-	//#endif
-
-    // debug_msg("printing Grammer rules\n");
-    // for(int i=0;i<NO_OF_RULES;i++){
-    //     grammerRule gr=g[i];
-    //     print_grammer_rule(gr);
-    // }
 	Stream s=getStream(testcase_file);
 	if(s==NULL){
 		debug_msg("error opening file %s", testcase_file);
@@ -342,3 +285,96 @@ void printParsedOutput(char* testcase_file){
     Tree t=parseTree(s,(const grammerRule**)table,g,&g[0],&terminals[TK_DOLLAR]);
     inorder(t);
  }
+
+void printJSON(Tree t, FILE *fp){
+    if(t==NULL){
+        fprintf(fp,"{\n\"text\": { \"name\": \"NULL\" },\n");
+        fprintf(fp,"\"children\": []\n}\n");
+        return;
+    }
+
+    char *s;
+    if(t->t.type=='n'){
+        s=t->t.s.nt->name;
+    }
+    else{
+        s=t->t.s.t->name;
+    }
+    fprintf(fp,"{\n");
+        fprintf(fp,"\"text\": { \"name\": \"%s\" },\n",s);
+        if(t->num_child>0){
+            fprintf(fp,"\"collapsed\": true,\n");
+            fprintf(fp,"\"children\": [\n");
+            for(int i=0;i<t->num_child;i++){
+                printJSON(t->child[i],fp);
+                if(i!=t->num_child-1)
+                    fprintf(fp,",");
+            }
+            fprintf(fp,"]\n");
+        }
+        else{
+            fprintf(fp,"\"children\":[]\n");
+        }
+    fprintf(fp,"}\n");
+}
+ void printParseTreeForHTML(char* testcase_file, char *outfile){
+    NonTerminal *non_terminals=NULL;
+    non_terminals=malloc(sizeof(NonTerminal)*NO_OF_NON_TERMINALS);
+    Terminal *terminals=NULL;
+    terminals=malloc(sizeof(Terminal)*NO_OF_TERMINALS);
+
+	char** terminals_map = NULL;
+    terminals_map=get_token_names();
+
+	char** non_terminals_map=NULL;
+        non_terminals_map=get_non_terminals_map();
+
+	hashTable ht_terminals=get_token_hasht();
+	hashTable ht_non_terminals = NULL;
+    ht_non_terminals=newHashTable(NO_OF_NON_TERMINALS*ALPHA_INV,HASH_A,HASH_B);
+	for(int i=0;i<NO_OF_NON_TERMINALS;i++){
+		insert(non_terminals_map[i],i,ht_non_terminals);
+	}
+
+	initialize_tnt(non_terminals,terminals,(const char**) terminals_map,(const char**) non_terminals_map,(const hashTable) ht_terminals,(const hashTable)ht_non_terminals);
+
+    debug_msg("\ngrammer\n");
+    grammerRule *g=NULL;
+    g=grammer(non_terminals,terminals,(const char**) non_terminals_map,(const char**)terminals_map,(const hashTable)ht_non_terminals,(const hashTable)ht_terminals);
+        debug_msg("calculating firsts\n");
+        for(int i=0;i<NO_OF_NON_TERMINALS;i++){
+            findFirst(&non_terminals[i], g, &terminals[TK_EPS]);
+        }
+
+        // debug_msg("firsts\n");
+        // firsts(non_terminals,terminals,(const char**) non_terminals_map,(const char**)terminals_map,(const hashTable)ht_non_terminals,(const hashTable)ht_terminals);
+
+        debug_msg("calculating follows\n");
+        for(int i=0;i<NO_OF_NON_TERMINALS;i++){
+            findFollow(&non_terminals[i], g, &terminals[TK_EPS], &terminals[TK_DOLLAR]);
+        }
+
+    // debug_msg("firsts\n");
+	// follows(non_terminals,terminals,(const char**) non_terminals_map,(const char**)terminals_map,(const hashTable)ht_non_terminals,(const hashTable)ht_terminals);
+
+    debug_msg("\ncreating parse table\n");
+    grammerRule **table=gen_parse_table(g,NO_OF_RULES,&terminals[TK_EPS]);
+	Stream s=getStream(testcase_file);
+	if(s==NULL){
+		debug_msg("error opening file %s", testcase_file);
+		return;
+	}
+    Tree t=parseTree(s,(const grammerRule**)table,g,&g[0],&terminals[TK_DOLLAR]);
+    FILE *fp=fopen(outfile,"w");
+    if(fp==NULL){
+        printf("Error opening file %s\n",outfile);
+        return;
+    }
+    fprintf(fp,"{\n");
+    fprintf(fp,"\"nodeStructure\":");
+    fprintf(fp,"\"collapsed\": true,\n");
+    printJSON(t,fp);
+    fprintf(fp,"}\n");
+ }
+
+ 

@@ -1,0 +1,4 @@
+int addr;
+int type;
+char* code;
+int value;
