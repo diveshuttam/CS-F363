@@ -6,21 +6,21 @@ static func_ptr_t semantic_action_map[NO_OF_RULES][NO_OF_ATTRIBUTES]={
     // 1,2 mainFunction ===> TK_MAIN stmts TK_END
     {NULL,NULL,&main_rule1},
     // 2,3 otherFunctions ===> function otherFunctions
-    {NULL,NULL,NULL},
+    {NULL,NULL,&otherFunctionsRule2},
     // 3,4 otherFunctions ===> TK_EPS
     {NULL,NULL,NULL},
     // 4,5 function ===> TK_FUNID input_par output_par TK_SEM stmts TK_END
-    {NULL,NULL,NULL},
+    {NULL,NULL,&functionRule4},
     // 5,6 input_par ===> TK_INPUT TK_PARAMETER TK_LIST TK_SQL parameter_list TK_SQR
-    {NULL,NULL,NULL},
+    {NULL,NULL,&input_par_Rule5},
     // 6,7 output_par ===> TK_OUTPUT TK_PARAMETER TK_LIST TK_SQL parameter_list TK_SQR
-    {NULL,NULL,NULL},
+    {NULL,NULL,&output_par_Rule6},
     // 7,8 output_par ===> TK_EPS
     {NULL,NULL,NULL},
     // 8,9 parameter_list ===> dataType TK_ID remaining_list
-    {NULL,NULL,NULL},
+    {NULL,NULL,&parameter_listRule8},
     // 9,10 dataType ===> primitiveDatatype
-    {NULL,NULL,NULL},
+    {NULL,NULL,&dataTypeRule9},
     // 10,11 dataType ===> constructedDatatype
     {NULL,NULL,NULL},
     // 11,12 primitiveDatatype ===> TK_INT
