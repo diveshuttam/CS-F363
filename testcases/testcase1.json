@@ -12,6 +12,10 @@
 "children":[]
 }
 ,{
+"text": { "name": "input_par" },
+"collapsed": true,
+"children": [
+{
 "text": { "name": "TK_INT:int" },
 "children":[]
 }
@@ -19,13 +23,21 @@
 "text": { "name": "TK_ID:d5cc34" },
 "children":[]
 }
+]
+}
 ,{
+"text": { "name": "output_par" },
+"collapsed": true,
+"children": [
+{
 "text": { "name": "TK_REAL:real" },
 "children":[]
 }
 ,{
 "text": { "name": "TK_ID:d3" },
 "children":[]
+}
+]
 }
 ,{
 "text": { "name": "typeDefinitions" },
@@ -794,6 +806,10 @@
 "children":[]
 }
 ,{
+"text": { "name": "input_par" },
+"collapsed": true,
+"children": [
+{
 "text": { "name": "TK_INT:int" },
 "children":[]
 }
@@ -801,13 +817,21 @@
 "text": { "name": "TK_ID:d5cc34" },
 "children":[]
 }
+]
+}
 ,{
+"text": { "name": "output_par" },
+"collapsed": true,
+"children": [
+{
 "text": { "name": "TK_REAL:real" },
 "children":[]
 }
 ,{
 "text": { "name": "TK_ID:d3" },
 "children":[]
+}
+]
 }
 ,{
 "text": { "name": "typeDefinitions" },

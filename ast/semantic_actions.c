@@ -22,7 +22,7 @@ static func_ptr_t semantic_action_map[NO_OF_RULES][NO_OF_ATTRIBUTES]={
     // 9,10 dataType ===> primitiveDatatype
     {NULL,NULL,&dataTypeRule9},
     // 10,11 dataType ===> constructedDatatype
-    {NULL,NULL,NULL},
+    {NULL,NULL,&dataTypeRule10},
     // 11,12 primitiveDatatype ===> TK_INT
     {NULL,NULL,NULL},
     // 12,13 primitiveDatatype ===> TK_REAL
@@ -30,13 +30,13 @@ static func_ptr_t semantic_action_map[NO_OF_RULES][NO_OF_ATTRIBUTES]={
     // 13,14 constructedDatatype ===> TK_RECORD TK_RECORDID
     {NULL,NULL,NULL},
     // 14,15 remaining_list ===> TK_COMMA parameter_list
-    {NULL,NULL,NULL},
+    {NULL,NULL,&remaining_listRule14},
     // 15,16 remaining_list ===> TK_EPS
     {NULL,NULL,NULL},
     // 16,17 stmts ===> typeDefinitions declarations otherStmts returnStmt
     {NULL,NULL,NULL},
     // 17,18 typeDefinitions ===> typeDefinition typeDefinitions
-    {NULL,NULL,NULL},
+    {NULL,NULL,&typeDefinitionsRule17},
     // 18,19 typeDefinitions ===> TK_EPS
     {NULL,NULL,NULL},
     // 19,20 typeDefinition ===> TK_RECORD TK_RECORDID fieldDefinitions TK_ENDRECORD TK_SEM

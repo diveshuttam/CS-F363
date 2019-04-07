@@ -27,4 +27,16 @@ void parameter_listRule8(void* tv);
 // 9,10 dataType ===> primitiveDatatype
 void dataTypeRule9(void* tv);
 
+// 10,11 dataType ===> constructedDatatype
+void dataTypeRule10(void *tv);
+
+
+// 14,15 remaining_list ===> TK_COMMA parameter_list
+void remaining_listRule14(void* tv);
+
+// 16,17 stmts ===> typeDefinitions declarations otherStmts returnStmt
+void stmtRule16(void* tv);
+
+// 17,18 typeDefinitions ===> typeDefinition typeDefinitions
+void typeDefinitionsRule17(void* tv);
 #endif

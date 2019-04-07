@@ -113,27 +113,15 @@ void functionRule4(void* tv){
     Tree tk_sem = functionNode->child[3];
     Tree stmt_node = functionNode->child[4];
     Tree tk_end = functionNode->child[5];
-    int output_par_num_child ;
-    if(output_par_node->child == NULL || output_par_node->child[0] == NULL){
-        output_par_num_child = 0;
-    }else{
-        output_par_num_child = output_par_node->num_child;
-    }
-
-    int new_num_children = 1 + input_par_node->num_child + output_par_num_child + stmt_node->num_child;
+    
+    int new_num_children = 1 + 1 + 1 + stmt_node->num_child;
     Tree* child = malloc(sizeof(Tree)*new_num_children);
     int i = 0;
     child[i++] = tk_funid;
-    int j;
-    for(j = 0 ; j < input_par_node->num_child;j++){
-        child[i++] = input_par_node->child[j];
-    }
+    child[i++] = input_par_node;
+    child[i++] = output_par_node;
 
-    if(output_par_num_child != 0){
-        for(j=0 ; j < output_par_node->num_child;j++){
-            child[i++] = output_par_node->child[j];
-        }
-    }
+    int j;
 
     for(j = 0;j< stmt_node->num_child;j++){
         child[i++] = stmt_node->child[j];
@@ -141,8 +129,6 @@ void functionRule4(void* tv){
 
     functionNode->child = child;
     functionNode->num_child = new_num_children;
-    free(input_par_node);
-    free(output_par_node);
     free(tk_sem);
     free(stmt_node);
     free(tk_end);
@@ -228,3 +214,111 @@ void dataTypeRule9(void* tv){
     dataTypeNode->num_child = primitiveDatatypeNode->num_child;
     free(primitiveDatatypeNode);
 }
+
+// 10,11 dataType ===> constructedDatatype
+void dataTypeRule10(void *tv){
+    Tree dataTypeNode = (Tree)tv;
+    Tree constructedDataTypeNode = dataTypeNode->child[0];
+    dataTypeNode->child = constructedDataTypeNode->child;
+    dataTypeNode->num_child = constructedDataTypeNode->num_child;
+    free(constructedDataTypeNode);
+}
+
+
+// 14,15 remaining_list ===> TK_COMMA parameter_list
+void remaining_listRule14(void* tv){
+    Tree remaining_listNode = (Tree)tv;
+    Tree tk_comma = remaining_listNode->child[0];
+    Tree parameter_listNode = remaining_listNode->child[1];
+    free(tk_comma);
+    remaining_listNode->child = parameter_listNode->child;
+    remaining_listNode->num_child = parameter_listNode->num_child;
+    free(parameter_listNode);
+
+}
+
+
+// 16,17 stmts ===> typeDefinitions declarations otherStmts returnStmt
+void stmtRule16(void* tv){
+    Tree stmtNode = (Tree)tv;
+    Tree typeDefinitionNode = stmtNode->child[0];
+    Tree declarationsNode = stmtNode->child[1];
+    Tree otherStmtsNode = stmtNode->child[2];
+    Tree returnStmtNode = stmtNode->child[3];
+    int typeDefinitionsNode_num_child;
+    int declarationsNode_num_child;
+    int otherStmtstNode_num_child;
+    int returnStmtNode_num_child = returnStmtNode->num_child;
+    if(typeDefinitionNode->child == NULL || typeDefinitionNode->child[0] == NULL){
+       typeDefinitionsNode_num_child = 0;
+       stmtNode->child[0] = NULL; 
+    }
+
+    if(declarationsNode->child == NULL || declarationsNode->child[0] == NULL){
+        declarationsNode_num_child = 0;
+        stmtNode->child[1] = NULL; 
+
+    }
+
+    if(otherStmtsNode->child == NULL || otherStmtsNode->child[0] == NULL){
+        otherStmtstNode_num_child = 0;
+        stmtNode->child[2] = NULL; 
+    }
+
+    int new_num_child = typeDefinitionsNode_num_child+declarationsNode_num_child+otherStmtstNode_num_child+returnStmtNode_num_child;
+    Tree* child = malloc(sizeof(Tree)*new_num_child);
+    int i=0;
+    int j;
+    
+    if(typeDefinitionsNode_num_child != 0){
+        for(j=0;j<typeDefinitionsNode_num_child;j++){
+            child[i++] = typeDefinitionNode->child[j]; 
+        }
+    }
+
+    if(declarationsNode_num_child != 0){
+        for(j=0;j<declarationsNode_num_child;j++){
+            child[i++] = declarationsNode->child[j];
+        }   
+    }
+
+    if(otherStmtstNode_num_child != 0){
+        for(j=0;j<otherStmtstNode_num_child;j++){
+            child[i++] = otherStmtsNode->child[j];
+        }
+    }
+
+    for(j=0;j<returnStmtNode_num_child;j++){
+        child[i++] = returnStmtNode->child[j];
+    }
+
+    free(typeDefinitionNode);
+    free(declarationsNode);
+    free(otherStmtsNode);
+    free(returnStmtNode);
+    stmtNode->child = child;
+    stmtNode->num_child = new_num_child;
+
+
+}
+
+// 17,18 typeDefinitions ===> typeDefinition typeDefinitions
+void typeDefinitionsRule17(void* tv){
+    Tree typeDefinitionsNode = (Tree)tv;
+    Tree typeDefinition_node = typeDefinitionsNode->child[0];
+    Tree typeDefinitionsNode1 = typeDefinitionsNode->child[1];
+    int new_num_children = typeDefinitionsNode1->num_child + 1;
+    if(new_num_children > 1){
+        Tree* child = malloc(sizeof(Tree)*new_num_children);
+        int i=0;
+        child[i++] = typeDefinition_node;
+        for(int j=0;j<typeDefinitionsNode1->num_child;j++){
+            child[i++] = typeDefinitionsNode1->child[j];
+        }
+    }else{
+        typeDefinitionsNode->num_child--;
+        free(typeDefinitionsNode1);
+    }
+}
+
+// 18,19 typeDefinitions ===> TK_EPS
