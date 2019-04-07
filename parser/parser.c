@@ -253,7 +253,7 @@ void printParsedOutput(char* testcase_file){
     terminals_map=get_token_names();
 
 	char** non_terminals_map=NULL;
-        non_terminals_map=get_non_terminals_map();
+    non_terminals_map=get_non_terminals_map();
 
 	hashTable ht_terminals=get_token_hasht();
 	hashTable ht_non_terminals = NULL;
