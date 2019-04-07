@@ -38,5 +38,11 @@ void remaining_listRule14(void* tv);
 void stmtRule16(void* tv);
 
 // 17,18 typeDefinitions ===> typeDefinition typeDefinitions
-void typeDefinitionsRule17(void* tv);
+// void typeDefinitionsRule17(void* tv);
+
+// 22,23 moreFields ===> fieldDefinition moreFields
+// 24,25 declarations ===> declaration declarations
+void a_gives_b_a_reduce(void* tv);
+
+void a_gives_b_a_reduce_with_both(void *tv);
 #endif

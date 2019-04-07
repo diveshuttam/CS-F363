@@ -241,38 +241,33 @@ void remaining_listRule14(void* tv){
 // 16,17 stmts ===> typeDefinitions declarations otherStmts returnStmt
 void stmtRule16(void* tv){
     Tree stmtNode = (Tree)tv;
-    Tree typeDefinitionNode = stmtNode->child[0];
+    Tree typeDefinitionsNode = stmtNode->child[0];
     Tree declarationsNode = stmtNode->child[1];
     Tree otherStmtsNode = stmtNode->child[2];
     Tree returnStmtNode = stmtNode->child[3];
-    int typeDefinitionsNode_num_child;
-    int declarationsNode_num_child;
-    int otherStmtstNode_num_child;
-    int returnStmtNode_num_child = returnStmtNode->num_child;
-    if(typeDefinitionNode->child == NULL || typeDefinitionNode->child[0] == NULL){
+    int typeDefinitionsNode_num_child=typeDefinitionsNode->num_child;
+    int declarationsNode_num_child=declarationsNode->num_child;
+    int otherStmtstNode_num_child=otherStmtsNode->num_child;
+    if(typeDefinitionsNode->child == NULL || typeDefinitionsNode->child[0] == NULL){
        typeDefinitionsNode_num_child = 0;
-       stmtNode->child[0] = NULL; 
     }
 
     if(declarationsNode->child == NULL || declarationsNode->child[0] == NULL){
-        declarationsNode_num_child = 0;
-        stmtNode->child[1] = NULL; 
-
+        declarationsNode_num_child = 0; 
     }
 
     if(otherStmtsNode->child == NULL || otherStmtsNode->child[0] == NULL){
         otherStmtstNode_num_child = 0;
-        stmtNode->child[2] = NULL; 
     }
 
-    int new_num_child = typeDefinitionsNode_num_child+declarationsNode_num_child+otherStmtstNode_num_child+returnStmtNode_num_child;
+    int new_num_child = typeDefinitionsNode_num_child+declarationsNode_num_child+otherStmtstNode_num_child+1;
     Tree* child = malloc(sizeof(Tree)*new_num_child);
     int i=0;
     int j;
     
     if(typeDefinitionsNode_num_child != 0){
         for(j=0;j<typeDefinitionsNode_num_child;j++){
-            child[i++] = typeDefinitionNode->child[j]; 
+            child[i++] = typeDefinitionsNode->child[j]; 
         }
     }
 
@@ -287,38 +282,62 @@ void stmtRule16(void* tv){
             child[i++] = otherStmtsNode->child[j];
         }
     }
+    child[i++] = returnStmtNode;
 
-    for(j=0;j<returnStmtNode_num_child;j++){
-        child[i++] = returnStmtNode->child[j];
-    }
-
-    free(typeDefinitionNode);
+    free(typeDefinitionsNode);
     free(declarationsNode);
     free(otherStmtsNode);
-    free(returnStmtNode);
     stmtNode->child = child;
     stmtNode->num_child = new_num_child;
 
 
 }
 
-// 17,18 typeDefinitions ===> typeDefinition typeDefinitions
-void typeDefinitionsRule17(void* tv){
-    Tree typeDefinitionsNode = (Tree)tv;
-    Tree typeDefinition_node = typeDefinitionsNode->child[0];
-    Tree typeDefinitionsNode1 = typeDefinitionsNode->child[1];
-    int new_num_children = typeDefinitionsNode1->num_child + 1;
-    if(new_num_children > 1){
-        Tree* child = malloc(sizeof(Tree)*new_num_children);
-        int i=0;
-        child[i++] = typeDefinition_node;
-        for(int j=0;j<typeDefinitionsNode1->num_child;j++){
-            child[i++] = typeDefinitionsNode1->child[j];
-        }
-    }else{
-        typeDefinitionsNode->num_child--;
-        free(typeDefinitionsNode1);
+void a_gives_b_a_reduce(void* tv)
+{
+    Tree root_a = (Tree)tv;
+    Tree child_b = root_a->child[0];
+    Tree child_a1 = root_a->child[1];
+    int new_num_children;
+    if(child_a1->child==NULL || child_a1->child[0]==NULL){
+        new_num_children = 1;
     }
+    else{
+        new_num_children = child_a1->num_child+1;
+    }
+    Tree* child = malloc(sizeof(Tree)*new_num_children);
+    int i=0;
+    child[i++] = child_b;
+    int j=0;
+    while(i<new_num_children){
+        child[i++]=child_a1->child[j++];
+    }
+    free(root_a->child);
+    root_a->child=child;
+    root_a->num_child=new_num_children;
+    free(child_a1);
 }
 
-// 18,19 typeDefinitions ===> TK_EPS
+void a_gives_b_a_reduce_with_both(void *tv){
+    Tree root_a = (Tree)tv;
+    Tree child_b = root_a->child[0];
+    Tree child_a1 = root_a->child[1];
+    int new_num_children=0;
+    if(child_a1->child==NULL || child_a1->child[0]==NULL){
+        new_num_children = 1;
+    }
+    else{
+        new_num_children = child_a1->num_child+1;
+    }
+    Tree* child = malloc(sizeof(Tree)*new_num_children);
+    int i=0;
+    child[i++] = child_b->child[0];
+    int j=0;
+    while(i<new_num_children){
+        child[i++]=child_a1->child[j++];
+    }
+    free(root_a->child);
+    root_a->child=child;
+    root_a->num_child=new_num_children;
+    free(child_a1);
+}

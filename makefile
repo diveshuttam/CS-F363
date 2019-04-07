@@ -1,13 +1,13 @@
-all: clean utility lexer parser ast driver graphics
+all: utility lexer parser ast1 driver graphics
 
-ast: ./ast/semantic_functions.c ./ast/traversal.c ./ast/semantic_actions.c ast/to_remove.c
+ast1: ./ast/semantic_functions.c ./ast/traversal.c ./ast/semantic_actions.c ./ast/to_remove.c
 	gcc -g -c -Wall -Wpedantic -D __DEBUG  -D __MY_OWN_DATA_ELE -D __WITHOUT_KEY -I parser/includes/ -I utils/includes/ -I lexer/includes/ -I ast/includes  ./ast/semantic_functions.c ./ast/traversal.c ./ast/semantic_actions.c ./ast/to_remove.c
 
-graphics: parser lexer utility
+graphics: parser lexer utility ast
 	gcc -g -c -Wall -Wpedantic -D __DEBUG  -D __MY_OWN_DATA_ELE -D __WITHOUT_KEY -I parser/includes/ -I utils/includes/ -I lexer/includes/ -I ast/includes graphics/visualize.c
 	gcc visualize.o populate_dfa.o populate_grammer.o token.o hash.o transition.o SeqList.o lexer.o twin_buffer.o parser.o Stack.o parse_table.o semantic_functions.o traversal.o semantic_actions.o to_remove.o -o visualize_exe
 
-driver: parser lexer utility
+driver: parser lexer utility ast
 	gcc -g -c -Wall -Wpedantic -D __DEBUG  -D __MY_OWN_DATA_ELE -D __WITHOUT_KEY -I parser/includes/ -I utils/includes/ -I lexer/includes/ -I ast/includes driver.c 
 	gcc driver.o populate_dfa.o populate_grammer.o token.o hash.o transition.o SeqList.o lexer.o twin_buffer.o parser.o Stack.o parse_table.o semantic_functions.o traversal.o semantic_actions.o to_remove.o -o stage1exe
 

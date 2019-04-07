@@ -40,179 +40,35 @@
 ]
 }
 ,{
-"text": { "name": "typeDefinitions" },
-"collapsed": true,
-"children": [
-{
-"text": { "name": "NULL" },
-"children": []
-}
-]
-}
-,{
-"text": { "name": "declarations" },
-"collapsed": true,
-"children": [
-{
 "text": { "name": "declaration" },
-"collapsed": true,
-"children": [
-{
-"text": { "name": "TK_TYPE:type" },
-"children":[]
-}
-,{
-"text": { "name": "dataType" },
 "collapsed": true,
 "children": [
 {
 "text": { "name": "TK_INT:int" },
 "children":[]
 }
-]
-}
-,{
-"text": { "name": "TK_COLON::" },
-"children":[]
-}
 ,{
 "text": { "name": "TK_ID:b5b567" },
 "children":[]
 }
-,{
-"text": { "name": "global_or_not" },
-"collapsed": true,
-"children": [
-{
-"text": { "name": "NULL" },
-"children": []
-}
 ]
 }
 ,{
-"text": { "name": "TK_SEM:;" },
-"children":[]
-}
-]
-}
-,{
-"text": { "name": "declarations" },
-"collapsed": true,
-"children": [
-{
-"text": { "name": "NULL" },
-"children": []
-}
-]
-}
-]
-}
-,{
-"text": { "name": "otherStmts" },
-"collapsed": true,
-"children": [
-{
-"text": { "name": "stmt" },
-"collapsed": true,
-"children": [
-{
 "text": { "name": "assignmentStmt" },
 "collapsed": true,
 "children": [
 {
-"text": { "name": "singleOrRecId" },
-"collapsed": true,
-"children": [
-{
 "text": { "name": "TK_ID:b5b567" },
 "children":[]
 }
 ,{
-"text": { "name": "new24" },
-"collapsed": true,
-"children": [
-{
-"text": { "name": "NULL" },
-"children": []
-}
-]
-}
-]
-}
-,{
-"text": { "name": "TK_ASSIGNOP:<---" },
-"children":[]
-}
-,{
-"text": { "name": "arithmeticExpression" },
-"collapsed": true,
-"children": [
-{
-"text": { "name": "term" },
-"collapsed": true,
-"children": [
-{
-"text": { "name": "factor" },
-"collapsed": true,
-"children": [
-{
-"text": { "name": "all" },
-"collapsed": true,
-"children": [
-{
 "text": { "name": "TK_NUM:1" },
 "children":[]
 }
 ]
 }
-]
-}
 ,{
-"text": { "name": "termPrime" },
-"collapsed": true,
-"children": [
-{
-"text": { "name": "NULL" },
-"children": []
-}
-]
-}
-]
-}
-,{
-"text": { "name": "expPrime" },
-"collapsed": true,
-"children": [
-{
-"text": { "name": "NULL" },
-"children": []
-}
-]
-}
-]
-}
-,{
-"text": { "name": "TK_SEM:;" },
-"children":[]
-}
-]
-}
-]
-}
-,{
-"text": { "name": "otherStmts" },
-"collapsed": true,
-"children": [
-{
-"text": { "name": "stmt" },
-"collapsed": true,
-"children": [
-{
 "text": { "name": "assignmentStmt" },
-"collapsed": true,
-"children": [
-{
-"text": { "name": "singleOrRecId" },
 "collapsed": true,
 "children": [
 {
@@ -220,142 +76,34 @@
 "children":[]
 }
 ,{
-"text": { "name": "new24" },
-"collapsed": true,
-"children": [
-{
-"text": { "name": "NULL" },
-"children": []
-}
-]
-}
-]
-}
-,{
-"text": { "name": "TK_ASSIGNOP:<---" },
-"children":[]
-}
-,{
-"text": { "name": "arithmeticExpression" },
-"collapsed": true,
-"children": [
-{
-"text": { "name": "term" },
-"collapsed": true,
-"children": [
-{
-"text": { "name": "factor" },
-"collapsed": true,
-"children": [
-{
-"text": { "name": "all" },
-"collapsed": true,
-"children": [
-{
 "text": { "name": "TK_RNUM:0.00" },
 "children":[]
 }
 ]
 }
-]
-}
 ,{
-"text": { "name": "termPrime" },
-"collapsed": true,
-"children": [
-{
-"text": { "name": "NULL" },
-"children": []
-}
-]
-}
-]
-}
-,{
-"text": { "name": "expPrime" },
-"collapsed": true,
-"children": [
-{
-"text": { "name": "NULL" },
-"children": []
-}
-]
-}
-]
-}
-,{
-"text": { "name": "TK_SEM:;" },
-"children":[]
-}
-]
-}
-]
-}
-,{
-"text": { "name": "otherStmts" },
-"collapsed": true,
-"children": [
-{
-"text": { "name": "stmt" },
-"collapsed": true,
-"children": [
-{
 "text": { "name": "iterativeStmt" },
 "collapsed": true,
 "children": [
 {
-"text": { "name": "TK_WHILE:while" },
-"children":[]
-}
-,{
-"text": { "name": "TK_OP:(" },
-"children":[]
-}
-,{
 "text": { "name": "booleanExpression" },
-"collapsed": true,
-"children": [
-{
-"text": { "name": "var" },
 "collapsed": true,
 "children": [
 {
 "text": { "name": "TK_ID:b5b567" },
 "children":[]
 }
-]
-}
 ,{
-"text": { "name": "relationalOp" },
-"collapsed": true,
-"children": [
-{
 "text": { "name": "TK_LE:<=" },
 "children":[]
 }
-]
-}
 ,{
-"text": { "name": "var" },
-"collapsed": true,
-"children": [
-{
 "text": { "name": "TK_ID:d5cc34" },
 "children":[]
 }
 ]
 }
-]
-}
 ,{
-"text": { "name": "TK_CL:)" },
-"children":[]
-}
-,{
-"text": { "name": "stmt" },
-"collapsed": true,
-"children": [
-{
 "text": { "name": "ioStmt" },
 "collapsed": true,
 "children": [
@@ -364,38 +112,8 @@
 "children":[]
 }
 ,{
-"text": { "name": "TK_OP:(" },
-"children":[]
-}
-,{
-"text": { "name": "singleOrRecId" },
-"collapsed": true,
-"children": [
-{
 "text": { "name": "TK_ID:c3bd" },
 "children":[]
-}
-,{
-"text": { "name": "new24" },
-"collapsed": true,
-"children": [
-{
-"text": { "name": "NULL" },
-"children": []
-}
-]
-}
-]
-}
-,{
-"text": { "name": "TK_CL:)" },
-"children":[]
-}
-,{
-"text": { "name": "TK_SEM:;" },
-"children":[]
-}
-]
 }
 ]
 }
@@ -404,35 +122,11 @@
 "collapsed": true,
 "children": [
 {
-"text": { "name": "stmt" },
-"collapsed": true,
-"children": [
-{
 "text": { "name": "assignmentStmt" },
 "collapsed": true,
 "children": [
 {
-"text": { "name": "singleOrRecId" },
-"collapsed": true,
-"children": [
-{
 "text": { "name": "TK_ID:d3" },
-"children":[]
-}
-,{
-"text": { "name": "new24" },
-"collapsed": true,
-"children": [
-{
-"text": { "name": "NULL" },
-"children": []
-}
-]
-}
-]
-}
-,{
-"text": { "name": "TK_ASSIGNOP:<---" },
 "children":[]
 }
 ,{
@@ -440,85 +134,21 @@
 "collapsed": true,
 "children": [
 {
-"text": { "name": "term" },
-"collapsed": true,
-"children": [
-{
-"text": { "name": "factor" },
-"collapsed": true,
-"children": [
-{
-"text": { "name": "all" },
-"collapsed": true,
-"children": [
-{
 "text": { "name": "TK_ID:d3" },
 "children":[]
-}
-,{
-"text": { "name": "temp" },
-"collapsed": true,
-"children": [
-{
-"text": { "name": "NULL" },
-"children": []
-}
-]
-}
-]
-}
-]
-}
-,{
-"text": { "name": "termPrime" },
-"collapsed": true,
-"children": [
-{
-"text": { "name": "NULL" },
-"children": []
-}
-]
-}
-]
 }
 ,{
 "text": { "name": "expPrime" },
 "collapsed": true,
 "children": [
 {
-"text": { "name": "lowPrecedenceOperators" },
-"collapsed": true,
-"children": [
-{
 "text": { "name": "TK_PLUS:+" },
 "children":[]
 }
-]
-}
 ,{
-"text": { "name": "term" },
-"collapsed": true,
-"children": [
-{
-"text": { "name": "factor" },
-"collapsed": true,
-"children": [
-{
-"text": { "name": "all" },
-"collapsed": true,
-"children": [
-{
 "text": { "name": "TK_ID:c3bd" },
 "children":[]
 }
-,{
-"text": { "name": "temp" },
-"collapsed": true,
-"children": [
-{
-"text": { "name": "NULL" },
-"children": []
-}
 ]
 }
 ]
@@ -526,73 +156,11 @@
 ]
 }
 ,{
-"text": { "name": "termPrime" },
-"collapsed": true,
-"children": [
-{
-"text": { "name": "NULL" },
-"children": []
-}
-]
-}
-]
-}
-,{
-"text": { "name": "expPrime" },
-"collapsed": true,
-"children": [
-{
-"text": { "name": "NULL" },
-"children": []
-}
-]
-}
-]
-}
-]
-}
-,{
-"text": { "name": "TK_SEM:;" },
-"children":[]
-}
-]
-}
-]
-}
-,{
-"text": { "name": "otherStmts" },
-"collapsed": true,
-"children": [
-{
-"text": { "name": "stmt" },
-"collapsed": true,
-"children": [
-{
 "text": { "name": "assignmentStmt" },
 "collapsed": true,
 "children": [
 {
-"text": { "name": "singleOrRecId" },
-"collapsed": true,
-"children": [
-{
 "text": { "name": "TK_ID:b5b567" },
-"children":[]
-}
-,{
-"text": { "name": "new24" },
-"collapsed": true,
-"children": [
-{
-"text": { "name": "NULL" },
-"children": []
-}
-]
-}
-]
-}
-,{
-"text": { "name": "TK_ASSIGNOP:<---" },
 "children":[]
 }
 ,{
@@ -600,144 +168,22 @@
 "collapsed": true,
 "children": [
 {
-"text": { "name": "term" },
-"collapsed": true,
-"children": [
-{
-"text": { "name": "factor" },
-"collapsed": true,
-"children": [
-{
-"text": { "name": "all" },
-"collapsed": true,
-"children": [
-{
 "text": { "name": "TK_ID:b5b567" },
 "children":[]
-}
-,{
-"text": { "name": "temp" },
-"collapsed": true,
-"children": [
-{
-"text": { "name": "NULL" },
-"children": []
-}
-]
-}
-]
-}
-]
-}
-,{
-"text": { "name": "termPrime" },
-"collapsed": true,
-"children": [
-{
-"text": { "name": "NULL" },
-"children": []
-}
-]
-}
-]
 }
 ,{
 "text": { "name": "expPrime" },
 "collapsed": true,
 "children": [
 {
-"text": { "name": "lowPrecedenceOperators" },
-"collapsed": true,
-"children": [
-{
 "text": { "name": "TK_PLUS:+" },
 "children":[]
 }
-]
-}
 ,{
-"text": { "name": "term" },
-"collapsed": true,
-"children": [
-{
-"text": { "name": "factor" },
-"collapsed": true,
-"children": [
-{
-"text": { "name": "all" },
-"collapsed": true,
-"children": [
-{
 "text": { "name": "TK_NUM:1" },
 "children":[]
 }
 ]
-}
-]
-}
-,{
-"text": { "name": "termPrime" },
-"collapsed": true,
-"children": [
-{
-"text": { "name": "NULL" },
-"children": []
-}
-]
-}
-]
-}
-,{
-"text": { "name": "expPrime" },
-"collapsed": true,
-"children": [
-{
-"text": { "name": "NULL" },
-"children": []
-}
-]
-}
-]
-}
-]
-}
-,{
-"text": { "name": "TK_SEM:;" },
-"children":[]
-}
-]
-}
-]
-}
-,{
-"text": { "name": "otherStmts" },
-"collapsed": true,
-"children": [
-{
-"text": { "name": "NULL" },
-"children": []
-}
-]
-}
-]
-}
-]
-}
-,{
-"text": { "name": "TK_ENDWHILE:endwhile" },
-"children":[]
-}
-]
-}
-]
-}
-,{
-"text": { "name": "otherStmts" },
-"collapsed": true,
-"children": [
-{
-"text": { "name": "NULL" },
-"children": []
 }
 ]
 }
@@ -756,41 +202,7 @@
 "children":[]
 }
 ,{
-"text": { "name": "optionalReturn" },
-"collapsed": true,
-"children": [
-{
-"text": { "name": "TK_SQL:[" },
-"children":[]
-}
-,{
-"text": { "name": "idList" },
-"collapsed": true,
-"children": [
-{
 "text": { "name": "TK_ID:d3" },
-"children":[]
-}
-,{
-"text": { "name": "more_ids" },
-"collapsed": true,
-"children": [
-{
-"text": { "name": "NULL" },
-"children": []
-}
-]
-}
-]
-}
-,{
-"text": { "name": "TK_SQR:]" },
-"children":[]
-}
-]
-}
-,{
-"text": { "name": "TK_SEM:;" },
 "children":[]
 }
 ]
@@ -834,179 +246,35 @@
 ]
 }
 ,{
-"text": { "name": "typeDefinitions" },
-"collapsed": true,
-"children": [
-{
-"text": { "name": "NULL" },
-"children": []
-}
-]
-}
-,{
-"text": { "name": "declarations" },
-"collapsed": true,
-"children": [
-{
 "text": { "name": "declaration" },
-"collapsed": true,
-"children": [
-{
-"text": { "name": "TK_TYPE:type" },
-"children":[]
-}
-,{
-"text": { "name": "dataType" },
 "collapsed": true,
 "children": [
 {
 "text": { "name": "TK_INT:int" },
 "children":[]
 }
-]
-}
-,{
-"text": { "name": "TK_COLON::" },
-"children":[]
-}
 ,{
 "text": { "name": "TK_ID:b5b567" },
 "children":[]
 }
-,{
-"text": { "name": "global_or_not" },
-"collapsed": true,
-"children": [
-{
-"text": { "name": "NULL" },
-"children": []
-}
 ]
 }
 ,{
-"text": { "name": "TK_SEM:;" },
-"children":[]
-}
-]
-}
-,{
-"text": { "name": "declarations" },
-"collapsed": true,
-"children": [
-{
-"text": { "name": "NULL" },
-"children": []
-}
-]
-}
-]
-}
-,{
-"text": { "name": "otherStmts" },
-"collapsed": true,
-"children": [
-{
-"text": { "name": "stmt" },
-"collapsed": true,
-"children": [
-{
 "text": { "name": "assignmentStmt" },
 "collapsed": true,
 "children": [
 {
-"text": { "name": "singleOrRecId" },
-"collapsed": true,
-"children": [
-{
 "text": { "name": "TK_ID:b5b567" },
 "children":[]
 }
 ,{
-"text": { "name": "new24" },
-"collapsed": true,
-"children": [
-{
-"text": { "name": "NULL" },
-"children": []
-}
-]
-}
-]
-}
-,{
-"text": { "name": "TK_ASSIGNOP:<---" },
-"children":[]
-}
-,{
-"text": { "name": "arithmeticExpression" },
-"collapsed": true,
-"children": [
-{
-"text": { "name": "term" },
-"collapsed": true,
-"children": [
-{
-"text": { "name": "factor" },
-"collapsed": true,
-"children": [
-{
-"text": { "name": "all" },
-"collapsed": true,
-"children": [
-{
 "text": { "name": "TK_NUM:1" },
 "children":[]
 }
 ]
 }
-]
-}
 ,{
-"text": { "name": "termPrime" },
-"collapsed": true,
-"children": [
-{
-"text": { "name": "NULL" },
-"children": []
-}
-]
-}
-]
-}
-,{
-"text": { "name": "expPrime" },
-"collapsed": true,
-"children": [
-{
-"text": { "name": "NULL" },
-"children": []
-}
-]
-}
-]
-}
-,{
-"text": { "name": "TK_SEM:;" },
-"children":[]
-}
-]
-}
-]
-}
-,{
-"text": { "name": "otherStmts" },
-"collapsed": true,
-"children": [
-{
-"text": { "name": "stmt" },
-"collapsed": true,
-"children": [
-{
 "text": { "name": "assignmentStmt" },
-"collapsed": true,
-"children": [
-{
-"text": { "name": "singleOrRecId" },
 "collapsed": true,
 "children": [
 {
@@ -1014,142 +282,34 @@
 "children":[]
 }
 ,{
-"text": { "name": "new24" },
-"collapsed": true,
-"children": [
-{
-"text": { "name": "NULL" },
-"children": []
-}
-]
-}
-]
-}
-,{
-"text": { "name": "TK_ASSIGNOP:<---" },
-"children":[]
-}
-,{
-"text": { "name": "arithmeticExpression" },
-"collapsed": true,
-"children": [
-{
-"text": { "name": "term" },
-"collapsed": true,
-"children": [
-{
-"text": { "name": "factor" },
-"collapsed": true,
-"children": [
-{
-"text": { "name": "all" },
-"collapsed": true,
-"children": [
-{
 "text": { "name": "TK_RNUM:0.00" },
 "children":[]
 }
 ]
 }
-]
-}
 ,{
-"text": { "name": "termPrime" },
-"collapsed": true,
-"children": [
-{
-"text": { "name": "NULL" },
-"children": []
-}
-]
-}
-]
-}
-,{
-"text": { "name": "expPrime" },
-"collapsed": true,
-"children": [
-{
-"text": { "name": "NULL" },
-"children": []
-}
-]
-}
-]
-}
-,{
-"text": { "name": "TK_SEM:;" },
-"children":[]
-}
-]
-}
-]
-}
-,{
-"text": { "name": "otherStmts" },
-"collapsed": true,
-"children": [
-{
-"text": { "name": "stmt" },
-"collapsed": true,
-"children": [
-{
 "text": { "name": "iterativeStmt" },
 "collapsed": true,
 "children": [
 {
-"text": { "name": "TK_WHILE:while" },
-"children":[]
-}
-,{
-"text": { "name": "TK_OP:(" },
-"children":[]
-}
-,{
 "text": { "name": "booleanExpression" },
-"collapsed": true,
-"children": [
-{
-"text": { "name": "var" },
 "collapsed": true,
 "children": [
 {
 "text": { "name": "TK_ID:b5b567" },
 "children":[]
 }
-]
-}
 ,{
-"text": { "name": "relationalOp" },
-"collapsed": true,
-"children": [
-{
 "text": { "name": "TK_LE:<=" },
 "children":[]
 }
-]
-}
 ,{
-"text": { "name": "var" },
-"collapsed": true,
-"children": [
-{
 "text": { "name": "TK_ID:d5cc34" },
 "children":[]
 }
 ]
 }
-]
-}
 ,{
-"text": { "name": "TK_CL:)" },
-"children":[]
-}
-,{
-"text": { "name": "stmt" },
-"collapsed": true,
-"children": [
-{
 "text": { "name": "ioStmt" },
 "collapsed": true,
 "children": [
@@ -1158,38 +318,8 @@
 "children":[]
 }
 ,{
-"text": { "name": "TK_OP:(" },
-"children":[]
-}
-,{
-"text": { "name": "singleOrRecId" },
-"collapsed": true,
-"children": [
-{
 "text": { "name": "TK_ID:c3bd" },
 "children":[]
-}
-,{
-"text": { "name": "new24" },
-"collapsed": true,
-"children": [
-{
-"text": { "name": "NULL" },
-"children": []
-}
-]
-}
-]
-}
-,{
-"text": { "name": "TK_CL:)" },
-"children":[]
-}
-,{
-"text": { "name": "TK_SEM:;" },
-"children":[]
-}
-]
 }
 ]
 }
@@ -1198,35 +328,11 @@
 "collapsed": true,
 "children": [
 {
-"text": { "name": "stmt" },
-"collapsed": true,
-"children": [
-{
 "text": { "name": "assignmentStmt" },
 "collapsed": true,
 "children": [
 {
-"text": { "name": "singleOrRecId" },
-"collapsed": true,
-"children": [
-{
 "text": { "name": "TK_ID:d3" },
-"children":[]
-}
-,{
-"text": { "name": "new24" },
-"collapsed": true,
-"children": [
-{
-"text": { "name": "NULL" },
-"children": []
-}
-]
-}
-]
-}
-,{
-"text": { "name": "TK_ASSIGNOP:<---" },
 "children":[]
 }
 ,{
@@ -1234,85 +340,21 @@
 "collapsed": true,
 "children": [
 {
-"text": { "name": "term" },
-"collapsed": true,
-"children": [
-{
-"text": { "name": "factor" },
-"collapsed": true,
-"children": [
-{
-"text": { "name": "all" },
-"collapsed": true,
-"children": [
-{
 "text": { "name": "TK_ID:d3" },
 "children":[]
-}
-,{
-"text": { "name": "temp" },
-"collapsed": true,
-"children": [
-{
-"text": { "name": "NULL" },
-"children": []
-}
-]
-}
-]
-}
-]
-}
-,{
-"text": { "name": "termPrime" },
-"collapsed": true,
-"children": [
-{
-"text": { "name": "NULL" },
-"children": []
-}
-]
-}
-]
 }
 ,{
 "text": { "name": "expPrime" },
 "collapsed": true,
 "children": [
 {
-"text": { "name": "lowPrecedenceOperators" },
-"collapsed": true,
-"children": [
-{
 "text": { "name": "TK_PLUS:+" },
 "children":[]
 }
-]
-}
 ,{
-"text": { "name": "term" },
-"collapsed": true,
-"children": [
-{
-"text": { "name": "factor" },
-"collapsed": true,
-"children": [
-{
-"text": { "name": "all" },
-"collapsed": true,
-"children": [
-{
 "text": { "name": "TK_ID:c3bd" },
 "children":[]
 }
-,{
-"text": { "name": "temp" },
-"collapsed": true,
-"children": [
-{
-"text": { "name": "NULL" },
-"children": []
-}
 ]
 }
 ]
@@ -1320,73 +362,11 @@
 ]
 }
 ,{
-"text": { "name": "termPrime" },
-"collapsed": true,
-"children": [
-{
-"text": { "name": "NULL" },
-"children": []
-}
-]
-}
-]
-}
-,{
-"text": { "name": "expPrime" },
-"collapsed": true,
-"children": [
-{
-"text": { "name": "NULL" },
-"children": []
-}
-]
-}
-]
-}
-]
-}
-,{
-"text": { "name": "TK_SEM:;" },
-"children":[]
-}
-]
-}
-]
-}
-,{
-"text": { "name": "otherStmts" },
-"collapsed": true,
-"children": [
-{
-"text": { "name": "stmt" },
-"collapsed": true,
-"children": [
-{
 "text": { "name": "assignmentStmt" },
 "collapsed": true,
 "children": [
 {
-"text": { "name": "singleOrRecId" },
-"collapsed": true,
-"children": [
-{
 "text": { "name": "TK_ID:b5b567" },
-"children":[]
-}
-,{
-"text": { "name": "new24" },
-"collapsed": true,
-"children": [
-{
-"text": { "name": "NULL" },
-"children": []
-}
-]
-}
-]
-}
-,{
-"text": { "name": "TK_ASSIGNOP:<---" },
 "children":[]
 }
 ,{
@@ -1394,144 +374,22 @@
 "collapsed": true,
 "children": [
 {
-"text": { "name": "term" },
-"collapsed": true,
-"children": [
-{
-"text": { "name": "factor" },
-"collapsed": true,
-"children": [
-{
-"text": { "name": "all" },
-"collapsed": true,
-"children": [
-{
 "text": { "name": "TK_ID:b5b567" },
 "children":[]
-}
-,{
-"text": { "name": "temp" },
-"collapsed": true,
-"children": [
-{
-"text": { "name": "NULL" },
-"children": []
-}
-]
-}
-]
-}
-]
-}
-,{
-"text": { "name": "termPrime" },
-"collapsed": true,
-"children": [
-{
-"text": { "name": "NULL" },
-"children": []
-}
-]
-}
-]
 }
 ,{
 "text": { "name": "expPrime" },
 "collapsed": true,
 "children": [
 {
-"text": { "name": "lowPrecedenceOperators" },
-"collapsed": true,
-"children": [
-{
 "text": { "name": "TK_PLUS:+" },
 "children":[]
 }
-]
-}
 ,{
-"text": { "name": "term" },
-"collapsed": true,
-"children": [
-{
-"text": { "name": "factor" },
-"collapsed": true,
-"children": [
-{
-"text": { "name": "all" },
-"collapsed": true,
-"children": [
-{
 "text": { "name": "TK_NUM:1" },
 "children":[]
 }
 ]
-}
-]
-}
-,{
-"text": { "name": "termPrime" },
-"collapsed": true,
-"children": [
-{
-"text": { "name": "NULL" },
-"children": []
-}
-]
-}
-]
-}
-,{
-"text": { "name": "expPrime" },
-"collapsed": true,
-"children": [
-{
-"text": { "name": "NULL" },
-"children": []
-}
-]
-}
-]
-}
-]
-}
-,{
-"text": { "name": "TK_SEM:;" },
-"children":[]
-}
-]
-}
-]
-}
-,{
-"text": { "name": "otherStmts" },
-"collapsed": true,
-"children": [
-{
-"text": { "name": "NULL" },
-"children": []
-}
-]
-}
-]
-}
-]
-}
-,{
-"text": { "name": "TK_ENDWHILE:endwhile" },
-"children":[]
-}
-]
-}
-]
-}
-,{
-"text": { "name": "otherStmts" },
-"collapsed": true,
-"children": [
-{
-"text": { "name": "NULL" },
-"children": []
 }
 ]
 }
@@ -1550,41 +408,7 @@
 "children":[]
 }
 ,{
-"text": { "name": "optionalReturn" },
-"collapsed": true,
-"children": [
-{
-"text": { "name": "TK_SQL:[" },
-"children":[]
-}
-,{
-"text": { "name": "idList" },
-"collapsed": true,
-"children": [
-{
 "text": { "name": "TK_ID:d3" },
-"children":[]
-}
-,{
-"text": { "name": "more_ids" },
-"collapsed": true,
-"children": [
-{
-"text": { "name": "NULL" },
-"children": []
-}
-]
-}
-]
-}
-,{
-"text": { "name": "TK_SQR:]" },
-"children":[]
-}
-]
-}
-,{
-"text": { "name": "TK_SEM:;" },
 "children":[]
 }
 ]
@@ -1596,135 +420,35 @@
 "collapsed": true,
 "children": [
 {
-"text": { "name": "typeDefinitions" },
-"collapsed": true,
-"children": [
-{
-"text": { "name": "NULL" },
-"children": []
-}
-]
-}
-,{
-"text": { "name": "declarations" },
-"collapsed": true,
-"children": [
-{
 "text": { "name": "declaration" },
-"collapsed": true,
-"children": [
-{
-"text": { "name": "TK_TYPE:type" },
-"children":[]
-}
-,{
-"text": { "name": "dataType" },
 "collapsed": true,
 "children": [
 {
 "text": { "name": "TK_INT:int" },
 "children":[]
 }
-]
-}
-,{
-"text": { "name": "TK_COLON::" },
-"children":[]
-}
 ,{
 "text": { "name": "TK_ID:b3" },
 "children":[]
 }
-,{
-"text": { "name": "global_or_not" },
-"collapsed": true,
-"children": [
-{
-"text": { "name": "NULL" },
-"children": []
-}
 ]
 }
 ,{
-"text": { "name": "TK_SEM:;" },
-"children":[]
-}
-]
-}
-,{
-"text": { "name": "declarations" },
-"collapsed": true,
-"children": [
-{
 "text": { "name": "declaration" },
-"collapsed": true,
-"children": [
-{
-"text": { "name": "TK_TYPE:type" },
-"children":[]
-}
-,{
-"text": { "name": "dataType" },
 "collapsed": true,
 "children": [
 {
 "text": { "name": "TK_REAL:real" },
 "children":[]
 }
-]
-}
-,{
-"text": { "name": "TK_COLON::" },
-"children":[]
-}
 ,{
 "text": { "name": "TK_ID:c4bd56" },
 "children":[]
 }
-,{
-"text": { "name": "global_or_not" },
-"collapsed": true,
-"children": [
-{
-"text": { "name": "NULL" },
-"children": []
-}
 ]
 }
 ,{
-"text": { "name": "TK_SEM:;" },
-"children":[]
-}
-]
-}
-,{
-"text": { "name": "declarations" },
-"collapsed": true,
-"children": [
-{
-"text": { "name": "NULL" },
-"children": []
-}
-]
-}
-]
-}
-]
-}
-,{
-"text": { "name": "otherStmts" },
-"collapsed": true,
-"children": [
-{
-"text": { "name": "stmt" },
-"collapsed": true,
-"children": [
-{
 "text": { "name": "assignmentStmt" },
-"collapsed": true,
-"children": [
-{
-"text": { "name": "singleOrRecId" },
 "collapsed": true,
 "children": [
 {
@@ -1732,129 +456,17 @@
 "children":[]
 }
 ,{
-"text": { "name": "new24" },
-"collapsed": true,
-"children": [
-{
-"text": { "name": "NULL" },
-"children": []
-}
-]
-}
-]
-}
-,{
-"text": { "name": "TK_ASSIGNOP:<---" },
-"children":[]
-}
-,{
-"text": { "name": "arithmeticExpression" },
-"collapsed": true,
-"children": [
-{
-"text": { "name": "term" },
-"collapsed": true,
-"children": [
-{
-"text": { "name": "factor" },
-"collapsed": true,
-"children": [
-{
-"text": { "name": "all" },
-"collapsed": true,
-"children": [
-{
 "text": { "name": "TK_NUM:7" },
 "children":[]
 }
 ]
 }
-]
-}
 ,{
-"text": { "name": "termPrime" },
-"collapsed": true,
-"children": [
-{
-"text": { "name": "NULL" },
-"children": []
-}
-]
-}
-]
-}
-,{
-"text": { "name": "expPrime" },
-"collapsed": true,
-"children": [
-{
-"text": { "name": "NULL" },
-"children": []
-}
-]
-}
-]
-}
-,{
-"text": { "name": "TK_SEM:;" },
-"children":[]
-}
-]
-}
-]
-}
-,{
-"text": { "name": "otherStmts" },
-"collapsed": true,
-"children": [
-{
-"text": { "name": "stmt" },
-"collapsed": true,
-"children": [
-{
 "text": { "name": "funCallStmt" },
 "collapsed": true,
 "children": [
 {
-"text": { "name": "outputParameters" },
-"collapsed": true,
-"children": [
-{
-"text": { "name": "TK_SQL:[" },
-"children":[]
-}
-,{
-"text": { "name": "idList" },
-"collapsed": true,
-"children": [
-{
 "text": { "name": "TK_ID:c4bd56" },
-"children":[]
-}
-,{
-"text": { "name": "more_ids" },
-"collapsed": true,
-"children": [
-{
-"text": { "name": "NULL" },
-"children": []
-}
-]
-}
-]
-}
-,{
-"text": { "name": "TK_SQR:]" },
-"children":[]
-}
-,{
-"text": { "name": "TK_ASSIGNOP:<---" },
-"children":[]
-}
-]
-}
-,{
-"text": { "name": "TK_CALL:call" },
 "children":[]
 }
 ,{
@@ -1862,64 +474,12 @@
 "children":[]
 }
 ,{
-"text": { "name": "TK_WITH:with" },
-"children":[]
-}
-,{
-"text": { "name": "TK_PARAMETERS:parameters" },
-"children":[]
-}
-,{
-"text": { "name": "inputParameters" },
-"collapsed": true,
-"children": [
-{
-"text": { "name": "TK_SQL:[" },
-"children":[]
-}
-,{
-"text": { "name": "idList" },
-"collapsed": true,
-"children": [
-{
 "text": { "name": "TK_ID:b3" },
 "children":[]
 }
-,{
-"text": { "name": "more_ids" },
-"collapsed": true,
-"children": [
-{
-"text": { "name": "NULL" },
-"children": []
-}
-]
-}
 ]
 }
 ,{
-"text": { "name": "TK_SQR:]" },
-"children":[]
-}
-]
-}
-,{
-"text": { "name": "TK_SEM:;" },
-"children":[]
-}
-]
-}
-]
-}
-,{
-"text": { "name": "otherStmts" },
-"collapsed": true,
-"children": [
-{
-"text": { "name": "stmt" },
-"collapsed": true,
-"children": [
-{
 "text": { "name": "ioStmt" },
 "collapsed": true,
 "children": [
@@ -1928,54 +488,8 @@
 "children":[]
 }
 ,{
-"text": { "name": "TK_OP:(" },
-"children":[]
-}
-,{
-"text": { "name": "allVar" },
-"collapsed": true,
-"children": [
-{
 "text": { "name": "TK_ID:c4bd56" },
 "children":[]
-}
-,{
-"text": { "name": "newVar" },
-"collapsed": true,
-"children": [
-{
-"text": { "name": "NULL" },
-"children": []
-}
-]
-}
-]
-}
-,{
-"text": { "name": "TK_CL:)" },
-"children":[]
-}
-,{
-"text": { "name": "TK_SEM:;" },
-"children":[]
-}
-]
-}
-]
-}
-,{
-"text": { "name": "otherStmts" },
-"collapsed": true,
-"children": [
-{
-"text": { "name": "NULL" },
-"children": []
-}
-]
-}
-]
-}
-]
 }
 ]
 }
@@ -1985,20 +499,6 @@
 "children": [
 {
 "text": { "name": "TK_RETURN:return" },
-"children":[]
-}
-,{
-"text": { "name": "optionalReturn" },
-"collapsed": true,
-"children": [
-{
-"text": { "name": "NULL" },
-"children": []
-}
-]
-}
-,{
-"text": { "name": "TK_SEM:;" },
 "children":[]
 }
 ]
