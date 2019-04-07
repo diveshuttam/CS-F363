@@ -198,10 +198,6 @@
 "collapsed": true,
 "children": [
 {
-"text": { "name": "TK_RETURN:return" },
-"children":[]
-}
-,{
 "text": { "name": "TK_ID:d3" },
 "children":[]
 }
@@ -404,10 +400,6 @@
 "collapsed": true,
 "children": [
 {
-"text": { "name": "TK_RETURN:return" },
-"children":[]
-}
-,{
 "text": { "name": "TK_ID:d3" },
 "children":[]
 }
@@ -495,13 +487,7 @@
 }
 ,{
 "text": { "name": "returnStmt" },
-"collapsed": true,
-"children": [
-{
-"text": { "name": "TK_RETURN:return" },
 "children":[]
-}
-]
 }
 ]
 }

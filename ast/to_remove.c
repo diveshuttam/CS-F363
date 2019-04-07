@@ -19,6 +19,7 @@ bool not_in_ast(enum token_names state_id){
         case TK_CALL:
         case TK_WITH:
         case TK_PARAMETERS:
+        case TK_RETURN:
             return true;
         default:
             return false;
