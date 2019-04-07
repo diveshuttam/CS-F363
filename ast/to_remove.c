@@ -5,8 +5,6 @@ bool not_in_ast(enum token_names state_id){
     {
         case TK_SEM:
         case TK_END:
-        case TK_OUTPUT:
-        case TK_INPUT:
         case TK_PARAMETER:
         case TK_LIST:
         case TK_SQL:
