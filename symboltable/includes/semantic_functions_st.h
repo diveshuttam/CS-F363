@@ -1,0 +1,6 @@
+#ifndef __SEMANTIC_FUNCTIONS_ST
+#define __SEMANTIC_FUNCTIONS_ST
+
+
+
+#endif

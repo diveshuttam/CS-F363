@@ -3,7 +3,7 @@
 #include "parserDef.h"
 #include "lexerDef.h"
 #include "function_ptr.h"
-#include "semantic_functions.h"
+#include "semantic_functions_ast.h"
 #define NO_OF_ATTRIBUTES 3
 
 void assign_semantic_actions(Tree t, grammerRule *gr);

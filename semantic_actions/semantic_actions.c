@@ -36,17 +36,17 @@ static func_ptr_t semantic_action_map[NO_OF_RULES][NO_OF_ATTRIBUTES]={
     // 16,17 stmts ===> typeDefinitions declarations otherStmts returnStmt
     {NULL,NULL,&stmtRule16},
     // 17,18 typeDefinitions ===> typeDefinition typeDefinitions
-    {NULL,NULL,&free_single_nodes},
+    {NULL,NULL,&a_gives_b_a_reduce},
     // 18,19 typeDefinitions ===> TK_EPS
     {NULL,NULL,&free_single_nodes},
     // 19,20 typeDefinition ===> TK_RECORD TK_RECORDID fieldDefinitions TK_ENDRECORD TK_SEM
-    {NULL,NULL,&free_single_nodes},
+    {NULL,NULL,&typeDefinitionRule19},
     // 20,21 fieldDefinitions ===> fieldDefinition fieldDefinition moreFields
     {NULL,NULL,&free_single_nodes},
     // 21,22 fieldDefinition ===> TK_TYPE primitiveDatatype TK_COLON TK_FIELDID TK_SEM
     {NULL,NULL,&free_single_nodes},
     // 22,23 moreFields ===> fieldDefinition moreFields
-    {NULL,NULL,&free_single_nodes},
+    {NULL,NULL,&a_gives_b_a_reduce},
     // 23,24 moreFields ===> TK_EPS
     {NULL,NULL,&free_single_nodes},
     // 24,25 declarations ===> declaration declarations
@@ -76,7 +76,7 @@ static func_ptr_t semantic_action_map[NO_OF_RULES][NO_OF_ATTRIBUTES]={
     // 36,37 assignmentStmt ===> singleOrRecId TK_ASSIGNOP arithmeticExpression TK_SEM
     {NULL,NULL,&free_single_nodes},
     // 37,38 singleOrRecId ===> TK_ID new24
-    {NULL,NULL,&free_single_nodes},
+    {NULL,NULL,&singleRule37},
     // 38,39 new24 ===> TK_DOT TK_FIELDID
     {NULL,NULL,&free_single_nodes},
     // 39,40 new24 ===> TK_EPS
@@ -102,7 +102,7 @@ static func_ptr_t semantic_action_map[NO_OF_RULES][NO_OF_ATTRIBUTES]={
     // 49,50 ioStmt ===> TK_WRITE TK_OP allVar TK_CL TK_SEM
     {NULL,NULL,&free_single_nodes},
     // 50,51 allVar ===> TK_ID newVar
-    {NULL,NULL,&free_single_nodes},
+    {NULL,NULL,&allVarRule50},
     // 51,52 allVar ===> TK_NUM
     {NULL,NULL,&free_single_nodes},
     // 52,53 allVar ===> TK_RNUM
@@ -112,15 +112,15 @@ static func_ptr_t semantic_action_map[NO_OF_RULES][NO_OF_ATTRIBUTES]={
     // 54,55 newVar ===> TK_EPS
     {NULL,NULL,&free_single_nodes},
     // 55,56 arithmeticExpression ===> term expPrime
-    {NULL,NULL,&free_single_nodes},
+    {NULL,NULL,&arithmeticExpressionRule55},
     // 56,57 expPrime ===> lowPrecedenceOperators term expPrime
-    {NULL,NULL,&free_single_nodes},
+    {NULL,NULL,&expPrimeRule56},
     // 57,58 expPrime ===> TK_EPS
     {NULL,NULL,&free_single_nodes},
     // 58,59 term ===> factor termPrime
-    {NULL,NULL,&free_single_nodes},
+    {NULL,NULL,&termRule58},
     // 59,60 termPrime ===> highPrecedenceOperators factor termPrime
-    {NULL,NULL,&free_single_nodes},
+    {NULL,NULL,termPrimeRule59},
     // 60,61 termPrime ===> TK_EPS
     {NULL,NULL,&free_single_nodes},
     // 61,62 factor ===> TK_OP arithmeticExpression TK_CL
@@ -140,7 +140,7 @@ static func_ptr_t semantic_action_map[NO_OF_RULES][NO_OF_ATTRIBUTES]={
     // 68,69 all ===> TK_RNUM
     {NULL,NULL,&free_single_nodes},
     // 69,70 all ===> TK_ID temp
-    {NULL,NULL,&free_single_nodes},
+    {NULL,NULL,&allRule69},
     // 70,71 temp ===> TK_DOT TK_FIELDID
     {NULL,NULL,&free_single_nodes},
     // 71,72 temp ===> TK_EPS
@@ -180,9 +180,9 @@ static func_ptr_t semantic_action_map[NO_OF_RULES][NO_OF_ATTRIBUTES]={
     // 88,89 optionalReturn ===> TK_EPS
     {NULL,NULL,&free_single_nodes},
     // 89,90 idList ===> TK_ID more_ids
-    {NULL,NULL,&free_single_nodes},
+    {NULL,NULL,a_gives_b_a_reduce},
     // 90,91 more_ids ===> TK_COMMA idList
-    {NULL,NULL,&free_single_nodes},
+    {NULL,NULL,free_single_nodes},
     // 91,92 more_ids ===> TK_EPS
     {NULL,NULL,&free_single_nodes},
 };

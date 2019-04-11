@@ -315,7 +315,7 @@ void printJSON(Tree t, FILE *fp){
         if(t->num_child>0){
             fprintf(fp,"\"collapsed\": true,\n");
             fprintf(fp,"\"children\": [\n");
-            for(int i=0;i<t->num_child;i++){
+            for(int i=0;i<t->num_child && t!=NULL && t->child!=NULL;i++){
                 printJSON(t->child[i],fp);
                 if(i!=t->num_child-1)
                     fprintf(fp,",");

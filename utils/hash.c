@@ -20,12 +20,12 @@ char* getKey(Element e){
 }
 
 int getDataInt(Element e){
-	int *d=e->d;
+	int *d=(int*)e->d;
 	return *d;
 }
 
 void* getData(Element e){
-	return e->d;
+	return (void *)(e->d);
 }
 
 hashTable newHashTable(int size, int significant_bits, int salt){
@@ -56,7 +56,7 @@ int hash(const char *str, hashTable ht)
 Element createElementInt(int data,const char *key){
 	Element e=malloc(sizeof(struct Element));
 	e->d=malloc(sizeof(int));
-	int* l=e->d;
+	int* l=(int *)e->d;
 	*l=data;
 	e->k=malloc(sizeof(char*)*(strlen(key)+1));
 	char *buf=(char*)(e->k);

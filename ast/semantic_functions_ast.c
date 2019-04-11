@@ -1,6 +1,6 @@
 #include "parserDef.h"
 #include "SeqList.h"
-#include "semantic_functions.h"
+#include "semantic_functions_ast.h"
 #include "to_remove.h"
 
 void free_single_nodes(void *tv){
@@ -342,6 +342,12 @@ void a_gives_b_a_reduce_with_both(void *tv){
     free(child_a1);
 }
 
+
+// 19,20 typeDefinition ===> TK_RECORD TK_RECORDID fieldDefinitions TK_ENDRECORD TK_SEM
+void typeDefinitionRule19(void *tv){
+
+}
+
 // 44,45 iterativeStmt ===> TK_WHILE TK_OP booleanExpression TK_CL stmt otherStmts TK_ENDWHILE
 void iterativeStmtRule44(void *tv){
     Tree root=(Tree)tv;
@@ -367,4 +373,165 @@ void iterativeStmtRule44(void *tv){
     free(root->child[6]);
     free(root->child);
     root->child=newChild;
+}
+
+// 55,56 arithmeticExpression ===> term expPrime
+void arithmeticExpressionRule55(void *tv)
+{
+    Tree t=(Tree)tv;
+    Tree termNode = t->child[0]->child[0];
+    Tree expPrimeNode = t->child[1];
+    int newNumNode = 1;
+    Tree *new_child=malloc(sizeof(Tree)*newNumNode);
+    
+    if(expPrimeNode==NULL||expPrimeNode->child==NULL||expPrimeNode->child[0]==NULL){
+        new_child[0]=termNode;
+    }
+    else{
+        Tree operator_node = expPrimeNode->child[0];
+        new_child[0]=operator_node;
+        operator_node->num_child=2;
+        operator_node->child=(Tree*)malloc(sizeof(Tree)*2);
+        operator_node->child[0]=termNode;
+        Tree expPrime1Node = expPrimeNode->child[1];
+        operator_node->child[1]=expPrime1Node;
+        operator_node->SemanticActions=NULL;
+        operator_node->num_rules=0;
+    }
+    free(t->child);
+    t->child=new_child;
+    t->num_child=newNumNode;
+}
+
+// 69,70 all ===> TK_ID temp
+void allRule69(void *tv){
+    Tree t=(Tree)tv;
+    Tree tk_id_node = t->child[0];
+    Tree temp = t->child[1];
+    Tree *newChild=malloc(sizeof(Tree)*1);
+    if(temp==NULL || temp->child==NULL || temp->child[0]==NULL){
+        newChild[0]=tk_id_node;
+    }
+    else{
+        Tree tk_dot_node = temp->child[0];
+        newChild[0]=tk_dot_node;
+        tk_dot_node->num_child=2;
+        Tree tk_fieldid_node=temp->child[1];
+        tk_dot_node->child=malloc(sizeof(Tree)*2);
+        tk_dot_node->child[0]=tk_id_node;
+        tk_dot_node->child[1]=tk_fieldid_node;
+        tk_dot_node->SemanticActions=NULL;
+        tk_dot_node->num_rules=0;
+    }
+    t->num_child=1;
+    free(t->child);
+    t->child=newChild;
+}
+
+// 37,38 singleOrRecId ===> TK_ID new24
+void singleRule37(void *tv){
+    allRule69(tv);
+}
+
+// 50,51 allVar ===> TK_ID newVar
+void allVarRule50(void *tv){
+    allRule69(tv);
+}
+
+// 58,59 term ===> factor termPrime
+void termRule58(void *tv){
+    Tree t=(Tree)tv;
+    Tree factorNode = t->child[0];
+    Tree termPrimeNode = t->child[1];
+    Tree *newChild=malloc(sizeof(Tree)*1);
+    if(termPrimeNode==NULL || termPrimeNode->child==NULL || termPrimeNode->child[0]==NULL){
+        newChild[0]=factorNode->child[0];
+    }
+    else{
+        Tree tk_operator_node = termPrimeNode->child[0];
+        newChild[0]=tk_operator_node;
+        tk_operator_node->num_child=2;
+        Tree factor1_node=termPrimeNode->child[1];
+        tk_operator_node->child=malloc(sizeof(Tree)*2);
+        tk_operator_node->child[0]=factorNode;
+        tk_operator_node->child[1]=factor1_node;
+        tk_operator_node->SemanticActions=NULL;
+        tk_operator_node->num_rules=0;
+    }
+    t->num_child=1;
+    free(t->child);
+    t->child=newChild;
+}
+
+// 59,60 termPrime ===> highPrecedenceOperators factor termPrime1
+void termPrimeRule59(void *tv)
+{
+    Tree termPrimeNode = (Tree)tv;
+    Tree highPrecedenceOperatorsNode = termPrimeNode->child[0]->child[0];
+    Tree factorNode = termPrimeNode->child[1];
+    Tree termPrime1Node = termPrimeNode->child[2];
+
+    Tree *newChild = malloc(sizeof(Tree)*2);
+    if(termPrime1Node==NULL || termPrime1Node->child==NULL || termPrime1Node->child[0]==NULL){
+        newChild[0]=highPrecedenceOperatorsNode;
+        newChild[1]=factorNode;
+    }
+    else{
+        Tree tk_operator_node = termPrime1Node->child[0];
+        newChild[0]=highPrecedenceOperatorsNode;
+        newChild[1]=tk_operator_node;
+        tk_operator_node->num_child=2;
+        Tree factor1_node=termPrime1Node->child[1];
+        tk_operator_node->child=malloc(sizeof(Tree)*2);
+        tk_operator_node->child[0]=factorNode;
+        tk_operator_node->child[1]=factor1_node;
+        tk_operator_node->SemanticActions=NULL;
+        tk_operator_node->num_rules=0;
+    }
+    termPrimeNode->num_child=2;
+    free(termPrimeNode->child);
+    termPrimeNode->child=newChild;
+}
+
+// 56,57 expPrime ===> lowPrecedenceOperators term expPrime
+void expPrimeRule56(void *tv){
+    Tree expPrimeNode = (Tree)tv;
+    Tree lowPrecedenceOperatorsNode = expPrimeNode->child[0]->child[0];
+    Tree termNode = expPrimeNode->child[1]->child[0];
+    Tree expPrime1Node = expPrimeNode->child[2];
+
+    Tree *newChild = malloc(sizeof(Tree)*2);
+    if(expPrime1Node==NULL || expPrime1Node->child==NULL || expPrime1Node->child[0]==NULL){
+        newChild[0]=lowPrecedenceOperatorsNode;
+        newChild[1]=termNode;
+    }
+    else{
+        Tree tk_operator_node = expPrime1Node->child[0];
+        newChild[0]=lowPrecedenceOperatorsNode;
+        newChild[1]=tk_operator_node;
+        tk_operator_node->num_child=2;
+        Tree term1_node=expPrime1Node->child[1];
+        tk_operator_node->child=malloc(sizeof(Tree)*2);
+        tk_operator_node->child[0]=termNode;
+        tk_operator_node->child[1]=term1_node;
+        tk_operator_node->SemanticActions=NULL;
+        tk_operator_node->num_rules=0;
+    }
+    expPrimeNode->num_child=2;
+    free(expPrime1Node->child);
+    expPrimeNode->child=newChild;
+}
+
+
+// 36,37 assignmentStmt ===> singleOrRecId TK_ASSIGNOP arithmeticExpression TK_SEM
+void assignmentStmtRule36(void *tv){
+    Tree assignmentStmtNode = (Tree)tv;
+    Tree singleOrRecIdNode = assignmentStmtNode->child[0]->child[0];
+    Tree arithmeticExpressionNode = assignmentStmtNode->child[2]->child[1];
+    Tree *newChild = malloc(sizeof(Tree)*2);
+    newChild[0]=singleOrRecIdNode;
+    newChild[1]=arithmeticExpressionNode;
+    assignmentStmtNode->num_child=2;
+    free(assignmentStmtNode->child);
+    assignmentStmtNode->child=newChild;
 }

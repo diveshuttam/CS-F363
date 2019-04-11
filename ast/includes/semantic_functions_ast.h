@@ -1,5 +1,5 @@
-#ifndef __SEMANTIC_FUNCTIONS_H
-#define __SEMANTIC_FUNCTIONS_H
+#ifndef __SEMANTIC_FUNCTIONS_AST_H
+#define __SEMANTIC_FUNCTIONS_AST_H
 void check_type_arithmetic(void *tv);
 void free_single_nodes(void *tv);
 
@@ -46,8 +46,33 @@ void a_gives_b_a_reduce(void* tv);
 
 void a_gives_b_a_reduce_with_both(void *tv);
 
+// 55,56 arithmeticExpression ===> term expPrime
+void arithmeticExpressionRule55(void *tv);
 
 // 44,45 iterativeStmt ===> TK_WHILE TK_OP booleanExpression TK_CL stmt otherStmts TK_ENDWHILE
 void iterativeStmtRule44(void *tv);
 
+// 69,70 all ===> TK_ID temp
+void allRule69(void *tv);
+
+// 58,59 term ===> factor termPrime
+void termRule58(void *tv);
+
+// 59,60 termPrime ===> highPrecedenceOperators factor termPrime
+void termPrimeRule59(void *tv);
+
+// 37,38 singleOrRecId ===> TK_ID new24
+void singleRule37(void *tv);
+
+// 50,51 allVar ===> TK_ID newVar
+void allVarRule50(void *tv);
+
+// 19,20 typeDefinition ===> TK_RECORD TK_RECORDID fieldDefinitions TK_ENDRECORD TK_SEM
+void typeDefinitionRule19(void *tv);
+
+// 56,57 expPrime ===> lowPrecedenceOperators term expPrime
+void expPrimeRule56(void *tv);
+
+// 36,37 assignmentStmt ===> singleOrRecId TK_ASSIGNOP arithmeticExpression TK_SEM
+void assignmentStmtRule36(void *tv);
 #endif

@@ -11,7 +11,7 @@ void post_order_traversal(Tree root){
     }
     debug_msg("traversing back %s\n",root->t.s.nt->name);
     for(int i=0;i<NO_OF_ATTRIBUTES&&root!=NULL&&root->t.type=='n';i++){
-        if((root->SemanticActions)[i]!=NULL)
+        if((root->SemanticActions!=NULL) && (root->SemanticActions)[i]!=NULL)
             ((root->SemanticActions)[i])(root);
     }
 }

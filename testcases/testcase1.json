@@ -8,202 +8,6 @@
 "collapsed": true,
 "children": [
 {
-"text": { "name": "TK_FUNID:_diffN" },
-"children":[]
-}
-,{
-"text": { "name": "input_par" },
-"collapsed": true,
-"children": [
-{
-"text": { "name": "TK_INT:int" },
-"children":[]
-}
-,{
-"text": { "name": "TK_ID:d5cc34" },
-"children":[]
-}
-]
-}
-,{
-"text": { "name": "output_par" },
-"collapsed": true,
-"children": [
-{
-"text": { "name": "TK_REAL:real" },
-"children":[]
-}
-,{
-"text": { "name": "TK_ID:d3" },
-"children":[]
-}
-]
-}
-,{
-"text": { "name": "declaration" },
-"collapsed": true,
-"children": [
-{
-"text": { "name": "TK_INT:int" },
-"children":[]
-}
-,{
-"text": { "name": "TK_ID:b5b567" },
-"children":[]
-}
-]
-}
-,{
-"text": { "name": "assignmentStmt" },
-"collapsed": true,
-"children": [
-{
-"text": { "name": "TK_ID:b5b567" },
-"children":[]
-}
-,{
-"text": { "name": "TK_NUM:1" },
-"children":[]
-}
-]
-}
-,{
-"text": { "name": "assignmentStmt" },
-"collapsed": true,
-"children": [
-{
-"text": { "name": "TK_ID:d3" },
-"children":[]
-}
-,{
-"text": { "name": "TK_RNUM:0.00" },
-"children":[]
-}
-]
-}
-,{
-"text": { "name": "iterativeStmt" },
-"collapsed": true,
-"children": [
-{
-"text": { "name": "booleanExpression" },
-"collapsed": true,
-"children": [
-{
-"text": { "name": "TK_ID:b5b567" },
-"children":[]
-}
-,{
-"text": { "name": "TK_LE:<=" },
-"children":[]
-}
-,{
-"text": { "name": "TK_ID:d5cc34" },
-"children":[]
-}
-]
-}
-,{
-"text": { "name": "ioStmt" },
-"collapsed": true,
-"children": [
-{
-"text": { "name": "TK_READ:read" },
-"children":[]
-}
-,{
-"text": { "name": "TK_ID:c3bd" },
-"children":[]
-}
-]
-}
-,{
-"text": { "name": "assignmentStmt" },
-"collapsed": true,
-"children": [
-{
-"text": { "name": "TK_ID:d3" },
-"children":[]
-}
-,{
-"text": { "name": "arithmeticExpression" },
-"collapsed": true,
-"children": [
-{
-"text": { "name": "TK_ID:d3" },
-"children":[]
-}
-,{
-"text": { "name": "expPrime" },
-"collapsed": true,
-"children": [
-{
-"text": { "name": "TK_PLUS:+" },
-"children":[]
-}
-,{
-"text": { "name": "TK_ID:c3bd" },
-"children":[]
-}
-]
-}
-]
-}
-]
-}
-,{
-"text": { "name": "assignmentStmt" },
-"collapsed": true,
-"children": [
-{
-"text": { "name": "TK_ID:b5b567" },
-"children":[]
-}
-,{
-"text": { "name": "arithmeticExpression" },
-"collapsed": true,
-"children": [
-{
-"text": { "name": "TK_ID:b5b567" },
-"children":[]
-}
-,{
-"text": { "name": "expPrime" },
-"collapsed": true,
-"children": [
-{
-"text": { "name": "TK_PLUS:+" },
-"children":[]
-}
-,{
-"text": { "name": "TK_NUM:1" },
-"children":[]
-}
-]
-}
-]
-}
-]
-}
-]
-}
-,{
-"text": { "name": "returnStmt" },
-"collapsed": true,
-"children": [
-{
-"text": { "name": "TK_ID:d3" },
-"children":[]
-}
-]
-}
-]
-}
-,{
-"text": { "name": "function" },
-"collapsed": true,
-"children": [
-{
 "text": { "name": "TK_FUNID:_sumN" },
 "children":[]
 }
@@ -247,6 +51,38 @@
 "text": { "name": "TK_ID:b5b567" },
 "children":[]
 }
+,{
+"text": { "name": "TK_GLOBAL:global" },
+"children":[]
+}
+]
+}
+,{
+"text": { "name": "declaration" },
+"collapsed": true,
+"children": [
+{
+"text": { "name": "TK_INT:int" },
+"children":[]
+}
+,{
+"text": { "name": "TK_ID:b3" },
+"children":[]
+}
+]
+}
+,{
+"text": { "name": "declaration" },
+"collapsed": true,
+"children": [
+{
+"text": { "name": "TK_REAL:real" },
+"children":[]
+}
+,{
+"text": { "name": "TK_ID:c3bd" },
+"children":[]
+}
 ]
 }
 ,{
@@ -322,7 +158,7 @@
 "children":[]
 }
 ,{
-"text": { "name": "arithmeticExpression" },
+"text": { "name": "TK_PLUS:+" },
 "collapsed": true,
 "children": [
 {
@@ -330,49 +166,15 @@
 "children":[]
 }
 ,{
-"text": { "name": "expPrime" },
+"text": { "name": "TK_PLUS:+" },
 "collapsed": true,
 "children": [
 {
-"text": { "name": "TK_PLUS:+" },
+"text": { "name": "TK_ID:c3bd" },
 "children":[]
 }
 ,{
 "text": { "name": "TK_ID:c3bd" },
-"children":[]
-}
-]
-}
-]
-}
-]
-}
-,{
-"text": { "name": "assignmentStmt" },
-"collapsed": true,
-"children": [
-{
-"text": { "name": "TK_ID:b5b567" },
-"children":[]
-}
-,{
-"text": { "name": "arithmeticExpression" },
-"collapsed": true,
-"children": [
-{
-"text": { "name": "TK_ID:b5b567" },
-"children":[]
-}
-,{
-"text": { "name": "expPrime" },
-"collapsed": true,
-"children": [
-{
-"text": { "name": "TK_PLUS:+" },
-"children":[]
-}
-,{
-"text": { "name": "TK_NUM:1" },
 "children":[]
 }
 ]
@@ -388,7 +190,7 @@
 "collapsed": true,
 "children": [
 {
-"text": { "name": "TK_ID:d3" },
+"text": { "name": "TK_ID:b5b567" },
 "children":[]
 }
 ]
@@ -404,11 +206,11 @@
 "collapsed": true,
 "children": [
 {
-"text": { "name": "TK_INT:int" },
+"text": { "name": "TK_REAL:real" },
 "children":[]
 }
 ,{
-"text": { "name": "TK_ID:b3" },
+"text": { "name": "TK_ID:c4bd56" },
 "children":[]
 }
 ]
@@ -418,11 +220,29 @@
 "collapsed": true,
 "children": [
 {
-"text": { "name": "TK_REAL:real" },
+"text": { "name": "TK_INT:int" },
 "children":[]
 }
 ,{
-"text": { "name": "TK_ID:c4bd56" },
+"text": { "name": "TK_ID:c2" },
+"children":[]
+}
+]
+}
+,{
+"text": { "name": "declaration" },
+"collapsed": true,
+"children": [
+{
+"text": { "name": "TK_INT:int" },
+"children":[]
+}
+,{
+"text": { "name": "TK_ID:b5b567" },
+"children":[]
+}
+,{
+"text": { "name": "TK_GLOBAL:global" },
 "children":[]
 }
 ]
@@ -442,6 +262,20 @@
 ]
 }
 ,{
+"text": { "name": "ioStmt" },
+"collapsed": true,
+"children": [
+{
+"text": { "name": "TK_READ:read" },
+"children":[]
+}
+,{
+"text": { "name": "TK_ID:c2" },
+"children":[]
+}
+]
+}
+,{
 "text": { "name": "funCallStmt" },
 "collapsed": true,
 "children": [
@@ -454,7 +288,7 @@
 "children":[]
 }
 ,{
-"text": { "name": "TK_ID:b3" },
+"text": { "name": "TK_ID:c2" },
 "children":[]
 }
 ]
