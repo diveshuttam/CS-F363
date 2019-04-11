@@ -53,137 +53,137 @@ static func_ptr_t semantic_action_map[NO_OF_RULES][NO_OF_ATTRIBUTES]={
     {NULL,NULL,a_gives_b_a_reduce},
     // 25,26 declarations ===> TK_EPS
     {NULL,NULL,&free_single_nodes},
-    // declaration ===> TK_TYPE dataType TK_COLON TK_ID global_or_not TK_SEM
+    // 26,27 declaration ===> TK_TYPE dataType TK_COLON TK_ID global_or_not TK_SEM
     {NULL,NULL,&free_single_nodes},
-    // global_or_not ===> TK_COLON TK_GLOBAL
+    // 27,28 global_or_not ===> TK_COLON TK_GLOBAL
     {NULL,NULL,&free_single_nodes},
-    // global_or_not ===> TK_EPS
+    // 28,29 global_or_not ===> TK_EPS
     {NULL,NULL,&free_single_nodes},
-    // otherStmts ===> stmt otherStmts
+    // 29,30 otherStmts ===> stmt otherStmts
     {NULL,NULL,&a_gives_b_a_reduce_with_both},
-    // otherStmts ===> TK_EPS
+    // 30,31 otherStmts ===> TK_EPS
     {NULL,NULL,&free_single_nodes},
-    // stmt ===> assignmentStmt
+    // 31,32 stmt ===> assignmentStmt
     {NULL,NULL,&free_single_nodes},
-    // stmt ===> iterativeStmt
+    // 32,33 stmt ===> iterativeStmt
     {NULL,NULL,&free_single_nodes},
-    // stmt ===> conditionalStmt
+    // 33,34 stmt ===> conditionalStmt
     {NULL,NULL,&free_single_nodes},
-    // stmt ===> ioStmt
+    // 34,35 stmt ===> ioStmt
     {NULL,NULL,&free_single_nodes},
-    // stmt ===> funCallStmt
+    // 35,36 stmt ===> funCallStmt
     {NULL,NULL,&free_single_nodes},
-    // assignmentStmt ===> singleOrRecId TK_ASSIGNOP arithmeticExpression TK_SEM
+    // 36,37 assignmentStmt ===> singleOrRecId TK_ASSIGNOP arithmeticExpression TK_SEM
     {NULL,NULL,&free_single_nodes},
-    // singleOrRecId ===> TK_ID new24
+    // 37,38 singleOrRecId ===> TK_ID new24
     {NULL,NULL,&free_single_nodes},
-    // new24 ===> TK_DOT TK_FIELDID
+    // 38,39 new24 ===> TK_DOT TK_FIELDID
     {NULL,NULL,&free_single_nodes},
-    // new24 ===> TK_EPS
+    // 39,40 new24 ===> TK_EPS
     {NULL,NULL,&free_single_nodes},
-    // funCallStmt ===> outputParameters TK_CALL TK_FUNID TK_WITH TK_PARAMETERS inputParameters TK_SEM
+    // 40,41 funCallStmt ===> outputParameters TK_CALL TK_FUNID TK_WITH TK_PARAMETERS inputParameters TK_SEM
     {NULL,NULL,&free_single_nodes},
-    // outputParameters ===> TK_SQL idList TK_SQR TK_ASSIGNOP
+    // 41,42 outputParameters ===> TK_SQL idList TK_SQR TK_ASSIGNOP
     {NULL,NULL,&free_single_nodes},
-    // outputParameters ===> TK_EPS
+    // 42,43 outputParameters ===> TK_EPS
     {NULL,NULL,&free_single_nodes},
-    // inputParameters ===> TK_SQL idList TK_SQR
+    // 43,44 inputParameters ===> TK_SQL idList TK_SQR
     {NULL,NULL,&free_single_nodes},
-    // iterativeStmt ===> TK_WHILE TK_OP booleanExpression TK_CL stmt otherStmts TK_ENDWHILE
+    // 44,45 iterativeStmt ===> TK_WHILE TK_OP booleanExpression TK_CL stmt otherStmts TK_ENDWHILE
+    {NULL,NULL,&iterativeStmtRule44},
+    // 45,46 conditionalStmt ===> TK_IF TK_OP booleanExpression TK_CL TK_THEN stmt otherStmts elsePart
     {NULL,NULL,&free_single_nodes},
-    // conditionalStmt ===> TK_IF TK_OP booleanExpression TK_CL TK_THEN stmt otherStmts elsePart
+    // 46,47 elsePart ===> TK_ELSE stmt otherStmts TK_ENDIF
     {NULL,NULL,&free_single_nodes},
-    // elsePart ===> TK_ELSE stmt otherStmts TK_ENDIF
+    // 47,48 elsePart ===> TK_ENDIF
     {NULL,NULL,&free_single_nodes},
-    // elsePart ===> TK_ENDIF
+    // 48,49 ioStmt ===> TK_READ TK_OP singleOrRecId TK_CL TK_SEM
     {NULL,NULL,&free_single_nodes},
-    // ioStmt ===> TK_READ TK_OP singleOrRecId TK_CL TK_SEM
+    // 49,50 ioStmt ===> TK_WRITE TK_OP allVar TK_CL TK_SEM
     {NULL,NULL,&free_single_nodes},
-    // ioStmt ===> TK_WRITE TK_OP allVar TK_CL TK_SEM
+    // 50,51 allVar ===> TK_ID newVar
     {NULL,NULL,&free_single_nodes},
-    // allVar ===> TK_ID newVar
+    // 51,52 allVar ===> TK_NUM
     {NULL,NULL,&free_single_nodes},
-    // allVar ===> TK_NUM
+    // 52,53 allVar ===> TK_RNUM
     {NULL,NULL,&free_single_nodes},
-    // allVar ===> TK_RNUM
+    // 53,54 newVar ===> TK_DOT TK_FIELDID
     {NULL,NULL,&free_single_nodes},
-    // newVar ===> TK_DOT TK_FIELDID
+    // 54,55 newVar ===> TK_EPS
     {NULL,NULL,&free_single_nodes},
-    // newVar ===> TK_EPS
+    // 55,56 arithmeticExpression ===> term expPrime
     {NULL,NULL,&free_single_nodes},
-    // arithmeticExpression ===> term expPrime
+    // 56,57 expPrime ===> lowPrecedenceOperators term expPrime
     {NULL,NULL,&free_single_nodes},
-    // expPrime ===> lowPrecedenceOperators term expPrime
+    // 57,58 expPrime ===> TK_EPS
     {NULL,NULL,&free_single_nodes},
-    // expPrime ===> TK_EPS
+    // 58,59 term ===> factor termPrime
     {NULL,NULL,&free_single_nodes},
-    // term ===> factor termPrime
+    // 59,60 termPrime ===> highPrecedenceOperators factor termPrime
     {NULL,NULL,&free_single_nodes},
-    // termPrime ===> highPrecedenceOperators factor termPrime
+    // 60,61 termPrime ===> TK_EPS
     {NULL,NULL,&free_single_nodes},
-    // termPrime ===> TK_EPS
+    // 61,62 factor ===> TK_OP arithmeticExpression TK_CL
     {NULL,NULL,&free_single_nodes},
-    // factor ===> TK_OP arithmeticExpression TK_CL
+    // 62,63 factor ===> all
     {NULL,NULL,&free_single_nodes},
-    // factor ===> all
+    // 63,64 highPrecedenceOperators ===> TK_MUL
     {NULL,NULL,&free_single_nodes},
-    // highPrecedenceOperators ===> TK_MUL
+    // 64,65 highPrecedenceOperators ===> TK_DIV
     {NULL,NULL,&free_single_nodes},
-    // highPrecedenceOperators ===> TK_DIV
+    // 65,66 lowPrecedenceOperators ===> TK_PLUS
     {NULL,NULL,&free_single_nodes},
-    // lowPrecedenceOperators ===> TK_PLUS
+    // 66,67 lowPrecedenceOperators ===> TK_MINUS
     {NULL,NULL,&free_single_nodes},
-    // lowPrecedenceOperators ===> TK_MINUS
+    // 67,68 all ===> TK_NUM
     {NULL,NULL,&free_single_nodes},
-    // all ===> TK_NUM
+    // 68,69 all ===> TK_RNUM
     {NULL,NULL,&free_single_nodes},
-    // all ===> TK_RNUM
+    // 69,70 all ===> TK_ID temp
     {NULL,NULL,&free_single_nodes},
-    // all ===> TK_ID temp
+    // 70,71 temp ===> TK_DOT TK_FIELDID
     {NULL,NULL,&free_single_nodes},
-    // temp ===> TK_DOT TK_FIELDID
+    // 71,72 temp ===> TK_EPS
     {NULL,NULL,&free_single_nodes},
-    // temp ===> TK_EPS
+    // 72,73 booleanExpression ===> TK_OP booleanExpression TK_CL logicalOp TK_OP booleanExpression TK_CL
     {NULL,NULL,&free_single_nodes},
-    // booleanExpression ===> TK_OP booleanExpression TK_CL logicalOp TK_OP booleanExpression TK_CL
+    // 73,74 booleanExpression ===> var relationalOp var
     {NULL,NULL,&free_single_nodes},
-    // booleanExpression ===> var relationalOp var
+    // 74,75 booleanExpression ===> TK_NOT TK_OP booleanExpression TK_CL
     {NULL,NULL,&free_single_nodes},
-    // booleanExpression ===> TK_NOT TK_OP booleanExpression TK_CL
+    // 75,76 var ===> TK_ID
     {NULL,NULL,&free_single_nodes},
-    // var ===> TK_ID
+    // 76,77 var ===> TK_NUM
     {NULL,NULL,&free_single_nodes},
-    // var ===> TK_NUM
+    // 77,78 var ===> TK_RNUM
     {NULL,NULL,&free_single_nodes},
-    // var ===> TK_RNUM
+    // 78,79 logicalOp ===> TK_AND
     {NULL,NULL,&free_single_nodes},
-    // logicalOp ===> TK_AND
+    // 79,80 logicalOp ===> TK_OR
     {NULL,NULL,&free_single_nodes},
-    // logicalOp ===> TK_OR
+    // 80,81 relationalOp ===> TK_LT
     {NULL,NULL,&free_single_nodes},
-    // relationalOp ===> TK_LT
+    // 81,82 relationalOp ===> TK_LE
     {NULL,NULL,&free_single_nodes},
-    // relationalOp ===> TK_LE
+    // 82,83 relationalOp ===> TK_EQ
     {NULL,NULL,&free_single_nodes},
-    // relationalOp ===> TK_EQ
+    // 83,84 relationalOp ===> TK_GT
     {NULL,NULL,&free_single_nodes},
-    // relationalOp ===> TK_GT
+    // 84,85 relationalOp ===> TK_GE
     {NULL,NULL,&free_single_nodes},
-    // relationalOp ===> TK_GE
+    // 85,86 relationalOp ===> TK_NE
     {NULL,NULL,&free_single_nodes},
-    // relationalOp ===> TK_NE
+    // 86,87 returnStmt ===> TK_RETURN optionalReturn TK_SEM
     {NULL,NULL,&free_single_nodes},
-    // returnStmt ===> TK_RETURN optionalReturn TK_SEM
+    // 87,88 optionalReturn ===> TK_SQL idList TK_SQR
     {NULL,NULL,&free_single_nodes},
-    // optionalReturn ===> TK_SQL idList TK_SQR
+    // 88,89 optionalReturn ===> TK_EPS
     {NULL,NULL,&free_single_nodes},
-    // optionalReturn ===> TK_EPS
+    // 89,90 idList ===> TK_ID more_ids
     {NULL,NULL,&free_single_nodes},
-    // idList ===> TK_ID more_ids
+    // 90,91 more_ids ===> TK_COMMA idList
     {NULL,NULL,&free_single_nodes},
-    // more_ids ===> TK_COMMA idList
-    {NULL,NULL,&free_single_nodes},
-    // more_ids ===> TK_EPS
+    // 91,92 more_ids ===> TK_EPS
     {NULL,NULL,&free_single_nodes},
 };
 

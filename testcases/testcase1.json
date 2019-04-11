@@ -118,10 +118,6 @@
 ]
 }
 ,{
-"text": { "name": "otherStmts" },
-"collapsed": true,
-"children": [
-{
 "text": { "name": "assignmentStmt" },
 "collapsed": true,
 "children": [
@@ -191,17 +187,11 @@
 }
 ]
 }
-]
-}
 ,{
 "text": { "name": "returnStmt" },
 "collapsed": true,
 "children": [
 {
-"text": { "name": "TK_RETURN:return" },
-"children":[]
-}
-,{
 "text": { "name": "TK_ID:d3" },
 "children":[]
 }
@@ -324,10 +314,6 @@
 ]
 }
 ,{
-"text": { "name": "otherStmts" },
-"collapsed": true,
-"children": [
-{
 "text": { "name": "assignmentStmt" },
 "collapsed": true,
 "children": [
@@ -397,17 +383,11 @@
 }
 ]
 }
-]
-}
 ,{
 "text": { "name": "returnStmt" },
 "collapsed": true,
 "children": [
 {
-"text": { "name": "TK_RETURN:return" },
-"children":[]
-}
-,{
 "text": { "name": "TK_ID:d3" },
 "children":[]
 }
@@ -495,13 +475,7 @@
 }
 ,{
 "text": { "name": "returnStmt" },
-"collapsed": true,
-"children": [
-{
-"text": { "name": "TK_RETURN:return" },
 "children":[]
-}
-]
 }
 ]
 }

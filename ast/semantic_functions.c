@@ -341,3 +341,30 @@ void a_gives_b_a_reduce_with_both(void *tv){
     root_a->num_child=new_num_children;
     free(child_a1);
 }
+
+// 44,45 iterativeStmt ===> TK_WHILE TK_OP booleanExpression TK_CL stmt otherStmts TK_ENDWHILE
+void iterativeStmtRule44(void *tv){
+    Tree root=(Tree)tv;
+    Tree booleanExpressionNode=root->child[2];
+    Tree stmtNode=root->child[4];
+    Tree otherStmtsNode=root->child[5];
+    int newNumChild=1+1+ otherStmtsNode->num_child;
+    if(otherStmtsNode->child==NULL || otherStmtsNode->child[0]==NULL){
+        newNumChild-=1;
+    }
+    Tree *newChild=malloc(sizeof(Tree)*newNumChild);
+    int i=0;
+    newChild[i++]=booleanExpressionNode;
+    newChild[i++]=stmtNode->child[0];
+    int j=0;
+    while(i<newNumChild){
+        newChild[i++]=otherStmtsNode->child[j++];
+    }
+    root->num_child=newNumChild;
+    free(root->child[0]);
+    free(root->child[1]);
+    free(root->child[3]);
+    free(root->child[6]);
+    free(root->child);
+    root->child=newChild;
+}
