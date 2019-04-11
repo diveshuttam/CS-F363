@@ -259,7 +259,7 @@ void printParsedOutput(char* testcase_file){
 	hashTable ht_non_terminals = NULL;
     ht_non_terminals=newHashTable(NO_OF_NON_TERMINALS*ALPHA_INV,HASH_A,HASH_B);
 	for(int i=0;i<NO_OF_NON_TERMINALS;i++){
-		insert(non_terminals_map[i],i,ht_non_terminals);
+		insertInt(non_terminals_map[i],i,ht_non_terminals);
 	}
 
 	initialize_tnt(non_terminals,terminals,(const char**) terminals_map,(const char**) non_terminals_map,(const hashTable) ht_terminals,(const hashTable)ht_non_terminals);
@@ -343,7 +343,7 @@ void printJSON(Tree t, FILE *fp){
 	hashTable ht_non_terminals = NULL;
     ht_non_terminals=newHashTable(NO_OF_NON_TERMINALS*ALPHA_INV,HASH_A,HASH_B);
 	for(int i=0;i<NO_OF_NON_TERMINALS;i++){
-		insert(non_terminals_map[i],i,ht_non_terminals);
+		insertInt(non_terminals_map[i],i,ht_non_terminals);
 	}
 
 	initialize_tnt(non_terminals,terminals,(const char**) terminals_map,(const char**) non_terminals_map,(const hashTable) ht_terminals,(const hashTable)ht_non_terminals);

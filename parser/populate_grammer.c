@@ -32,7 +32,7 @@ void follows(NonTerminal* non_terminals, Terminal* terminals, const char** non_t
 		char* pch = NULL;;
 		while((read = getline(&line,&len,fp)) != -1){
 			pch = strtok(line," \n");
-			i = findHT(pch,ht_non_terminals);
+			i = findHTInt(pch,ht_non_terminals);
 			non_terminals[i].follows_size=0;
 			non_terminals[i].follows = malloc(sizeof(Terminal*)*MAX_RHS);
 			int j = 0 ;
@@ -40,7 +40,7 @@ void follows(NonTerminal* non_terminals, Terminal* terminals, const char** non_t
 			fflush(stdout);
 			pch = strtok(NULL," \n");
 			while(pch != NULL){
-				non_terminals[i].follows[j] = &terminals[findHT(pch,ht_terminals)];
+				non_terminals[i].follows[j] = &terminals[findHTInt(pch,ht_terminals)];
 				non_terminals[i].follows_size++;
 				debug_msg("%s %d ",non_terminals[i].follows[j]->name,non_terminals[i].follows[j]->StateId);
 				j++;
@@ -69,7 +69,7 @@ void firsts(NonTerminal* non_terminals, Terminal* terminals, const char** non_te
 
 		while((read = getline(&line,&len,fp)) != -1 && (read!=0)){
 			pch = strtok(line," \n");
-			i = findHT(pch,ht_non_terminals);
+			i = findHTInt(pch,ht_non_terminals);
 			non_terminals[i].firsts=malloc(sizeof(Terminal*)*MAX_RHS);
 			non_terminals[i].firsts_size=0;
 			int j = 0 ;
@@ -77,7 +77,7 @@ void firsts(NonTerminal* non_terminals, Terminal* terminals, const char** non_te
 			pch = strtok(NULL," \n");
 			
 			while(pch != NULL){
-				non_terminals[i].firsts[j]=&terminals[findHT(pch,ht_terminals)];
+				non_terminals[i].firsts[j]=&terminals[findHTInt(pch,ht_terminals)];
 				non_terminals[i].firsts_size++;
 				debug_msg("%s %d ",non_terminals[i].firsts[j]->name,non_terminals[i].firsts[j]->StateId);
 				j++;
@@ -118,7 +118,7 @@ grammerRule* grammer(const NonTerminal* non_terminals,const Terminal* terminals,
 				debug_msg("error %s hola %s\n",pch1,line);
 				exit(0);
 			}
-			int nt = findHT(pch,ht_non_terminals);
+			int nt = findHTInt(pch,ht_non_terminals);
 			g[count].lhs=(NonTerminal*)&non_terminals[nt];
 			g[count].rhs=(TerminalNonTerminal**)malloc(sizeof(TerminalNonTerminal*)*MAX_RHS);
 			g[count].num_of_rhs=0;
@@ -127,8 +127,8 @@ grammerRule* grammer(const NonTerminal* non_terminals,const Terminal* terminals,
 			debug_msg("n:%d:%s ===> ",nt,pch);
 			pch = strtok(NULL," \n");
 			while(pch != NULL){
-				int nt=findHT(pch,ht_non_terminals);
-				int t=findHT(pch,ht_terminals);
+				int nt=findHTInt(pch,ht_non_terminals);
+				int t=findHTInt(pch,ht_terminals);
 				if((t==-1 && nt==-1) || (t!=-1 && nt!=-1)){
 					debug_msg("error%s\n",pch);
 					exit(1);
@@ -193,7 +193,7 @@ char **get_non_terminals_map(){
 
 void initialize_tnt(NonTerminal *non_terminals,Terminal *terminals,const char **terminals_map,const char **non_terminals_map,const hashTable ht_terminals,const hashTable ht_non_terminals){
 	for(int i=0;i<NO_OF_NON_TERMINALS;i++){
-		int k=findHT(non_terminals_map[i],ht_non_terminals);
+		int k=findHTInt(non_terminals_map[i],ht_non_terminals);
 		debug_msg("assigning %s with key %d\n",non_terminals_map[i],k);
 		fflush(stdout);
 		if(k!=-1){
@@ -212,12 +212,12 @@ void initialize_tnt(NonTerminal *non_terminals,Terminal *terminals,const char **
 	}
 
 	for(int i=0;i<NO_OF_TERMINALS;i++){
-		int k=findHT(terminals_map[i],ht_terminals);
+		int k=findHTInt(terminals_map[i],ht_terminals);
 		debug_msg("assigning terminal %s with key %d\n",terminals_map[i],k);
 		fflush(stdout);
 		if(k!=-1){
 			terminals[i].name=(char *)terminals_map[i];
-			terminals[i].StateId=findHT(terminals_map[i],ht_terminals);
+			terminals[i].StateId=findHTInt(terminals_map[i],ht_terminals);
 		}else{
 			terminals[i].name=NULL;
 			terminals[i].StateId=-1;

@@ -35,7 +35,7 @@ Token* getNextToken(Stream s){
 		keywords=malloc(sizeof(hashTable));
 		*keywords=get_keyword_hasht();
 	}
-	int a=findHT(tk->val,*keywords);
+	int a=findHTInt(tk->val,*keywords);
 	if(a!=-1){
 		tk->state=a;
 	}
