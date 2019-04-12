@@ -112,9 +112,27 @@ Tree parseTree(Stream token_stream,const grammerRule **table,const grammerRule *
             gr=table[tnt->t.s.nt->key][tk->state];
             print_grammer_rule(gr);
             assign_semantic_actions(crr,&gr);
-            if(gr.id==-1){
-                debug_msg("error in parsing");
-
+            if(gr.id==-1)
+            {
+                printf("Syntax Error at %d ", tk->line_no);
+                if(tnt->t.type=='n')
+                {
+                    while(1)
+                    {
+                        tk = getNextToken(token_stream);
+                        if(tk==NULL)
+                            break;
+                        if(table[tnt->t.s.nt->key][tk->state].id==-2)
+                        {
+                            if(table[tnt->t.s.nt->key][tk->state].part_of_first!=1)
+                            {
+                                pop(s);
+                                break;
+                            }
+                            break;
+                        } 
+                    }
+                }
             }
             int rhs_size = gr.num_of_rhs;
             int j=rhs_size-1;

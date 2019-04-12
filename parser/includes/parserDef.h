@@ -49,6 +49,7 @@ typedef struct grammerRule{
     int num_of_rhs;
     int isError;
     int id;
+    int part_of_first; //to differentiate between syn set of first and follows
 } grammerRule;
 
 typedef struct Tree *Tree;
