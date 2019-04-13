@@ -6,9 +6,8 @@
 #include"populate_grammer.h"
 #include "hash.h"
 #include "token.h"
-#include "semantic_actions.h"
 #include "colors.h"
-#include "traversal.h"
+#include "ast.h"
 
 struct item
 {
@@ -67,6 +66,7 @@ item*  get_start_symbol_item(const grammerRule* start_rule)
         i->node->num_child=-1;
         i->node->t=i->t;
         i->node->tk=NULL;
+        i->node->gr_no=start_rule->id;
     }
     return i;
 }
@@ -111,11 +111,10 @@ Tree parseTree(Stream token_stream,const grammerRule **table,const grammerRule *
             
             gr=table[tnt->t.s.nt->key][tk->state];
             print_grammer_rule(gr);
-            assign_semantic_actions(crr,&gr);
             if(gr.id==-1){
                 debug_msg("error in parsing");
-
             }
+            crr->gr_no=gr.id;
             int rhs_size = gr.num_of_rhs;
             int j=rhs_size-1;
             crr->child=malloc(sizeof(Tree)*rhs_size);
@@ -135,8 +134,6 @@ Tree parseTree(Stream token_stream,const grammerRule **table,const grammerRule *
                     (crr->child)[j]->num_child=-1;
                     (crr->child)[j]->t=to_be_pushed->t;
                     (crr->child)[j]->tk=NULL;
-                    (crr->child)[j]->SemanticActions=NULL;
-                    (crr->child)[j]->num_rules=0;
                     push(s,make_stack_element(to_be_pushed));
                 }
             }
@@ -173,8 +170,6 @@ Tree parseTree(Stream token_stream,const grammerRule **table,const grammerRule *
             if(tnt->t.type=='t' && tnt->t.s.t->StateId ==tk->state)
             {
                 Tree crr=tnt->node;
-                crr->SemanticActions=NULL;
-                crr->SemanticActions=0;
                 // assign_semantic_actions(crr,&gr);
                 pop(s);
                 if(tnt->t.type=='t' && tnt->t.s.t->StateId!=TK_EPS){
@@ -394,7 +389,7 @@ void printJSON(Tree t, FILE *fp){
 		return;
 	}
     Tree t=parseTree(s,(const grammerRule**)table,g,&g[0],&terminals[TK_DOLLAR]);
-    post_order_traversal(t);
+    t=convert_parse_to_ast(t);
     FILE *fp=fopen(outfile,"w");
     if(fp==NULL){
         printf("Error opening file %s\n",outfile);

@@ -51,38 +51,6 @@
 "text": { "name": "TK_ID:b5b567" },
 "children":[]
 }
-,{
-"text": { "name": "TK_GLOBAL:global" },
-"children":[]
-}
-]
-}
-,{
-"text": { "name": "declaration" },
-"collapsed": true,
-"children": [
-{
-"text": { "name": "TK_INT:int" },
-"children":[]
-}
-,{
-"text": { "name": "TK_ID:b3" },
-"children":[]
-}
-]
-}
-,{
-"text": { "name": "declaration" },
-"collapsed": true,
-"children": [
-{
-"text": { "name": "TK_REAL:real" },
-"children":[]
-}
-,{
-"text": { "name": "TK_ID:c3bd" },
-"children":[]
-}
 ]
 }
 ,{
@@ -166,18 +134,32 @@
 "children":[]
 }
 ,{
-"text": { "name": "TK_PLUS:+" },
-"collapsed": true,
-"children": [
-{
-"text": { "name": "TK_ID:c3bd" },
-"children":[]
-}
-,{
 "text": { "name": "TK_ID:c3bd" },
 "children":[]
 }
 ]
+}
+]
+}
+,{
+"text": { "name": "assignmentStmt" },
+"collapsed": true,
+"children": [
+{
+"text": { "name": "TK_ID:b5b567" },
+"children":[]
+}
+,{
+"text": { "name": "TK_PLUS:+" },
+"collapsed": true,
+"children": [
+{
+"text": { "name": "TK_ID:b5b567" },
+"children":[]
+}
+,{
+"text": { "name": "TK_NUM:1" },
+"children":[]
 }
 ]
 }
@@ -190,7 +172,7 @@
 "collapsed": true,
 "children": [
 {
-"text": { "name": "TK_ID:b5b567" },
+"text": { "name": "TK_ID:d3" },
 "children":[]
 }
 ]
@@ -206,43 +188,25 @@
 "collapsed": true,
 "children": [
 {
+"text": { "name": "TK_INT:int" },
+"children":[]
+}
+,{
+"text": { "name": "TK_ID:b3" },
+"children":[]
+}
+]
+}
+,{
+"text": { "name": "declaration" },
+"collapsed": true,
+"children": [
+{
 "text": { "name": "TK_REAL:real" },
 "children":[]
 }
 ,{
 "text": { "name": "TK_ID:c4bd56" },
-"children":[]
-}
-]
-}
-,{
-"text": { "name": "declaration" },
-"collapsed": true,
-"children": [
-{
-"text": { "name": "TK_INT:int" },
-"children":[]
-}
-,{
-"text": { "name": "TK_ID:c2" },
-"children":[]
-}
-]
-}
-,{
-"text": { "name": "declaration" },
-"collapsed": true,
-"children": [
-{
-"text": { "name": "TK_INT:int" },
-"children":[]
-}
-,{
-"text": { "name": "TK_ID:b5b567" },
-"children":[]
-}
-,{
-"text": { "name": "TK_GLOBAL:global" },
 "children":[]
 }
 ]
@@ -262,20 +226,6 @@
 ]
 }
 ,{
-"text": { "name": "ioStmt" },
-"collapsed": true,
-"children": [
-{
-"text": { "name": "TK_READ:read" },
-"children":[]
-}
-,{
-"text": { "name": "TK_ID:c2" },
-"children":[]
-}
-]
-}
-,{
 "text": { "name": "funCallStmt" },
 "collapsed": true,
 "children": [
@@ -288,7 +238,7 @@
 "children":[]
 }
 ,{
-"text": { "name": "TK_ID:c2" },
+"text": { "name": "TK_ID:b3" },
 "children":[]
 }
 ]

@@ -1,36 +1,49 @@
 #include "symbolTable.h"
-#include "hash.h"
 #include "stdio.h"
-#define ALPHA_INV 1.33
-#define HASH_A 5
-#define HASH_B 5183
+
+#include <stdlib.h>
 
 struct SymbolTable {
     int size;
     hashTable ht;
+    SeqList sl;
 };
 
-//currentSymbolTable
-static SymbolTable cST;
-//global symbol table
-static SymbolTable gST;
-
-SymbolTable getCurrentSymbolTable(){
-    return cST;
+SymbolTable createST(){
+    SymbolTable st=malloc(sizeof(struct SymbolTable));
+    st->ht=newHashTable(MAX_VAR*ALPHA_INV, HASH_A,HASH_B);
+    st->sl=newList();
+    return st;
 }
 
-SymbolTable globalSymbolTable(){
-    return gST;
-}
-
-int getSize(SymbolTable st){
-    return st->size;
-}
-
-SymbolTable createSymbolTable(){
-    if(gST==NULL){
-        gST=malloc(sizeof(struct SymbolTable));
-        gST->ht=newHashTable(MAX_FUN,HASH_A,HASH_B);
-        gST->size=0;
+void insertST(char *key, StEntry value, SymbolTable st){
+    if(st==NULL)
+    {
+        st=createST();
     }
+    insert(key,value,st->ht);
+}
+
+
+void* findST(char *key, SymbolTable st){
+    if(st==NULL){
+        return NULL;
+    }
+    return findHT(key,st->ht);
+}
+
+void setMemoryOfVarInSymbolTable(SymbolTable st,int new_size)
+{
+    if(st==NULL){
+        return;
+    }
+    st->size=new_size;
+}
+
+int getMemoryOfVarInSymbolTable(SymbolTable st)
+{
+    if(st==NULL){
+        return -1;
+    }
+    return st->size;
 }

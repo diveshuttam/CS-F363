@@ -57,12 +57,9 @@ struct Tree
 {
     TerminalNonTerminal t;
     int num_child;
+    int gr_no;
     Tree* child;
     Token *tk;
-
-    int num_rules;
-    ptr_to_func_ptr SemanticActions;
-
     #include "derived_attributes.xfile"
 };
 

@@ -8,7 +8,7 @@
 "collapsed": true,
 "children": [
 {
-"text": { "name": "TK_FUNID:_addRecords" },
+"text": { "name": "TK_FUNID:_readMarks" },
 "children":[]
 }
 ,{
@@ -20,23 +20,7 @@
 "children":[]
 }
 ,{
-"text": { "name": "TK_ID:b2" },
-"children":[]
-}
-,{
-"text": { "name": "TK_RECORD:record" },
-"children":[]
-}
-,{
-"text": { "name": "TK_ID:c3b5" },
-"children":[]
-}
-,{
-"text": { "name": "TK_RECORD:record" },
-"children":[]
-}
-,{
-"text": { "name": "TK_ID:c3b6" },
+"text": { "name": "TK_ID:b7" },
 "children":[]
 }
 ]
@@ -46,7 +30,7 @@
 "collapsed": true,
 "children": [
 {
-"text": { "name": "TK_RECORD:record" },
+"text": { "name": "TK_RECORDID:#marks" },
 "children":[]
 }
 ,{
@@ -56,49 +40,329 @@
 ]
 }
 ,{
+"text": { "name": "ioStmt" },
+"collapsed": true,
+"children": [
+{
+"text": { "name": "TK_READ:read" },
+"children":[]
+}
+,{
+"text": { "name": "TK_DOT:." },
+"collapsed": true,
+"children": [
+{
+"text": { "name": "TK_ID:b3c45" },
+"children":[]
+}
+,{
+"text": { "name": "TK_FIELDID:maths" },
+"children":[]
+}
+]
+}
+]
+}
+,{
+"text": { "name": "ioStmt" },
+"collapsed": true,
+"children": [
+{
+"text": { "name": "TK_READ:read" },
+"children":[]
+}
+,{
+"text": { "name": "TK_DOT:." },
+"collapsed": true,
+"children": [
+{
+"text": { "name": "TK_ID:b3c45" },
+"children":[]
+}
+,{
+"text": { "name": "TK_FIELDID:physics" },
+"children":[]
+}
+]
+}
+]
+}
+,{
+"text": { "name": "ioStmt" },
+"collapsed": true,
+"children": [
+{
+"text": { "name": "TK_READ:read" },
+"children":[]
+}
+,{
+"text": { "name": "TK_DOT:." },
+"collapsed": true,
+"children": [
+{
+"text": { "name": "TK_ID:b3c45" },
+"children":[]
+}
+,{
+"text": { "name": "TK_FIELDID:chemistry" },
+"children":[]
+}
+]
+}
+]
+}
+,{
+"text": { "name": "returnStmt" },
+"collapsed": true,
+"children": [
+{
+"text": { "name": "TK_ID:b3c45" },
+"children":[]
+}
+]
+}
+]
+}
+,{
+"text": { "name": "mainFunction" },
+"collapsed": true,
+"children": [
+{
+"text": { "name": "typeDefinition" },
+"collapsed": true,
+"children": [
+{
+"text": { "name": "TK_RECORDID:#marks" },
+"children":[]
+}
+,{
+"text": { "name": "fieldDefinition" },
+"collapsed": true,
+"children": [
+{
+"text": { "name": "TK_REAL:real" },
+"children":[]
+}
+,{
+"text": { "name": "TK_FIELDID:maths" },
+"children":[]
+}
+]
+}
+,{
+"text": { "name": "fieldDefinition" },
+"collapsed": true,
+"children": [
+{
+"text": { "name": "TK_REAL:real" },
+"children":[]
+}
+,{
+"text": { "name": "TK_FIELDID:physics" },
+"children":[]
+}
+]
+}
+,{
+"text": { "name": "fieldDefinition" },
+"collapsed": true,
+"children": [
+{
+"text": { "name": "TK_REAL:real" },
+"children":[]
+}
+,{
+"text": { "name": "TK_FIELDID:chemistry" },
+"children":[]
+}
+]
+}
+]
+}
+,{
+"text": { "name": "declaration" },
+"collapsed": true,
+"children": [
+{
+"text": { "name": "TK_RECORDID:#marks" },
+"children":[]
+}
+,{
+"text": { "name": "TK_ID:d4" },
+"children":[]
+}
+]
+}
+,{
+"text": { "name": "declaration" },
+"collapsed": true,
+"children": [
+{
+"text": { "name": "TK_INT:int" },
+"children":[]
+}
+,{
+"text": { "name": "TK_ID:b5" },
+"children":[]
+}
+]
+}
+,{
+"text": { "name": "declaration" },
+"collapsed": true,
+"children": [
+{
+"text": { "name": "TK_INT:int" },
+"children":[]
+}
+,{
+"text": { "name": "TK_ID:d5cb34567" },
+"children":[]
+}
+]
+}
+,{
+"text": { "name": "declaration" },
+"collapsed": true,
+"children": [
+{
+"text": { "name": "TK_RECORDID:#marks" },
+"children":[]
+}
+,{
+"text": { "name": "TK_ID:b5c6" },
+"children":[]
+}
+]
+}
+,{
+"text": { "name": "assignmentStmt" },
+"collapsed": true,
+"children": [
+{
+"text": { "name": "TK_ID:b5" },
+"children":[]
+}
+,{
+"text": { "name": "TK_NUM:1" },
+"children":[]
+}
+]
+}
+,{
+"text": { "name": "ioStmt" },
+"collapsed": true,
+"children": [
+{
+"text": { "name": "TK_READ:read" },
+"children":[]
+}
+,{
+"text": { "name": "TK_ID:d5cb34567" },
+"children":[]
+}
+]
+}
+,{
+"text": { "name": "assignmentStmt" },
+"collapsed": true,
+"children": [
+{
+"text": { "name": "TK_DOT:." },
+"collapsed": true,
+"children": [
+{
+"text": { "name": "TK_ID:b5c6" },
+"children":[]
+}
+,{
+"text": { "name": "TK_FIELDID:maths" },
+"children":[]
+}
+]
+}
+,{
+"text": { "name": "TK_RNUM:0.00" },
+"children":[]
+}
+]
+}
+,{
+"text": { "name": "assignmentStmt" },
+"collapsed": true,
+"children": [
+{
+"text": { "name": "TK_DOT:." },
+"collapsed": true,
+"children": [
+{
+"text": { "name": "TK_ID:b5c6" },
+"children":[]
+}
+,{
+"text": { "name": "TK_FIELDID:physics" },
+"children":[]
+}
+]
+}
+,{
+"text": { "name": "TK_RNUM:0.00" },
+"children":[]
+}
+]
+}
+,{
+"text": { "name": "assignmentStmt" },
+"collapsed": true,
+"children": [
+{
+"text": { "name": "TK_DOT:." },
+"collapsed": true,
+"children": [
+{
+"text": { "name": "TK_ID:b5c6" },
+"children":[]
+}
+,{
+"text": { "name": "TK_FIELDID:chemistry" },
+"children":[]
+}
+]
+}
+,{
+"text": { "name": "TK_RNUM:0.00" },
+"children":[]
+}
+]
+}
+,{
+"text": { "name": "iterativeStmt" },
+"collapsed": true,
+"children": [
+{
+"text": { "name": "booleanExpression" },
+"collapsed": true,
+"children": [
+{
+"text": { "name": "TK_ID:b5" },
+"children":[]
+}
+,{
+"text": { "name": "TK_LE:<=" },
+"children":[]
+}
+,{
+"text": { "name": "TK_ID:d5cb34567" },
+"children":[]
+}
+]
+}
+,{
 "text": { "name": "funCallStmt" },
 "collapsed": true,
 "children": [
 {
-"text": { "name": "outputParameters" },
-"collapsed": true,
-"children": [
-{
-"text": { "name": "TK_SQL:[" },
-"children":[]
-}
-,{
-"text": { "name": "idList" },
-"collapsed": true,
-"children": [
-{
-"text": { "name": "TK_ID:c3b5" },
-"children":[]
-}
-,{
-"text": { "name": "more_ids" },
-"collapsed": true,
-"children": [
-{
-"text": { "name": "NULL" },
-"children": []
-}
-]
-}
-]
-}
-,{
-"text": { "name": "TK_SQR:]" },
-"children":[]
-}
-,{
-"text": { "name": "TK_ASSIGNOP:<---" },
-"children":[]
-}
-]
-}
-,{
-"text": { "name": "TK_CALL:call" },
+"text": { "name": "TK_ID:d4" },
 "children":[]
 }
 ,{
@@ -106,87 +370,175 @@
 "children":[]
 }
 ,{
-"text": { "name": "TK_WITH:with" },
+"text": { "name": "TK_ID:b5" },
 "children":[]
 }
-,{
-"text": { "name": "TK_PARAMETERS:parameters" },
-"children":[]
+]
 }
 ,{
-"text": { "name": "inputParameters" },
+"text": { "name": "assignmentStmt" },
 "collapsed": true,
 "children": [
 {
-"text": { "name": "TK_SQL:[" },
+"text": { "name": "TK_ID:b5c6" },
 "children":[]
 }
 ,{
-"text": { "name": "idList" },
+"text": { "name": "TK_PLUS:+" },
 "collapsed": true,
 "children": [
 {
-"text": { "name": "TK_ID:b2" },
+"text": { "name": "TK_ID:b5c6" },
 "children":[]
 }
 ,{
-"text": { "name": "more_ids" },
-"collapsed": true,
-"children": [
-{
-"text": { "name": "NULL" },
-"children": []
+"text": { "name": "TK_ID:d4" },
+"children":[]
 }
 ]
 }
 ]
 }
 ,{
-"text": { "name": "TK_SQR:]" },
+"text": { "name": "assignmentStmt" },
+"collapsed": true,
+"children": [
+{
+"text": { "name": "TK_ID:b5" },
+"children":[]
+}
+,{
+"text": { "name": "TK_PLUS:+" },
+"collapsed": true,
+"children": [
+{
+"text": { "name": "TK_ID:b5" },
+"children":[]
+}
+,{
+"text": { "name": "TK_NUM:1" },
 "children":[]
 }
 ]
-}
-,{
-"text": { "name": "TK_SEM:;" },
-"children":[]
-}
-]
-}
-,{
-"text": { "name": "funCallStmt" },
-"collapsed": true,
-"children": [
-{
-"text": { "name": "outputParameters" },
-"collapsed": true,
-"children": [
-{
-"text": { "name": "TK_SQL:[" },
-"children":[]
-}
-,{
-"text": { "name": "idList" },
-"collapsed": true,
-"children": [
-{
-"text": { "name": "TK_ID:c3b6" },
-"children":[]
-}
-,{
-"text": { "name": "more_ids" },
-"collapsed": true,
-"children": [
-{
-"text": { "name": "NULL" },
-"children": []
 }
 ]
 }
 ]
 }
 ,{
-"text": { "name": "TK_SQR:]" },
+"text": { "name": "assignmentStmt" },
+"collapsed": true,
+"children": [
+{
+"text": { "name": "TK_ID:d4" },
 "children":[]
 }
-,
+,{
+"text": { "name": "TK_DIV:/" },
+"collapsed": true,
+"children": [
+{
+"text": { "name": "factor" },
+"collapsed": true,
+"children": [
+{
+"text": { "name": "TK_ID:b5c6" },
+"children":[]
+}
+]
+}
+,{
+"text": { "name": "factor" },
+"collapsed": true,
+"children": [
+{
+"text": { "name": "TK_ID:d5cb34567" },
+"children":[]
+}
+]
+}
+]
+}
+]
+}
+,{
+"text": { "name": "ioStmt" },
+"collapsed": true,
+"children": [
+{
+"text": { "name": "TK_WRITE:write" },
+"children":[]
+}
+,{
+"text": { "name": "TK_DOT:." },
+"collapsed": true,
+"children": [
+{
+"text": { "name": "TK_ID:d4" },
+"children":[]
+}
+,{
+"text": { "name": "TK_FIELDID:maths" },
+"children":[]
+}
+]
+}
+]
+}
+,{
+"text": { "name": "ioStmt" },
+"collapsed": true,
+"children": [
+{
+"text": { "name": "TK_WRITE:write" },
+"children":[]
+}
+,{
+"text": { "name": "TK_DOT:." },
+"collapsed": true,
+"children": [
+{
+"text": { "name": "TK_ID:d4" },
+"children":[]
+}
+,{
+"text": { "name": "TK_FIELDID:physics" },
+"children":[]
+}
+]
+}
+]
+}
+,{
+"text": { "name": "ioStmt" },
+"collapsed": true,
+"children": [
+{
+"text": { "name": "TK_WRITE:write" },
+"children":[]
+}
+,{
+"text": { "name": "TK_DOT:." },
+"collapsed": true,
+"children": [
+{
+"text": { "name": "TK_ID:d4" },
+"children":[]
+}
+,{
+"text": { "name": "TK_FIELDID:chemistry" },
+"children":[]
+}
+]
+}
+]
+}
+,{
+"text": { "name": "returnStmt" },
+"children":[]
+}
+]
+}
+]
+}
+}

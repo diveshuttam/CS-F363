@@ -1,35 +1,32 @@
-all: utility lexer parser ast1 driver graphics
+CC = gcc
+CCFLAGS = -g -c -Wall -Wpedantic
+DEFINES = -D __DEBUG  -D __MY_OWN_DATA_ELE -D __WITHOUT_KEY
+AST_DIR = ./ast
+LEXER_DIR = ./lexer
+PARSER_DIR = ./parser
+ST_DIR = ./symboltable
+UTILS_DIR = ./utils
+INCLUDES = $(addprefix -I , $(addsuffix /includes, $(AST_DIR) $(LEXER_DIR) $(PARSER_DIR) $(ST_DIR) $(UTILS_DIR)))
 
-ast1: ./ast/semantic_functions_ast.c ./semantic_actions/traversal.c ./semantic_actions/semantic_actions.c ./ast/to_remove.c
-	gcc -g -c -Wall -Wpedantic -D __DEBUG  -D __MY_OWN_DATA_ELE -D __WITHOUT_KEY -I parser/includes/ -I utils/includes/ -I lexer/includes/ -I semantic_actions/includes -I ast/includes  ./ast/semantic_functions_ast.c ./semantic_actions/traversal.c ./semantic_actions/semantic_actions.c ./ast/to_remove.c
+GCC_CMD = $(CC) $(CCFLAGS) $(DEFINES) $(INCLUDES)
 
-graphics: parser lexer utility ast
-	gcc -g -c -Wall -Wpedantic -D __DEBUG  -D __MY_OWN_DATA_ELE -D __WITHOUT_KEY -I parser/includes/ -I utils/includes/ -I lexer/includes/ -I ast/includes -I semantic_actions/includes graphics/visualize.c
-	gcc visualize.o populate_dfa.o populate_grammer.o token.o hash.o transition.o SeqList.o lexer.o twin_buffer.o parser.o Stack.o parse_table.o semantic_functions_ast.o traversal.o semantic_actions.o to_remove.o -o visualize_exe
+AST_CFILES_temp = ast.c semantic_functions_ast.c to_remove.c
+AST_CFILES = $(addprefix $(AST_DIR)/,$(AST_CFILES_temp))
+LEXER_CFILES_temp = lexer.c populate_dfa.c token.c transition.c twin_buffer.c
+LEXER_CFILES = $(addprefix $(LEXER_DIR)/,$(LEXER_CFILES_temp))
+PARSER_CFILES_temp = parser.c populate_grammer.c parse_table.c
+PARSER_CFILES = $(addprefix $(PARSER_DIR)/,$(PARSER_CFILES_temp))
+ST_CFILES_temp = symbolTable.c semantic_functions_st.c
+ST_CFILES = $(addprefix $(ST_DIR)/,$(ST_CFILES_temp))
+UTILS_CFILES_temp = hash.c SeqList.c Stack.c
+UTILS_CFILES = $(addprefix $(UTILS_DIR)/,$(UTILS_CFILES_temp))
 
-driver: parser lexer utility ast
-	gcc -g -c -Wall -Wpedantic -D __DEBUG  -D __MY_OWN_DATA_ELE -D __WITHOUT_KEY -I parser/includes/ -I utils/includes/ -I lexer/includes/ -I ast/includes -I semantic_actions/includes driver.c 
-	gcc driver.o populate_dfa.o populate_grammer.o token.o hash.o transition.o SeqList.o lexer.o twin_buffer.o parser.o Stack.o parse_table.o semantic_functions_ast.o traversal.o semantic_actions.o to_remove.o -o stage1exe
+ALL_CFILES = $(AST_CFILES) $(LEXER_CFILES) $(PARSER_CFILES) $(ST_CFILES) $(UTILS_CFILES)
+ALL_OFILES = $(addsuffix .o, $(basename $(ALL_CFILES)))
+all:utils/hash.o
 
-parser:utility parser/rules/firsts.txt parser/populate_grammer.c lexer/token.c parser/includes/ parser/parse_table.c lexer/token.c ast utility
-	gcc -g -c -Wall -Wpedantic -D __DEBUG  -D __MY_OWN_DATA_ELE -D __WITHOUT_KEY -I parser/includes/ -I utils/includes/ -I lexer/includes/ -I ast/includes -I semantic_actions/includes ./parser/populate_grammer.c ./lexer/token.c ./parser/parse_table.c ./parser/parser.c
-
-lexer:utility lexer/token.c lexer/includes/ lexer/transition.c lexer/lexer.c lexer/populate_dfa.c lexer/twin_buffer.c utils
-	gcc -g -c -Wall -Wpedantic -D __DEBUG  -D __MY_OWN_DATA_ELE -D __WITHOUT_KEY -I lexer/includes/ -I utils/includes/ lexer/token.c lexer/transition.c lexer/lexer.c lexer/populate_dfa.c lexer/twin_buffer.c
-
-hash.o: utils/hash.c utils/includes/hash.h utils/includes/SeqList.h
-	gcc -g -c -Wall -Wpedantic -D __DEBUG  -D __MY_OWN_DATA_ELE -D __WITHOUT_KEY -I utils/includes/ utils/hash.c
-
-StackTree.o: utils/SeqListTree.c utils/SeqListTree.h utils/StackTree.c
-	gcc -g -c -Wall -Wpedantic -D __DEBUG  -D __MY_OWN_DATA_ELE -D __WITHOUT_KEY -I utils/includes/ utils/StackTree.c
-
-SeqList.o: utils/includes/SeqList.h utils/SeqList.c
-	gcc -g -c -Wall -Wpedantic -D __DEBUG  -D __MY_OWN_DATA_ELE -D __WITHOUT_KEY -I utils/includes/ utils/SeqList.c
-
-Stack.o:
-	gcc -g -c -Wall -Wpedantic -D __DEBUG  -D __MY_OWN_DATA_ELE -D __WITHOUT_KEY -I utils/includes/ utils/Stack.c 
-
-utility:hash.o SeqList.o Stack.o
+%.o: %.c $(ALL_CFILES)
+	$(GCC_CMD) -c -o $@ $<
 
 clean:
-	rm -rf *.o
+	rm -I $(ALL_OFILES)

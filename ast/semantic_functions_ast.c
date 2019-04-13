@@ -345,7 +345,11 @@ void a_gives_b_a_reduce_with_both(void *tv){
 
 // 19,20 typeDefinition ===> TK_RECORD TK_RECORDID fieldDefinitions TK_ENDRECORD TK_SEM
 void typeDefinitionRule19(void *tv){
-
+    Tree t = (Tree)tv;
+    t->num_child=2;
+    t->child[0]=t->child[1];
+    t->child[1]=t->child[2];
+    a_gives_b_a_reduce(t);
 }
 
 // 44,45 iterativeStmt ===> TK_WHILE TK_OP booleanExpression TK_CL stmt otherStmts TK_ENDWHILE
@@ -395,8 +399,7 @@ void arithmeticExpressionRule55(void *tv)
         operator_node->child[0]=termNode;
         Tree expPrime1Node = expPrimeNode->child[1];
         operator_node->child[1]=expPrime1Node;
-        operator_node->SemanticActions=NULL;
-        operator_node->num_rules=0;
+        operator_node->gr_no=-5;
     }
     free(t->child);
     t->child=new_child;
@@ -420,8 +423,7 @@ void allRule69(void *tv){
         tk_dot_node->child=malloc(sizeof(Tree)*2);
         tk_dot_node->child[0]=tk_id_node;
         tk_dot_node->child[1]=tk_fieldid_node;
-        tk_dot_node->SemanticActions=NULL;
-        tk_dot_node->num_rules=0;
+        tk_dot_node->gr_no=-5;
     }
     t->num_child=1;
     free(t->child);
@@ -455,8 +457,7 @@ void termRule58(void *tv){
         tk_operator_node->child=malloc(sizeof(Tree)*2);
         tk_operator_node->child[0]=factorNode;
         tk_operator_node->child[1]=factor1_node;
-        tk_operator_node->SemanticActions=NULL;
-        tk_operator_node->num_rules=0;
+        tk_operator_node->gr_no=-5;
     }
     t->num_child=1;
     free(t->child);
@@ -485,8 +486,7 @@ void termPrimeRule59(void *tv)
         tk_operator_node->child=malloc(sizeof(Tree)*2);
         tk_operator_node->child[0]=factorNode;
         tk_operator_node->child[1]=factor1_node;
-        tk_operator_node->SemanticActions=NULL;
-        tk_operator_node->num_rules=0;
+        tk_operator_node->gr_no=-5;
     }
     termPrimeNode->num_child=2;
     free(termPrimeNode->child);
@@ -514,8 +514,7 @@ void expPrimeRule56(void *tv){
         tk_operator_node->child=malloc(sizeof(Tree)*2);
         tk_operator_node->child[0]=termNode;
         tk_operator_node->child[1]=term1_node;
-        tk_operator_node->SemanticActions=NULL;
-        tk_operator_node->num_rules=0;
+        tk_operator_node->gr_no=-5;
     }
     expPrimeNode->num_child=2;
     free(expPrime1Node->child);
