@@ -1,29 +1,43 @@
 CC = gcc
-CCFLAGS = -g -c -Wall -Wpedantic
+CCFLAGS = -g -Wall -Wpedantic
 DEFINES = -D __DEBUG  -D __MY_OWN_DATA_ELE -D __WITHOUT_KEY
 AST_DIR = ./ast
 LEXER_DIR = ./lexer
 PARSER_DIR = ./parser
 ST_DIR = ./symboltable
 UTILS_DIR = ./utils
+MAIN_FILE = ./driver.c
+VISUALIZE_FILE = ./graphics/visualize.c
 INCLUDES = $(addprefix -I , $(addsuffix /includes, $(AST_DIR) $(LEXER_DIR) $(PARSER_DIR) $(ST_DIR) $(UTILS_DIR)))
 
 GCC_CMD = $(CC) $(CCFLAGS) $(DEFINES) $(INCLUDES)
 
 AST_CFILES_temp = ast.c semantic_functions_ast.c to_remove.c
 AST_CFILES = $(addprefix $(AST_DIR)/,$(AST_CFILES_temp))
+AST_OFILES = $(addsuffix .o, $(basename $(AST_CFILES)))
 LEXER_CFILES_temp = lexer.c populate_dfa.c token.c transition.c twin_buffer.c
 LEXER_CFILES = $(addprefix $(LEXER_DIR)/,$(LEXER_CFILES_temp))
+LEXER_OFILES = $(addsuffix .o, $(basename $(LEXER_CFILES)))
 PARSER_CFILES_temp = parser.c populate_grammer.c parse_table.c
 PARSER_CFILES = $(addprefix $(PARSER_DIR)/,$(PARSER_CFILES_temp))
+PARSER_OFILES = $(addsuffix .o, $(basename $(PARSER_CFILES)))
 ST_CFILES_temp = symbolTable.c semantic_functions_st.c
 ST_CFILES = $(addprefix $(ST_DIR)/,$(ST_CFILES_temp))
+ST_OFILES = $(addsuffix .o, $(basename $(ST_CFILES)))
 UTILS_CFILES_temp = hash.c SeqList.c Stack.c
 UTILS_CFILES = $(addprefix $(UTILS_DIR)/,$(UTILS_CFILES_temp))
+UTILS_OFILES = $(addsuffix .o, $(basename $(UTILS_CFILES)))
 
 ALL_CFILES = $(AST_CFILES) $(LEXER_CFILES) $(PARSER_CFILES) $(ST_CFILES) $(UTILS_CFILES)
 ALL_OFILES = $(addsuffix .o, $(basename $(ALL_CFILES)))
-all:utils/hash.o
+
+all: stage2exe visualize_exe
+
+stage2exe: $(ALL_OFILES)
+	$(GCC_CMD) $(ALL_OFILES) $(MAIN_FILE) -o stage2exe
+
+visualize_exe: $(ALL_OFILES)
+	$(GCC_CMD) $(ALL_OFILES) $(VISUALIZE_FILE) -o visualize_exe
 
 %.o: %.c $(ALL_CFILES)
 	$(GCC_CMD) -c -o $@ $<
