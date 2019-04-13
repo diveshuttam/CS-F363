@@ -4,6 +4,7 @@
 #include "lexer.h"
 #include <stdio.h>
 #include "colors.h"
+#include "tree_to_json.h"
 
 int main (int argc, char *argv[])
 {
