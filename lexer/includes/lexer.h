@@ -1,5 +1,6 @@
 #ifndef _LEXER
 #define _LEXER
+#include"filenames.h"
 #include"lexerDef.h"
 #include<stdlib.h>
 #include<stdio.h>
@@ -8,8 +9,8 @@
 #include"populate_dfa.h"
 #include"transition.h"
 #include"debug.h"
-#define DFA_RULES_FILE "./lexer/dfa_states.ccsv"
-
+extern bool errors;
+#define MAX_TK_LEN 14
 //get stream in twin_buffer.h
 Token* getNextToken();
 void removeComments(const char *testcaseFile,const char *cleanFile);

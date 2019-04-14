@@ -1,34 +1,19 @@
 #ifndef __SYMBOL_TABLE_H
 #define __SYMBOL_TABLE_H
-typedef struct SymbolTable *SymbolTable;
-
-#define MAX_VAR 100
+#include "parserDef.h"
 #include "SeqList.h"
-#include "hash.h"
-#include <stdlib.h>
-#define ALPHA_INV 1.33
-#define HASH_A 5
-#define HASH_B 5183
-
-
-
-enum StEntryType{
-    VAR_DEC,
-    FUNC_DEC,
-    REC_DEF,
-    REC_DEC,
+#define INT_SIZE 2
+#define REAL_SIZE 4
+typedef struct SymbolTable *SymbolTable; 
+struct SymbolTable {
+    int size;
+    int num_entires;
+    hashTable ht;
+    SeqList sl;
+    char *st_name; //name of the symbol table
+    SymbolTable parent;
 };
-
-typedef struct StEntry {
-    enum StEntryType et;
-    void *entry;
-} *StEntry;
-
-void insertST(char *key, StEntry value, SymbolTable st);
-void* findST(char *key, SymbolTable st);
-int getMemoryOfVarInSymbolTable(SymbolTable st);
-void setMemoryOfVarInSymbolTable(SymbolTable st,int new_size);
-SeqList getListSymbolTable(SymbolTable st);
-
-
+SymbolTable genSymbolTable(Tree ast);
+SymbolTable genSymbolTableFromFile(char *filename);
+void printSymbolTableFromFile(char *filename);
 #endif

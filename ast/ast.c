@@ -3,6 +3,8 @@
 #include "SeqList.h"
 #include "semantic_functions_ast.h"
 #include "to_remove.h"
+#include "tree_utils.h"
+#include "colors.h"
 #define NO_OF_ATTRIBUTES 3
 
 static func_ptr_t semantic_action_map_for_ast[NO_OF_RULES][NO_OF_ATTRIBUTES]={
@@ -196,10 +198,12 @@ static func_ptr_t semantic_action_map_for_ast[NO_OF_RULES][NO_OF_ATTRIBUTES]={
 Tree post_order_traversal(Tree root){
     if(root==NULL || root->t.type=='t' || root->gr_no<0)
         return NULL;
+
     debug_msg("traversing %s\n",root->t.s.nt->name);
     for(int i=0; i<(root->num_child);i++){
-        if(root->child!=NULL)
+        if(root->child!=NULL){
             post_order_traversal((root->child)[i]);
+        }
     }
     debug_msg("traversing back %s\n",root->t.s.nt->name);
     func_ptr_t *SemanticActions = semantic_action_map_for_ast[root->gr_no];
@@ -213,4 +217,34 @@ Tree post_order_traversal(Tree root){
 Tree convert_parse_to_ast(Tree t){
     t=post_order_traversal(t);
     return t;
+}
+
+Tree getASTFromFile(char *testcasefile){
+    Tree ast = convert_parse_to_ast(getParsedTreeFromFile(testcasefile));
+    return ast;
+}
+
+void printASTOutput(char *testcasefile){
+    Tree ast=getASTFromFile(testcasefile);
+    if(errors==true){
+            printf(ANSI_COLOR_RED "Errors found in while generating AST\n" ANSI_COLOR_RESET);
+    }
+    else{
+        inorder(ast);
+        printf(ANSI_COLOR_GREEN "AST Creation Successful. No Lexical/Syntactic Errors.\n" ANSI_COLOR_RESET);
+    }
+}
+
+void printRatioParseAndAST(char *testcasefile){
+    Tree pt=getParsedTreeFromFile(testcasefile);
+    int pt_nodes=count_nodes(pt);
+    float pt_size=(float)get_size_tree_node(pt);
+    
+    pt=convert_parse_to_ast(pt);
+    int ast_nodes=count_nodes(pt);
+    float ast_size=(float)get_size_tree_node(pt);
+    printf("Parse tree Number of nodes = %d\tAllocated Memory = %f Bytes\n",pt_nodes, pt_size);
+    printf("AST Number of nodes = %d\t\tAllocated Memory = %f Bytes\n",ast_nodes,ast_size);
+    float cp = ((pt_size-ast_size)*100.0)/pt_size;
+    printf("Compression percentage = %f\n",cp);
 }

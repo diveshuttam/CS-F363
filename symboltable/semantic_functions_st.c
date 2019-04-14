@@ -1,4 +1,4 @@
-#include "symbolTable.h"
+#include "st_utils.h"
 #include "parserDef.h"
 #include "semantic_functions_st.h"
 
@@ -21,7 +21,7 @@ void ST_declarationRule26(void * tv){
     enum StEntryType entry_type = VAR_DEC;
     StEntry symboltable_entry = malloc(sizeof(struct StEntry));
     variable_entry v = malloc(sizeof(struct variable_entry));
-    symboltable_entry->entry=v;
+    symboltable_entry->var_entry=v;
     symboltable_entry->et=entry_type;
 
     char *var_name=t->child[1]->tk->val;

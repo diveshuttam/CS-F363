@@ -102,12 +102,3 @@ grammerRule** gen_parse_table(const grammerRule *r, int no_of_rules, const Termi
     }
     return table;
 }
-// gen_parse_table(NonTerminals *nt, grammerRule *r, no_of_rules, no_of_nt, nt_start_key, rule_start_key){
-//     firsts=nt[i].firsts
-//     nt[i].follows
-//     nt[i].key==i
-
-//     parse_tabel[nt.key][firsts[idx].stateID]=rule[1]
-//     r[0]=<program>--> TK_MAIN
-//     //nt_start_key points to index of nterminal <program>
-// }

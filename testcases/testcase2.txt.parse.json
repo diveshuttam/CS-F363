@@ -12,7 +12,7 @@
 "collapsed": true,
 "children": [
 {
-"text": { "name": "TK_FUNID:_sumN" },
+"text": { "name": "TK_FUNID:_readMarks" },
 "children":[]
 }
 ,{
@@ -56,7 +56,7 @@
 ]
 }
 ,{
-"text": { "name": "TK_ID:d5cc34" },
+"text": { "name": "TK_ID:b7" },
 "children":[]
 }
 ,{
@@ -106,11 +106,15 @@
 "collapsed": true,
 "children": [
 {
-"text": { "name": "primitiveDatatype" },
+"text": { "name": "constructedDatatype" },
 "collapsed": true,
 "children": [
 {
-"text": { "name": "TK_REAL:real" },
+"text": { "name": "TK_RECORD:record" },
+"children":[]
+}
+,{
+"text": { "name": "TK_RECORDID:#marks" },
 "children":[]
 }
 ]
@@ -118,921 +122,7 @@
 ]
 }
 ,{
-"text": { "name": "TK_ID:d3" },
-"children":[]
-}
-,{
-"text": { "name": "remaining_list" },
-"collapsed": true,
-"children": [
-{
-"text": { "name": "NULL" },
-"children": []
-}
-]
-}
-]
-}
-,{
-"text": { "name": "TK_SQR:]" },
-"children":[]
-}
-]
-}
-,{
-"text": { "name": "TK_SEM:;" },
-"children":[]
-}
-,{
-"text": { "name": "stmts" },
-"collapsed": true,
-"children": [
-{
-"text": { "name": "typeDefinitions" },
-"collapsed": true,
-"children": [
-{
-"text": { "name": "NULL" },
-"children": []
-}
-]
-}
-,{
-"text": { "name": "declarations" },
-"collapsed": true,
-"children": [
-{
-"text": { "name": "declaration" },
-"collapsed": true,
-"children": [
-{
-"text": { "name": "TK_TYPE:type" },
-"children":[]
-}
-,{
-"text": { "name": "dataType" },
-"collapsed": true,
-"children": [
-{
-"text": { "name": "primitiveDatatype" },
-"collapsed": true,
-"children": [
-{
-"text": { "name": "TK_INT:int" },
-"children":[]
-}
-]
-}
-]
-}
-,{
-"text": { "name": "TK_COLON::" },
-"children":[]
-}
-,{
-"text": { "name": "TK_ID:b5b567" },
-"children":[]
-}
-,{
-"text": { "name": "global_or_not" },
-"collapsed": true,
-"children": [
-{
-"text": { "name": "NULL" },
-"children": []
-}
-]
-}
-,{
-"text": { "name": "TK_SEM:;" },
-"children":[]
-}
-]
-}
-,{
-"text": { "name": "declarations" },
-"collapsed": true,
-"children": [
-{
-"text": { "name": "NULL" },
-"children": []
-}
-]
-}
-]
-}
-,{
-"text": { "name": "otherStmts" },
-"collapsed": true,
-"children": [
-{
-"text": { "name": "stmt" },
-"collapsed": true,
-"children": [
-{
-"text": { "name": "assignmentStmt" },
-"collapsed": true,
-"children": [
-{
-"text": { "name": "singleOrRecId" },
-"collapsed": true,
-"children": [
-{
-"text": { "name": "TK_ID:b5b567" },
-"children":[]
-}
-,{
-"text": { "name": "new24" },
-"collapsed": true,
-"children": [
-{
-"text": { "name": "NULL" },
-"children": []
-}
-]
-}
-]
-}
-,{
-"text": { "name": "TK_ASSIGNOP:<---" },
-"children":[]
-}
-,{
-"text": { "name": "arithmeticExpression" },
-"collapsed": true,
-"children": [
-{
-"text": { "name": "term" },
-"collapsed": true,
-"children": [
-{
-"text": { "name": "factor" },
-"collapsed": true,
-"children": [
-{
-"text": { "name": "all" },
-"collapsed": true,
-"children": [
-{
-"text": { "name": "TK_NUM:1" },
-"children":[]
-}
-]
-}
-]
-}
-,{
-"text": { "name": "termPrime" },
-"collapsed": true,
-"children": [
-{
-"text": { "name": "NULL" },
-"children": []
-}
-]
-}
-]
-}
-,{
-"text": { "name": "expPrime" },
-"collapsed": true,
-"children": [
-{
-"text": { "name": "NULL" },
-"children": []
-}
-]
-}
-]
-}
-,{
-"text": { "name": "TK_SEM:;" },
-"children":[]
-}
-]
-}
-]
-}
-,{
-"text": { "name": "otherStmts" },
-"collapsed": true,
-"children": [
-{
-"text": { "name": "stmt" },
-"collapsed": true,
-"children": [
-{
-"text": { "name": "assignmentStmt" },
-"collapsed": true,
-"children": [
-{
-"text": { "name": "singleOrRecId" },
-"collapsed": true,
-"children": [
-{
-"text": { "name": "TK_ID:d3" },
-"children":[]
-}
-,{
-"text": { "name": "new24" },
-"collapsed": true,
-"children": [
-{
-"text": { "name": "NULL" },
-"children": []
-}
-]
-}
-]
-}
-,{
-"text": { "name": "TK_ASSIGNOP:<---" },
-"children":[]
-}
-,{
-"text": { "name": "arithmeticExpression" },
-"collapsed": true,
-"children": [
-{
-"text": { "name": "term" },
-"collapsed": true,
-"children": [
-{
-"text": { "name": "factor" },
-"collapsed": true,
-"children": [
-{
-"text": { "name": "all" },
-"collapsed": true,
-"children": [
-{
-"text": { "name": "TK_RNUM:0.00" },
-"children":[]
-}
-]
-}
-]
-}
-,{
-"text": { "name": "termPrime" },
-"collapsed": true,
-"children": [
-{
-"text": { "name": "NULL" },
-"children": []
-}
-]
-}
-]
-}
-,{
-"text": { "name": "expPrime" },
-"collapsed": true,
-"children": [
-{
-"text": { "name": "NULL" },
-"children": []
-}
-]
-}
-]
-}
-,{
-"text": { "name": "TK_SEM:;" },
-"children":[]
-}
-]
-}
-]
-}
-,{
-"text": { "name": "otherStmts" },
-"collapsed": true,
-"children": [
-{
-"text": { "name": "stmt" },
-"collapsed": true,
-"children": [
-{
-"text": { "name": "iterativeStmt" },
-"collapsed": true,
-"children": [
-{
-"text": { "name": "TK_WHILE:while" },
-"children":[]
-}
-,{
-"text": { "name": "TK_OP:(" },
-"children":[]
-}
-,{
-"text": { "name": "booleanExpression" },
-"collapsed": true,
-"children": [
-{
-"text": { "name": "var" },
-"collapsed": true,
-"children": [
-{
-"text": { "name": "TK_ID:b5b567" },
-"children":[]
-}
-]
-}
-,{
-"text": { "name": "relationalOp" },
-"collapsed": true,
-"children": [
-{
-"text": { "name": "TK_LE:<=" },
-"children":[]
-}
-]
-}
-,{
-"text": { "name": "var" },
-"collapsed": true,
-"children": [
-{
-"text": { "name": "TK_ID:d5cc34" },
-"children":[]
-}
-]
-}
-]
-}
-,{
-"text": { "name": "TK_CL:)" },
-"children":[]
-}
-,{
-"text": { "name": "stmt" },
-"collapsed": true,
-"children": [
-{
-"text": { "name": "ioStmt" },
-"collapsed": true,
-"children": [
-{
-"text": { "name": "TK_READ:read" },
-"children":[]
-}
-,{
-"text": { "name": "TK_OP:(" },
-"children":[]
-}
-,{
-"text": { "name": "singleOrRecId" },
-"collapsed": true,
-"children": [
-{
-"text": { "name": "TK_ID:c3bd" },
-"children":[]
-}
-,{
-"text": { "name": "new24" },
-"collapsed": true,
-"children": [
-{
-"text": { "name": "NULL" },
-"children": []
-}
-]
-}
-]
-}
-,{
-"text": { "name": "TK_CL:)" },
-"children":[]
-}
-,{
-"text": { "name": "TK_SEM:;" },
-"children":[]
-}
-]
-}
-]
-}
-,{
-"text": { "name": "otherStmts" },
-"collapsed": true,
-"children": [
-{
-"text": { "name": "stmt" },
-"collapsed": true,
-"children": [
-{
-"text": { "name": "assignmentStmt" },
-"collapsed": true,
-"children": [
-{
-"text": { "name": "singleOrRecId" },
-"collapsed": true,
-"children": [
-{
-"text": { "name": "TK_ID:d3" },
-"children":[]
-}
-,{
-"text": { "name": "new24" },
-"collapsed": true,
-"children": [
-{
-"text": { "name": "NULL" },
-"children": []
-}
-]
-}
-]
-}
-,{
-"text": { "name": "TK_ASSIGNOP:<---" },
-"children":[]
-}
-,{
-"text": { "name": "arithmeticExpression" },
-"collapsed": true,
-"children": [
-{
-"text": { "name": "term" },
-"collapsed": true,
-"children": [
-{
-"text": { "name": "factor" },
-"collapsed": true,
-"children": [
-{
-"text": { "name": "all" },
-"collapsed": true,
-"children": [
-{
-"text": { "name": "TK_ID:d3" },
-"children":[]
-}
-,{
-"text": { "name": "temp" },
-"collapsed": true,
-"children": [
-{
-"text": { "name": "NULL" },
-"children": []
-}
-]
-}
-]
-}
-]
-}
-,{
-"text": { "name": "termPrime" },
-"collapsed": true,
-"children": [
-{
-"text": { "name": "NULL" },
-"children": []
-}
-]
-}
-]
-}
-,{
-"text": { "name": "expPrime" },
-"collapsed": true,
-"children": [
-{
-"text": { "name": "lowPrecedenceOperators" },
-"collapsed": true,
-"children": [
-{
-"text": { "name": "TK_PLUS:+" },
-"children":[]
-}
-]
-}
-,{
-"text": { "name": "term" },
-"collapsed": true,
-"children": [
-{
-"text": { "name": "factor" },
-"collapsed": true,
-"children": [
-{
-"text": { "name": "all" },
-"collapsed": true,
-"children": [
-{
-"text": { "name": "TK_ID:c3bd" },
-"children":[]
-}
-,{
-"text": { "name": "temp" },
-"collapsed": true,
-"children": [
-{
-"text": { "name": "NULL" },
-"children": []
-}
-]
-}
-]
-}
-]
-}
-,{
-"text": { "name": "termPrime" },
-"collapsed": true,
-"children": [
-{
-"text": { "name": "NULL" },
-"children": []
-}
-]
-}
-]
-}
-,{
-"text": { "name": "expPrime" },
-"collapsed": true,
-"children": [
-{
-"text": { "name": "NULL" },
-"children": []
-}
-]
-}
-]
-}
-]
-}
-,{
-"text": { "name": "TK_SEM:;" },
-"children":[]
-}
-]
-}
-]
-}
-,{
-"text": { "name": "otherStmts" },
-"collapsed": true,
-"children": [
-{
-"text": { "name": "stmt" },
-"collapsed": true,
-"children": [
-{
-"text": { "name": "assignmentStmt" },
-"collapsed": true,
-"children": [
-{
-"text": { "name": "singleOrRecId" },
-"collapsed": true,
-"children": [
-{
-"text": { "name": "TK_ID:b5b567" },
-"children":[]
-}
-,{
-"text": { "name": "new24" },
-"collapsed": true,
-"children": [
-{
-"text": { "name": "NULL" },
-"children": []
-}
-]
-}
-]
-}
-,{
-"text": { "name": "TK_ASSIGNOP:<---" },
-"children":[]
-}
-,{
-"text": { "name": "arithmeticExpression" },
-"collapsed": true,
-"children": [
-{
-"text": { "name": "term" },
-"collapsed": true,
-"children": [
-{
-"text": { "name": "factor" },
-"collapsed": true,
-"children": [
-{
-"text": { "name": "all" },
-"collapsed": true,
-"children": [
-{
-"text": { "name": "TK_ID:b5b567" },
-"children":[]
-}
-,{
-"text": { "name": "temp" },
-"collapsed": true,
-"children": [
-{
-"text": { "name": "NULL" },
-"children": []
-}
-]
-}
-]
-}
-]
-}
-,{
-"text": { "name": "termPrime" },
-"collapsed": true,
-"children": [
-{
-"text": { "name": "NULL" },
-"children": []
-}
-]
-}
-]
-}
-,{
-"text": { "name": "expPrime" },
-"collapsed": true,
-"children": [
-{
-"text": { "name": "lowPrecedenceOperators" },
-"collapsed": true,
-"children": [
-{
-"text": { "name": "TK_PLUS:+" },
-"children":[]
-}
-]
-}
-,{
-"text": { "name": "term" },
-"collapsed": true,
-"children": [
-{
-"text": { "name": "factor" },
-"collapsed": true,
-"children": [
-{
-"text": { "name": "all" },
-"collapsed": true,
-"children": [
-{
-"text": { "name": "TK_NUM:1" },
-"children":[]
-}
-]
-}
-]
-}
-,{
-"text": { "name": "termPrime" },
-"collapsed": true,
-"children": [
-{
-"text": { "name": "NULL" },
-"children": []
-}
-]
-}
-]
-}
-,{
-"text": { "name": "expPrime" },
-"collapsed": true,
-"children": [
-{
-"text": { "name": "NULL" },
-"children": []
-}
-]
-}
-]
-}
-]
-}
-,{
-"text": { "name": "TK_SEM:;" },
-"children":[]
-}
-]
-}
-]
-}
-,{
-"text": { "name": "otherStmts" },
-"collapsed": true,
-"children": [
-{
-"text": { "name": "NULL" },
-"children": []
-}
-]
-}
-]
-}
-]
-}
-,{
-"text": { "name": "TK_ENDWHILE:endwhile" },
-"children":[]
-}
-]
-}
-]
-}
-,{
-"text": { "name": "otherStmts" },
-"collapsed": true,
-"children": [
-{
-"text": { "name": "NULL" },
-"children": []
-}
-]
-}
-]
-}
-]
-}
-]
-}
-,{
-"text": { "name": "returnStmt" },
-"collapsed": true,
-"children": [
-{
-"text": { "name": "TK_RETURN:return" },
-"children":[]
-}
-,{
-"text": { "name": "optionalReturn" },
-"collapsed": true,
-"children": [
-{
-"text": { "name": "TK_SQL:[" },
-"children":[]
-}
-,{
-"text": { "name": "idList" },
-"collapsed": true,
-"children": [
-{
-"text": { "name": "TK_ID:d3" },
-"children":[]
-}
-,{
-"text": { "name": "more_ids" },
-"collapsed": true,
-"children": [
-{
-"text": { "name": "NULL" },
-"children": []
-}
-]
-}
-]
-}
-,{
-"text": { "name": "TK_SQR:]" },
-"children":[]
-}
-]
-}
-,{
-"text": { "name": "TK_SEM:;" },
-"children":[]
-}
-]
-}
-]
-}
-,{
-"text": { "name": "TK_END:end" },
-"children":[]
-}
-]
-}
-,{
-"text": { "name": "otherFunctions" },
-"collapsed": true,
-"children": [
-{
-"text": { "name": "function" },
-"collapsed": true,
-"children": [
-{
-"text": { "name": "TK_FUNID:_diffN" },
-"children":[]
-}
-,{
-"text": { "name": "input_par" },
-"collapsed": true,
-"children": [
-{
-"text": { "name": "TK_INPUT:input" },
-"children":[]
-}
-,{
-"text": { "name": "TK_PARAMETER:parameter" },
-"children":[]
-}
-,{
-"text": { "name": "TK_LIST:list" },
-"children":[]
-}
-,{
-"text": { "name": "TK_SQL:[" },
-"children":[]
-}
-,{
-"text": { "name": "parameter_list" },
-"collapsed": true,
-"children": [
-{
-"text": { "name": "dataType" },
-"collapsed": true,
-"children": [
-{
-"text": { "name": "primitiveDatatype" },
-"collapsed": true,
-"children": [
-{
-"text": { "name": "TK_INT:int" },
-"children":[]
-}
-]
-}
-]
-}
-,{
-"text": { "name": "TK_ID:d5cc34" },
-"children":[]
-}
-,{
-"text": { "name": "remaining_list" },
-"collapsed": true,
-"children": [
-{
-"text": { "name": "NULL" },
-"children": []
-}
-]
-}
-]
-}
-,{
-"text": { "name": "TK_SQR:]" },
-"children":[]
-}
-]
-}
-,{
-"text": { "name": "output_par" },
-"collapsed": true,
-"children": [
-{
-"text": { "name": "TK_OUTPUT:output" },
-"children":[]
-}
-,{
-"text": { "name": "TK_PARAMETER:parameter" },
-"children":[]
-}
-,{
-"text": { "name": "TK_LIST:list" },
-"children":[]
-}
-,{
-"text": { "name": "TK_SQL:[" },
-"children":[]
-}
-,{
-"text": { "name": "parameter_list" },
-"collapsed": true,
-"children": [
-{
-"text": { "name": "dataType" },
-"collapsed": true,
-"children": [
-{
-"text": { "name": "primitiveDatatype" },
-"collapsed": true,
-"children": [
-{
-"text": { "name": "TK_REAL:real" },
-"children":[]
-}
-]
-}
-]
-}
-,{
-"text": { "name": "TK_ID:d3" },
+"text": { "name": "TK_ID:b3c45" },
 "children":[]
 }
 ,{
@@ -1076,62 +166,8 @@
 "collapsed": true,
 "children": [
 {
-"text": { "name": "declaration" },
-"collapsed": true,
-"children": [
-{
-"text": { "name": "TK_TYPE:type" },
-"children":[]
-}
-,{
-"text": { "name": "dataType" },
-"collapsed": true,
-"children": [
-{
-"text": { "name": "primitiveDatatype" },
-"collapsed": true,
-"children": [
-{
-"text": { "name": "TK_INT:int" },
-"children":[]
-}
-]
-}
-]
-}
-,{
-"text": { "name": "TK_COLON::" },
-"children":[]
-}
-,{
-"text": { "name": "TK_ID:b5b567" },
-"children":[]
-}
-,{
-"text": { "name": "global_or_not" },
-"collapsed": true,
-"children": [
-{
 "text": { "name": "NULL" },
 "children": []
-}
-]
-}
-,{
-"text": { "name": "TK_SEM:;" },
-"children":[]
-}
-]
-}
-,{
-"text": { "name": "declarations" },
-"collapsed": true,
-"children": [
-{
-"text": { "name": "NULL" },
-"children": []
-}
-]
 }
 ]
 }
@@ -1140,246 +176,6 @@
 "collapsed": true,
 "children": [
 {
-"text": { "name": "stmt" },
-"collapsed": true,
-"children": [
-{
-"text": { "name": "assignmentStmt" },
-"collapsed": true,
-"children": [
-{
-"text": { "name": "singleOrRecId" },
-"collapsed": true,
-"children": [
-{
-"text": { "name": "TK_ID:b5b567" },
-"children":[]
-}
-,{
-"text": { "name": "new24" },
-"collapsed": true,
-"children": [
-{
-"text": { "name": "NULL" },
-"children": []
-}
-]
-}
-]
-}
-,{
-"text": { "name": "TK_ASSIGNOP:<---" },
-"children":[]
-}
-,{
-"text": { "name": "arithmeticExpression" },
-"collapsed": true,
-"children": [
-{
-"text": { "name": "term" },
-"collapsed": true,
-"children": [
-{
-"text": { "name": "factor" },
-"collapsed": true,
-"children": [
-{
-"text": { "name": "all" },
-"collapsed": true,
-"children": [
-{
-"text": { "name": "TK_NUM:1" },
-"children":[]
-}
-]
-}
-]
-}
-,{
-"text": { "name": "termPrime" },
-"collapsed": true,
-"children": [
-{
-"text": { "name": "NULL" },
-"children": []
-}
-]
-}
-]
-}
-,{
-"text": { "name": "expPrime" },
-"collapsed": true,
-"children": [
-{
-"text": { "name": "NULL" },
-"children": []
-}
-]
-}
-]
-}
-,{
-"text": { "name": "TK_SEM:;" },
-"children":[]
-}
-]
-}
-]
-}
-,{
-"text": { "name": "otherStmts" },
-"collapsed": true,
-"children": [
-{
-"text": { "name": "stmt" },
-"collapsed": true,
-"children": [
-{
-"text": { "name": "assignmentStmt" },
-"collapsed": true,
-"children": [
-{
-"text": { "name": "singleOrRecId" },
-"collapsed": true,
-"children": [
-{
-"text": { "name": "TK_ID:d3" },
-"children":[]
-}
-,{
-"text": { "name": "new24" },
-"collapsed": true,
-"children": [
-{
-"text": { "name": "NULL" },
-"children": []
-}
-]
-}
-]
-}
-,{
-"text": { "name": "TK_ASSIGNOP:<---" },
-"children":[]
-}
-,{
-"text": { "name": "arithmeticExpression" },
-"collapsed": true,
-"children": [
-{
-"text": { "name": "term" },
-"collapsed": true,
-"children": [
-{
-"text": { "name": "factor" },
-"collapsed": true,
-"children": [
-{
-"text": { "name": "all" },
-"collapsed": true,
-"children": [
-{
-"text": { "name": "TK_RNUM:0.00" },
-"children":[]
-}
-]
-}
-]
-}
-,{
-"text": { "name": "termPrime" },
-"collapsed": true,
-"children": [
-{
-"text": { "name": "NULL" },
-"children": []
-}
-]
-}
-]
-}
-,{
-"text": { "name": "expPrime" },
-"collapsed": true,
-"children": [
-{
-"text": { "name": "NULL" },
-"children": []
-}
-]
-}
-]
-}
-,{
-"text": { "name": "TK_SEM:;" },
-"children":[]
-}
-]
-}
-]
-}
-,{
-"text": { "name": "otherStmts" },
-"collapsed": true,
-"children": [
-{
-"text": { "name": "stmt" },
-"collapsed": true,
-"children": [
-{
-"text": { "name": "iterativeStmt" },
-"collapsed": true,
-"children": [
-{
-"text": { "name": "TK_WHILE:while" },
-"children":[]
-}
-,{
-"text": { "name": "TK_OP:(" },
-"children":[]
-}
-,{
-"text": { "name": "booleanExpression" },
-"collapsed": true,
-"children": [
-{
-"text": { "name": "var" },
-"collapsed": true,
-"children": [
-{
-"text": { "name": "TK_ID:b5b567" },
-"children":[]
-}
-]
-}
-,{
-"text": { "name": "relationalOp" },
-"collapsed": true,
-"children": [
-{
-"text": { "name": "TK_LE:<=" },
-"children":[]
-}
-]
-}
-,{
-"text": { "name": "var" },
-"collapsed": true,
-"children": [
-{
-"text": { "name": "TK_ID:d5cc34" },
-"children":[]
-}
-]
-}
-]
-}
-,{
-"text": { "name": "TK_CL:)" },
-"children":[]
-}
-,{
 "text": { "name": "stmt" },
 "collapsed": true,
 "children": [
@@ -1400,7 +196,7 @@
 "collapsed": true,
 "children": [
 {
-"text": { "name": "TK_ID:c3bd" },
+"text": { "name": "TK_ID:b3c45" },
 "children":[]
 }
 ,{
@@ -1408,8 +204,12 @@
 "collapsed": true,
 "children": [
 {
-"text": { "name": "NULL" },
-"children": []
+"text": { "name": "TK_DOT:." },
+"children":[]
+}
+,{
+"text": { "name": "TK_FIELDID:maths" },
+"children":[]
 }
 ]
 }
@@ -1436,15 +236,23 @@
 "collapsed": true,
 "children": [
 {
-"text": { "name": "assignmentStmt" },
+"text": { "name": "ioStmt" },
 "collapsed": true,
 "children": [
 {
+"text": { "name": "TK_READ:read" },
+"children":[]
+}
+,{
+"text": { "name": "TK_OP:(" },
+"children":[]
+}
+,{
 "text": { "name": "singleOrRecId" },
 "collapsed": true,
 "children": [
 {
-"text": { "name": "TK_ID:d3" },
+"text": { "name": "TK_ID:b3c45" },
 "children":[]
 }
 ,{
@@ -1452,132 +260,20 @@
 "collapsed": true,
 "children": [
 {
-"text": { "name": "NULL" },
-"children": []
-}
-]
-}
-]
-}
-,{
-"text": { "name": "TK_ASSIGNOP:<---" },
+"text": { "name": "TK_DOT:." },
 "children":[]
 }
 ,{
-"text": { "name": "arithmeticExpression" },
-"collapsed": true,
-"children": [
-{
-"text": { "name": "term" },
-"collapsed": true,
-"children": [
-{
-"text": { "name": "factor" },
-"collapsed": true,
-"children": [
-{
-"text": { "name": "all" },
-"collapsed": true,
-"children": [
-{
-"text": { "name": "TK_ID:d3" },
-"children":[]
-}
-,{
-"text": { "name": "temp" },
-"collapsed": true,
-"children": [
-{
-"text": { "name": "NULL" },
-"children": []
-}
-]
-}
-]
-}
-]
-}
-,{
-"text": { "name": "termPrime" },
-"collapsed": true,
-"children": [
-{
-"text": { "name": "NULL" },
-"children": []
-}
-]
-}
-]
-}
-,{
-"text": { "name": "expPrime" },
-"collapsed": true,
-"children": [
-{
-"text": { "name": "lowPrecedenceOperators" },
-"collapsed": true,
-"children": [
-{
-"text": { "name": "TK_PLUS:+" },
+"text": { "name": "TK_FIELDID:physics" },
 "children":[]
 }
 ]
 }
+]
+}
 ,{
-"text": { "name": "term" },
-"collapsed": true,
-"children": [
-{
-"text": { "name": "factor" },
-"collapsed": true,
-"children": [
-{
-"text": { "name": "all" },
-"collapsed": true,
-"children": [
-{
-"text": { "name": "TK_ID:c3bd" },
+"text": { "name": "TK_CL:)" },
 "children":[]
-}
-,{
-"text": { "name": "temp" },
-"collapsed": true,
-"children": [
-{
-"text": { "name": "NULL" },
-"children": []
-}
-]
-}
-]
-}
-]
-}
-,{
-"text": { "name": "termPrime" },
-"collapsed": true,
-"children": [
-{
-"text": { "name": "NULL" },
-"children": []
-}
-]
-}
-]
-}
-,{
-"text": { "name": "expPrime" },
-"collapsed": true,
-"children": [
-{
-"text": { "name": "NULL" },
-"children": []
-}
-]
-}
-]
-}
-]
 }
 ,{
 "text": { "name": "TK_SEM:;" },
@@ -1596,15 +292,23 @@
 "collapsed": true,
 "children": [
 {
-"text": { "name": "assignmentStmt" },
+"text": { "name": "ioStmt" },
 "collapsed": true,
 "children": [
 {
+"text": { "name": "TK_READ:read" },
+"children":[]
+}
+,{
+"text": { "name": "TK_OP:(" },
+"children":[]
+}
+,{
 "text": { "name": "singleOrRecId" },
 "collapsed": true,
 "children": [
 {
-"text": { "name": "TK_ID:b5b567" },
+"text": { "name": "TK_ID:b3c45" },
 "children":[]
 }
 ,{
@@ -1612,91 +316,11 @@
 "collapsed": true,
 "children": [
 {
-"text": { "name": "NULL" },
-"children": []
-}
-]
-}
-]
-}
-,{
-"text": { "name": "TK_ASSIGNOP:<---" },
+"text": { "name": "TK_DOT:." },
 "children":[]
 }
 ,{
-"text": { "name": "arithmeticExpression" },
-"collapsed": true,
-"children": [
-{
-"text": { "name": "term" },
-"collapsed": true,
-"children": [
-{
-"text": { "name": "factor" },
-"collapsed": true,
-"children": [
-{
-"text": { "name": "all" },
-"collapsed": true,
-"children": [
-{
-"text": { "name": "TK_ID:b5b567" },
-"children":[]
-}
-,{
-"text": { "name": "temp" },
-"collapsed": true,
-"children": [
-{
-"text": { "name": "NULL" },
-"children": []
-}
-]
-}
-]
-}
-]
-}
-,{
-"text": { "name": "termPrime" },
-"collapsed": true,
-"children": [
-{
-"text": { "name": "NULL" },
-"children": []
-}
-]
-}
-]
-}
-,{
-"text": { "name": "expPrime" },
-"collapsed": true,
-"children": [
-{
-"text": { "name": "lowPrecedenceOperators" },
-"collapsed": true,
-"children": [
-{
-"text": { "name": "TK_PLUS:+" },
-"children":[]
-}
-]
-}
-,{
-"text": { "name": "term" },
-"collapsed": true,
-"children": [
-{
-"text": { "name": "factor" },
-"collapsed": true,
-"children": [
-{
-"text": { "name": "all" },
-"collapsed": true,
-"children": [
-{
-"text": { "name": "TK_NUM:1" },
+"text": { "name": "TK_FIELDID:chemistry" },
 "children":[]
 }
 ]
@@ -1704,55 +328,11 @@
 ]
 }
 ,{
-"text": { "name": "termPrime" },
-"collapsed": true,
-"children": [
-{
-"text": { "name": "NULL" },
-"children": []
-}
-]
-}
-]
-}
-,{
-"text": { "name": "expPrime" },
-"collapsed": true,
-"children": [
-{
-"text": { "name": "NULL" },
-"children": []
-}
-]
-}
-]
-}
-]
+"text": { "name": "TK_CL:)" },
+"children":[]
 }
 ,{
 "text": { "name": "TK_SEM:;" },
-"children":[]
-}
-]
-}
-]
-}
-,{
-"text": { "name": "otherStmts" },
-"collapsed": true,
-"children": [
-{
-"text": { "name": "NULL" },
-"children": []
-}
-]
-}
-]
-}
-]
-}
-,{
-"text": { "name": "TK_ENDWHILE:endwhile" },
 "children":[]
 }
 ]
@@ -1796,7 +376,7 @@
 "collapsed": true,
 "children": [
 {
-"text": { "name": "TK_ID:d3" },
+"text": { "name": "TK_ID:b3c45" },
 "children":[]
 }
 ,{
@@ -1838,8 +418,6 @@
 {
 "text": { "name": "NULL" },
 "children": []
-}
-]
 }
 ]
 }
@@ -1862,8 +440,210 @@
 "collapsed": true,
 "children": [
 {
+"text": { "name": "typeDefinition" },
+"collapsed": true,
+"children": [
+{
+"text": { "name": "TK_RECORD:record" },
+"children":[]
+}
+,{
+"text": { "name": "TK_RECORDID:#marks" },
+"children":[]
+}
+,{
+"text": { "name": "fieldDefinitions" },
+"collapsed": true,
+"children": [
+{
+"text": { "name": "fieldDefinition" },
+"collapsed": true,
+"children": [
+{
+"text": { "name": "TK_TYPE:type" },
+"children":[]
+}
+,{
+"text": { "name": "primitiveDatatype" },
+"collapsed": true,
+"children": [
+{
+"text": { "name": "TK_REAL:real" },
+"children":[]
+}
+]
+}
+,{
+"text": { "name": "TK_COLON::" },
+"children":[]
+}
+,{
+"text": { "name": "TK_FIELDID:maths" },
+"children":[]
+}
+,{
+"text": { "name": "TK_SEM:;" },
+"children":[]
+}
+]
+}
+,{
+"text": { "name": "fieldDefinition" },
+"collapsed": true,
+"children": [
+{
+"text": { "name": "TK_TYPE:type" },
+"children":[]
+}
+,{
+"text": { "name": "primitiveDatatype" },
+"collapsed": true,
+"children": [
+{
+"text": { "name": "TK_REAL:real" },
+"children":[]
+}
+]
+}
+,{
+"text": { "name": "TK_COLON::" },
+"children":[]
+}
+,{
+"text": { "name": "TK_FIELDID:physics" },
+"children":[]
+}
+,{
+"text": { "name": "TK_SEM:;" },
+"children":[]
+}
+]
+}
+,{
+"text": { "name": "moreFields" },
+"collapsed": true,
+"children": [
+{
+"text": { "name": "fieldDefinition" },
+"collapsed": true,
+"children": [
+{
+"text": { "name": "TK_TYPE:type" },
+"children":[]
+}
+,{
+"text": { "name": "primitiveDatatype" },
+"collapsed": true,
+"children": [
+{
+"text": { "name": "TK_REAL:real" },
+"children":[]
+}
+]
+}
+,{
+"text": { "name": "TK_COLON::" },
+"children":[]
+}
+,{
+"text": { "name": "TK_FIELDID:chemistry" },
+"children":[]
+}
+,{
+"text": { "name": "TK_SEM:;" },
+"children":[]
+}
+]
+}
+,{
+"text": { "name": "moreFields" },
+"collapsed": true,
+"children": [
+{
 "text": { "name": "NULL" },
 "children": []
+}
+]
+}
+]
+}
+]
+}
+,{
+"text": { "name": "TK_ENDRECORD:endrecord" },
+"children":[]
+}
+,{
+"text": { "name": "TK_SEM:;" },
+"children":[]
+}
+]
+}
+,{
+"text": { "name": "typeDefinitions" },
+"collapsed": true,
+"children": [
+{
+"text": { "name": "NULL" },
+"children": []
+}
+]
+}
+]
+}
+,{
+"text": { "name": "declarations" },
+"collapsed": true,
+"children": [
+{
+"text": { "name": "declaration" },
+"collapsed": true,
+"children": [
+{
+"text": { "name": "TK_TYPE:type" },
+"children":[]
+}
+,{
+"text": { "name": "dataType" },
+"collapsed": true,
+"children": [
+{
+"text": { "name": "constructedDatatype" },
+"collapsed": true,
+"children": [
+{
+"text": { "name": "TK_RECORD:record" },
+"children":[]
+}
+,{
+"text": { "name": "TK_RECORDID:#marks" },
+"children":[]
+}
+]
+}
+]
+}
+,{
+"text": { "name": "TK_COLON::" },
+"children":[]
+}
+,{
+"text": { "name": "TK_ID:d4" },
+"children":[]
+}
+,{
+"text": { "name": "global_or_not" },
+"collapsed": true,
+"children": [
+{
+"text": { "name": "NULL" },
+"children": []
+}
+]
+}
+,{
+"text": { "name": "TK_SEM:;" },
+"children":[]
 }
 ]
 }
@@ -1900,7 +680,7 @@
 "children":[]
 }
 ,{
-"text": { "name": "TK_ID:b3" },
+"text": { "name": "TK_ID:b5" },
 "children":[]
 }
 ,{
@@ -1940,7 +720,7 @@
 "collapsed": true,
 "children": [
 {
-"text": { "name": "TK_REAL:real" },
+"text": { "name": "TK_INT:int" },
 "children":[]
 }
 ]
@@ -1952,7 +732,63 @@
 "children":[]
 }
 ,{
-"text": { "name": "TK_ID:c4bd56" },
+"text": { "name": "TK_ID:d5cb34567" },
+"children":[]
+}
+,{
+"text": { "name": "global_or_not" },
+"collapsed": true,
+"children": [
+{
+"text": { "name": "NULL" },
+"children": []
+}
+]
+}
+,{
+"text": { "name": "TK_SEM:;" },
+"children":[]
+}
+]
+}
+,{
+"text": { "name": "declarations" },
+"collapsed": true,
+"children": [
+{
+"text": { "name": "declaration" },
+"collapsed": true,
+"children": [
+{
+"text": { "name": "TK_TYPE:type" },
+"children":[]
+}
+,{
+"text": { "name": "dataType" },
+"collapsed": true,
+"children": [
+{
+"text": { "name": "constructedDatatype" },
+"collapsed": true,
+"children": [
+{
+"text": { "name": "TK_RECORD:record" },
+"children":[]
+}
+,{
+"text": { "name": "TK_RECORDID:#marks" },
+"children":[]
+}
+]
+}
+]
+}
+,{
+"text": { "name": "TK_COLON::" },
+"children":[]
+}
+,{
+"text": { "name": "TK_ID:b5c6" },
 "children":[]
 }
 ,{
@@ -1985,6 +821,10 @@
 }
 ]
 }
+]
+}
+]
+}
 ,{
 "text": { "name": "otherStmts" },
 "collapsed": true,
@@ -2002,7 +842,7 @@
 "collapsed": true,
 "children": [
 {
-"text": { "name": "TK_ID:b3" },
+"text": { "name": "TK_ID:b5" },
 "children":[]
 }
 ,{
@@ -2038,7 +878,7 @@
 "collapsed": true,
 "children": [
 {
-"text": { "name": "TK_NUM:7" },
+"text": { "name": "TK_NUM:1" },
 "children":[]
 }
 ]
@@ -2086,6 +926,402 @@
 "collapsed": true,
 "children": [
 {
+"text": { "name": "ioStmt" },
+"collapsed": true,
+"children": [
+{
+"text": { "name": "TK_READ:read" },
+"children":[]
+}
+,{
+"text": { "name": "TK_OP:(" },
+"children":[]
+}
+,{
+"text": { "name": "singleOrRecId" },
+"collapsed": true,
+"children": [
+{
+"text": { "name": "TK_ID:d5cb34567" },
+"children":[]
+}
+,{
+"text": { "name": "new24" },
+"collapsed": true,
+"children": [
+{
+"text": { "name": "NULL" },
+"children": []
+}
+]
+}
+]
+}
+,{
+"text": { "name": "TK_CL:)" },
+"children":[]
+}
+,{
+"text": { "name": "TK_SEM:;" },
+"children":[]
+}
+]
+}
+]
+}
+,{
+"text": { "name": "otherStmts" },
+"collapsed": true,
+"children": [
+{
+"text": { "name": "stmt" },
+"collapsed": true,
+"children": [
+{
+"text": { "name": "assignmentStmt" },
+"collapsed": true,
+"children": [
+{
+"text": { "name": "singleOrRecId" },
+"collapsed": true,
+"children": [
+{
+"text": { "name": "TK_ID:b5c6" },
+"children":[]
+}
+,{
+"text": { "name": "new24" },
+"collapsed": true,
+"children": [
+{
+"text": { "name": "TK_DOT:." },
+"children":[]
+}
+,{
+"text": { "name": "TK_FIELDID:maths" },
+"children":[]
+}
+]
+}
+]
+}
+,{
+"text": { "name": "TK_ASSIGNOP:<---" },
+"children":[]
+}
+,{
+"text": { "name": "arithmeticExpression" },
+"collapsed": true,
+"children": [
+{
+"text": { "name": "term" },
+"collapsed": true,
+"children": [
+{
+"text": { "name": "factor" },
+"collapsed": true,
+"children": [
+{
+"text": { "name": "all" },
+"collapsed": true,
+"children": [
+{
+"text": { "name": "TK_RNUM:0.00" },
+"children":[]
+}
+]
+}
+]
+}
+,{
+"text": { "name": "termPrime" },
+"collapsed": true,
+"children": [
+{
+"text": { "name": "NULL" },
+"children": []
+}
+]
+}
+]
+}
+,{
+"text": { "name": "expPrime" },
+"collapsed": true,
+"children": [
+{
+"text": { "name": "NULL" },
+"children": []
+}
+]
+}
+]
+}
+,{
+"text": { "name": "TK_SEM:;" },
+"children":[]
+}
+]
+}
+]
+}
+,{
+"text": { "name": "otherStmts" },
+"collapsed": true,
+"children": [
+{
+"text": { "name": "stmt" },
+"collapsed": true,
+"children": [
+{
+"text": { "name": "assignmentStmt" },
+"collapsed": true,
+"children": [
+{
+"text": { "name": "singleOrRecId" },
+"collapsed": true,
+"children": [
+{
+"text": { "name": "TK_ID:b5c6" },
+"children":[]
+}
+,{
+"text": { "name": "new24" },
+"collapsed": true,
+"children": [
+{
+"text": { "name": "TK_DOT:." },
+"children":[]
+}
+,{
+"text": { "name": "TK_FIELDID:physics" },
+"children":[]
+}
+]
+}
+]
+}
+,{
+"text": { "name": "TK_ASSIGNOP:<---" },
+"children":[]
+}
+,{
+"text": { "name": "arithmeticExpression" },
+"collapsed": true,
+"children": [
+{
+"text": { "name": "term" },
+"collapsed": true,
+"children": [
+{
+"text": { "name": "factor" },
+"collapsed": true,
+"children": [
+{
+"text": { "name": "all" },
+"collapsed": true,
+"children": [
+{
+"text": { "name": "TK_RNUM:0.00" },
+"children":[]
+}
+]
+}
+]
+}
+,{
+"text": { "name": "termPrime" },
+"collapsed": true,
+"children": [
+{
+"text": { "name": "NULL" },
+"children": []
+}
+]
+}
+]
+}
+,{
+"text": { "name": "expPrime" },
+"collapsed": true,
+"children": [
+{
+"text": { "name": "NULL" },
+"children": []
+}
+]
+}
+]
+}
+,{
+"text": { "name": "TK_SEM:;" },
+"children":[]
+}
+]
+}
+]
+}
+,{
+"text": { "name": "otherStmts" },
+"collapsed": true,
+"children": [
+{
+"text": { "name": "stmt" },
+"collapsed": true,
+"children": [
+{
+"text": { "name": "assignmentStmt" },
+"collapsed": true,
+"children": [
+{
+"text": { "name": "singleOrRecId" },
+"collapsed": true,
+"children": [
+{
+"text": { "name": "TK_ID:b5c6" },
+"children":[]
+}
+,{
+"text": { "name": "new24" },
+"collapsed": true,
+"children": [
+{
+"text": { "name": "TK_DOT:." },
+"children":[]
+}
+,{
+"text": { "name": "TK_FIELDID:chemistry" },
+"children":[]
+}
+]
+}
+]
+}
+,{
+"text": { "name": "TK_ASSIGNOP:<---" },
+"children":[]
+}
+,{
+"text": { "name": "arithmeticExpression" },
+"collapsed": true,
+"children": [
+{
+"text": { "name": "term" },
+"collapsed": true,
+"children": [
+{
+"text": { "name": "factor" },
+"collapsed": true,
+"children": [
+{
+"text": { "name": "all" },
+"collapsed": true,
+"children": [
+{
+"text": { "name": "TK_RNUM:0.00" },
+"children":[]
+}
+]
+}
+]
+}
+,{
+"text": { "name": "termPrime" },
+"collapsed": true,
+"children": [
+{
+"text": { "name": "NULL" },
+"children": []
+}
+]
+}
+]
+}
+,{
+"text": { "name": "expPrime" },
+"collapsed": true,
+"children": [
+{
+"text": { "name": "NULL" },
+"children": []
+}
+]
+}
+]
+}
+,{
+"text": { "name": "TK_SEM:;" },
+"children":[]
+}
+]
+}
+]
+}
+,{
+"text": { "name": "otherStmts" },
+"collapsed": true,
+"children": [
+{
+"text": { "name": "stmt" },
+"collapsed": true,
+"children": [
+{
+"text": { "name": "iterativeStmt" },
+"collapsed": true,
+"children": [
+{
+"text": { "name": "TK_WHILE:while" },
+"children":[]
+}
+,{
+"text": { "name": "TK_OP:(" },
+"children":[]
+}
+,{
+"text": { "name": "booleanExpression" },
+"collapsed": true,
+"children": [
+{
+"text": { "name": "var" },
+"collapsed": true,
+"children": [
+{
+"text": { "name": "TK_ID:b5" },
+"children":[]
+}
+]
+}
+,{
+"text": { "name": "relationalOp" },
+"collapsed": true,
+"children": [
+{
+"text": { "name": "TK_LE:<=" },
+"children":[]
+}
+]
+}
+,{
+"text": { "name": "var" },
+"collapsed": true,
+"children": [
+{
+"text": { "name": "TK_ID:d5cb34567" },
+"children":[]
+}
+]
+}
+]
+}
+,{
+"text": { "name": "TK_CL:)" },
+"children":[]
+}
+,{
+"text": { "name": "stmt" },
+"collapsed": true,
+"children": [
+{
 "text": { "name": "funCallStmt" },
 "collapsed": true,
 "children": [
@@ -2102,7 +1338,7 @@
 "collapsed": true,
 "children": [
 {
-"text": { "name": "TK_ID:c4bd56" },
+"text": { "name": "TK_ID:d4" },
 "children":[]
 }
 ,{
@@ -2132,7 +1368,7 @@
 "children":[]
 }
 ,{
-"text": { "name": "TK_FUNID:_sumN" },
+"text": { "name": "TK_FUNID:_readMarks" },
 "children":[]
 }
 ,{
@@ -2156,7 +1392,7 @@
 "collapsed": true,
 "children": [
 {
-"text": { "name": "TK_ID:b3" },
+"text": { "name": "TK_ID:b5" },
 "children":[]
 }
 ,{
@@ -2174,6 +1410,482 @@
 ,{
 "text": { "name": "TK_SQR:]" },
 "children":[]
+}
+]
+}
+,{
+"text": { "name": "TK_SEM:;" },
+"children":[]
+}
+]
+}
+]
+}
+,{
+"text": { "name": "otherStmts" },
+"collapsed": true,
+"children": [
+{
+"text": { "name": "stmt" },
+"collapsed": true,
+"children": [
+{
+"text": { "name": "assignmentStmt" },
+"collapsed": true,
+"children": [
+{
+"text": { "name": "singleOrRecId" },
+"collapsed": true,
+"children": [
+{
+"text": { "name": "TK_ID:b5c6" },
+"children":[]
+}
+,{
+"text": { "name": "new24" },
+"collapsed": true,
+"children": [
+{
+"text": { "name": "NULL" },
+"children": []
+}
+]
+}
+]
+}
+,{
+"text": { "name": "TK_ASSIGNOP:<---" },
+"children":[]
+}
+,{
+"text": { "name": "arithmeticExpression" },
+"collapsed": true,
+"children": [
+{
+"text": { "name": "term" },
+"collapsed": true,
+"children": [
+{
+"text": { "name": "factor" },
+"collapsed": true,
+"children": [
+{
+"text": { "name": "all" },
+"collapsed": true,
+"children": [
+{
+"text": { "name": "TK_ID:b5c6" },
+"children":[]
+}
+,{
+"text": { "name": "temp" },
+"collapsed": true,
+"children": [
+{
+"text": { "name": "NULL" },
+"children": []
+}
+]
+}
+]
+}
+]
+}
+,{
+"text": { "name": "termPrime" },
+"collapsed": true,
+"children": [
+{
+"text": { "name": "NULL" },
+"children": []
+}
+]
+}
+]
+}
+,{
+"text": { "name": "expPrime" },
+"collapsed": true,
+"children": [
+{
+"text": { "name": "lowPrecedenceOperators" },
+"collapsed": true,
+"children": [
+{
+"text": { "name": "TK_PLUS:+" },
+"children":[]
+}
+]
+}
+,{
+"text": { "name": "term" },
+"collapsed": true,
+"children": [
+{
+"text": { "name": "factor" },
+"collapsed": true,
+"children": [
+{
+"text": { "name": "all" },
+"collapsed": true,
+"children": [
+{
+"text": { "name": "TK_ID:d4" },
+"children":[]
+}
+,{
+"text": { "name": "temp" },
+"collapsed": true,
+"children": [
+{
+"text": { "name": "NULL" },
+"children": []
+}
+]
+}
+]
+}
+]
+}
+,{
+"text": { "name": "termPrime" },
+"collapsed": true,
+"children": [
+{
+"text": { "name": "NULL" },
+"children": []
+}
+]
+}
+]
+}
+,{
+"text": { "name": "expPrime" },
+"collapsed": true,
+"children": [
+{
+"text": { "name": "NULL" },
+"children": []
+}
+]
+}
+]
+}
+]
+}
+,{
+"text": { "name": "TK_SEM:;" },
+"children":[]
+}
+]
+}
+]
+}
+,{
+"text": { "name": "otherStmts" },
+"collapsed": true,
+"children": [
+{
+"text": { "name": "stmt" },
+"collapsed": true,
+"children": [
+{
+"text": { "name": "assignmentStmt" },
+"collapsed": true,
+"children": [
+{
+"text": { "name": "singleOrRecId" },
+"collapsed": true,
+"children": [
+{
+"text": { "name": "TK_ID:b5" },
+"children":[]
+}
+,{
+"text": { "name": "new24" },
+"collapsed": true,
+"children": [
+{
+"text": { "name": "NULL" },
+"children": []
+}
+]
+}
+]
+}
+,{
+"text": { "name": "TK_ASSIGNOP:<---" },
+"children":[]
+}
+,{
+"text": { "name": "arithmeticExpression" },
+"collapsed": true,
+"children": [
+{
+"text": { "name": "term" },
+"collapsed": true,
+"children": [
+{
+"text": { "name": "factor" },
+"collapsed": true,
+"children": [
+{
+"text": { "name": "all" },
+"collapsed": true,
+"children": [
+{
+"text": { "name": "TK_ID:b5" },
+"children":[]
+}
+,{
+"text": { "name": "temp" },
+"collapsed": true,
+"children": [
+{
+"text": { "name": "NULL" },
+"children": []
+}
+]
+}
+]
+}
+]
+}
+,{
+"text": { "name": "termPrime" },
+"collapsed": true,
+"children": [
+{
+"text": { "name": "NULL" },
+"children": []
+}
+]
+}
+]
+}
+,{
+"text": { "name": "expPrime" },
+"collapsed": true,
+"children": [
+{
+"text": { "name": "lowPrecedenceOperators" },
+"collapsed": true,
+"children": [
+{
+"text": { "name": "TK_PLUS:+" },
+"children":[]
+}
+]
+}
+,{
+"text": { "name": "term" },
+"collapsed": true,
+"children": [
+{
+"text": { "name": "factor" },
+"collapsed": true,
+"children": [
+{
+"text": { "name": "all" },
+"collapsed": true,
+"children": [
+{
+"text": { "name": "TK_NUM:1" },
+"children":[]
+}
+]
+}
+]
+}
+,{
+"text": { "name": "termPrime" },
+"collapsed": true,
+"children": [
+{
+"text": { "name": "NULL" },
+"children": []
+}
+]
+}
+]
+}
+,{
+"text": { "name": "expPrime" },
+"collapsed": true,
+"children": [
+{
+"text": { "name": "NULL" },
+"children": []
+}
+]
+}
+]
+}
+]
+}
+,{
+"text": { "name": "TK_SEM:;" },
+"children":[]
+}
+]
+}
+]
+}
+,{
+"text": { "name": "otherStmts" },
+"collapsed": true,
+"children": [
+{
+"text": { "name": "NULL" },
+"children": []
+}
+]
+}
+]
+}
+]
+}
+,{
+"text": { "name": "TK_ENDWHILE:endwhile" },
+"children":[]
+}
+]
+}
+]
+}
+,{
+"text": { "name": "otherStmts" },
+"collapsed": true,
+"children": [
+{
+"text": { "name": "stmt" },
+"collapsed": true,
+"children": [
+{
+"text": { "name": "assignmentStmt" },
+"collapsed": true,
+"children": [
+{
+"text": { "name": "singleOrRecId" },
+"collapsed": true,
+"children": [
+{
+"text": { "name": "TK_ID:d4" },
+"children":[]
+}
+,{
+"text": { "name": "new24" },
+"collapsed": true,
+"children": [
+{
+"text": { "name": "NULL" },
+"children": []
+}
+]
+}
+]
+}
+,{
+"text": { "name": "TK_ASSIGNOP:<---" },
+"children":[]
+}
+,{
+"text": { "name": "arithmeticExpression" },
+"collapsed": true,
+"children": [
+{
+"text": { "name": "term" },
+"collapsed": true,
+"children": [
+{
+"text": { "name": "factor" },
+"collapsed": true,
+"children": [
+{
+"text": { "name": "all" },
+"collapsed": true,
+"children": [
+{
+"text": { "name": "TK_ID:b5c6" },
+"children":[]
+}
+,{
+"text": { "name": "temp" },
+"collapsed": true,
+"children": [
+{
+"text": { "name": "NULL" },
+"children": []
+}
+]
+}
+]
+}
+]
+}
+,{
+"text": { "name": "termPrime" },
+"collapsed": true,
+"children": [
+{
+"text": { "name": "highPrecedenceOperators" },
+"collapsed": true,
+"children": [
+{
+"text": { "name": "TK_DIV:/" },
+"children":[]
+}
+]
+}
+,{
+"text": { "name": "factor" },
+"collapsed": true,
+"children": [
+{
+"text": { "name": "all" },
+"collapsed": true,
+"children": [
+{
+"text": { "name": "TK_ID:d5cb34567" },
+"children":[]
+}
+,{
+"text": { "name": "temp" },
+"collapsed": true,
+"children": [
+{
+"text": { "name": "NULL" },
+"children": []
+}
+]
+}
+]
+}
+]
+}
+,{
+"text": { "name": "termPrime" },
+"collapsed": true,
+"children": [
+{
+"text": { "name": "NULL" },
+"children": []
+}
+]
+}
+]
+}
+]
+}
+,{
+"text": { "name": "expPrime" },
+"collapsed": true,
+"children": [
+{
+"text": { "name": "NULL" },
+"children": []
+}
+]
 }
 ]
 }
@@ -2210,7 +1922,7 @@
 "collapsed": true,
 "children": [
 {
-"text": { "name": "TK_ID:c4bd56" },
+"text": { "name": "TK_ID:d4" },
 "children":[]
 }
 ,{
@@ -2218,8 +1930,124 @@
 "collapsed": true,
 "children": [
 {
-"text": { "name": "NULL" },
-"children": []
+"text": { "name": "TK_DOT:." },
+"children":[]
+}
+,{
+"text": { "name": "TK_FIELDID:maths" },
+"children":[]
+}
+]
+}
+]
+}
+,{
+"text": { "name": "TK_CL:)" },
+"children":[]
+}
+,{
+"text": { "name": "TK_SEM:;" },
+"children":[]
+}
+]
+}
+]
+}
+,{
+"text": { "name": "otherStmts" },
+"collapsed": true,
+"children": [
+{
+"text": { "name": "stmt" },
+"collapsed": true,
+"children": [
+{
+"text": { "name": "ioStmt" },
+"collapsed": true,
+"children": [
+{
+"text": { "name": "TK_WRITE:write" },
+"children":[]
+}
+,{
+"text": { "name": "TK_OP:(" },
+"children":[]
+}
+,{
+"text": { "name": "allVar" },
+"collapsed": true,
+"children": [
+{
+"text": { "name": "TK_ID:d4" },
+"children":[]
+}
+,{
+"text": { "name": "newVar" },
+"collapsed": true,
+"children": [
+{
+"text": { "name": "TK_DOT:." },
+"children":[]
+}
+,{
+"text": { "name": "TK_FIELDID:physics" },
+"children":[]
+}
+]
+}
+]
+}
+,{
+"text": { "name": "TK_CL:)" },
+"children":[]
+}
+,{
+"text": { "name": "TK_SEM:;" },
+"children":[]
+}
+]
+}
+]
+}
+,{
+"text": { "name": "otherStmts" },
+"collapsed": true,
+"children": [
+{
+"text": { "name": "stmt" },
+"collapsed": true,
+"children": [
+{
+"text": { "name": "ioStmt" },
+"collapsed": true,
+"children": [
+{
+"text": { "name": "TK_WRITE:write" },
+"children":[]
+}
+,{
+"text": { "name": "TK_OP:(" },
+"children":[]
+}
+,{
+"text": { "name": "allVar" },
+"collapsed": true,
+"children": [
+{
+"text": { "name": "TK_ID:d4" },
+"children":[]
+}
+,{
+"text": { "name": "newVar" },
+"collapsed": true,
+"children": [
+{
+"text": { "name": "TK_DOT:." },
+"children":[]
+}
+,{
+"text": { "name": "TK_FIELDID:chemistry" },
+"children":[]
 }
 ]
 }
@@ -2244,6 +2072,20 @@
 {
 "text": { "name": "NULL" },
 "children": []
+}
+]
+}
+]
+}
+]
+}
+]
+}
+]
+}
+]
+}
+]
 }
 ]
 }

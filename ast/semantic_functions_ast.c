@@ -44,7 +44,7 @@ void free_single_nodes(void *tv){
             curr_count+=1;
         }
     }
-    printf("count %d\n",curr_count);
+    debug_msg("count %d\n",curr_count);
     t->num_child=curr_count;
 }
 

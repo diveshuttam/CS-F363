@@ -5,10 +5,7 @@
 #define NO_OF_NON_TERMINALS 51
 #define NO_OF_RULES 92
 #define LINE_SIZE 1000
-#define FOLLOWS_FILE "parser/rules/follows.txt"
-#define FIRSTS_FILE "parser/rules/firsts.txt"
-#define GRAMMER_FILE "parser/rules/grammer.txt"
-#define NON_TERMINALS_FILE "parser/rules/nonterminals.txt"
+#include "filenames.h"
 #include<stdio.h>
 #include<stdlib.h>
 #include"lexer.h"
@@ -63,9 +60,9 @@ struct Tree
     #include "derived_attributes.xfile"
 };
 
-void inorder(const Tree t);
 grammerRule** gen_parse_table(const grammerRule *r,const int no_of_rules,const Terminal* eps);
 Tree parseTree(Stream token_stream,const grammerRule **table,const grammerRule *g,const grammerRule *start_rule, const Terminal *bottom_symbol);
+Tree getParsedTreeFromFile(char *filename);
 void printParsedOutput(char *filename);
 #endif
 

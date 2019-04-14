@@ -1,6 +1,11 @@
 #ifndef __ST_ENTRIES_H
 #define __ST_ENTRIES_H
 #include "token_names.h"
+typedef struct record_def_entry{
+    int size;
+    SeqList subnodes;
+} *record_def_entry;
+
 typedef struct variable_entry{
     char *var_name;
     int offset;

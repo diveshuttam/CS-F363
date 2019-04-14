@@ -8,6 +8,7 @@
 #include "token.h"
 #include "colors.h"
 #include "ast.h"
+#include "tree_utils.h"
 
 struct item
 {
@@ -95,7 +96,6 @@ Tree parseTree(Stream token_stream,const grammerRule **table,const grammerRule *
     push(s,make_stack_element(bottom_s));
     push(s,make_stack_element(start_s));
     root=start_s->node;
-    int error = 0;
     grammerRule gr;
     item* tnt=NULL;
     Token *tk=NULL;
@@ -142,6 +142,7 @@ Tree parseTree(Stream token_stream,const grammerRule **table,const grammerRule *
         }
         if(tk->state == -1){
             printf("Line:%d Unknown lexeme:%s", tk->line_no, tk->val);
+            errors=true;
             return root;
         }
 
@@ -150,7 +151,7 @@ Tree parseTree(Stream token_stream,const grammerRule **table,const grammerRule *
             // debug_msg("Syntax Error found at line y, %s %s %d\n",tnt->t.s.nt.name,tk->val,tk->state);
             printf("Syntax Error Found at %d: %s:%d  %s:%d\n",tk->line_no,tnt->t.s.nt->name,tnt->t.s.nt->key,tk->val,tk->state); 
             // exit(0);
-            error = 1;//line number in token structure
+            errors = 1;//line number in token structure
             return root;
         }
         else
@@ -158,7 +159,7 @@ Tree parseTree(Stream token_stream,const grammerRule **table,const grammerRule *
             if(tnt->t.type=='t' && tnt->t.s.t->StateId!= tk->state) //see the definitions of state in the two definitions
             {
                 printf("Syntax Error Found at %d: %s:%d  %s:%d\n",tk->line_no,tnt->t.s.t->name,tnt->t.s.t->StateId,tk->val,tk->state); 
-                error = 1;
+                errors = 1;
                 return root;
                 // exit(0);
                 item *i=NULL;
@@ -178,10 +179,6 @@ Tree parseTree(Stream token_stream,const grammerRule **table,const grammerRule *
                 }
             }
         }
-    }
-    if(error==0)
-    {
-        printf(ANSI_COLOR_GREEN "Compilation Successful\n" ANSI_COLOR_RESET);
     }
     return root;
 }
@@ -208,37 +205,7 @@ item* parse_get(Stack popped_items)
     return send;
 }
 
-
-//root traversal
-void visit(const Tree root)
-{
-    if(root->t.type=='t')
-        {
-            if(root->tk==NULL){
-            printf("error with tree node %s:%d terminal Token points to NULL \n",root->t.s.t->name , root->t.s.t->StateId);
-            return;
-            }
-        printf("%s at line %d:%s\n",root->t.s.t->name,root->tk->line_no,root->tk->val);
-    }
-    else{ 
-        printf("%s %d\n",root->t.s.nt->name, root->t.s.nt->key);
-    }
-}
-
-void inorder(const Tree root){
-    if (root == NULL) 
-        return;
-    if(root->num_child>0){
-        inorder(root->child[0]);
-    }
-    visit(root);
-    for (int i = 1; i < root->num_child; i++) 
-    {
-        inorder(root->child[i]);
-    }
-}
-
-void printParsedOutput(char* testcase_file){
+Tree getParsedTreeFromFile(char* testcase_file){
     NonTerminal *non_terminals=NULL;
     non_terminals=malloc(sizeof(NonTerminal)*NO_OF_NON_TERMINALS);
     Terminal *terminals=NULL;
@@ -283,9 +250,20 @@ void printParsedOutput(char* testcase_file){
 	Stream s=getStream(testcase_file);
 	if(s==NULL){
 		debug_msg("error opening file %s", testcase_file);
-		return;
+		return NULL;
 	}
     Tree t=parseTree(s,(const grammerRule**)table,g,&g[0],&terminals[TK_DOLLAR]);
-    inorder(t);
+    return t;
+}
+
+void printParsedOutput(char* testcase_file){
+    Tree t = getParsedTreeFromFile(testcase_file);
+    if(errors==true){
+            printf(ANSI_COLOR_RED "Errors found in while parsing\n" ANSI_COLOR_RESET);
+    }
+    else{
+        inorder(t);
+        printf(ANSI_COLOR_GREEN "Parsing Successful. No Lexical/Syntactic Errors.\n" ANSI_COLOR_RESET);
+    }
  }
  

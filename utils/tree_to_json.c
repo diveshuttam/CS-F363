@@ -117,3 +117,32 @@ void printJSON(Tree t, FILE *fp){
     printJSON(t,fp);
     fprintf(fp,"}\n");
  }
+
+void print_parse_tree_json(char *testcase_file, char *outputfile){
+    Tree pt=getParsedTreeFromFile(testcase_file);
+    FILE *fp=fopen(outputfile,"w");
+    if(fp==NULL){
+        printf("Error opening file %s\n",outputfile);
+        return;
+    }
+    fprintf(fp,"{\n");
+    fprintf(fp,"\"nodeStructure\":");
+    printJSON(pt,fp);
+    fprintf(fp,"}\n");
+    printf("parse tree output to %s\n",outputfile);
+    fflush(fp);
+}
+void print_ast_json(char *testcase_file, char *outputfile){
+    Tree ast=getASTFromFile(testcase_file);
+    FILE *fp=fopen(outputfile,"w");
+    if(fp==NULL){
+        printf("Error opening file %s\n",outputfile);
+        return;
+    }
+    fprintf(fp,"{\n");
+    fprintf(fp,"\"nodeStructure\":");
+    printJSON(ast,fp);
+    fprintf(fp,"}\n");
+    printf("AST output to %s\n",outputfile);
+    fflush(fp);
+}

@@ -6,6 +6,8 @@
 #include "colors.h"
 #include "tree_to_json.h"
 
+bool errors=false;
+
 int main (int argc, char *argv[])
 {
   if(argc!=3){

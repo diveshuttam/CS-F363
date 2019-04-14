@@ -1,5 +1,6 @@
 #ifndef __POPULATE_GRAMMER_H
 #define __POPULATE_GRAMMER_H
+#include "filenames.h"
 #include "parserDef.h"
 #include "hash.h"
 void follows(NonTerminal* non_terminals, Terminal* terminals, const char** non_terminals_map, const char **terminals_map, const hashTable ht_non_terminals,const hashTable ht_terminals);
