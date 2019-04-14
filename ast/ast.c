@@ -57,7 +57,7 @@ static func_ptr_t semantic_action_map_for_ast[NO_OF_RULES][NO_OF_ATTRIBUTES]={
         // 23,24 moreFields ===> TK_EPS
         {&free_single_nodes,NULL,NULL},
         // 24,25 declarations ===> declaration declarations
-        {a_gives_b_a_reduce,NULL,NULL},
+        {&a_gives_b_a_reduce,NULL,NULL},
         // 25,26 declarations ===> TK_EPS
         {&free_single_nodes,NULL,NULL},
         // 26,27 declaration ===> TK_TYPE dataType TK_COLON TK_ID global_or_not TK_SEM
@@ -127,7 +127,7 @@ static func_ptr_t semantic_action_map_for_ast[NO_OF_RULES][NO_OF_ATTRIBUTES]={
         // 58,59 term ===> factor termPrime
         {&termRule58,NULL,NULL},
         // 59,60 termPrime ===> highPrecedenceOperators factor termPrime
-        {termPrimeRule59,NULL,NULL},
+        {&termPrimeRule59,NULL,NULL},
         // 60,61 termPrime ===> TK_EPS
         {&free_single_nodes,NULL,NULL},
         // 61,62 factor ===> TK_OP arithmeticExpression TK_CL
@@ -187,9 +187,9 @@ static func_ptr_t semantic_action_map_for_ast[NO_OF_RULES][NO_OF_ATTRIBUTES]={
         // 88,89 optionalReturn ===> TK_EPS
         {&free_single_nodes,NULL,NULL},
         // 89,90 idList ===> TK_ID more_ids
-        {a_gives_b_a_reduce,NULL,NULL},
+        {&a_gives_b_a_reduce,NULL,NULL},
         // 90,91 more_ids ===> TK_COMMA idList
-        {free_single_nodes,NULL,NULL},
+        {&free_single_nodes,NULL,NULL},
         // 91,92 more_ids ===> TK_EPS
         {&free_single_nodes,NULL,NULL},
     };

@@ -1,4 +1,4 @@
 int addr;
-int type;
+char* type_name;
 char* code;
 int value;

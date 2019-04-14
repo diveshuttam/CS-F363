@@ -3,7 +3,8 @@
 #include "ast.h"
 #include "st_entries.h"
 #include "colors.h"
-
+#include "typecheck.h"
+SymbolTable GlobalSymbolTable=NULL;
 void updateRecordEntires(Tree ast, SymbolTable st);
 void updateGlobalVariables(Tree ast, SymbolTable st);
 void updateOtherVariables(Tree ast, SymbolTable st);
@@ -60,7 +61,11 @@ void updateRecordEntires(Tree ast, SymbolTable st){
             printf("ERROR\n");
             return;
         }
+        
         char *key=ast->child[0]->tk->val;
+        // if(findST(key,st)!=NULL){
+        //     printf("Error! Type name %s redefined at line %d\n", key, ast->child[0]->tk->line_no);
+        // }
         StEntry et=malloc(sizeof(struct StEntry));
         et->et_name=malloc(strlen("REC_DEF")+1);
         strcpy(et->et_name,"REC_DEF");
@@ -78,6 +83,10 @@ void updateRecordEntires(Tree ast, SymbolTable st){
             E=malloc(sizeof(struct Element));
             variable_entry var_entry=malloc(sizeof(struct variable_entry));
             E->k=(Key)(ast->child[i]->child[1]->t.s.t->name);
+            // if(find(sl,ast->child[i]->child[1]->t.s.t->name)!=NULL){
+            //     printf("Error! variable %s redefined at line %d\n", key, ast->child[0]->tk->line_no);
+            //     continue;
+            // }
             E->d=(Data)(var_entry);
             var_entry->var_type=ast->child[i]->child[0]->t.s.t->StateId;
             int sz=0;
@@ -154,6 +163,7 @@ void updateGlobalVariables(Tree ast,SymbolTable st){
         st->size+=ve->size;
         et->var_entry=ve;
         insertST(key,et,st);
+        ast->type_name=ve->var_type_name;
         return;
     }
     for(int i=0;i<ast->num_child;i++){
@@ -212,6 +222,7 @@ void updateOtherVariables(Tree ast, SymbolTable st){
         st->size+=ve->size;
         et->var_entry=ve;
         insertST(key,et,st);
+        ast->type_name=ve->var_type_name;
         return;
     }
     for(int i=0;i<ast->num_child;i++){
@@ -226,6 +237,8 @@ SymbolTable genSymbolTableFromFile(char *filename){
         printf(ANSI_COLOR_RED "Errors while creating AST!\n" ANSI_COLOR_RESET);
     }
     SymbolTable st = genSymbolTable(ast);
+    GlobalSymbolTable = st;
+    typeCheck(ast,st);
     return st;
 }
 
