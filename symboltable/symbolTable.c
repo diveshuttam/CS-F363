@@ -161,6 +161,7 @@ void updateGlobalVariables(Tree ast,SymbolTable st){
     }
 }
 
+//TODO parameters
 //parameters and local
 void updateOtherVariables(Tree ast, SymbolTable st){
     int offset=st->size;

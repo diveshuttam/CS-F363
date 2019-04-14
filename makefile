@@ -37,8 +37,8 @@ all: compiler visualize_exe
 compiler: $(ALL_OFILES) $(MAIN_FILE)
 	$(GCC_CMD) $(ALL_OFILES) $(MAIN_FILE) -o compiler
 
-visualize_exe: $(ALL_OFILES) $(VISUALIZE_FILE)
-	$(GCC_CMD) $(ALL_OFILES) $(VISUALIZE_FILE) -o visualize_exe
+# visualize_exe: $(ALL_OFILES) $(VISUALIZE_FILE)
+# 	$(GCC_CMD) $(ALL_OFILES) $(VISUALIZE_FILE) -o visualize_exe
 
 %.o: %.c $(ALL_CFILES)
 	$(GCC_CMD) -c -o $@ $<
