@@ -1,6 +1,8 @@
 #include "SeqList.h"
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
+
 
 #ifndef __MY_OWN_DATA_ELE
 #include "SeqListDtype.h"
@@ -244,4 +246,17 @@ find (SeqList sl, Key k)
   //not found return null
   return NULL;
 }
+
+int compare (const Key k1,const Key k2){
+  int x = strcmp((char*)k1,(char*)k2);
+  if(x==0){
+    return EQUALTO;
+  }
+  else if(x<0){
+    return LESSTHAN;
+  }
+  else{
+    return GREATERTHAN;
+  }
+ }
 #endif

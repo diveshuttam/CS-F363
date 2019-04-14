@@ -6,6 +6,7 @@
 #define REAL_SIZE 4
 typedef struct SymbolTable *SymbolTable; 
 extern SymbolTable GlobalSymbolTable;
+extern SymbolTable CurrentSymbolTable;
 struct SymbolTable {
     int size;
     int num_entires;

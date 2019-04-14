@@ -5,6 +5,7 @@
 #include "colors.h"
 #include "typecheck.h"
 SymbolTable GlobalSymbolTable=NULL;
+SymbolTable CurrentSymbolTable=NULL;
 void updateRecordEntires(Tree ast, SymbolTable st);
 void updateGlobalVariables(Tree ast, SymbolTable st);
 void updateOtherVariables(Tree ast, SymbolTable st);
@@ -238,6 +239,8 @@ SymbolTable genSymbolTableFromFile(char *filename){
     }
     SymbolTable st = genSymbolTable(ast);
     GlobalSymbolTable = st;
+    CurrentSymbolTable = st;
+
     typeCheck(ast,st);
     return st;
 }

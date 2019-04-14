@@ -1,6 +1,8 @@
 #include "typecheck.h"
 #include "st_entries.h"
 #include "typecheck_functions.h"
+#include "st_entries.h"
+#include "st_utils.h"
 
 static func_ptr_t semantic_action_map_terminals[NO_OF_TERMINALS];
 static func_ptr_t semantic_action_map_non_terminals[NO_OF_NON_TERMINALS];
@@ -18,7 +20,9 @@ void assign_semantic_functions_map(){
     semantic_action_map_terminals[TK_NUM] = &typeCheckTerminals;
 
     //nonterminals
-    semantic_action_map_non_terminals[assignmentStmt]=NULL;
+    semantic_action_map_non_terminals[assignmentStmt]=&assignmentStmtTypeCheck;
+    semantic_action_map_non_terminals[function] = &functionTypeCheck;
+    semantic_action_map_non_terminals[mainFunction] = &functionTypeCheck;
 }
 
 Tree post_order_traversal_tc(Tree root, SymbolTable st){
@@ -34,6 +38,13 @@ Tree post_order_traversal_tc(Tree root, SymbolTable st){
         sa = semantic_action_map_non_terminals[root->t.s.nt->key];
     }
 
+    if(root->t.type=='n' && (root->t.s.nt->key==function || root->t.s.nt->key==mainFunction)){
+        Tree t = root;
+        StEntry entry= (StEntry)findST(t->child[0]->tk->val,GlobalSymbolTable);
+        function_entry fe=entry->var_entry;
+        CurrentSymbolTable = fe->symbol_table;
+    }
+
     for(int i=0; i<(root->num_child);i++){
         if(root->child!=NULL){
             post_order_traversal_tc((root->child)[i], st);
@@ -47,5 +58,6 @@ Tree post_order_traversal_tc(Tree root, SymbolTable st){
 }
 
 void typeCheck(Tree ast,SymbolTable st){
+    assign_semantic_functions_map();
     post_order_traversal_tc(ast,st);
 }
