@@ -56,7 +56,7 @@ grammerRule** gen_parse_table(const grammerRule *r, int no_of_rules, const Termi
             table[nt_current->key][follows[i]->StateId] = syn_set_rule;
         }
 
-        Terminal** firsts_for_error = nt_current->firsts;
+        // Terminal** firsts_for_error = nt_current->firsts;
         int first_size_for_error = nt_current->firsts_size;
         for(int i=0;i<first_size_for_error;i++)
         {

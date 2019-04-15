@@ -7,6 +7,7 @@
 #include "ast.h"
 #include "symbolTable.h"
 #include "tree_to_json.h"
+#include "code_gen.h"
 
 bool errors=false;
 int main (int argc, char *argv[])
@@ -35,7 +36,8 @@ int main (int argc, char *argv[])
     printf("6: Print Global Variables with size and offset\n");
     printf("7: Print Functions Memory Requirements\n");
     printf("8: Print Type(Record) Definitions\n");
-    printf("9: Semantic Analysis and Time\n");
+
+    printf("9: Semantic Analysis and Time\n");    
     printf("10: Output assembly code to %s\n",argv[2]);
 
     printf("0: exit\n");
@@ -68,6 +70,8 @@ int main (int argc, char *argv[])
       case 5:
         printSymbolTableFromFile(argv[1]);
         break;
+      case 10:
+        printCodegenFromFile(argv[1]);
       //extra choices
       case 21:
         printFileErrorsHighlight(argv[1]);
@@ -79,7 +83,7 @@ int main (int argc, char *argv[])
       case 23:
         sprintf(s,"%s.ast.json",argv[1]);
         print_ast_json(argv[1],s);
-        break;
+        break;        
         //time taken
       default:
         printf(ANSI_COLOR_RED "Invalid choice!!\n" ANSI_COLOR_RESET);

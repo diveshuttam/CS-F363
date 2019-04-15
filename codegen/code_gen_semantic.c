@@ -4,12 +4,9 @@
 #include"symbolTable.h"
 #include"st_entries.h"
 #include"st_utils.h"
-void term(void* tv)
-{   
 
-}
 //arithmeticExpression ===> term expPrime
-void operation(void* tv)
+void operation_cg(void* tv)
 {   
     Tree t = (Tree)tv;
     Tree id1 = t->child[0];
@@ -34,7 +31,7 @@ void operation(void* tv)
     t->code=(char*)malloc(snprintf(0,NULL,"\n\t mov ax, [%s] \n\t \n\t %s ax,[%s] \n\t \n\t mov [%s],ax \n\t",id1->addr,operation,id2->addr,t->addr));
     sprintf(t->code,"\n\t mov ax, [%s] \n\t \n\t %s ax,[%s] \n\t \n\t mov [%s],ax \n\t");
 }
-void assignmentStmt(void* tv)
+void assignmentStmt_cg(void* tv)
 {
     Tree t = (Tree)tv;
     Tree id = t->child[0];
@@ -44,7 +41,7 @@ void assignmentStmt(void* tv)
     t->code = arith->code;
     strcat(t->code,code);
 }
-void handle_io_stmt(void* tv,SymbolTable gst)
+void handle_io_stmt_cg(void* tv)
 {
     Tree t = (Tree)tv;
     Tree id = t->child[1];
@@ -53,7 +50,7 @@ void handle_io_stmt(void* tv,SymbolTable gst)
     {
         if(id->tk->state==TK_RECORDID)
         {
-            record_def_entry rec = findST(id->tk->val,gst); 
+            record_def_entry rec = findST(id->tk->val,GlobalSymbolTable); 
             SeqList sl=rec->subnodes;
             Iterator it = getIterator(sl);
             char* code;
@@ -77,7 +74,7 @@ void handle_io_stmt(void* tv,SymbolTable gst)
     {
         if(id->tk->state==TK_RECORDID)
         {
-            record_def_entry rec = findST(id->tk->val,gst);
+            record_def_entry rec = findST(id->tk->val,GlobalSymbolTable);
             SeqList sl = rec->subnodes;
             Iterator it = getIterator(sl);
             char* code;
@@ -92,7 +89,7 @@ void handle_io_stmt(void* tv,SymbolTable gst)
     }
 }
 
-void iteration(void* tv)
+void iteration_cg(void* tv)
 {
     Tree t = (Tree)tv;
 
@@ -120,7 +117,7 @@ void iteration(void* tv)
         strcat(t->code,jmp_line);
     }
 }
-void functions(void* tv)
+void functions_cg(void* tv)
 {
     Tree t = (Tree)tv;
     int children = t->num_child;
