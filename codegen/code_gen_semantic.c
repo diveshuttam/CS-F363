@@ -4,6 +4,11 @@
 #include"symbolTable.h"
 #include"st_entries.h"
 #include"st_utils.h"
+void term(void* tv)
+{   
+
+}
+//arithmeticExpression ===> term expPrime
 void operation(void* tv)
 {   
     Tree t = (Tree)tv;
@@ -39,6 +44,7 @@ void assignmentStmt(void* tv)
     t->code = arith->code;
     strcat(t->code,code);
 }
+<<<<<<< HEAD
 void handle_io_stmt(void* tv,SymbolTable gst)
 {
     Tree t = (Tree)tv;
@@ -109,3 +115,25 @@ void iteration(void* tv)
         strcat(t->code,jmp_line);
     }
 }
+=======
+void functions(void* tv)
+{
+    Tree t = (Tree)tv;
+    int children = t->num_child;
+    int i=0;
+    char* code;
+    for(;i<children-1;i++)
+    {
+        code = (char*)malloc(snprintf(NULL,0,"\n\t %s db (?) %d \n\t",t->child[i]->tk->val,t->child[i]->size));
+        if(t->code==NULL)
+        {
+            sprintf(t->code,code);
+        }
+        else
+        {
+            strcat(t->code,code);
+        }
+    }
+    strcat(t->code,t->child[children-1]->code);
+}
+>>>>>>> origin/codegen

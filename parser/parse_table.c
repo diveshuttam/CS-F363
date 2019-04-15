@@ -36,20 +36,38 @@ grammerRule** gen_parse_table(const grammerRule *r, int no_of_rules, const Termi
         print_grammer_rule(r[i]);
         debug_msg("with lhs firsts size %d\t",r[i].lhs->firsts_size);
         debug_msg("with lhs follow size %d\n",r[i].lhs->follows_size);
+
+        grammerRule syn_set_rule;
+        syn_set_rule.id = -2;
+        syn_set_rule.lhs = NULL;
+        syn_set_rule.rhs = NULL;
         // int isEps = 0;
         int isEpsL = 0;
         NonTerminal *nt_current = r[i].lhs;
         TerminalNonTerminal** tnt_current = r[i].rhs;
 
         Terminal** first = NULL;
-        Terminal** follows = nt_current->follows;
 
+    /* ################ ERROR RECVOERY ############################# */
+        Terminal** follows = nt_current->follows;
+        int len_follows = nt_current->follows_size;
+        for(int i=0;i<len_follows;i++)
+        {
+            table[nt_current->key][follows[i]->StateId] = syn_set_rule;
+        }
+
+        Terminal** firsts_for_error = nt_current->firsts;
+        int first_size_for_error = nt_current->firsts_size;
+        for(int i=0;i<first_size_for_error;i++)
+        {
+            syn_set_rule.part_of_first = 1;
+            table[nt_current->key][follows[i]->StateId] = syn_set_rule;
+        }
+    /* ################ ERROR RECVOERY ############################# */
         Terminal** follows2 = NULL;
         int len_follows2 = 0;
-
-        int len_follows = nt_current->follows_size;
         if(tnt_current[0]->type=='t')
-        {
+        {   
             if(tnt_current[0]->s.t->StateId==TK_EPS)
             {
                 isEpsL = 1;

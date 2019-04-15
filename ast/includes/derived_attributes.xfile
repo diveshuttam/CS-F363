@@ -2,3 +2,4 @@ int addr;
 char* type_name;
 char* code;
 int value;
+int size;
