@@ -1,35 +1,58 @@
-all: utility lexer parser ast1 driver graphics
+CC = gcc
+CCFLAGS = -g -Wall -Wpedantic
+DEFINES = __NO_DEBUG __MY_OWN_DATA_ELE 
 
-ast1: ./ast/semantic_functions.c ./ast/traversal.c ./ast/semantic_actions.c ./ast/to_remove.c
-	gcc -g -c -Wall -Wpedantic -D __NON_DEBUG  -D __MY_OWN_DATA_ELE -D __WITHOUT_KEY -I parser/includes/ -I utils/includes/ -I lexer/includes/ -I ast/includes  ./ast/semantic_functions.c ./ast/traversal.c ./ast/semantic_actions.c ./ast/to_remove.c
+AST_DIR = ./ast
+LEXER_DIR = ./lexer
+PARSER_DIR = ./parser
+ST_DIR = ./symboltable
+UTILS_DIR = ./utils
+TYPECHECK_DIR = ./typecheck
+CODEGEN_DIR = ./codegen
 
-graphics: parser lexer utility ast
-	gcc -g -c -Wall -Wpedantic -D __NON_DEBUG  -D __MY_OWN_DATA_ELE -D __WITHOUT_KEY -I parser/includes/ -I utils/includes/ -I lexer/includes/ -I ast/includes graphics/visualize.c
-	gcc visualize.o populate_dfa.o populate_grammer.o token.o hash.o transition.o SeqList.o lexer.o twin_buffer.o parser.o Stack.o parse_table.o semantic_functions.o traversal.o semantic_actions.o to_remove.o -o visualize_exe
+AST_CFILES_NAMES = ast.c semantic_functions_ast.c to_remove.c
+LEXER_CFILES_NAMES = lexer.c populate_dfa.c token.c transition.c twin_buffer.c
+PARSER_CFILES_NAMES = parser.c populate_grammer.c parse_table.c tree_utils.c
+ST_CFILES_NAMES = symbolTable.c st_utils.c #semantic_functions_st.c
+UTILS_CFILES_NAMES = hash.c SeqList.c Stack.c tree_to_json.c
+TYPECHECK_CFILES_NAMES = typecheck.c typecheck_functions.c
+CODEGEN_CFILES_NAMES = code_gen.c code_gen_semantic.c
 
-driver: parser lexer utility ast
-	gcc -g -c -Wall -Wpedantic -D __NON_DEBUG  -D __MY_OWN_DATA_ELE -D __WITHOUT_KEY -I parser/includes/ -I utils/includes/ -I lexer/includes/ -I ast/includes driver.c 
-	gcc driver.o populate_dfa.o populate_grammer.o token.o hash.o transition.o SeqList.o lexer.o twin_buffer.o parser.o Stack.o parse_table.o semantic_functions.o traversal.o semantic_actions.o to_remove.o -o stage1exe
+MAIN_FILE = ./driver.c
+# VISUALIZE_FILE = ./graphics/visualize.c
 
-parser:utility parser/rules/firsts.txt parser/populate_grammer.c lexer/token.c parser/includes/ parser/parse_table.c lexer/token.c ast utility
-	gcc -g -c -Wall -Wpedantic -D __NON_DEBUG  -D __MY_OWN_DATA_ELE -D __WITHOUT_KEY -I parser/includes/ -I utils/includes/ -I lexer/includes/ -I ast/includes ./parser/populate_grammer.c ./lexer/token.c ./parser/parse_table.c ./parser/parser.c
+INCLUDES = $(addprefix -I , $(addsuffix /includes, $(AST_DIR) $(LEXER_DIR) $(PARSER_DIR) $(ST_DIR) $(UTILS_DIR) $(TYPECHECK_DIR) $(CODEGEN_DIR) ) )
+DEFINE_ARGS = $(addprefix -D ,$(DEFINES))
+GCC_CMD = $(CC) $(CCFLAGS) $(DEFINE_ARGS) $(INCLUDES)
 
-lexer:utility lexer/token.c lexer/includes/ lexer/transition.c lexer/lexer.c lexer/populate_dfa.c lexer/twin_buffer.c utils
-	gcc -g -c -Wall -Wpedantic -D __NON_DEBUG  -D __MY_OWN_DATA_ELE -D __WITHOUT_KEY -I lexer/includes/ -I utils/includes/ lexer/token.c lexer/transition.c lexer/lexer.c lexer/populate_dfa.c lexer/twin_buffer.c
+AST_CFILES = $(addprefix $(AST_DIR)/,$(AST_CFILES_NAMES))
+AST_OFILES = $(addsuffix .o, $(basename $(AST_CFILES)))
+LEXER_CFILES = $(addprefix $(LEXER_DIR)/,$(LEXER_CFILES_NAMES))
+LEXER_OFILES = $(addsuffix .o, $(basename $(LEXER_CFILES)))
+PARSER_CFILES = $(addprefix $(PARSER_DIR)/,$(PARSER_CFILES_NAMES))
+PARSER_OFILES = $(addsuffix .o, $(basename $(PARSER_CFILES)))
+ST_CFILES = $(addprefix $(ST_DIR)/,$(ST_CFILES_NAMES))
+ST_OFILES = $(addsuffix .o, $(basename $(ST_CFILES)))
+UTILS_CFILES = $(addprefix $(UTILS_DIR)/,$(UTILS_CFILES_NAMES))
+UTILS_OFILES = $(addsuffix .o, $(basename $(UTILS_CFILES)))
+TYPECHECK_CFILES = $(addprefix $(TYPECHECK_DIR)/,$(TYPECHECK_CFILES_NAMES))
+TYPECHECK_OFILES = $(addsuffix .o, $(basename $(TYPECHECK_CFILES)))
+CODEGEN_CFILES = $(addprefix $(CODEGEN_DIR)/,$(CODEGEN_CFILES_NAMES))
+CODEGEN_OFILES = $(addsuffix .o, $(basename $(CODEGEN_CFILES)))
 
-hash.o: utils/hash.c utils/includes/hash.h utils/includes/SeqList.h
-	gcc -g -c -Wall -Wpedantic -D __NON_DEBUG  -D __MY_OWN_DATA_ELE -D __WITHOUT_KEY -I utils/includes/ utils/hash.c
+ALL_CFILES = $(AST_CFILES) $(LEXER_CFILES) $(PARSER_CFILES) $(ST_CFILES) $(UTILS_CFILES) $(TYPECHECK_CFILES) $(CODEGEN_CFILES)
+ALL_OFILES = $(addsuffix .o, $(basename $(ALL_CFILES)))
 
-StackTree.o: utils/SeqListTree.c utils/SeqListTree.h utils/StackTree.c
-	gcc -g -c -Wall -Wpedantic -D __NON_DEBUG  -D __MY_OWN_DATA_ELE -D __WITHOUT_KEY -I utils/includes/ utils/StackTree.c
+all: compiler
 
-SeqList.o: utils/includes/SeqList.h utils/SeqList.c
-	gcc -g -c -Wall -Wpedantic -D __NON_DEBUG  -D __MY_OWN_DATA_ELE -D __WITHOUT_KEY -I utils/includes/ utils/SeqList.c
+compiler: $(ALL_OFILES) $(MAIN_FILE)
+	$(GCC_CMD) $(ALL_OFILES) $(MAIN_FILE) -o compiler
 
-Stack.o:
-	gcc -g -c -Wall -Wpedantic -D __NON_DEBUG  -D __MY_OWN_DATA_ELE -D __WITHOUT_KEY -I utils/includes/ utils/Stack.c 
+# visualize_exe: $(ALL_OFILES) $(VISUALIZE_FILE)
+# 	$(GCC_CMD) $(ALL_OFILES) $(VISUALIZE_FILE) -o visualize_exe
 
-utility:hash.o SeqList.o Stack.o
+%.o: %.c $(ALL_CFILES)
+	$(GCC_CMD) -c -o $@ $<
 
 clean:
-	rm -rf *.o
+	rm  $(ALL_OFILES)

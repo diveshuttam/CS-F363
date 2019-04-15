@@ -6,9 +6,9 @@
 #include"populate_grammer.h"
 #include "hash.h"
 #include "token.h"
-#include "semantic_actions.h"
 #include "colors.h"
-#include "traversal.h"
+#include "ast.h"
+#include "tree_utils.h"
 
 struct item
 {
@@ -67,6 +67,7 @@ item*  get_start_symbol_item(const grammerRule* start_rule)
         i->node->num_child=-1;
         i->node->t=i->t;
         i->node->tk=NULL;
+        i->node->gr_no=start_rule->id;
     }
     return i;
 }
@@ -95,7 +96,6 @@ Tree parseTree(Stream token_stream,const grammerRule **table,const grammerRule *
     push(s,make_stack_element(bottom_s));
     push(s,make_stack_element(start_s));
     root=start_s->node;
-    int error = 0;
     grammerRule gr;
     item* tnt=NULL;
     Token *tk=NULL;
@@ -111,11 +111,7 @@ Tree parseTree(Stream token_stream,const grammerRule **table,const grammerRule *
             
             gr=table[tnt->t.s.nt->key][tk->state];
             print_grammer_rule(gr);
-            assign_semantic_actions(crr,&gr);
-            if(gr.id==-1){
-                debug_msg("error in parsing");
-
-            }
+            crr->gr_no=gr.id;
             int rhs_size = gr.num_of_rhs;
             int j=rhs_size-1;
             crr->child=malloc(sizeof(Tree)*rhs_size);
@@ -135,47 +131,76 @@ Tree parseTree(Stream token_stream,const grammerRule **table,const grammerRule *
                     (crr->child)[j]->num_child=-1;
                     (crr->child)[j]->t=to_be_pushed->t;
                     (crr->child)[j]->tk=NULL;
-                    (crr->child)[j]->SemanticActions=NULL;
-                    (crr->child)[j]->num_rules=0;
                     push(s,make_stack_element(to_be_pushed));
                 }
             }
             if(tk->state==TK_DOLLAR)
                 break;
         }
-        if(tk->state == -1){
-            printf("Line:%d Unknown lexeme:%s", tk->line_no, tk->val);
-            return root;
+        if(tk->state!=TK_DOLLAR)
+        {
+            // errors = true;
+        }
+        if(tk->state == -1)
+        {
+            errors=true;
+            printf("Line:%d Unknown lexeme:%s\n", tk->line_no, tk->val);
+            continue; 
         }
 
-        if(tnt->t.type=='n' && table[tnt->t.s.nt->key][tk->state].isError==1)
+        else if(tnt!=NULL && tnt->t.type=='n' && table[tnt->t.s.nt->key][tk->state].isError==1)
         {
             // debug_msg("Syntax Error found at line y, %s %s %d\n",tnt->t.s.nt.name,tk->val,tk->state);
-            printf("Syntax Error Found at %d: %s:%d  %s:%d\n",tk->line_no,tnt->t.s.nt->name,tnt->t.s.nt->key,tk->val,tk->state); 
-            // exit(0);
-            error = 1;//line number in token structure
-            return root;
+            errors=true;
+            printf("Syntax Error Found at %d: %s:%d  %s:%d\n",tk->line_no,tnt->t.s.nt->name,tnt->t.s.nt->key,tk->val,tk->state);
+            while(1)
+                    {
+                        if(table[tnt->t.s.nt->key][tk->state].can_be_eps==1)
+                        {
+                            pop(s);
+                            break;
+                        }
+                        tk = getNextToken(token_stream);
+                        if(tk==NULL)
+                            break;
+                        if(tk->state==-1)
+                        {
+                            printf("Line:%d Unknown lexeme:%s\n", tk->line_no, tk->val);
+                            break;
+                        }
+                        if(table[tnt->t.s.nt->key][tk->state].isSyn==1)
+                        {
+                            if(table[tnt->t.s.nt->key][tk->state].part_of_first!=1)
+                            {
+                                pop(s);
+                                break;
+                            }
+                            break;
+                        }
+                    }
         }
         else
         {
-            if(tnt->t.type=='t' && tnt->t.s.t->StateId!= tk->state) //see the definitions of state in the two definitions
+            if(tnt!=NULL && tnt->t.type=='t' && tnt->t.s.t->StateId!= tk->state) //see the definitions of state in the two definitions
             {
-                printf("Syntax Error Found at %d: %s:%d  %s:%d\n",tk->line_no,tnt->t.s.t->name,tnt->t.s.t->StateId,tk->val,tk->state); 
-                error = 1;
-                return root;
-                // exit(0);
-                item *i=NULL;
-                do{
-                    i=get_item_form_element(top(s));
-                    pop(s);
-                }while(i!=NULL && i->t.type=='t' && i->t.s.t->StateId!=tk->state);
+                errors = true;
+                printf("Syntax Error Foundt at %d: %s:%d  %s:%d\n",tk->line_no,tnt->t.s.t->name,tnt->t.s.t->StateId,tk->val,tk->state); 
+                 while(1)
+                    {
+                        if(tk->state!=-1 && tk->state!=tnt->t.s.t->StateId && tnt->t.type=='t')
+                        {
+                            pop(s);
+                            tnt = get_item_form_element(top(s));
+                        }else
+                        {
+                            break;
+                        }
+                    }
             }
-            if(tnt->t.type=='t' && tnt->t.s.t->StateId ==tk->state)
+            if(tnt!=NULL && tnt->t.type=='t' && tnt->t.s.t->StateId ==tk->state)
             {
                 Tree crr=tnt->node;
-                crr->SemanticActions=NULL;
-                crr->SemanticActions=0;
-                // assign_semantic_actions(crr,&gr);
+                //assign_semantic_actions(crr,&gr);
                 pop(s);
                 if(tnt->t.type=='t' && tnt->t.s.t->StateId!=TK_EPS){
                     crr->tk=tk;
@@ -183,10 +208,6 @@ Tree parseTree(Stream token_stream,const grammerRule **table,const grammerRule *
                 }
             }
         }
-    }
-    if(error==0)
-    {
-        printf(ANSI_COLOR_GREEN "Compilation Successful\n" ANSI_COLOR_RESET);
     }
     return root;
 }
@@ -213,37 +234,7 @@ item* parse_get(Stack popped_items)
     return send;
 }
 
-
-//root traversal
-void visit(const Tree root)
-{
-    if(root->t.type=='t')
-        {
-            if(root->tk==NULL){
-            printf("error with tree node %s:%d terminal Token points to NULL \n",root->t.s.t->name , root->t.s.t->StateId);
-            return;
-            }
-        printf("%s at line %d:%s\n",root->t.s.t->name,root->tk->line_no,root->tk->val);
-    }
-    else{ 
-        printf("%s %d\n",root->t.s.nt->name, root->t.s.nt->key);
-    }
-}
-
-void inorder(const Tree root){
-    if (root == NULL) 
-        return;
-    if(root->num_child>0){
-        inorder(root->child[0]);
-    }
-    visit(root);
-    for (int i = 1; i < root->num_child; i++) 
-    {
-        inorder(root->child[i]);
-    }
-}
-
-void printParsedOutput(char* testcase_file){
+Tree getParsedTreeFromFile(char* testcase_file){
     NonTerminal *non_terminals=NULL;
     non_terminals=malloc(sizeof(NonTerminal)*NO_OF_NON_TERMINALS);
     Terminal *terminals=NULL;
@@ -259,7 +250,7 @@ void printParsedOutput(char* testcase_file){
 	hashTable ht_non_terminals = NULL;
     ht_non_terminals=newHashTable(NO_OF_NON_TERMINALS*ALPHA_INV,HASH_A,HASH_B);
 	for(int i=0;i<NO_OF_NON_TERMINALS;i++){
-		insert(non_terminals_map[i],i,ht_non_terminals);
+		insertInt(non_terminals_map[i],i,ht_non_terminals);
 	}
 
 	initialize_tnt(non_terminals,terminals,(const char**) terminals_map,(const char**) non_terminals_map,(const hashTable) ht_terminals,(const hashTable)ht_non_terminals);
@@ -288,122 +279,20 @@ void printParsedOutput(char* testcase_file){
 	Stream s=getStream(testcase_file);
 	if(s==NULL){
 		debug_msg("error opening file %s", testcase_file);
-		return;
+		return NULL;
 	}
     Tree t=parseTree(s,(const grammerRule**)table,g,&g[0],&terminals[TK_DOLLAR]);
-    inorder(t);
- }
+    return t;
+}
 
-void printJSON(Tree t, FILE *fp){
-    if(t==NULL){
-        fprintf(fp,"{\n\"text\": { \"name\": \"NULL\" },\n");
-        fprintf(fp,"\"children\": []\n}\n");
-        return;
-    }
-
-    char *s;
-    if(t->t.type=='n'){
-        s=t->t.s.nt->name;
+void printParsedOutput(char* testcase_file){
+    Tree t = getParsedTreeFromFile(testcase_file);
+    if(errors==true){
+            printf(ANSI_COLOR_RED "Errors found in while parsing\n" ANSI_COLOR_RESET);
     }
     else{
-        s=malloc(snprintf(NULL, 0, "%s:%s",t->t.s.t->name,t->tk->val)+1);
-        sprintf(s,"%s:%s",t->t.s.t->name,t->tk->val);
-        //printf("%s\n",s);
+        inorder(t);
+        printf(ANSI_COLOR_GREEN "Parsing Successful. No Lexical/Syntactic Errors.\n" ANSI_COLOR_RESET);
     }
-    fprintf(fp,"{\n");
-        fprintf(fp,"\"text\": { \"name\": \"%s\" },\n",s);
-        if(t->num_child>0){
-            fprintf(fp,"\"collapsed\": true,\n");
-            fprintf(fp,"\"children\": [\n");
-            for(int i=0;i<t->num_child;i++){
-                printJSON(t->child[i],fp);
-                if(i!=t->num_child-1)
-                    fprintf(fp,",");
-            }
-            fprintf(fp,"]\n");
-        }
-        else{
-            fprintf(fp,"\"children\":[]\n");
-        }
-    fprintf(fp,"}\n");
-}
- void printParseTreeForHTML(char* testcase_file, char *outfile){
-    NonTerminal *non_terminals=NULL;
-    non_terminals=malloc(sizeof(NonTerminal)*NO_OF_NON_TERMINALS);
-    Terminal *terminals=NULL;
-    terminals=malloc(sizeof(Terminal)*NO_OF_TERMINALS);
-
-	char** terminals_map = NULL;
-    terminals_map=get_token_names();
-
-	char** non_terminals_map=NULL;
-    non_terminals_map=get_non_terminals_map();
-
-	hashTable ht_terminals=get_token_hasht();
-	hashTable ht_non_terminals = NULL;
-    ht_non_terminals=newHashTable(NO_OF_NON_TERMINALS*ALPHA_INV,HASH_A,HASH_B);
-	for(int i=0;i<NO_OF_NON_TERMINALS;i++){
-		insert(non_terminals_map[i],i,ht_non_terminals);
-	}
-
-	initialize_tnt(non_terminals,terminals,(const char**) terminals_map,(const char**) non_terminals_map,(const hashTable) ht_terminals,(const hashTable)ht_non_terminals);
-
-    debug_msg("\ngrammer\n");
-    grammerRule *g=NULL;
-    g=grammer(non_terminals,terminals,(const char**) non_terminals_map,(const char**)terminals_map,(const hashTable)ht_non_terminals,(const hashTable)ht_terminals);
-    debug_msg("calculating firsts\n");
-    for(int i=0;i<NO_OF_NON_TERMINALS;i++){
-        findFirst(&non_terminals[i], g, &terminals[TK_EPS]);
-    }
-
-    // debug_msg("firsts\n");
-    // firsts(non_terminals,terminals,(const char**) non_terminals_map,(const char**)terminals_map,(const hashTable)ht_non_terminals,(const hashTable)ht_terminals);
-
-    debug_msg("calculating follows\n");
-    for(int i=0;i<NO_OF_NON_TERMINALS;i++){
-        findFollow(&non_terminals[i], g, &terminals[TK_EPS], &terminals[TK_DOLLAR]);
-    }
-
-    debug_msg("printing firsts\n");
-    for(int i=0;i<NO_OF_NON_TERMINALS;i++){
-        NonTerminal nt=non_terminals[i];
-        debug_msg("%s:\t",nt.name);
-        for(int j=0;j<nt.firsts_size;j++){
-            debug_msg("%s,",nt.firsts[j]->name);
-        }
-        debug_msg("\n");
-    }
-
-    debug_msg("__________\n\nprinting follows\n");
-    for(int i=0;i<NO_OF_NON_TERMINALS;i++){
-        NonTerminal nt=non_terminals[i];
-        debug_msg("%s:\t",nt.name);
-        for(int j=0;j<nt.follows_size;j++){
-            debug_msg("%s,",nt.follows[j]->name);
-        }
-        debug_msg("\n");
-    }
-    // debug_msg("firsts\n");
-	// follows(non_terminals,terminals,(const char**) non_terminals_map,(const char**)terminals_map,(const hashTable)ht_non_terminals,(const hashTable)ht_terminals);
-
-    debug_msg("\ncreating parse table\n");
-    grammerRule **table=gen_parse_table(g,NO_OF_RULES,&terminals[TK_EPS]);
-	Stream s=getStream(testcase_file);
-	if(s==NULL){
-		debug_msg("error opening file %s", testcase_file);
-		return;
-	}
-    Tree t=parseTree(s,(const grammerRule**)table,g,&g[0],&terminals[TK_DOLLAR]);
-    post_order_traversal(t);
-    FILE *fp=fopen(outfile,"w");
-    if(fp==NULL){
-        printf("Error opening file %s\n",outfile);
-        return;
-    }
-    fprintf(fp,"{\n");
-    fprintf(fp,"\"nodeStructure\":");
-    printJSON(t,fp);
-    fprintf(fp,"}\n");
  }
-
  

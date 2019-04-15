@@ -19,9 +19,13 @@ char* getKey(Element e){
 	return k;
 }
 
-int getData(Element e){
-	int *d=e->d;
+int getDataInt(Element e){
+	int *d=(int*)e->d;
 	return *d;
+}
+
+void* getData(Element e){
+	return (void *)(e->d);
 }
 
 hashTable newHashTable(int size, int significant_bits, int salt){
@@ -49,10 +53,10 @@ int hash(const char *str, hashTable ht)
     return hash;
 }
 
-Element createElement(int data,const char *key){
+Element createElementInt(int data,const char *key){
 	Element e=malloc(sizeof(struct Element));
 	e->d=malloc(sizeof(int));
-	int* l=e->d;
+	int* l=(int *)e->d;
 	*l=data;
 	e->k=malloc(sizeof(char*)*(strlen(key)+1));
 	char *buf=(char*)(e->k);
@@ -60,7 +64,16 @@ Element createElement(int data,const char *key){
 	return e;
 }
 
-void printElement(Element e){
+Element createElement(const void* data,const char *key){
+	Element e=malloc(sizeof(struct Element));
+	e->d=data;
+	e->k=malloc(sizeof(char*)*(strlen(key)+1));
+	char *buf=(char*)(e->k);
+	strcpy(buf,key);
+	return e;
+}
+
+void printElementInt(Element e){
 	debug_msg("%d : %s \n", *(int *)(e->d), (char*)(e->k));
 }
 
@@ -70,7 +83,7 @@ char *map[]
 1-> "abc"
 */
 
-int findHT(const char* str,const hashTable ht){
+int findHTInt(const char* str,const hashTable ht){
 	if(str==NULL){
 		return -1;
 	}
@@ -78,8 +91,8 @@ int findHT(const char* str,const hashTable ht){
 	Iterator it = getIterator(ht->array[hash_val]);
 	while(hasNext(it)){
 		char* key = getKey(getNext(it));
-		int data = getData(getNext(it));
 		if(strcmp(key,str) == 0){
+			int data = getDataInt(getNext(it));
 			return data;
 		}
 		it =next(it);
@@ -87,11 +100,11 @@ int findHT(const char* str,const hashTable ht){
 	return -1;
 }
 
-void insert(const char* str,const int index,hashTable ht){
+void insertInt(const char* str,const int index,hashTable ht){
 	if(str!=NULL){
 		debug_msg("inserting element %s\n", str);
 		int hash_val = hash(str,ht);
-		Element e=createElement(index,(char*) str);
+		Element e=createElementInt(index,(char*) str);
 		if(ht->array[hash_val] == NULL){
 			debug_msg("error in hash.c");
 			exit(0);
@@ -106,3 +119,37 @@ void insert(const char* str,const int index,hashTable ht){
 }
 
 
+void* findHT(const char* str,const hashTable ht){
+	if(str==NULL){
+		return NULL;
+	}
+	int hash_val = hash(str,ht);
+	Iterator it = getIterator(ht->array[hash_val]);
+	while(hasNext(it)){
+		char* key = getKey(getNext(it));
+		if(strcmp(key,str) == 0){
+			void* data = getData(getNext(it));
+			return data;
+		}
+		it =next(it);
+	}
+	return NULL;
+}
+
+void insert(const char* str,const void* entry,hashTable ht){
+	if(str!=NULL){
+		debug_msg("inserting element %s\n", str);
+		int hash_val = hash(str,ht);
+		Element e=createElement(entry,(char*) str);
+		if(ht->array[hash_val] == NULL){
+			debug_msg("error in hash.c");
+			exit(0);
+		}else{
+			ht->array[hash_val] = insertAtEnd(ht->array[hash_val],e);
+		}
+	}
+	else{
+		debug_msg("str passed null to insert\n");
+	}
+	return ;
+}

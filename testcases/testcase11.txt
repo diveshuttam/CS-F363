@@ -1,0 +1,21 @@
+_readMarks input parameter list[int b7]
+output parameter list [ record #marks b3c45];
+	return [b3c45];
+end
+
+_main
+	type int :b3;
+	type int : b2;
+	type int : c2;
+	type int : d2;
+	read(b2);
+	c2<--- 20;
+	read(d2);
+
+	b3 <--- b2 + c2 + d2;
+	write(b3);
+	return;
+end
+
+
+

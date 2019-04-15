@@ -36,6 +36,7 @@ grammerRule** gen_parse_table(const grammerRule *r, int no_of_rules, const Termi
         print_grammer_rule(r[i]);
         debug_msg("with lhs firsts size %d\t",r[i].lhs->firsts_size);
         debug_msg("with lhs follow size %d\n",r[i].lhs->follows_size);
+
         // int isEps = 0;
         int isEpsL = 0;
         NonTerminal *nt_current = r[i].lhs;
@@ -43,13 +44,30 @@ grammerRule** gen_parse_table(const grammerRule *r, int no_of_rules, const Termi
 
         Terminal** first = NULL;
         Terminal** follows = nt_current->follows;
+        int len_follows = nt_current->follows_size;
+    /* ################ ERROR RECVOERY ############################# */
+        for(int i=0;i<len_follows;i++)
+        {
+            table[nt_current->key][follows[i]->StateId].isSyn=1;
+            
+        }
 
+        Terminal** firsts_for_error = nt_current->firsts;
+        int first_size_for_error = nt_current->firsts_size;
+        for(int i=0;i<first_size_for_error;i++)
+        {
+            table[nt_current->key][firsts_for_error[i]->StateId].isSyn=1;
+            table[nt_current->key][firsts_for_error[i]->StateId].part_of_first=1; 
+            if(firsts_for_error[i]->StateId==TK_EPS)
+            {
+                table[nt_current->key][firsts_for_error[i]->StateId].can_be_eps=1;
+            }
+        }
+    /* ################ ERROR RECVOERY ############################# */
         Terminal** follows2 = NULL;
         int len_follows2 = 0;
-
-        int len_follows = nt_current->follows_size;
         if(tnt_current[0]->type=='t')
-        {
+        {   
             if(tnt_current[0]->s.t->StateId==TK_EPS)
             {
                 isEpsL = 1;
@@ -102,12 +120,3 @@ grammerRule** gen_parse_table(const grammerRule *r, int no_of_rules, const Termi
     }
     return table;
 }
-// gen_parse_table(NonTerminals *nt, grammerRule *r, no_of_rules, no_of_nt, nt_start_key, rule_start_key){
-//     firsts=nt[i].firsts
-//     nt[i].follows
-//     nt[i].key==i
-
-//     parse_tabel[nt.key][firsts[idx].stateID]=rule[1]
-//     r[0]=<program>--> TK_MAIN
-//     //nt_start_key points to index of nterminal <program>
-// }

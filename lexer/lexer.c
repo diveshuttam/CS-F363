@@ -35,9 +35,12 @@ Token* getNextToken(Stream s){
 		keywords=malloc(sizeof(hashTable));
 		*keywords=get_keyword_hasht();
 	}
-	int a=findHT(tk->val,*keywords);
+	int a=findHTInt(tk->val,*keywords);
 	if(a!=-1){
 		tk->state=a;
+	}
+	if(tk->state==TK_ID && (strlen(tk->val)>MAX_TK_LEN)){
+		tk->state=-1;
 	}
 	return tk;
 }
@@ -105,7 +108,6 @@ void printTokenizedOutput(char* testcase_file)
 	Stream s=getStream(testcase_file);
 	if(s==NULL){
 		printf("error opening file %s\n", testcase_file);
-		return;
 	}
 	Token* tk;
 	int state;
@@ -116,19 +118,26 @@ void printTokenizedOutput(char* testcase_file)
 		state=tk->state;
 		val=tk->val;
 		int line_no=tk->line_no;
-		if(val!=NULL && state != -1){
-				printf("token number: %d\nvalue: %s\nToken_type: %s:%d\n Line no: %d\n\n",num++, val,token_names[state],state, line_no);
+		if(val!=NULL && state != -1 && state!=TK_DELIM){
+				printf("token number: %d\nvalue: %s\nToken_type: %s:%d\nLine no: %d\n\n",num++, val,token_names[state],state, line_no);
 			// else ignore
 		}
 		else{
 			if(state==-1){
-				printf(ANSI_COLOR_RED "\n[31m error with token\n" ANSI_COLOR_RED);
-				printf("token number: %d\nvalue: %s\nToken_type: %s:%d\n\n",num, val,"INVALID",state);
+				errors = true;
+				printf(ANSI_COLOR_RED "\nerror with token\n" ANSI_COLOR_RESET);
+				printf("token number: %d\tvalue: %s\tToken_type: %s:%d\tLine no: %d\n",num, val,"INVALID",state,line_no);
 			}
 			fflush(stdout);
 		}
 		free(val);
 	}
+	if(errors==true){
+            printf(ANSI_COLOR_RED "Errors found in tokenizing\n" ANSI_COLOR_RESET);
+        }
+        else{
+            printf(ANSI_COLOR_GREEN "Tokenization Successful. No lexical errors.\n" ANSI_COLOR_RESET);
+        }
 }
 
 void printFileErrorsHighlight(const char *testcaseFile){
