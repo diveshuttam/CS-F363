@@ -5,27 +5,54 @@
 #include "st_entries.h"
 #include "SeqList.h"
 
-void functionTypeCheck(void* tv){
-    
-}
+
+//check if return values are ok
+// void functionTypeCheck(void* tv){
+//     Tree t = (Tree)tv;
+//     char* funcName = t->child[0]->tk->val;
+//     function_entry fe = findST(funcName,CurrentSymbolTable);
+//     // SeqList inputPar = fe->input_par;
+//     SeqList outputPar = fe->output_par;
+//     Tree rtStnmt = t->child[t->num_child-1];
+//     Tree* rtStnmtValues = rtStnmt->child; 
+//     int i=0;
+//     Iterator it = getIterator(outputPar);
+//     while (hasNext(it))
+//     {
+//         Element e = getNext(it);
+//         StEntry se=(StEntry)e->d;
+//         variable_entry ve = se->var_entry;
+//         if(strcmp(rtStnmtValues[i]->type_name,ve->var_type_name) != 0){
+//             printf("Return parameter differ in output type %s and %s on line %d\n",rtStnmtValues[i]->type_name,ve->var_type_name,rtStnmt->tk->line_no);    
+//             return;
+//         }
+//         it = next(it);
+//         i++;
+//     }
+//     if(i != rtStnmt->num_child){
+//         printf("Expected to return %d values returns %d values\n",i,rtStnmt->tk->line_no);
+//         return;
+//     }
+// }
 
 void typeCheckTerminals(void *tv){
     Tree t = (Tree)tv;
    
     char* typeName;
     if(t->tk->state==TK_RNUM){
-        t->type_name=malloc(sizeof("real"));
+        t->type_name=malloc(strlen("real")+1);
         strcpy(t->type_name,"real");
         return;
     }
     else if(t->tk->state==TK_NUM){
-        t->type_name=malloc(sizeof("int"));
+        t->type_name=malloc(strlen("int")+1);
         strcpy(t->type_name,"int");
         return;
     }
     StEntry ste = findST(t->tk->val,CurrentSymbolTable);
     if(NULL == ste){
         printf("variable not defined %s\n",t->tk->val);
+        errors = true;
         return ;
     }
     variable_entry ve = ste->var_entry;
@@ -46,6 +73,7 @@ void tkDotTypeCheck(void* tv){
     StEntry ste = findST(tkid_typename,GlobalSymbolTable);
     if(ste==NULL){
         printf("ERROR! type %s not declared\n", tkid_typename);
+        errors = true;
         return;
     }
     record_def_entry rde = (record_def_entry) ste->var_entry;
@@ -53,6 +81,7 @@ void tkDotTypeCheck(void* tv){
     Element e = find(sl,tkfieldIdname);
     if( e == NULL){
         printf("No such field exists\n");
+        errors = true;
         return;
     }
     variable_entry ve = (variable_entry) e->d;
@@ -84,7 +113,7 @@ void binaryOpTypeCheck(void* tv){
         strcpy(t->type_name,tk_id1_typename);
     }else{
         printf("Error:arguments have incompatible data types: %s and %s on line %d\n",tk_id1_typename,tk_id2_typename,tk_id1->tk->line_no);
-     
+        errors = true;
     }
     return;
 }
@@ -99,7 +128,8 @@ void assignmentStmtTypeCheck(void* tv){
         t->type_name = malloc(strlen(lhs->type_name)+1);
         strcpy(t->type_name,lhs->type_name);
     }else{
-        printf("Assignment not allowed for %s and %s on %d line no.\n",lhs->type_name,rhs->type_name,lhs->tk->line_no);
+        printf("Assignment not allowed for %s and %s on line %d \n",lhs->type_name,rhs->type_name,lhs->tk->line_no);
+        errors = true;
     }
     return ;
 }
