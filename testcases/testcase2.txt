@@ -1,4 +1,4 @@
-
+	
 %Test Case 2
 %Following program computes the average marks obtained by students in three subjects
 
