@@ -43,17 +43,23 @@ void handle_io_stmt(void* tv,SymbolTable gst)
 {
     Tree t = (Tree)tv;
     Tree id = t->child[1];
-    Tree readOrwrite = t->child[0];
-    if(readOrwrite->tk->val==TK_READ)
+    Tree read_write = t->child[0];
+    if(read_write->tk->val==TK_READ)
     {
         if(id->tk->state==TK_RECORDID)
         {
-            record_def_entry rec = findST(id->tk->val,gst);
-            int size = rec->size;
-            char code[300];
-            while(size--)
-            {
-                
+            record_def_entry rec = findST(id->tk->val,gst); 
+            SeqList sl=rec->subnodes;
+            Iterator it = getIterator(sl);
+            char* code;
+            t->code = (char*)malloc(sizeof(char));
+            strcpy(t->code,"");
+            while(hasNext(it)){
+                Element e=getNext(it);
+                variable_entry ve =(variable_entry) e->d;
+                code = (char*)malloc(snprintf(NULL,0,"\n\t mov eax,3 \n\t mov ebx,0 \n\t mov ecx,input_buf \n\t int 80h \n\t mov [%s], ecx",id->addr));
+                sprintf(code,"\n\t mov eax,3 \n\t mov ebx,0 \n\t mov ecx,input_buf \n\t int 80h \n\t mov [%d], ecx",id->addr + ve->offset);
+                strcat(t->code,code);
             }
         }
         else
@@ -83,7 +89,7 @@ void iteration(void* tv)
     Tree counter = t->child[0]->child[0];
     Tree checker = t->child[0]->child[2];
 
-    t->code = (char*)malloc(snprintf(0,NULL,"\n\t while: \n\t mov cx,[%s] \n\t",counter->addr));
+    t->code = (char*)malloc(snprintf(0,NULL,"\n\t while%d: \n\t mov cx,[%s] \n\t",counter->addr,boolean->tk->line_no));
     sprintf(t->code,"\n\t while: \n\t mov cx,[%s] \n\t",counter->addr);
     strcat(t->code,t->child[1]->code);
     strcat(t->code,t->child[2]->code);
