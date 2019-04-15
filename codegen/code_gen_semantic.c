@@ -137,6 +137,8 @@ void functions_cg(void* tv)
         sprintf(code,"\n\t %s  db (?) %d \n\t",t->child[i]->tk->val,t->child[i]->size); //change
         if(t->code==NULL)
         {
+            t->code = (char*)malloc(sizeof(char));
+            strcpy(t->code,"");
             sprintf(t->code,code,t->child[i]->tk->val,t->child[i]->size);
         }
         else

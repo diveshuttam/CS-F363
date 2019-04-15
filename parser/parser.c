@@ -111,29 +111,6 @@ Tree parseTree(Stream token_stream,const grammerRule **table,const grammerRule *
             
             gr=table[tnt->t.s.nt->key][tk->state];
             print_grammer_rule(gr);
-
-            if(gr.id==-1)
-            {
-                printf("Syntax Error at %d ", tk->line_no);
-                if(tnt->t.type=='n')
-                {
-                    while(1)
-                    {
-                        tk = getNextToken(token_stream);
-                        if(tk==NULL)
-                            break;
-                        if(table[tnt->t.s.nt->key][tk->state].id==-2)
-                        {
-                            if(table[tnt->t.s.nt->key][tk->state].part_of_first!=1)
-                            {
-                                pop(s);
-                                break;
-                            }
-                            break;
-                        } 
-                    }
-                }
-            }
             crr->gr_no=gr.id;
             int rhs_size = gr.num_of_rhs;
             int j=rhs_size-1;
@@ -161,37 +138,52 @@ Tree parseTree(Stream token_stream,const grammerRule **table,const grammerRule *
                 break;
         }
         if(tk->state == -1){
-            printf("Line:%d Unknown lexeme:%s", tk->line_no, tk->val);
-            errors=true;
-            return root;
+            printf("Line:%d Unknown lexeme:%s\n", tk->line_no, tk->val);
+            continue; 
         }
 
-        if(tnt->t.type=='n' && table[tnt->t.s.nt->key][tk->state].isError==1)
+        else if(tnt!=NULL && tnt->t.type=='n' && table[tnt->t.s.nt->key][tk->state].isError==1)
         {
             // debug_msg("Syntax Error found at line y, %s %s %d\n",tnt->t.s.nt.name,tk->val,tk->state);
             printf("Syntax Error Found at %d: %s:%d  %s:%d\n",tk->line_no,tnt->t.s.nt->name,tnt->t.s.nt->key,tk->val,tk->state); 
-            // exit(0);
-            errors = 1;//line number in token structure
-            return root;
+             while(1)
+                    {
+                        tk = getNextToken(token_stream);
+                        if(tk==NULL)
+                            break;
+                        if(table[tnt->t.s.nt->key][tk->state].isSyn==1)
+                        {
+                            if(table[tnt->t.s.nt->key][tk->state].part_of_first!=1)
+                            {
+                                pop(s);
+                                break;
+                            }
+                            break;
+                        }
+                    }
         }
         else
         {
-            if(tnt->t.type=='t' && tnt->t.s.t->StateId!= tk->state) //see the definitions of state in the two definitions
+            if(tnt!=NULL && tnt->t.type=='t' && tnt->t.s.t->StateId!= tk->state) //see the definitions of state in the two definitions
             {
-                printf("Syntax Error Found at %d: %s:%d  %s:%d\n",tk->line_no,tnt->t.s.t->name,tnt->t.s.t->StateId,tk->val,tk->state); 
+                printf("Syntax Error Foundt at %d: %s:%d  %s:%d\n",tk->line_no,tnt->t.s.t->name,tnt->t.s.t->StateId,tk->val,tk->state); 
                 errors = 1;
-                return root;
-                // exit(0);
-                item *i=NULL;
-                do{
-                    i=get_item_form_element(top(s));
-                    pop(s);
-                }while(i!=NULL && i->t.type=='t' && i->t.s.t->StateId!=tk->state);
+                 while(1)
+                    {
+                        if(tk->state!=tnt->t.s.t->StateId && tnt->t.type=='t')
+                        {
+                            pop(s);
+                            tnt = get_item_form_element(top(s));
+                        }else
+                        {
+                            break;
+                        }
+                    }
             }
-            if(tnt->t.type=='t' && tnt->t.s.t->StateId ==tk->state)
+            if(tnt!=NULL && tnt->t.type=='t' && tnt->t.s.t->StateId ==tk->state)
             {
                 Tree crr=tnt->node;
-                // assign_semantic_actions(crr,&gr);
+                //assign_semantic_actions(crr,&gr);
                 pop(s);
                 if(tnt->t.type=='t' && tnt->t.s.t->StateId!=TK_EPS){
                     crr->tk=tk;
