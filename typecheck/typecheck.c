@@ -47,5 +47,6 @@ Tree post_order_traversal_tc(Tree root, SymbolTable st){
 }
 
 void typeCheck(Tree ast,SymbolTable st){
+    assign_semantic_functions_map();
     post_order_traversal_tc(ast,st);
 }

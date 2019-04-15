@@ -9,7 +9,7 @@ output parameter list[real d3];
 	while ( b5b567 <= d5cc34)
 		read( c3bd);
 		d3 <--- d3 + c3bd;
-		b5b567 <--- b5b567 + 1.0;
+		b5b567 <--- b5b567 + 1.00;
 	endwhile
 	return [d3];
 end
