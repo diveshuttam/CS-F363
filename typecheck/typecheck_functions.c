@@ -18,7 +18,7 @@ void typeCheckTerminals(void *tv){
         strcpy(t->type_name,"real");
         return;
     }
-    else if(t->tk->state==TK_RNUM){
+    else if(t->tk->state==TK_NUM){
         t->type_name=malloc(sizeof("int"));
         strcpy(t->type_name,"int");
         return;
@@ -73,15 +73,17 @@ void binaryOpTypeCheck(void* tv){
 
     ste1=findST(tk_id1->tk->val,CurrentSymbolTable);
     ste2 =findST(tk_id2->tk->val,CurrentSymbolTable);
-
+    if(NULL == ste1 || NULL == ste2) return ;
     char *tk_id1_typename,*tk_id2_typename;
-    tk_id1_typename = ste1->et_name;
-    tk_id2_typename = ste2->et_name;
+    variable_entry v1=(variable_entry)(ste1->var_entry);
+    variable_entry v2=(variable_entry)(ste2->var_entry);
+    tk_id1_typename = v1->var_type_name;
+    tk_id2_typename = v2->var_type_name;
     if(strcmp(tk_id1_typename,tk_id2_typename) == 0){
         t->type_name = malloc(sizeof(char)*(strlen(tk_id1_typename)+1));
         strcpy(t->type_name,tk_id1_typename);
     }else{
-        printf("Error:arguments have incompatible data types: %s and %s\n",tk_id1_typename,tk_id2_typename);
+        printf("Error:arguments have incompatible data types: %s and %s on line %d\n",tk_id1_typename,tk_id2_typename,tk_id1->tk->line_no);
      
     }
     return;
@@ -93,11 +95,11 @@ void assignmentStmtTypeCheck(void* tv){
     Tree lhs,rhs;
     lhs = children[0];
     rhs = children[1];
-    if(strcmp(lhs->type_name,rhs->type_name) == 0){
+    if(lhs->type_name!=NULL && rhs->type_name!=NULL && strcmp(lhs->type_name,rhs->type_name) == 0){
         t->type_name = malloc(strlen(lhs->type_name)+1);
         strcpy(t->type_name,lhs->type_name);
     }else{
-        printf("Assignment not allowed\n");
+        printf("Assignment not allowed for %s and %s on %d line no.\n",lhs->type_name,rhs->type_name,lhs->tk->line_no);
     }
     return ;
 }
