@@ -99,15 +99,32 @@ void binaryOpTypeCheck(void* tv){
     tk_id2 = children[1];
     
     StEntry ste1,ste2;
-
-    ste1=findST(tk_id1->tk->val,CurrentSymbolTable);
-    ste2 =findST(tk_id2->tk->val,CurrentSymbolTable);
-    if(NULL == ste1 || NULL == ste2) return ;
     char *tk_id1_typename,*tk_id2_typename;
-    variable_entry v1=(variable_entry)(ste1->var_entry);
-    variable_entry v2=(variable_entry)(ste2->var_entry);
-    tk_id1_typename = v1->var_type_name;
-    tk_id2_typename = v2->var_type_name;
+    if(tk_id1->type_name==NULL){
+        ste1=findST(tk_id1->tk->val,CurrentSymbolTable);
+        if(ste1==NULL)
+            return;
+        variable_entry v1=(variable_entry)(ste1->var_entry);
+        tk_id1_typename = v1->var_type_name;
+    }
+    else
+    {
+        tk_id1_typename=tk_id1->type_name;
+    }
+    
+    if(tk_id2->type_name==NULL){
+        ste2 =findST(tk_id2->tk->val,CurrentSymbolTable);
+        if(ste2==NULL){
+            return;
+        }
+        variable_entry v2=(variable_entry)(ste2->var_entry);
+        tk_id2_typename = v2->var_type_name;
+    }
+    else
+    {
+        tk_id2_typename=tk_id2->type_name;
+    }
+
     if(strcmp(tk_id1_typename,tk_id2_typename) == 0){
         t->type_name = malloc(sizeof(char)*(strlen(tk_id1_typename)+1));
         strcpy(t->type_name,tk_id1_typename);

@@ -58,7 +58,7 @@ Tree post_order_traversal_tc(Tree root, SymbolTable st){
     }
 
     for(int i=0; i<(root->num_child);i++){
-        if(root->child!=NULL){
+        if(root->child[i]!=NULL){
             post_order_traversal_tc((root->child)[i], st);
         }
     }
