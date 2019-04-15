@@ -19,7 +19,6 @@ TYPECHECK_CFILES_NAMES = typecheck.c typecheck_functions.c
 CODEGEN_CFILES_NAMES = code_gen.c code_gen_semantic.c
 
 MAIN_FILE = ./driver.c
-VISUALIZE_FILE = ./graphics/visualize.c
 
 INCLUDES = $(addprefix -I , $(addsuffix /includes, $(AST_DIR) $(LEXER_DIR) $(PARSER_DIR) $(ST_DIR) $(UTILS_DIR) $(TYPECHECK_DIR) $(CODEGEN_DIR) ) )
 DEFINE_ARGS = $(addprefix -D ,$(DEFINES))
@@ -43,13 +42,10 @@ CODEGEN_OFILES = $(addsuffix .o, $(basename $(CODEGEN_CFILES)))
 ALL_CFILES = $(AST_CFILES) $(LEXER_CFILES) $(PARSER_CFILES) $(ST_CFILES) $(UTILS_CFILES) $(TYPECHECK_CFILES) $(CODEGEN_CFILES)
 ALL_OFILES = $(addsuffix .o, $(basename $(ALL_CFILES)))
 
-all: compiler visualize_exe
+all: compiler
 
 compiler: $(ALL_OFILES) $(MAIN_FILE)
 	$(GCC_CMD) $(ALL_OFILES) $(MAIN_FILE) -o compiler
-
-visualize_exe: $(ALL_OFILES) $(VISUALIZE_FILE)
-	$(GCC_CMD) $(ALL_OFILES) $(VISUALIZE_FILE) -o visualize_exe
 
 %.o: %.c $(ALL_CFILES)
 	$(GCC_CMD) -c -o $@ $<
