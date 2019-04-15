@@ -44,7 +44,6 @@ void assignmentStmt(void* tv)
     t->code = arith->code;
     strcat(t->code,code);
 }
-<<<<<<< HEAD
 void handle_io_stmt(void* tv,SymbolTable gst)
 {
     Tree t = (Tree)tv;
@@ -121,7 +120,6 @@ void iteration(void* tv)
         strcat(t->code,jmp_line);
     }
 }
-=======
 void functions(void* tv)
 {
     Tree t = (Tree)tv;
@@ -142,4 +140,3 @@ void functions(void* tv)
     }
     strcat(t->code,t->child[children-1]->code);
 }
->>>>>>> origin/codegen
