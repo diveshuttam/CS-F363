@@ -157,5 +157,4 @@ void functions_cg(void* tv)
             strcat(t->code,code);
         }
     }
-    strcat(t->code,t->child[children-1]->code);
 }

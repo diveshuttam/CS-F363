@@ -241,6 +241,7 @@ void updateOtherVariables(Tree ast, SymbolTable st){
 
 
 SymbolTable genSymbolTableFromFile(char *filename){
+    errors = false;
     Tree ast = getASTFromFile(filename);
     if(errors==true){
         printf(ANSI_COLOR_RED "Errors while creating AST!\n" ANSI_COLOR_RESET);

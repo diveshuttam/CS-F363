@@ -139,7 +139,7 @@ Tree parseTree(Stream token_stream,const grammerRule **table,const grammerRule *
         }
         if(tk->state!=TK_DOLLAR)
         {
-            errors = true;
+            // errors = true;
         }
         if(tk->state == -1)
         {
@@ -181,9 +181,9 @@ Tree parseTree(Stream token_stream,const grammerRule **table,const grammerRule *
         }
         else
         {
-            errors=true;
             if(tnt!=NULL && tnt->t.type=='t' && tnt->t.s.t->StateId!= tk->state) //see the definitions of state in the two definitions
             {
+                errors = true;
                 printf("Syntax Error Foundt at %d: %s:%d  %s:%d\n",tk->line_no,tnt->t.s.t->name,tnt->t.s.t->StateId,tk->val,tk->state); 
                  while(1)
                     {
