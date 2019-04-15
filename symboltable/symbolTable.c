@@ -241,7 +241,7 @@ SymbolTable genSymbolTableFromFile(char *filename){
     GlobalSymbolTable = st;
     CurrentSymbolTable = st;
 
-    typeCheck(ast,st);
+    //typeCheck(ast,st);
     return st;
 }
 
