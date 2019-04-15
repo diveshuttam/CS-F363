@@ -1,0 +1,168 @@
+{
+"nodeStructure":{
+"text": { "name": "program" },
+"collapsed": true,
+"children": [
+{
+"text": { "name": "NULL" },
+"children": []
+}
+,{
+"text": { "name": "mainFunction" },
+"collapsed": true,
+"children": [
+{
+"text": { "name": "declaration" },
+"collapsed": true,
+"children": [
+{
+"text": { "name": "TK_INT:int" },
+"children":[]
+}
+,{
+"text": { "name": "TK_ID:b3" },
+"children":[]
+}
+]
+}
+,{
+"text": { "name": "declaration" },
+"collapsed": true,
+"children": [
+{
+"text": { "name": "TK_INT:int" },
+"children":[]
+}
+,{
+"text": { "name": "TK_ID:b2" },
+"children":[]
+}
+]
+}
+,{
+"text": { "name": "declaration" },
+"collapsed": true,
+"children": [
+{
+"text": { "name": "TK_INT:int" },
+"children":[]
+}
+,{
+"text": { "name": "TK_ID:c2" },
+"children":[]
+}
+]
+}
+,{
+"text": { "name": "declaration" },
+"collapsed": true,
+"children": [
+{
+"text": { "name": "TK_INT:int" },
+"children":[]
+}
+,{
+"text": { "name": "TK_ID:d2" },
+"children":[]
+}
+]
+}
+,{
+"text": { "name": "ioStmt" },
+"collapsed": true,
+"children": [
+{
+"text": { "name": "TK_READ:read" },
+"children":[]
+}
+,{
+"text": { "name": "TK_ID:b2" },
+"children":[]
+}
+]
+}
+,{
+"text": { "name": "assignmentStmt" },
+"collapsed": true,
+"children": [
+{
+"text": { "name": "TK_ID:c2" },
+"children":[]
+}
+,{
+"text": { "name": "TK_NUM:20" },
+"children":[]
+}
+]
+}
+,{
+"text": { "name": "ioStmt" },
+"collapsed": true,
+"children": [
+{
+"text": { "name": "TK_READ:read" },
+"children":[]
+}
+,{
+"text": { "name": "TK_ID:d2" },
+"children":[]
+}
+]
+}
+,{
+"text": { "name": "assignmentStmt" },
+"collapsed": true,
+"children": [
+{
+"text": { "name": "TK_ID:b3" },
+"children":[]
+}
+,{
+"text": { "name": "TK_PLUS:+" },
+"collapsed": true,
+"children": [
+{
+"text": { "name": "TK_ID:b2" },
+"children":[]
+}
+,{
+"text": { "name": "TK_PLUS:+" },
+"collapsed": true,
+"children": [
+{
+"text": { "name": "TK_ID:c2" },
+"children":[]
+}
+,{
+"text": { "name": "TK_ID:d2" },
+"children":[]
+}
+]
+}
+]
+}
+]
+}
+,{
+"text": { "name": "ioStmt" },
+"collapsed": true,
+"children": [
+{
+"text": { "name": "TK_WRITE:write" },
+"children":[]
+}
+,{
+"text": { "name": "TK_ID:b3" },
+"children":[]
+}
+]
+}
+,{
+"text": { "name": "returnStmt" },
+"children":[]
+}
+]
+}
+]
+}
+}

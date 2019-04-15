@@ -51,18 +51,18 @@ grammerRule** gen_parse_table(const grammerRule *r, int no_of_rules, const Termi
     // /* ################ ERROR RECVOERY ############################# */
         Terminal** follows = nt_current->follows;
         int len_follows = nt_current->follows_size;
-    //     for(int i=0;i<len_follows;i++)
-    //     {
-    //         table[nt_current->key][follows[i]->StateId] = syn_set_rule;
-    //     }
+        // for(int i=0;i<len_follows;i++)
+        // {
+        //     table[nt_current->key][follows[i]->StateId] = syn_set_rule;
+        // }
 
-    //     // Terminal** firsts_for_error = nt_current->firsts;
-    //     int first_size_for_error = nt_current->firsts_size;
-    //     for(int i=0;i<first_size_for_error;i++)
-    //     {
-    //         syn_set_rule.part_of_first = 1;
-    //         table[nt_current->key][follows[i]->StateId] = syn_set_rule;
-    //     }
+        // // Terminal** firsts_for_error = nt_current->firsts;
+        // int first_size_for_error = nt_current->firsts_size;
+        // for(int i=0;i<first_size_for_error;i++)
+        // {
+        //     syn_set_rule.part_of_first = 1;
+        //     table[nt_current->key][follows[i]->StateId] = syn_set_rule;
+        // }
     /* ################ ERROR RECVOERY ############################# */
         Terminal** follows2 = NULL;
         int len_follows2 = 0;
