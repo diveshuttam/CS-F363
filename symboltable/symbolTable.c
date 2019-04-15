@@ -10,6 +10,66 @@ void updateRecordEntires(Tree ast, SymbolTable st);
 void updateGlobalVariables(Tree ast, SymbolTable st);
 void updateOtherVariables(Tree ast, SymbolTable st);
 
+
+StEntry addVariableEntry(char*key, enum token_names var_type,char* type_name,SymbolTable st,int line_no){
+    StEntry et=malloc(sizeof(struct StEntry));
+    variable_entry ve=malloc(sizeof(struct variable_entry));
+    
+    ve->var_type=var_type;
+    ve->var_type_name = type_name;
+    ve->offset=st->size;
+    if(var_type == TK_RECORDID){
+        et->et_name=malloc(strlen("REC_DEC")+1);
+        strcpy(et->et_name, "REC_DEC");
+        et->et=REC_DEC;
+        
+
+        StEntry se = findST(ve->var_type_name,st);
+        ve->size=0;
+        if(se==NULL){
+            printf(ANSI_COLOR_RED "Unknown record type %s on line %d\n" ANSI_COLOR_RESET,ve->var_type_name, line_no);
+            errors=true;
+        }
+        else{
+            ve->size=se->size; //TODO
+        }
+    }
+    else if(var_type == TK_REAL || var_type == TK_INT){
+        et->et_name=malloc(strlen("VAR_DEC")+1);
+        strcpy(et->et_name, "VAR_DEC");
+        et->et=VAR_DEC;
+        if(var_type == TK_REAL){
+            ve->size=REAL_SIZE;
+        }
+        else{
+            ve->size=INT_SIZE;
+        }
+    }
+    et->size=ve->size;
+    st->size+=ve->size;
+    et->var_entry=ve;
+    insertST(key,et,st);
+    return et;
+}
+
+
+SeqList populate_parms(Tree parameter_node, SymbolTable st){
+    SeqList sl = newList();
+    for(int i=0;i<parameter_node->num_child;i+=2){
+        char *key = parameter_node->child[i+1]->tk->val;
+        char *type_name = parameter_node->child[i]->tk->val;
+        int line_no = parameter_node->child[i+1]->tk->line_no;
+        enum token_names variable_type = parameter_node->child[i]->tk->state;
+        StEntry et = addVariableEntry(key,variable_type, type_name,st,line_no);
+        variable_entry ve = et->var_entry;
+        Element e=malloc(sizeof(struct Element));
+        e->k=key;
+        e->d=(void*)ve;
+        sl=insertAtEnd(sl,e);
+    }
+    return sl;
+}
+
 SymbolTable genSymbolTable(Tree ast){
     SymbolTable gST=createST("global");
     
@@ -31,10 +91,23 @@ SymbolTable genSymbolTable(Tree ast){
             key = ast->child[i]->child[0]->tk->val;
         }
         //other variables last (local, parameters)
+
         
         SymbolTable cST = createST(key);
         cST->parent=gST;
         updateOtherVariables(ast->child[i],cST);
+        SeqList input_par, output_par;
+        if(i!=ast->num_child-1){
+            //input Parameters
+            input_par = populate_parms(ast->child[i]->child[1],cST);
+            //ouput Parameters
+            output_par = populate_parms(ast->child[i]->child[2],cST);
+        }
+        else{
+            input_par=NULL;
+            output_par=NULL;
+        }
+
         StEntry ent = malloc(sizeof(struct StEntry));
         ent->et=FUN_DEF;
         ent->et_name=malloc(sizeof("FUN_DEF")+1);
@@ -46,8 +119,11 @@ SymbolTable genSymbolTable(Tree ast){
         fe->size=cST->size;
         fe->symbol_table=cST;
         fe->base=offset;
+        fe->input_par = input_par;
+        fe->output_par = output_par;
         ent->var_entry=fe;
         gST->size+=fe->size;
+        //parameters not availible for main functions
         insertST(key,ent, gST);
     }
     return gST;
@@ -116,7 +192,7 @@ void updateRecordEntires(Tree ast, SymbolTable st){
 
 
 void updateGlobalVariables(Tree ast,SymbolTable st){
-    int offset=st->size;
+    // int offset=st->size;
     if(ast==NULL || st==NULL){
         return;
     }
@@ -126,45 +202,11 @@ void updateGlobalVariables(Tree ast,SymbolTable st){
             return;
         }
         char *key=ast->child[1]->tk->val;
-        StEntry et=malloc(sizeof(struct StEntry));
-        variable_entry ve=malloc(sizeof(struct variable_entry));
         enum token_names var_type = ast->child[0]->t.s.t->StateId;
-        ve->var_type=var_type;
-        ve->var_type_name = ast->child[0]->tk->val;
-        if(var_type == TK_RECORDID){
-            et->et_name=malloc(strlen("REC_DEC")+1);
-            strcpy(et->et_name, "REC_DEC");
-            et->et=REC_DEC;
-            
-
-            StEntry se = findST(ve->var_type_name,st);
-            ve->size=0;
-            if(se==NULL){
-                printf(ANSI_COLOR_RED "Unknown record type %s on line %d\n" ANSI_COLOR_RESET,ve->var_type_name, ast->child[0]->tk->line_no);
-                errors=true;
-            }
-            else{
-                ve->size=se->size; //TODO
-            }
-        }
-        else if(var_type == TK_REAL || var_type == TK_INT){
-            et->et_name=malloc(strlen("VAR_DEC")+1);
-            strcpy(et->et_name, "VAR_DEC");
-            et->et=VAR_DEC;
-            if(var_type == TK_REAL){
-                ve->size=REAL_SIZE;
-            }
-            else{
-                ve->size=INT_SIZE;
-            }
-        }
-        et->size=ve->size;
-        ve->offset = offset;
-        offset+=ve->size;
-        st->size+=ve->size;
-        et->var_entry=ve;
-        insertST(key,et,st);
-        ast->type_name=ve->var_type_name;
+        char *var_type_name = ast->child[0]->tk->val;
+        int line_no = ast->child[0]->tk->line_no;
+        // StEntry et=addVariableEntry(key,var_type,var_type_name,st,line_no);
+        addVariableEntry(key,var_type,var_type_name,st,line_no);
         return;
     }
     for(int i=0;i<ast->num_child;i++){
@@ -175,7 +217,7 @@ void updateGlobalVariables(Tree ast,SymbolTable st){
 //TODO parameters
 //parameters and local
 void updateOtherVariables(Tree ast, SymbolTable st){
-    int offset=st->size;
+    // int offset=st->size;
     if(ast==NULL || st==NULL){
         return;
     }
@@ -185,46 +227,11 @@ void updateOtherVariables(Tree ast, SymbolTable st){
             return;
         }
         char *key=ast->child[1]->tk->val;
-        StEntry et=malloc(sizeof(struct StEntry));
-        variable_entry ve=malloc(sizeof(struct variable_entry));
         enum token_names var_type = ast->child[0]->t.s.t->StateId;
-        ve->var_type=var_type;
-        ve->var_type_name = ast->child[0]->tk->val;
-        if(var_type == TK_RECORDID){
-            et->et_name=malloc(strlen("REC_DEC")+1);
-            strcpy(et->et_name, "REC_DEC");
-            et->et=REC_DEC;
-            
-
-            StEntry se = findST(ve->var_type_name,st);
-            ve->size=0;
-            if(se==NULL){
-                printf(ANSI_COLOR_RED "Unknown record type %s on line %d\n" ANSI_COLOR_RESET,ve->var_type_name, ast->child[0]->tk->line_no);
-                errors=true;
-            }
-            else{
-                ve->size=se->size; //TODO
-            }
-        }
-        else if(var_type == TK_REAL || var_type == TK_INT){
-            et->et_name=malloc(strlen("VAR_DEC")+1);
-            strcpy(et->et_name, "VAR_DEC");
-            et->et=VAR_DEC;
-            if(var_type == TK_REAL){
-                ve->size=REAL_SIZE;
-            }
-            else{
-                ve->size=INT_SIZE;
-            }
-        }
-        et->size=ve->size;
-        ve->offset = offset;
-        offset+=ve->size;
-        st->size+=ve->size;
-        et->var_entry=ve;
-        insertST(key,et,st);
-        ast->type_name=ve->var_type_name;
-        return;
+        char *var_type_name = ast->child[0]->tk->val;
+        int line_no=ast->child[0]->tk->line_no;
+        // StEntry et = addVariableEntry(key,var_type,var_type_name,st,line_no);
+        addVariableEntry(key,var_type,var_type_name,st,line_no);
     }
     for(int i=0;i<ast->num_child;i++){
         updateOtherVariables(ast->child[i],st);
@@ -241,7 +248,7 @@ SymbolTable genSymbolTableFromFile(char *filename){
     GlobalSymbolTable = st;
     CurrentSymbolTable = st;
 
-    //typeCheck(ast,st);
+   typeCheck(ast,st);
     return st;
 }
 

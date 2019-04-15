@@ -18,6 +18,8 @@ typedef struct function_entry{
     int base;
     int size;
     void *symbol_table;
+    SeqList input_par;
+    SeqList output_par;
 }*function_entry;
 
 #endif

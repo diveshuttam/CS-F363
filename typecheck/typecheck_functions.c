@@ -13,12 +13,23 @@ void typeCheckTerminals(void *tv){
     Tree t = (Tree)tv;
    
     char* typeName;
+    if(t->tk->state==TK_RNUM){
+        t->type_name=malloc(sizeof("real"));
+        strcpy(t->type_name,"real");
+        return;
+    }
+    else if(t->tk->state==TK_RNUM){
+        t->type_name=malloc(sizeof("int"));
+        strcpy(t->type_name,"int");
+        return;
+    }
     StEntry ste = findST(t->tk->val,CurrentSymbolTable);
     if(NULL == ste){
         printf("variable not defined %s\n",t->tk->val);
         return ;
     }
-    typeName = ste->et_name;
+    variable_entry ve = ste->var_entry;
+    typeName = ve->var_type_name;
    
     t->type_name = malloc(sizeof(char)*(strlen(typeName)+1));
     strcpy(t->type_name,typeName);
