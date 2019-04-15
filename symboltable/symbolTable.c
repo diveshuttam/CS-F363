@@ -61,10 +61,10 @@ SeqList populate_parms(Tree parameter_node, SymbolTable st){
         int line_no = parameter_node->child[i+1]->tk->line_no;
         enum token_names variable_type = parameter_node->child[i]->tk->state;
         StEntry et = addVariableEntry(key,variable_type, type_name,st,line_no);
-        variable_entry ve = et->var_entry;
+        // variable_entry ve = et->var_entry;
         Element e=malloc(sizeof(struct Element));
         e->k=key;
-        e->d=(void*)ve;
+        e->d=(void*)et;
         sl=insertAtEnd(sl,e);
     }
     return sl;

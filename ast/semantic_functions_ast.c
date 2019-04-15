@@ -53,7 +53,13 @@ void program_rule0(void *tv){
     Tree programNode=(Tree)tv;
     Tree otherFunctionsNode=programNode->child[0];
     Tree mainFunctionNode=programNode->child[1];
-    int new_num_child=otherFunctionsNode->num_child+1;
+    int otherFunctionsNodeNum;
+    if(otherFunctionsNode == NULL || otherFunctionsNode->child == NULL || otherFunctionsNode->child[0] == NULL){
+        otherFunctionsNodeNum = 0;
+    }else{
+        otherFunctionsNodeNum = otherFunctionsNode->num_child;
+    }
+    int new_num_child= otherFunctionsNodeNum+1;
     Tree *new_children=malloc(sizeof(Tree)*new_num_child);
     for(int i=0;i<new_num_child-1;i++){
         new_children[i]=otherFunctionsNode->child[i];

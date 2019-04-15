@@ -21,8 +21,8 @@ void assign_semantic_functions_map(){
 
     //nonterminals
     semantic_action_map_non_terminals[assignmentStmt]=&assignmentStmtTypeCheck;
-    semantic_action_map_non_terminals[function] = &functionTypeCheck;
-    semantic_action_map_non_terminals[mainFunction] = &functionTypeCheck;
+    semantic_action_map_non_terminals[function] = NULL;
+    semantic_action_map_non_terminals[mainFunction] = NULL;
 }
 
 Tree post_order_traversal_tc(Tree root, SymbolTable st){
@@ -51,6 +51,7 @@ Tree post_order_traversal_tc(Tree root, SymbolTable st){
         StEntry entry= (StEntry)findST(funname,GlobalSymbolTable);
         if(entry == NULL){
             printf("Function %s not defined\n",funname);
+            errors = true;
         }
         function_entry fe=entry->var_entry;
         CurrentSymbolTable = fe->symbol_table;
