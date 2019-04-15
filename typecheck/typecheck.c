@@ -40,7 +40,18 @@ Tree post_order_traversal_tc(Tree root, SymbolTable st){
 
     if(root->t.type=='n' && (root->t.s.nt->key==function || root->t.s.nt->key==mainFunction)){
         Tree t = root;
-        StEntry entry= (StEntry)findST(t->child[0]->tk->val,GlobalSymbolTable);
+        char *funname;
+        if(root->t.s.nt->key==function){
+            funname = t->child[0]->tk->val;
+        }
+        else{
+            funname=malloc(sizeof(char)*10);
+            strcpy(funname,"_main");
+        }
+        StEntry entry= (StEntry)findST(funname,GlobalSymbolTable);
+        if(entry == NULL){
+            printf("Function %s not defined\n",funname);
+        }
         function_entry fe=entry->var_entry;
         CurrentSymbolTable = fe->symbol_table;
     }
