@@ -26,7 +26,7 @@ void operation(void* tv)
     {
         operation = "div";
     }
-    t->code=(char*)malloc(snprintf(NULL,0,"\n\t mov ax, [%s] \n\t \n\t %s ax,[%s] \n\t \n\t mov [%s],ax \n\t",id1->addr,operation,id2->addr,t->addr));
+    t->code=(char*)malloc(snprintf(0,NULL,"\n\t mov ax, [%s] \n\t \n\t %s ax,[%s] \n\t \n\t mov [%s],ax \n\t",id1->addr,operation,id2->addr,t->addr));
     sprintf(t->code,"\n\t mov ax, [%s] \n\t \n\t %s ax,[%s] \n\t \n\t mov [%s],ax \n\t");
 }
 void assignmentStmt(void* tv)
@@ -35,7 +35,7 @@ void assignmentStmt(void* tv)
     Tree id = t->child[0];
     Tree arith = t->child[1];
     char* code;
-    code = (char*)malloc(snprintf(NULL,0,"\n\t mov [%s],[%s] \n\t",id->addr,arith->addr));
+    code = (char*)malloc(snprintf(0,NULL,"\n\t mov [%s],[%s] \n\t",id->addr,arith->addr));
     t->code = arith->code;
     strcat(t->code,code);
 }
@@ -57,15 +57,15 @@ void handle_io_stmt(void* tv,SymbolTable gst)
             while(hasNext(it)){
                 Element e=getNext(it);
                 variable_entry ve =(variable_entry) e->d;
-                code = (char*)malloc(snprintf(NULL,0,"\n\t mov eax,3 \n\t mov ebx,0 \n\t mov ecx,input_buf \n\t int 80h \n\t mov [%s], ecx",id->addr));
+                code = (char*)malloc(snprintf(0,NULL,"\n\t mov eax,3 \n\t mov ebx,0 \n\t mov ecx,input_buf \n\t int 80h \n\t mov [%s], ecx",id->addr));
                 sprintf(code,"\n\t mov eax,3 \n\t mov ebx,0 \n\t mov ecx,input_buf \n\t int 80h \n\t mov [%d], ecx",id->addr + ve->offset);
                 strcat(t->code,code);
             }
         }
         else
         {
-            t->code = (char*)malloc(snprintf(NULL,0,"\n\t mov eax,3 \n\t mov ebx,0 \n\t mov ecx,input_buf \n\t int 80h \n\t mov [%s], ecx",id->addr));
-            sprintf(t->code,"\n\t mov eax,3 \n\t mov ebx,0 \n\t mov ecx,input_buf \n\t int 80h \n\t mov [%s], ecx",id->addr);
+            t->code = (char*)malloc(snprintf(0,NULL,"\n\t mov eax,3 \n\t mov ebx,0 \n\t mov ecx,input_buf \n\t int 80h \n\t mov [%d], ecx",id->addr));
+            sprintf(t->code,"\n\t mov eax,3 \n\t mov ebx,0 \n\t mov ecx,input_buf \n\t int 80h \n\t mov [%d], ecx",id->addr);
         }
     }
     else
@@ -73,10 +73,16 @@ void handle_io_stmt(void* tv,SymbolTable gst)
         if(id->tk->state==TK_RECORDID)
         {
             record_def_entry rec = findST(id->tk->val,gst);
+            SeqList sl = rec->subnodes;
+            Iterator it = getIterator(sl);
+            char* code;
+            t->code =(char*)malloc(sizeof(char));
+            strcpy(t->code,"");
         }
         else
         {
-
+            t->code = (char*)malloc(snprintf(0,NULL,"mov ax,[ebp + %d] \n\t call iprintLF",id->addr));
+            sprintf(t->code,"mov ax,[ebp + %d] \n\t call iprintLF",id->addr);
         }
     }
 }
