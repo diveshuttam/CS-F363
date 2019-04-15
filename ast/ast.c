@@ -239,7 +239,10 @@ void printRatioParseAndAST(char *testcasefile){
     Tree pt=getParsedTreeFromFile(testcasefile);
     int pt_nodes=count_nodes(pt);
     float pt_size=(float)get_size_tree_node(pt);
-    
+    if(errors==true)
+    {
+        return;
+    }
     pt=convert_parse_to_ast(pt);
     int ast_nodes=count_nodes(pt);
     float ast_size=(float)get_size_tree_node(pt);

@@ -58,6 +58,10 @@ grammerRule** gen_parse_table(const grammerRule *r, int no_of_rules, const Termi
         {
             table[nt_current->key][firsts_for_error[i]->StateId].isSyn=1;
             table[nt_current->key][firsts_for_error[i]->StateId].part_of_first=1; 
+            if(firsts_for_error[i]->StateId==TK_EPS)
+            {
+                table[nt_current->key][firsts_for_error[i]->StateId].can_be_eps=1;
+            }
         }
     /* ################ ERROR RECVOERY ############################# */
         Terminal** follows2 = NULL;
