@@ -20,6 +20,7 @@ void assign_semantic_functions_map_cg(){
     //nonterminals
     semantic_action_map_non_terminals[assignmentStmt]=&assignmentStmt_cg;
     semantic_action_map_non_terminals[program] = &functions_cg;
+    //semantic_action_map_non_terminals[mainFunction] = &functions_cg;
 }
 
 Tree post_order_traversal_cg(Tree root, SymbolTable st){

@@ -5,10 +5,10 @@
 % The following function computes the function value for the given inputs 
 _computeFunctionValue input parameter list[int c3, int c4, int c5]
 output parameter  [real c6];
-	type real : d4cbcccccccccccccbbbbbbbbdddd5222222222222633333333333377;
+	type real : d4cbc;
 	type real :                       c4bbb;
-	c6 <--- 5000.7;
-	d4cbcd5677<--- ((c3 +             2*c4-(c5-5))/ 4;
+	c6 <--- 50;
+	d4cbcd5677<--- ((c3 + 2*c4-(c5-5))/ 4;
 	c4bbb <--- ((d4cbcd5677- 2.35)*(2345-234*8))+5*c3;
 	if((~(c4bbb == 0)) && (c4bbb > 78.56)) 
 	then

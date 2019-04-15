@@ -45,8 +45,10 @@ typedef struct grammerRule{
     TerminalNonTerminal **rhs; 
     int num_of_rhs;
     int isError;
+    int isSyn;
     int id;
-    int part_of_first; //to differentiate between syn set of first and follows
+    int part_of_first;
+    int can_be_eps; //to differentiate between syn set of first and follows
 } grammerRule;
 
 typedef struct Tree *Tree;

@@ -4,8 +4,52 @@
 "collapsed": true,
 "children": [
 {
-"text": { "name": "NULL" },
-"children": []
+"text": { "name": "function" },
+"collapsed": true,
+"children": [
+{
+"text": { "name": "TK_FUNID:_readMarks" },
+"children":[]
+}
+,{
+"text": { "name": "input_par" },
+"collapsed": true,
+"children": [
+{
+"text": { "name": "TK_INT:int" },
+"children":[]
+}
+,{
+"text": { "name": "TK_ID:b7" },
+"children":[]
+}
+]
+}
+,{
+"text": { "name": "output_par" },
+"collapsed": true,
+"children": [
+{
+"text": { "name": "TK_RECORDID:#marks" },
+"children":[]
+}
+,{
+"text": { "name": "TK_ID:b3c45" },
+"children":[]
+}
+]
+}
+,{
+"text": { "name": "returnStmt" },
+"collapsed": true,
+"children": [
+{
+"text": { "name": "TK_ID:b3c45" },
+"children":[]
+}
+]
+}
+]
 }
 ,{
 "text": { "name": "mainFunction" },
