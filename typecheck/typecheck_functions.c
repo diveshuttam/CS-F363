@@ -18,7 +18,7 @@ void typeCheckTerminals(void *tv){
         strcpy(t->type_name,"real");
         return;
     }
-    else if(t->tk->state==TK_RNUM){
+    else if(t->tk->state==TK_NUM){
         t->type_name=malloc(sizeof("int"));
         strcpy(t->type_name,"int");
         return;

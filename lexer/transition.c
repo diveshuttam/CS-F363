@@ -41,8 +41,11 @@ Token get_next_token_sub(Stream s,const Transition** transition_table,const Stat
         if(t.next_state==-1)
         {
             tk.state = -1;
-            tk.val[idx-1]='\0';
-            retractChar(s);
+            tk.val[idx]='\0';
+            if(idx>1){
+                tk.val[idx-1]='\0';
+                retractChar(s);
+            }
             return tk;
         }
 
