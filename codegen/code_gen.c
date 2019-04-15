@@ -19,8 +19,7 @@ void assign_semantic_functions_map_cg(){
 
     //nonterminals
     semantic_action_map_non_terminals[assignmentStmt]=&assignmentStmt_cg;
-    semantic_action_map_non_terminals[function] = &functions_cg;
-    semantic_action_map_non_terminals[mainFunction] = &functions_cg;
+    semantic_action_map_non_terminals[program] = &functions_cg;
 }
 
 Tree post_order_traversal_cg(Tree root, SymbolTable st){
@@ -37,8 +36,15 @@ Tree post_order_traversal_cg(Tree root, SymbolTable st){
     }
 
     if(root->t.type=='n' && (root->t.s.nt->key==function || root->t.s.nt->key==mainFunction)){
-        Tree t = root;
-        StEntry entry= (StEntry)findST(t->child[0]->tk->val,GlobalSymbolTable);
+        char *key;
+        if(root->t.s.nt->key==mainFunction){
+            key=malloc(sizeof(char)*10);
+            strcpy(key,"_main");
+        }
+        else{
+            key = root->child[0]->tk->val;
+        }
+        StEntry entry= (StEntry)findST(key,GlobalSymbolTable);
         function_entry fe=entry->var_entry;
         CurrentSymbolTable = fe->symbol_table;
     }
@@ -64,6 +70,7 @@ void printCodegenFromFile(char *file){
     errors=false;
     Tree ast = getASTFromFile(file);
     SymbolTable st=genSymbolTable(ast);
+    GlobalSymbolTable = st;
     if(errors==false){
         printf(ANSI_COLOR_GREEN "Compilation Successful!\n" ANSI_COLOR_RESET);
         genCodegen(ast,st);

@@ -113,6 +113,7 @@ SymbolTable genSymbolTable(Tree ast){
         ent->et_name=malloc(sizeof("FUN_DEF")+1);
         strcpy(ent->et_name,"FUN_DEF");
         ent->size=cST->size;
+        ast->child[i]->size=ent->size;
         ent->var_entry=NULL;
 
         fe = malloc(sizeof(struct function_entry));

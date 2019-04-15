@@ -68,6 +68,9 @@ int main (int argc, char *argv[])
         printRatioParseAndAST(argv[1]);
         break;
       case 5:
+      case 6:
+      case 7:
+      case 8:
         printSymbolTableFromFile(argv[1]);
         break;
       case 10:

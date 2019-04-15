@@ -38,8 +38,21 @@ void assignmentStmt_cg(void* tv)
     Tree arith = t->child[1];
     char* code;
     code = (char*)malloc(snprintf(NULL,0,"\n\t mov [%d ],[%d ] \n\t",id->addr,arith->addr));
-    t->code = arith->code;
-    strcat(t->code,code);
+    sprintf(code,"\n\t mov [%d ],[%d ] \n\t",id->addr,arith->addr);
+    // t->code = code;
+    int a;
+    if(arith->code==NULL){
+        a=0;
+        t->code = malloc(a+strlen(code)+1);
+        strcpy(t->code,code);
+    }
+    else
+    {
+        a=strlen(arith->code);
+        t->code = malloc(a+strlen(code)+1);
+        strcpy(t->code,arith->code);
+        strcat(t->code,code);
+    }
 }
 void handle_io_stmt_cg(void* tv)
 {
@@ -137,7 +150,7 @@ void functions_cg(void* tv)
         sprintf(code,"\n\t %s  db (?) %d \n\t",t->child[i]->tk->val,t->child[i]->size); //change
         if(t->code==NULL)
         {
-            sprintf(t->code,code,t->child[i]->tk->val,t->child[i]->size);
+            t->code=code;
         }
         else
         {
