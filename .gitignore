@@ -4,3 +4,5 @@ build
 *exe
 *.out
 compiler
+.ast.json
+.parse.json
