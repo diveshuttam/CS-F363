@@ -1,6 +1,6 @@
 CC = gcc
 CCFLAGS = -g -Wall -Wpedantic
-DEFINES = __NO_DEBUG __MY_OWN_DATA_ELE __WITHOUT_KEY
+DEFINES = __NO_DEBUG __MY_OWN_DATA_ELE 
 AST_DIR = ./ast
 LEXER_DIR = ./lexer
 PARSER_DIR = ./parser
