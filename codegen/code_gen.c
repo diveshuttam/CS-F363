@@ -67,14 +67,19 @@ void genCodegen(Tree ast,SymbolTable st){
     post_order_traversal_cg(ast,st);
 }
 
-void printCodegenFromFile(char *file){
+void printCodegenFromFile(char *file, char *asmfile){
     errors=false;
     Tree ast = getASTFromFile(file);
     SymbolTable st=genSymbolTable(ast);
     GlobalSymbolTable = st;
+    FILE *fp = fopen(asmfile,"w");
     if(errors==false){
         printf(ANSI_COLOR_GREEN "Compilation Successful!\n" ANSI_COLOR_RESET);
         genCodegen(ast,st);
+        if(ast->code==NULL){
+            printf(ANSI_COLOR_RED "Internal Error in CODEGEN" ANSI_COLOR_RESET);
+        }
+        fprintf(fp,"%s",ast->code);
     }
     else{
         printf(ANSI_COLOR_RED "ERRORS while compiling. Aborting\n" ANSI_COLOR_RESET);

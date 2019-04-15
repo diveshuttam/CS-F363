@@ -74,7 +74,7 @@ int main (int argc, char *argv[])
         printSymbolTableFromFile(argv[1]);
         break;
       case 10:
-        printCodegenFromFile(argv[1]);
+        printCodegenFromFile(argv[1],argv[2]);
       //extra choices
       case 21:
         printFileErrorsHighlight(argv[1]);

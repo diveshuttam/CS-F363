@@ -160,7 +160,7 @@ void updateRecordEntires(Tree ast, SymbolTable st){
         for(int i=1;i<ast->num_child;i++){
             E=malloc(sizeof(struct Element));
             variable_entry var_entry=malloc(sizeof(struct variable_entry));
-            E->k=(Key)(ast->child[i]->child[1]->t.s.t->name);
+            E->k=(Key)(ast->child[i]->child[1]->tk->val);
             // if(find(sl,ast->child[i]->child[1]->t.s.t->name)!=NULL){
             //     printf("Error! variable %s redefined at line %d\n", key, ast->child[0]->tk->line_no);
             //     continue;
@@ -168,16 +168,19 @@ void updateRecordEntires(Tree ast, SymbolTable st){
             E->d=(Data)(var_entry);
             var_entry->var_type=ast->child[i]->child[0]->t.s.t->StateId;
             int sz=0;
+            char *typename = malloc(sizeof(char)*10);
             if(var_entry->var_type==TK_INT){
                 sz=INT_SIZE;
+                strcpy(typename,"int");
             }
             if(var_entry->var_type==TK_REAL){
                 sz=REAL_SIZE;
+                strcpy(typename,"real");
             }
             var_entry->size=sz;
             var_entry->var_name=ast->child[i]->child[1]->tk->val;
             var_entry->offset=coffset;
-            var_entry->var_type_name=ast->child[i]->child[0]->t.s.t->name;
+            var_entry->var_type_name=typename;
             coffset+=sz;
             re->size+=sz;
             et->size+=sz;
