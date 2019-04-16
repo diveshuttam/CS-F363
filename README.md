@@ -15,5 +15,7 @@ Compiler Construction Group 34
 - open visualize/visualize.html in a browser
 - select the json file (here testcases1.json) to visualize the tree output
 
+One can also visualize a json file at https://diveshuttam.github.io/CS-F363/graphics/visualize
+
 # Notes:
  - Remember to free whatever is malloc'ed else  we get random malloc errors
