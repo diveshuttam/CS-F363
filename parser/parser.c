@@ -99,8 +99,10 @@ Tree parseTree(Stream token_stream,const grammerRule **table,const grammerRule *
     grammerRule gr;
     item* tnt=NULL;
     Token *tk=NULL;
-    while((tk=getNextToken(token_stream))!=NULL)
+    bool flag = true;
+    while(flag==false || (tk=getNextToken(token_stream))!=NULL)
     {
+        flag=true;
         if(tk->state==TK_COMMENT||tk->state==TK_DELIM)
             continue;
         // tnt = get_item_form_element(top(s));
@@ -145,6 +147,7 @@ Tree parseTree(Stream token_stream,const grammerRule **table,const grammerRule *
         {
             errors=true;
             printf("Line:%d Unknown lexeme:%s\n", tk->line_no, tk->val);
+            pop(s);
             continue; 
         }
 
@@ -184,13 +187,14 @@ Tree parseTree(Stream token_stream,const grammerRule **table,const grammerRule *
             if(tnt!=NULL && tnt->t.type=='t' && tnt->t.s.t->StateId!= tk->state) //see the definitions of state in the two definitions
             {
                 errors = true;
-                printf("Syntax Error Foundt at %d: %s:%d  %s:%d\n",tk->line_no,tnt->t.s.t->name,tnt->t.s.t->StateId,tk->val,tk->state); 
+                printf("Syntax Error Foundt at %d: expected %s  found %s\n",tk->line_no,tnt->t.s.t->name,tk->val); 
                  while(1)
                     {
-                        if(tk->state!=-1 && tk->state!=tnt->t.s.t->StateId && tnt->t.type=='t')
+                        if(tk->state!=-1 && tnt->t.type=='t' && tk->state!=tnt->t.s.t->StateId)
                         {
                             pop(s);
                             tnt = get_item_form_element(top(s));
+                            // flag=false;
                         }else
                         {
                             break;
