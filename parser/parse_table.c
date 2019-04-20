@@ -54,13 +54,22 @@ grammerRule** gen_parse_table(const grammerRule *r, int no_of_rules, const Termi
 
         Terminal** firsts_for_error = nt_current->firsts;
         int first_size_for_error = nt_current->firsts_size;
+        int flag = 0;
         for(int i=0;i<first_size_for_error;i++)
-        {
-            table[nt_current->key][firsts_for_error[i]->StateId].isSyn=1;
-            table[nt_current->key][firsts_for_error[i]->StateId].part_of_first=1; 
+        { 
             if(firsts_for_error[i]->StateId==TK_EPS)
             {
-                table[nt_current->key][firsts_for_error[i]->StateId].can_be_eps=1;
+                nt_current->can_be_eps=1;
+                flag = 1;
+                break;
+            }
+        }
+        if(flag==0)
+        {
+            for(int i=0;i<first_size_for_error;i++)
+            {
+                table[nt_current->key][firsts_for_error[i]->StateId].isSyn=1;
+                table[nt_current->key][firsts_for_error[i]->StateId].part_of_first=1;
             }
         }
     /* ################ ERROR RECVOERY ############################# */

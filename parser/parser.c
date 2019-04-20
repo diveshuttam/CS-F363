@@ -155,15 +155,9 @@ Tree parseTree(Stream token_stream,const grammerRule **table,const grammerRule *
         {
             // debug_msg("Syntax Error found at line y, %s %s %d\n",tnt->t.s.nt.name,tk->val,tk->state);
             errors=true;
-            printf("Syntax Error Found at %d: %s:%d  %s:%d\n",tk->line_no,tnt->t.s.nt->name,tnt->t.s.nt->key,tk->val,tk->state);
+            //printf("Syntax Error Found at %d: %s:%d  %s:%d\n",tk->line_no,tnt->t.s.nt->name,tnt->t.s.nt->key,tk->val,tk->state);
             while(1)
                     {
-                        if(table[tnt->t.s.nt->key][tk->state].can_be_eps==1)
-                        {
-                            pop(s);
-                            break;
-                        }
-                        tk = getNextToken(token_stream);
                         if(tk==NULL)
                             break;
                         if(tk->state==-1)
@@ -173,13 +167,17 @@ Tree parseTree(Stream token_stream,const grammerRule **table,const grammerRule *
                         }
                         if(table[tnt->t.s.nt->key][tk->state].isSyn==1)
                         {
-                            if(table[tnt->t.s.nt->key][tk->state].part_of_first!=1)
-                            {
-                                pop(s);
-                                break;
-                            }
+                            pop(s);
+                            flag = false;
                             break;
                         }
+                        if(tnt->t.s.nt->can_be_eps==1)
+                        {
+                            flag = false;
+                            pop(s);
+                            break;
+                        }
+                        tk = getNextToken(token_stream);
                     }
         }
         else
@@ -187,16 +185,16 @@ Tree parseTree(Stream token_stream,const grammerRule **table,const grammerRule *
             if(tnt!=NULL && tnt->t.type=='t' && tnt->t.s.t->StateId!= tk->state) //see the definitions of state in the two definitions
             {
                 errors = true;
-                printf("Syntax Error Foundt at %d: expected %s  found %s\n",tk->line_no,tnt->t.s.t->name,tk->val); 
+                printf("Syntax Error Found at %d: expected %s  found %s\n",tk->line_no,tnt->t.s.t->name,tk->val); 
                  while(1)
                     {
                         if(tk->state!=-1 && tnt->t.type=='t' && tk->state!=tnt->t.s.t->StateId)
                         {
                             pop(s);
                             tnt = get_item_form_element(top(s));
-                            // flag=false;
                         }else
                         {
+                            flag=false;
                             break;
                         }
                     }

@@ -26,6 +26,7 @@ typedef struct NonTerminal {
     int follows_size;
     Terminal **firsts;
     int firsts_size;
+    int can_be_eps;
 } NonTerminal;
 
 typedef union TnT
@@ -48,7 +49,7 @@ typedef struct grammerRule{
     int isSyn;
     int id;
     int part_of_first;
-    int can_be_eps; //to differentiate between syn set of first and follows
+     //to differentiate between syn set of first and follows
 } grammerRule;
 
 typedef struct Tree *Tree;
