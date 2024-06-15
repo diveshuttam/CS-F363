@@ -17,5 +17,8 @@ Compiler Construction Group 34
 
 One can also visualize a json file at https://diveshuttam.github.io/CS-F363/graphics/visualize
 
+<img width="1437" alt="AST" src="https://github.com/diveshuttam/CS-F363/assets/20728015/0050f786-ca5f-4ebc-9929-f9b376acf979">
+
+
 # Notes:
  - Remember to free whatever is malloc'ed else  we get random malloc errors
